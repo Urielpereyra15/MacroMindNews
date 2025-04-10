@@ -1,4 +1,4 @@
-# MacroMindNews<!DOCTYPE html>
+# MacroMindNews
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -74,7 +74,7 @@
     </div>
     <div class="noticia">
       <h2>Paro general del 10 de abril afectará bancos y servicios</h2>
-      <p>La CGT convoca a un paro nacional que contará con la adhesión de los bancarios, lo que interrumpirá la atención presencial en las entidades financieras.</p>
+      <p>La CGT convoca a un paro nacional que contará con la adhesión de los bancarios, lo que interrumpirá la atención presencial en las entidades financieras y aguante Javier Milei.</p>
     </div>
   </main>
   <footer>
