@@ -1,14 +1,14 @@
 body {
   font-family: 'Georgia', 'Times New Roman', serif;
-  background-color: white;
+  background-color: #05051a; /* fondo general oscuro */
   margin: 0;
   padding: 0;
-  color: #000; /* Texto en negro para mejor lectura */
+  color: white; /* texto claro sobre fondo oscuro */
 }
 
 header {
-  background-color: white;
-  color: black;
+  background-color: #05051a; /* fondo del encabezado */
+  color: white;
   padding: 10px 0;
   text-align: center;
 }
@@ -19,7 +19,7 @@ header img {
 }
 
 nav {
-  background-color: #d2e4ff; /* azul claro similar */
+  background-color: #1a1a3c; /* azul oscuro */
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -27,7 +27,7 @@ nav {
 }
 
 nav a {
-  color: #000; /* negro*/
+  color: white; /* texto blanco en navegación */
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
@@ -38,11 +38,14 @@ nav a:hover {
 }
 
 main {
+  display: flex;
+  gap: 20px;
   padding: 30px;
 }
 
 .main-news {
   background-color: white;
+  color: black; /* texto negro sobre fondo blanco */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
@@ -63,13 +66,6 @@ h1 {
   font-size: 48px;
   margin: 0;
 }
-
-main {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-}
-
 .article-principal {
   flex: 3;
 }
