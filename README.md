@@ -89,7 +89,7 @@
   <main>
     <section class="main-news">
       <h2><a href="noticia1.html">El dólar blue vuelve a subir: $1.365</a></h2>
-      <img src="img/dolar.jpg" alt="Billete de dólar" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+      <img src="img/dólar.jpg" alt="Billete de dólar" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
       <p>En una jornada de alta tensión cambiaria, la cotización paralela del dólar alcanzó un nuevo máximo histórico, mientras crecen las expectativas por medidas del Gobierno.</p>
     </section>
     <aside class="side-news">
