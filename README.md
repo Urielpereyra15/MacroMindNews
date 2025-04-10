@@ -20,7 +20,7 @@
       padding: 15px 30px;
     }
     header h1 {
-      font-size: 28px;
+      font-size: 40px;
     }
     nav {
       background-color: #003366;
