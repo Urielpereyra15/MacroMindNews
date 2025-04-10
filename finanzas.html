@@ -5,6 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finanzas - MacroMind News</title>
   <link rel="stylesheet" href="estilos.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0a0a23;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1a1a40;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .article-principal {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .article-principal img {
+      border-radius: 10px;
+      margin: 15px 0;
+      max-width: 100%;
+    }
+
+    aside.lateral {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .bloque-lateral {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .bloque-lateral img {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    footer {
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -12,49 +93,47 @@
     <h1>MacroMind News</h1>
     <p>Tu fuente de análisis económico y financiero</p>
   </header>  
-    
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="economia.html">Economía</a>
-      <a href="finanzas.html">Finanzas</a>
-      <a href="politica.html">Política</a>
-      <a href="internacional.html">Internacional</a>
-   </nav>
-  
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </nav>
+
   <main>
-  <!-- Columna principal -->
-  <div class="article-principal">
-    <h2>Noticia 1</h2>
-    <img src="img/fmi.jpg" alt="FMI y Argentina" style="width: 100%;">
-    <p>Texto de la noticia principal...</p>
-  </div>
+    <!-- Columna principal -->
+    <div class="article-principal">
+      <h2>Noticia 1</h2>
+      <img src="img/fmi.jpg" alt="FMI y Argentina">
+      <p>Texto de la noticia principal...</p>
 
-  <!-- Columna lateral -->
-  <aside class="lateral">
-    <div class="bloque-lateral">
-      <h3>Noticia 2</h3>
-      <img src="img/dolar.jpg" alt="Dólar" style="width: 100%;">
-    </div>
-
-    <div class="bloque-lateral">
-      <h3>Noticia 3</h3>
-      <img src="img/noticia1.jpg" alt="Noticia 1" style="width: 100%;">
-    </div>
-
-    <div class="bloque-lateral">
-      <h3>Noticia</h3>
-      <img src="img/noticia2.jpg" alt="Noticia 2" style="width: 100%;">
-    </div>
-  </aside>
-</main>  
-    
       <h2>Últimas noticias de Finanzas</h2>
       <p>Acá irían todas las noticias financieras locales e internacionales.</p>
-    </section>
+    </div>
+
+    <!-- Columna lateral -->
+    <aside class="lateral">
+      <div class="bloque-lateral">
+        <h3>Noticia 2</h3>
+        <img src="img/dolar.jpg" alt="Dólar">
+      </div>
+
+      <div class="bloque-lateral">
+        <h3>Noticia 3</h3>
+        <img src="img/noticia1.jpg" alt="Noticia 1">
+      </div>
+
+      <div class="bloque-lateral">
+        <h3>Noticia 4</h3>
+        <img src="img/noticia2.jpg" alt="Noticia 2">
+      </div>
+    </aside>
   </main>
 
   <footer>
-    <p>© 2025 MacroMind News</p>
+    © 2025 MacroMind News | Todos los derechos reservados
   </footer>
 </body>
 </html>
