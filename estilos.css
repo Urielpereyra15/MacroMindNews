@@ -1,15 +1,15 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: white;
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;
-  color: #222;
+  color: #000; /* Texto en negro para mejor lectura */
 }
 
 header {
-  background-color: #0a0a23;
-  color: white;
-  padding: 20px;
+  background-color: white;
+  color: black;
+  padding: 10px 0;
   text-align: center;
 }
 
@@ -19,9 +19,11 @@ header img {
 }
 
 nav {
-  background-color: #101030;
-  padding: 10px;
-  text-align: center;
+  background-color: #d2e4ff; /* azul claro similar */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
 }
 
 nav a {
@@ -54,4 +56,27 @@ footer {
   text-align: center;
   padding: 15px;
   margin-top: 40px;
+}
+
+h1 {
+  font-family: 'Georgia', serif;
+  font-size: 48px;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.article-principal {
+  flex: 3;
+}
+
+.lateral {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
