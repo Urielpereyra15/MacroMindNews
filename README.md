@@ -80,10 +80,10 @@
 
   <nav>
     <a href="index.html">Inicio</a>
-    <a href="#">Economía</a>
-    <a href="#">Finanzas</a>
-    <a href="#">Política</a>
-    <a href="#">Internacional</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
   </nav>
 
   <main>
