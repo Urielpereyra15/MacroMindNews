@@ -73,6 +73,7 @@
 </head>
 <body>
   <header>
+    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
     <h1>MacroMind News</h1>
     <p>Tu fuente de análisis económico y financiero</p>
   </header>
