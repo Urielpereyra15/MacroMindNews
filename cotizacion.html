@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tipos de Dólar - MacroMind News</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    h1 {
+      color: #0a0a23;
+    }
+    .dolar-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dolar-box {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .dolar-box h3 {
+      margin: 0 0 10px;
+      color: #1a1a40;
+    }
+    .dolar-box p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tipos de Dólar Hoy</h1>
+  <div id="dolares" class="dolar-container">
+    <p>Cargando datos...</p>
+  </div>
+
+  <script>
+    fetch("https://dolarapi.com/v1/dolares")
+      .then(response => response.json())
+      .then(data => {
+        const contenedor = document.getElementById("dolares");
+        contenedor.innerHTML = ""; // Limpiar "Cargando..."
+        
+        data.forEach(dolar => {
+          const div = document.createElement("div");
+          div.className = "dolar-box";
+          div.innerHTML = `
+            <h3>${dolar.nombre}</h3>
+            <p><strong>Compra:</strong> $${dolar.compra.toFixed(2)}</p>
+            <p><strong>Venta:</strong> $${dolar.venta.toFixed(2)}</p>
+          `;
+          contenedor.appendChild(div);
+        });
+      })
+      .catch(error => {
+        document.getElementById("dolares").innerHTML = "<p>Error al cargar datos.</p>";
+        console.error("Error al obtener los datos:", error);
+      });
+  </script>
+</body>
+</html>
