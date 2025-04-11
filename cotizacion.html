@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="estilos.css" />
   
   <style>
+    .dolar-box h3,
+.dolar-box p,
+.dolar-box strong {
+  color: #000;
+}
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f9f9f9;
@@ -57,6 +63,35 @@
       padding: 15px;
       margin-top: 40px;
     }
+    .navbar {
+  background-color: #0a0a23;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ccc;
+}
+
   </style>
 </head>
 <body>
@@ -65,6 +100,17 @@
     <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;" />
     <h1>MacroMind News</h1>
     <p>Tu fuente de análisis económico y financiero</p>
+    <nav class="navbar">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="economia.html">Economía</a></li>
+    <li><a href="politica.html">Política</a></li>
+    <li><a href="finanzas.html">Finanzas</a></li>
+    <li><a href="internacional.html">Internacional</a></li>
+    <li><a href="cotizacion.html">Cotización</a></li>
+  </ul>
+</nav>
+
   </header>
 
   <h2>Tipos de Dólar Hoy</h2>
