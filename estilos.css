@@ -79,12 +79,12 @@ h1 {
 
 /* Publicidad para pantallas grandes */
 .sidebar {
-  display: none;
+  display: none; /* Oculto por defecto */
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 769px) {
   .sidebar {
-    display: block;
+    display: block; /* Mostrar en tabletas y computadoras */
   }
 
   .mobile-ads {
@@ -93,7 +93,7 @@ h1 {
 }
 
 /* Publicidad para celulares */
-@media (max-width: 999px) {
+@media (max-width: 768px) { /* Ajusta el punto de quiebre para que coincida */
   .mobile-ads {
     display: block;
     text-align: center;
@@ -104,5 +104,10 @@ h1 {
     max-width: 100%;
     margin-bottom: 15px;
     border-radius: 8px;
+  }
+}
+
+.sidebar {
+    display: none; /* Ocultar la barra lateral en móviles */
   }
 }
