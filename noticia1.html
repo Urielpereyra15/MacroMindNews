@@ -18,15 +18,15 @@
       color: white;
       text-align: center;
       padding: 15px;
-      position: relative; /* Para posicionar el botón del menú */
+      position: relative;
     }
 
     .mobile-menu-button {
-      display: none; /* Oculto por defecto en pantallas grandes */
+      display: none;
       position: absolute;
-      top: 15px; /* Ajusta la posición vertical */
-      left: 15px; /* Ajusta la posición horizontal */
-      z-index: 20; /* Asegura que esté por encima del header */
+      top: 15px;
+      left: 15px;
+      z-index: 20;
       cursor: pointer;
     }
 
@@ -35,7 +35,7 @@
       justify-content: center;
       gap: 30px;
       padding: 15px 10px;
-      background-color: #12123a; /* Color oscuro como el de la imagen */
+      background-color: #12123a;
     }
 
     nav.main-nav a {
@@ -98,18 +98,18 @@
       padding: 15px;
     }
 
-    /* Estilos para la vista móvil */
+    /* Vista móvil */
     @media (max-width: 768px) {
       nav.main-nav {
         display: none;
-        flex-direction: column; /* Alinear verticalmente en móvil */
-        align-items: center; /* Centrar los enlaces */
+        flex-direction: column;
+        align-items: center;
         position: absolute;
-        top: 100px; /* Ajustar según la altura del header */
+        top: 100px;
         left: 0;
         width: 100%;
         background-color: #12123a;
-        z-index: 15; /* Asegurar que esté por encima del contenido */
+        z-index: 15;
         padding: 20px 0;
       }
 
@@ -117,26 +117,34 @@
         padding: 10px 20px;
         width: 100%;
         text-align: center;
-        box-sizing: border-box; /* Incluir el padding en el ancho */
+        box-sizing: border-box;
       }
 
       .mobile-menu-button {
-        display: block; /* Mostrar el botón en pantallas pequeñas */
+        display: block;
       }
 
       .sidebar {
-        display: none; /* Ocultar la barra lateral en móvil */
+        display: none;
       }
 
       .mobile-ads {
-        display: block; /* Mostrar publicidad móvil */
+        display: block;
       }
     }
 
-    /* Estilos para pantallas más grandes */
+    /* Vista escritorio */
     @media (min-width: 769px) {
+      .sidebar {
+        display: block;
+      }
+
+      .mobile-ads {
+        display: none;
+      }
+
       .mobile-menu-button {
-        display: none; /* Ocultar el botón en pantallas grandes */
+        display: none;
       }
     }
   </style>
@@ -161,24 +169,28 @@
   </nav>
 
   <div class="layout">
+    <!-- Publicidad escritorio izquierda -->
     <aside class="sidebar">
-      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS8ujzAO55CqUVNG_2Ubwu2uuT7OyO18Bq9pND6BKySzyo0C9D2" alt="Publicidad 1">
+      <img src="https://marketplace.canva.com/EAF8xSUqJFE/1/0/900w/canva-tu-historia-publicidad-producto-tecnol%C3%B33gico-llamativo-verde-x_9-vJW3LB8.jpg" alt="Publicidad 1">
     </aside>
 
+    <!-- Contenido principal -->
     <div class="content">
       <h2>El dólar blue vuelve a subir: $1.365</h2>
       <img src="img/dolar.jpg" alt="Billete de dólar" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
       <p><strong>10 de abril de 2025</strong> — En una jornada de alta tensión cambiaria, la cotización paralela del dólar alcanzó un nuevo máximo histórico, mientras crecen las expectativas por medidas del Gobierno.</p>
       <p>Expertos aseguran que la incertidumbre económica, junto con la falta de definiciones claras por parte del Ministerio de Economía, están alimentando la presión sobre el mercado informal.</p>
 
+      <!-- Publicidad móvil -->
       <div class="mobile-ads">
         <img src="https://marketplace.canva.com/EAF8xSUqJFE/1/0/900w/canva-tu-historia-publicidad-producto-tecnol%C3%B33gico-llamativo-verde-x_9-vJW3LB8.jpg" alt="Publicidad móvil 1">
         <img src="https://marketplace.canva.com/EAF8xSUqJFE/1/0/900w/canva-tu-historia-publicidad-producto-tecnol%C3%B33gico-llamativo-verde-x_9-vJW3LB8.jpg" alt="Publicidad móvil 2">
       </div>
     </div>
 
+    <!-- Publicidad escritorio derecha -->
     <aside class="sidebar">
-      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS8ujzAO55CqUVNG_2Ubwu2uuT7OyO18Bq9pND6BKySzyo0C9D2" alt="Publicidad 2">
+      <img src="https://marketplace.canva.com/EAF8xSUqJFE/1/0/900w/canva-tu-historia-publicidad-producto-tecnol%C3%B33gico-llamativo-verde-x_9-vJW3LB8.jpg" alt="Publicidad 2">
     </aside>
   </div>
 
