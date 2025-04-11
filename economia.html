@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Economía - MacroMind News</title>
-  <link rel="stylesheet" href="estilos.css" />
-
+  <title>Internacional - MacroMind News</title>
+  <link rel="stylesheet" href="estilos.css">
+  
+  <!-- ESTILOS EXCLUSIVOS DE ESTA PÁGINA -->
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,13 +40,74 @@
       text-decoration: underline;
     }
 
-    .main-news {
+    main {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .article-principal {
       background-color: white;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      max-width: 800px;
-      margin: 30px auto;
+      color: black; /* texto negro */
+    }
+
+    .article-principal img {
+      border-radius: 10px;
+      margin: 15px 0;
+      max-width: 100%;
+    }
+
+    aside.lateral {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .bloque-lateral {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    .bloque-lateral img {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    article {
+      grid-column: 1 / -1;
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    article img {
+      border-radius: 10px;
+      margin: 15px 0;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #1a1a40;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     footer {
@@ -59,11 +121,11 @@
 </head>
 <body>
   <header>
-    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;" />
+    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
     <h1>MacroMind News</h1>
     <p>Tu fuente de análisis económico y financiero</p>
   </header>
-
+  
   <nav>
     <a href="index.html">Inicio</a>
     <a href="economia.html">Economía</a>
@@ -73,14 +135,43 @@
   </nav>
 
   <main>
-    <section class="main-news">
-      <h2>Últimas noticias de Economía</h2>
-      <p>Aquí encontrarás todas las noticias relacionadas a la economía local e internacional.</p>
-    </section>
+    <!-- Columna principal -->
+    <div class="article-principal">
+      <h2>El dólar sube</h2>
+      <img src="img/dolar.jpg" alt="Precio del dólar">
+      <p>Texto de la noticia principal...</p>
+    </div>
+
+    <!-- Columna lateral -->
+    <aside class="lateral">
+      <div class="bloque-lateral">
+        <h3>YPF invierte en Vaca Muerta</h3>
+        <img src="img/ypf.jpg" alt="YPF">
+      </div>
+
+      <div class="bloque-lateral">
+        <h3>Noticia</h3>
+        <img src="img/noticia1.jpg" alt="Noticia 1">
+      </div>
+
+      <div class="bloque-lateral">
+        <h3>Noticia</h3>
+        <img src="img/noticia2.jpg" alt="Noticia 2">
+      </div>
+    </aside>
+
+    <!-- Artículo internacional -->
+    <article>
+      <h2>Economía internacional</h2>
+      <h3>Noticia</h3>
+      <img src="img/noticia8.jpg" alt="Noticias 8">
+      <p><strong>10 de abril de 2025</strong> — En un clima de fuerte polarización política, los ciudadanos norteamericanos acuden a las urnas...</p>
+      <a href="index.html">← Volver al inicio</a>
+    </article>
   </main>
 
   <footer>
-    © 2025 MacroMind News | Todos los derechos reservados
+    <p>© 2025 MacroMind News</p>
   </footer>
 </body>
 </html>
