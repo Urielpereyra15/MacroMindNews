@@ -8,9 +8,10 @@ body {
 
 header {
   background-color: #0a0a23; /* fondo oscuro elegante */
-  color: white;              /* texto blanco */
+  color: white;          /* texto blanco */
   padding: 10px 0;
   text-align: center;
+  position: relative; /* Para posicionar el botón del menú */
 }
 
 header img {
@@ -18,7 +19,16 @@ header img {
   margin-right: 20px;
 }
 
-nav {
+.mobile-menu-button {
+  display: none; /* Oculto por defecto en pantallas grandes */
+  position: absolute;
+  top: 15px; /* Ajusta la posición vertical */
+  left: 15px; /* Ajusta la posición horizontal */
+  z-index: 20; /* Asegura que esté por encima del header */
+  cursor: pointer;
+}
+
+nav.main-nav {
   background-color: #0a0a23; /* mismo color que el header */
   display: flex;
   justify-content: center;
@@ -26,14 +36,14 @@ nav {
   padding: 10px 0;
 }
 
-nav a {
+nav.main-nav a {
   color: white; /* texto blanco en navegación */
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
 }
 
-nav a:hover {
+nav.main-nav a:hover {
   text-decoration: underline;
 }
 
@@ -51,6 +61,7 @@ main {
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   max-width: 800px;
   margin: auto;
+  flex: 3; /* Ocupa más espacio */
 }
 
 footer {
@@ -66,9 +77,6 @@ h1 {
   font-size: 48px;
   margin: 0;
 }
-.article-principal {
-  flex: 3;
-}
 
 .lateral {
   flex: 1;
@@ -77,14 +85,16 @@ h1 {
   gap: 20px;
 }
 
-/* Publicidad para pantallas grandes */
+/* Por defecto, la barra lateral está oculta */
 .sidebar {
-  display: none; /* Oculto por defecto */
+  display: none;
+  width: 150px; /* Mantén el ancho aquí */
 }
 
+/* Mostrar la barra lateral en pantallas de 769px o más */
 @media (min-width: 769px) {
   .sidebar {
-    display: block; /* Mostrar en tabletas y computadoras */
+    display: block;
   }
 
   .mobile-ads {
@@ -93,7 +103,7 @@ h1 {
 }
 
 /* Publicidad para celulares */
-@media (max-width: 768px) { /* Ajusta el punto de quiebre para que coincida */
+@media (max-width: 768px) {
   .mobile-ads {
     display: block;
     text-align: center;
@@ -104,10 +114,5 @@ h1 {
     max-width: 100%;
     margin-bottom: 15px;
     border-radius: 8px;
-  }
-}
-
-.sidebar {
-    display: none; /* Ocultar la barra lateral en móviles */
   }
 }
