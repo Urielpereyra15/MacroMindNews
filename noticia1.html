@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dólar blue vuelve a subir</title>
-  <link rel="stylesheet" href="estilos.css">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -40,9 +39,11 @@
 
     .layout {
       display: flex;
+      flex-direction: row;
       justify-content: center;
       gap: 20px;
       padding: 20px;
+      flex-wrap: wrap;
     }
 
     .sidebar {
@@ -53,4 +54,91 @@
     .sidebar img {
       width: 100%;
       margin-bottom: 20px;
-      border
+      border-radius: 8px;
+    }
+
+    .content {
+      max-width: 800px;
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .mobile-ads {
+      display: none;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .mobile-ads img {
+      max-width: 100%;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+    }
+
+    @media (min-width: 1000px) {
+      .sidebar {
+        display: block;
+      }
+    }
+
+    @media (max-width: 999px) {
+      .mobile-ads {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
+    <h1>MacroMind News</h1>
+    <p>Tu fuente de análisis económico y financiero</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </nav>
+
+  <div class="layout">
+    <!-- Publicidad izquierda -->
+    <aside class="sidebar">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_654046-MLA73351489443_122023-F.webp" alt="Publicidad 1">
+    </aside>
+
+    <!-- Contenido principal -->
+    <div class="content">
+      <h2>El dólar blue vuelve a subir: $1.365</h2>
+      <img src="img/dolar.jpg" alt="Billete de dólar" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+      <p><strong>10 de abril de 2025</strong> — En una jornada de alta tensión cambiaria, la cotización paralela del dólar alcanzó un nuevo máximo histórico, mientras crecen las expectativas por medidas del Gobierno.</p>
+      <p>Expertos aseguran que la incertidumbre económica, junto con la falta de definiciones claras por parte del Ministerio de Economía, están alimentando la presión sobre el mercado informal.</p>
+      <a href="index.html">← Volver al inicio</a>
+
+      <!-- Publicidad móvil -->
+      <div class="mobile-ads">
+        <img src="https://via.placeholder.com/320x100?text=Publicidad+Móvil+1" alt="Publicidad móvil 1">
+        <img src="https://via.placeholder.com/320x100?text=Publicidad+Móvil+2" alt="Publicidad móvil 2">
+      </div>
+    </div>
+
+    <!-- Publicidad derecha -->
+    <aside class="sidebar">
+      <img src="https://www.cronista.com/files/image/574/574231/642304f80a5d0_950_534!.webp?s=b1795801c45e12a06c677ace0e09c34a&d=1712435722" alt="Publicidad 2">
+    </aside>
+  </div>
+
+  <footer>
+    © 2025 MacroMind News | Todos los derechos reservados
+  </footer>
+
+</body>
+</html>
