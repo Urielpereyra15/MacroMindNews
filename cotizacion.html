@@ -13,30 +13,87 @@
       margin: 0;
       padding: 0;
     }
+
+    header {
+      background-color: #0a0a23;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1a1a40;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     h1 {
       color: #0a0a23;
+      text-align: center;
+      margin-top: 30px;
     }
+
     .dolar-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
+      padding: 30px;
     }
+
     .dolar-box {
       background: white;
       padding: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
+
     .dolar-box h3 {
       margin: 0 0 10px;
       color: #1a1a40;
     }
+
     .dolar-box p {
       margin: 0;
+      font-size: 16px;
+      color: #000;
+    }
+
+    footer {
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;" />
+    <h1>MacroMind News</h1>
+    <p>Tu fuente de análisis económico y financiero</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </nav>
+
   <h1>Tipos de Dólar Hoy</h1>
   <div id="dolares" class="dolar-container">
     <p>Cargando datos...</p>
@@ -47,7 +104,7 @@
       .then(response => response.json())
       .then(data => {
         const contenedor = document.getElementById("dolares");
-        contenedor.innerHTML = ""; // Limpiar "Cargando..."
+        contenedor.innerHTML = "";
         
         data.forEach(dolar => {
           const div = document.createElement("div");
