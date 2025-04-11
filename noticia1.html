@@ -13,14 +13,24 @@
       color: #333;
     }
 
-    header, footer {
+    header {
       background-color: #0a0a23;
       color: white;
       text-align: center;
       padding: 15px;
+      position: relative; /* Para posicionar el botón del menú */
     }
 
-    nav {
+    .mobile-menu-button {
+      display: none; /* Oculto por defecto en pantallas grandes */
+      position: absolute;
+      top: 15px; /* Ajusta la posición vertical */
+      left: 15px; /* Ajusta la posición horizontal */
+      z-index: 20; /* Asegura que esté por encima del header */
+      cursor: pointer;
+    }
+
+    nav.main-nav {
       display: flex;
       justify-content: center;
       gap: 30px;
@@ -28,7 +38,7 @@
       background-color: #12123a; /* Color oscuro como el de la imagen */
     }
 
-    nav a {
+    nav.main-nav a {
       font-family: 'Georgia', serif;
       font-size: 18px;
       color: white;
@@ -37,7 +47,7 @@
       transition: color 0.3s;
     }
 
-    nav a:hover {
+    nav.main-nav a:hover {
       color: #66ccff;
     }
 
@@ -82,17 +92,51 @@
     footer {
       margin-top: 50px;
       font-size: 14px;
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 15px;
     }
 
-    @media (min-width: 1000px) {
+    /* Estilos para la vista móvil */
+    @media (max-width: 768px) {
+      nav.main-nav {
+        display: none;
+        flex-direction: column; /* Alinear verticalmente en móvil */
+        align-items: center; /* Centrar los enlaces */
+        position: absolute;
+        top: 100px; /* Ajustar según la altura del header */
+        left: 0;
+        width: 100%;
+        background-color: #12123a;
+        z-index: 15; /* Asegurar que esté por encima del contenido */
+        padding: 20px 0;
+      }
+
+      nav.main-nav a {
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box; /* Incluir el padding en el ancho */
+      }
+
+      .mobile-menu-button {
+        display: block; /* Mostrar el botón en pantallas pequeñas */
+      }
+
       .sidebar {
-        display: block;
+        display: none; /* Ocultar la barra lateral en móvil */
+      }
+
+      .mobile-ads {
+        display: block; /* Mostrar publicidad móvil */
       }
     }
 
-    @media (max-width: 999px) {
-      .mobile-ads {
-        display: block;
+    /* Estilos para pantallas más grandes */
+    @media (min-width: 769px) {
+      .mobile-menu-button {
+        display: none; /* Ocultar el botón en pantallas grandes */
       }
     }
   </style>
@@ -100,12 +144,15 @@
 <body>
 
   <header>
+    <div class="mobile-menu-button">
+      <img src="img/menu-icon.png" alt="Menú" style="height: 30px;">
+    </div>
     <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
     <h1>MacroMind News</h1>
     <p>Tu fuente de análisis económico y financiero</p>
   </header>
 
-  <nav>
+  <nav class="main-nav">
     <a href="index.html">Inicio</a>
     <a href="economia.html">Economía</a>
     <a href="finanzas.html">Finanzas</a>
@@ -114,12 +161,10 @@
   </nav>
 
   <div class="layout">
-    <!-- Publicidad izquierda -->
     <aside class="sidebar">
       <img src="https://marketplace.canva.com/EAF8xSUqJFE/1/0/900w/canva-tu-historia-publicidad-producto-tecnol%C3%B3gico-llamativo-verde-x_9-vJW3LB8.jpg" alt="Publicidad 1">
     </aside>
 
-    <!-- Contenido principal -->
     <div class="content">
       <h2>El dólar blue vuelve a subir: $1.365</h2>
       <img src="img/dolar.jpg" alt="Billete de dólar" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
@@ -127,14 +172,12 @@
       <p>Expertos aseguran que la incertidumbre económica, junto con la falta de definiciones claras por parte del Ministerio de Economía, están alimentando la presión sobre el mercado informal.</p>
       <a href="index.html">← Volver al inicio</a>
 
-      <!-- Publicidad móvil -->
       <div class="mobile-ads">
-        <img src="https://marketplace.canva.com/EAF8xSUqJFE/1/0/900w/canva-tu-historia-publicidad-producto-tecnol%C3%B3gico-llamativo-verde-x_9-vJW3LB8.jpg" alt="Publicidad móvil 1">
-        <img src="https://marketplace.canva.com/EAF8xSUqJFE/1/0/900w/canva-tu-historia-publicidad-producto-tecnol%C3%B3gico-llamativo-verde-x_9-vJW3LB8.jpg" alt="Publicidad móvil 2">
+        <img src="https://marketplace.canva.com/EAF8xSUqJFE/1/0/900w/canva-tu-historia-publicidad-producto-tecnol%C3%B33gico-llamativo-verde-x_9-vJW3LB8.jpg" alt="Publicidad móvil 1">
+        <img src="https://marketplace.canva.com/EAF8xSUqJFE/1/0/900w/canva-tu-historia-publicidad-producto-tecnol%C3%B33gico-llamativo-verde-x_9-vJW3LB8.jpg" alt="Publicidad móvil 2">
       </div>
     </div>
 
-    <!-- Publicidad derecha -->
     <aside class="sidebar">
       <img src="https://marketplace.canva.com/EAF8xSUqJFE/1/0/900w/canva-tu-historia-publicidad-producto-tecnol%C3%B3gico-llamativo-verde-x_9-vJW3LB8.jpg" alt="Publicidad 2">
     </aside>
@@ -143,6 +186,15 @@
   <footer>
     © 2025 MacroMind News | Todos los derechos reservados
   </footer>
+
+  <script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mainNav = document.querySelector('.main-nav');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mainNav.style.display = mainNav.style.display === 'none' ? 'flex' : 'none';
+    });
+  </script>
 
 </body>
 </html>
