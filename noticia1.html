@@ -9,26 +9,67 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 0;
       background-color: #f9f9f9;
       color: #333;
     }
+
     header, footer {
       background-color: #0a0a23;
       color: white;
       text-align: center;
       padding: 15px;
     }
-    a {
-      color: #0a0a23;
-      text-decoration: none;
+
+    nav {
+      text-align: center;
+      padding: 10px;
+      background-color: #e4e4f5;
     }
-    a:hover {
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0a0a23;
+      font-weight: bold;
+    }
+
+    nav a:hover {
       text-decoration: underline;
     }
+
+    .layout {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .sidebar {
+      width: 150px;
+      display: none; /* Ocultar en pantallas pequeñas */
+    }
+
+    .sidebar img {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
     .content {
       max-width: 800px;
-      margin: auto;
+      flex: 1;
+    }
+
+    @media (min-width: 1000px) {
+      .sidebar {
+        display: block; /* Mostrar solo en pantallas grandes */
+      }
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -48,19 +89,26 @@
     <a href="internacional.html">Internacional</a>
   </nav>
   
-  <div class="content">
-    <h2>El dólar blue vuelve a subir: $1.365</h2>
+  <div class="layout">
+    <aside class="sidebar">
+      <img src="https://via.placeholder.com/120x600?text=Publicidad" alt="Publicidad 1">
+    </aside>
 
-     <!-- Imagen -->
-  <img src="img/dolar.jpg" alt="Billete de dólar" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
-    
-    <p><strong>10 de abril de 2025</strong> — En una jornada de alta tensión cambiaria, la cotización paralela del dólar alcanzó un nuevo máximo histórico, mientras crecen las expectativas por medidas del Gobierno.</p>
-    <p>Expertos aseguran que la incertidumbre económica, junto con la falta de definiciones claras por parte del Ministerio de Economía, están alimentando la presión sobre el mercado informal.</p>
-    <a href="index.html">← Volver al inicio</a>
+    <main class="content">
+      <h2>El dólar blue vuelve a subir: $1.365</h2>
+      <img src="img/dolar.jpg" alt="Billete de dólar" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+      <p><strong>10 de abril de 2025</strong> — En una jornada de alta tensión cambiaria, la cotización paralela del dólar alcanzó un nuevo máximo histórico, mientras crecen las expectativas por medidas del Gobierno.</p>
+      <p>Expertos aseguran que la incertidumbre económica, junto con la falta de definiciones claras por parte del Ministerio de Economía, están alimentando la presión sobre el mercado informal.</p>
+      <a href="index.html">← Volver al inicio</a>
+    </main>
+
+    <aside class="sidebar">
+      <img src="https://via.placeholder.com/120x600?text=Publicidad" alt="Publicidad 2">
+    </aside>
   </div>
   
   <footer>
-    &copy; 2025 MacroMind News
+    © 2025 MacroMind News | Todos los derechos reservados
   </footer>
 
 </body>
