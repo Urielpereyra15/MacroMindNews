@@ -19,7 +19,7 @@ header img {
 }
 
 nav {
-  background-color: #1a1a3c; /* azul oscuro */
+  background-color: #0a0a23; /* mismo color que el header */
   display: flex;
   justify-content: center;
   gap: 20px;
