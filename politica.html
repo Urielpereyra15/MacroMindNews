@@ -1,19 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Política - MacroMind News</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internacional - MacroMind News</title>
+  <link rel="stylesheet" href="estilos.css">
+  
+  <!-- ESTILOS EXCLUSIVOS DE ESTA PÁGINA -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0a0a23;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1a1a40;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .article-principal {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    .article-principal img {
+      border-radius: 10px;
+      margin: 15px 0;
+      max-width: 100%;
+    }
+
+    aside.lateral {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .bloque-lateral {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    .bloque-lateral img {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    article {
+      grid-column: 1 / -1;
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    article img {
+      border-radius: 10px;
+      margin: 15px 0;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #1a1a40;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  
   <header>
-    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;" />
+    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
     <h1>MacroMind News</h1>
     <p>Tu fuente de análisis económico y financiero</p>
   </header>
-
+  
   <nav>
     <a href="index.html">Inicio</a>
     <a href="economia.html">Economía</a>
@@ -22,23 +134,40 @@
     <a href="internacional.html">Internacional</a>
   </nav>
 
-  <main style="padding: 30px;">
-    <section class="main-news" style="max-width: 800px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-      <h2>Últimas noticias de Política</h2>
-      <p>Acá irían todas las noticias relacionadas a la política local e internacional.</p>
-      
-      <article style="margin-top: 30px;">
-        <h3>Cambios en el Gabinete: el presidente anuncia nuevos ministros</h3>
-        <img src="img/politica1.jpg" alt="Gabinete político" style="width: 100%; max-width: 600px; border-radius: 10px; margin: 15px 0;">
-        <p><strong>10 de abril de 2025</strong> — En una sorpresiva conferencia de prensa, el presidente anunció cambios claves en el equipo de gobierno...</p>
-      </article>
-      
-      <article style="margin-top: 30px;">
-        <h3>Debate en el Congreso: nueva ley de presupuesto en discusión</h3>
-        <img src="img/politica2.jpg" alt="Congreso de la Nación" style="width: 100%; max-width: 600px; border-radius: 10px; margin: 15px 0;">
-        <p><strong>9 de abril de 2025</strong> — La Cámara de Diputados inició el debate sobre el proyecto de ley de presupuesto 2025 que propone importantes ajustes fiscales...</p>
-      </article>
-    </section>
+  <main>
+    <!-- Columna principal -->
+    <div class="article-principal">
+      <h2>Adorni se postula a Legislador Porteño</h2>
+      <img src="img/adorni.jpg" alt="Adorni">
+      <p>Texto de la noticia principal...</p>
+    </div>
+
+    <!-- Columna lateral -->
+    <aside class="lateral">
+      <div class="bloque-lateral">
+        <h3>El  secretario del Tesoro de los EEUU visitara Argentina</h3>
+        <img src="img/Secretario.jpg" alt="EEUU y Argentina">
+      </div>
+
+      <div class="bloque-lateral">
+        <h3>Noticia</h3>
+        <img src="img/noticia1.jpg" alt="Noticia 1">
+      </div>
+
+      <div class="bloque-lateral">
+        <h3>Noticia</h3>
+        <img src="img/noticia2.jpg" alt="Noticia 2">
+      </div>
+    </aside>
+
+    <!-- Artículo internacional -->
+    <article>
+      <h2>Noticias Internacionales</h2>
+      <h3>Noticia</h3>
+      <img src="img/noticia8.jpg" alt="Noticias 8">
+      <p><strong>10 de abril de 2025</strong> — En un clima de fuerte polarización política, los ciudadanos norteamericanos acuden a las urnas...</p>
+      <a href="index.html">← Volver al inicio</a>
+    </article>
   </main>
 
   <footer>
