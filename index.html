@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MacroMind News</title>
-  <link rel="stylesheet" href="estilos.css">
-
+  <link rel="stylesheet" href="estilos.css" />
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -19,7 +18,6 @@
       padding: 20px;
       text-align: center;
     }
-    /* Centrar el logo, título y eslogan */
     .header-container {
       display: flex;
       flex-direction: column;
@@ -55,12 +53,42 @@
     nav a:hover {
       text-decoration: underline;
     }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 28px;
+      padding: 10px 20px;
+      background-color: #1a1a40;
+      text-align: left;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #1a1a40;
+    }
+
+    .mobile-menu a {
+      padding: 12px;
+      border-top: 1px solid #333;
+      text-decoration: none;
+      color: white;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #333;
+    }
+
     main {
       display: grid;
       grid-template-columns: 3fr 1fr;
       gap: 30px;
       padding: 30px;
     }
+
     .main-news, .news-item {
       background-color: white;
       padding: 20px;
@@ -92,12 +120,28 @@
       text-align: center;
       padding: 15px;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .mobile-menu.show {
+        display: flex;
+      }
+      main {
+        display: block;
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="header-container">
-      <img src="img/logo.png" alt="Logo de MacroMind News" class="logo">
+      <img src="img/logo.png" alt="Logo de MacroMind News" class="logo" />
       <div class="titulo-header">
         <h1>MacroMind News</h1>
         <p>Tu fuente de análisis económico y financiero</p>
@@ -105,6 +149,17 @@
     </div>
   </header>
 
+  <!-- Menú hamburguesa -->
+  <button class="hamburger" onclick="toggleMenu()">☰ Menú</button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </div>
+
+  <!-- Menú de navegación normal -->
   <nav>
     <a href="index.html">Inicio</a>
     <a href="economia.html">Economía</a>
@@ -117,7 +172,7 @@
     <section class="main-news">
       <h2><a href="cadena-nacional-que-dijo-milei.html">Cadena nacional ¿Qué dijo Milei?</a></h2>
       <img src="img/milei1.jpg" alt="Milei y su equipo" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
-      <p>Hablo el Presidente Javier Milei en cadena nacional.</p>
+      <p>Habló el Presidente Javier Milei en cadena nacional.</p>
     </section>
     <aside class="side-news">
       <div class="news-item">
@@ -138,5 +193,12 @@
   <footer>
     &copy; 2025 MacroMind News | Todos los derechos reservados
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
