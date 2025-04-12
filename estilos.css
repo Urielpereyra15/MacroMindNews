@@ -1,9 +1,9 @@
 body {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  background-color: #05051a; /* fondo general oscuro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cambia la fuente a la que deseas */
+  background-color: #f9f9f9;
   margin: 0;
   padding: 0;
-  color: white; /* texto claro sobre fondo oscuro */
+  color: #333;
 }
 
 header {
