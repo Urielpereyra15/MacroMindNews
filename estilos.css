@@ -1,40 +1,40 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cambia la fuente a la que deseas */
-  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9; /* Fondo claro y moderno */
   margin: 0;
   padding: 0;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
-  background-color: #0a0a23; /* Fondo oscuro elegante */
-  color: white; /* Texto blanco */
+  background-color: #0a0a23;
+  color: white;
   padding: 20px 0;
-  text-align: center; /* Centra el contenido dentro del header */
+  text-align: center;
 }
 
-/* Contenedor principal del header para centrar logo, título y eslogan */
 header .header-container {
   display: flex;
-  justify-content: center; /* Centra todo el contenido dentro del header */
+  justify-content: center;
   align-items: center;
-  flex-direction: column; /* Asegura que el logo y el título estén uno encima del otro */
+  flex-direction: column;
   padding: 0 20px;
 }
 
-/* Estilos para el logo */
 header img {
-  height: 60px; /* Ajusta el tamaño del logo */
-  margin-bottom: 10px; /* Separación entre el logo y el texto */
+  height: 60px;
+  margin-bottom: 10px;
 }
 
-/* Estilos para el título */
 .titulo-header {
-  text-align: center; /* Centra el texto */
+  text-align: center;
 }
 
 .titulo-header h1 {
-  font-family: 'Times New Roman', serif; /* Cambia la tipografía solo para el texto */
+  font-family: 'Times New Roman', serif;
   font-size: 42px;
   margin: 0;
 }
@@ -45,7 +45,7 @@ header img {
 
 /* Menú de navegación */
 nav.main-nav {
-  background-color: #0a0a23; /* Mismo color que el header */
+  background-color: #0a0a23;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -53,7 +53,7 @@ nav.main-nav {
 }
 
 nav.main-nav a {
-  color: white; /* Texto blanco en navegación */
+  color: white;
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
@@ -65,7 +65,7 @@ nav.main-nav a:hover {
 
 /* Menú móvil */
 .mobile-menu-button {
-  display: none; /* Oculto por defecto */
+  display: none;
   background-color: #0a0a23;
   border: none;
   color: white;
@@ -77,50 +77,72 @@ nav.main-nav a:hover {
 
 /* Diseño de la página */
 main {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 30px;
   padding: 30px;
+  flex: 1;
 }
 
 .main-news {
   background-color: white;
-  color: black; /* Texto negro sobre fondo blanco */
+  color: black;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: auto;
-  flex: 3; /* Ocupa más espacio */
+  flex: 3;
 }
 
-/* Footer */
+.side-news {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.news-item {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.news-item a {
+  color: #0a0a23;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.news-item a:hover {
+  text-decoration: underline;
+}
+
 footer {
   background-color: #0a0a23;
   color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 40px;
+  margin-top: auto;
 }
 
-/* Medios: móvil y tablet */
+/* Móviles y tablets */
 @media (max-width: 768px) {
-  /* Asegura que el logo y el texto estén centrados en dispositivos pequeños */
   header .header-container {
-    flex-direction: column; /* Logo y texto uno encima del otro */
+    flex-direction: column;
     align-items: center;
   }
 
   header img {
     margin-right: 0;
     margin-bottom: 10px;
-    height: 50px; /* Ajusta el tamaño del logo en dispositivos móviles */
+    height: 50px;
   }
 
   .titulo-header h1 {
-    font-size: 30px; /* Ajusta el tamaño del título */
+    font-size: 30px;
   }
 
-  /* Mostrar el botón del menú en dispositivos pequeños */
   .mobile-menu-button {
     display: block;
     position: absolute;
@@ -128,7 +150,6 @@ footer {
     left: 20px;
   }
 
-  /* Menú oculto por defecto en dispositivos pequeños */
   nav.main-nav {
     display: none;
     flex-direction: column;
@@ -138,14 +159,16 @@ footer {
     padding: 10px 0;
   }
 
-  /* Mostrar el menú cuando se activa el botón */
   .mobile-menu-active nav.main-nav {
     display: flex;
   }
 
   nav.main-nav a {
     padding: 10px;
-    text-decoration: none;
-    font-weight: bold;
+  }
+
+  main {
+    display: block;
+    padding: 20px;
   }
 }
