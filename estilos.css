@@ -7,30 +7,30 @@ body {
 }
 
 header {
-  background-color: #0a0a23; /* fondo oscuro elegante */
-  color: white; /* texto blanco */
+  background-color: #0a0a23; /* Fondo oscuro elegante */
+  color: white; /* Texto blanco */
   padding: 20px 0;
-  position: relative; /* Para posicionar el botón del menú */
+  text-align: center; /* Centra el contenido dentro del header */
 }
 
-/* Contenedor principal del header para alinear correctamente */
+/* Contenedor principal del header para centrar logo, título y eslogan */
 header .header-container {
   display: flex;
-  justify-content: space-between; /* Alinea el logo a la izquierda y el texto al centro */
+  justify-content: center; /* Centra todo el contenido dentro del header */
   align-items: center;
-  position: relative;
+  flex-direction: column; /* Asegura que el logo y el título estén uno encima del otro */
   padding: 0 20px;
 }
 
 /* Estilos para el logo */
 header img {
   height: 60px; /* Ajusta el tamaño del logo */
-  margin-right: 20px;
+  margin-bottom: 10px; /* Separación entre el logo y el texto */
 }
 
 /* Estilos para el título */
 .titulo-header {
-  text-align: center;
+  text-align: center; /* Centra el texto */
 }
 
 .titulo-header h1 {
@@ -45,7 +45,7 @@ header img {
 
 /* Menú de navegación */
 nav.main-nav {
-  background-color: #0a0a23; /* mismo color que el header */
+  background-color: #0a0a23; /* Mismo color que el header */
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -53,7 +53,7 @@ nav.main-nav {
 }
 
 nav.main-nav a {
-  color: white; /* texto blanco en navegación */
+  color: white; /* Texto blanco en navegación */
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
@@ -84,7 +84,7 @@ main {
 
 .main-news {
   background-color: white;
-  color: black; /* texto negro sobre fondo blanco */
+  color: black; /* Texto negro sobre fondo blanco */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -104,21 +104,20 @@ footer {
 
 /* Medios: móvil y tablet */
 @media (max-width: 768px) {
+  /* Asegura que el logo y el texto estén centrados en dispositivos pequeños */
   header .header-container {
     flex-direction: column; /* Logo y texto uno encima del otro */
     align-items: center;
   }
 
-  /* El logo ahora se centrará */
   header img {
     margin-right: 0;
     margin-bottom: 10px;
     height: 50px; /* Ajusta el tamaño del logo en dispositivos móviles */
   }
 
-  /* El título del header será más pequeño */
   .titulo-header h1 {
-    font-size: 30px;
+    font-size: 30px; /* Ajusta el tamaño del título */
   }
 
   /* Mostrar el botón del menú en dispositivos pequeños */
