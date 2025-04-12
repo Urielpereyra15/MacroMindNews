@@ -13,19 +13,22 @@ header {
   position: relative; /* Para posicionar el botón del menú */
 }
 
+/* Contenedor principal del header para alinear correctamente */
 header .header-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Alinea el logo a la izquierda y el texto al centro */
   align-items: center;
   position: relative;
+  padding: 0 20px;
 }
 
+/* Estilos para el logo */
 header img {
-  position: absolute;
-  left: 20px; /* Logo pegado al borde izquierdo */
   height: 60px; /* Ajusta el tamaño del logo */
+  margin-right: 20px;
 }
 
+/* Estilos para el título */
 .titulo-header {
   text-align: center;
 }
@@ -60,6 +63,18 @@ nav.main-nav a:hover {
   text-decoration: underline;
 }
 
+/* Menú móvil */
+.mobile-menu-button {
+  display: none; /* Oculto por defecto */
+  background-color: #0a0a23;
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
 /* Diseño de la página */
 main {
   display: flex;
@@ -72,4 +87,66 @@ main {
   color: black; /* texto negro sobre fondo blanco */
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0,0
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: auto;
+  flex: 3; /* Ocupa más espacio */
+}
+
+/* Footer */
+footer {
+  background-color: #0a0a23;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* Medios: móvil y tablet */
+@media (max-width: 768px) {
+  header .header-container {
+    flex-direction: column; /* Logo y texto uno encima del otro */
+    align-items: center;
+  }
+
+  /* El logo ahora se centrará */
+  header img {
+    margin-right: 0;
+    margin-bottom: 10px;
+    height: 50px; /* Ajusta el tamaño del logo en dispositivos móviles */
+  }
+
+  /* El título del header será más pequeño */
+  .titulo-header h1 {
+    font-size: 30px;
+  }
+
+  /* Mostrar el botón del menú en dispositivos pequeños */
+  .mobile-menu-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  /* Menú oculto por defecto en dispositivos pequeños */
+  nav.main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: #0a0a23;
+    padding: 10px 0;
+  }
+
+  /* Mostrar el menú cuando se activa el botón */
+  .mobile-menu-active nav.main-nav {
+    display: flex;
+  }
+
+  nav.main-nav a {
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
