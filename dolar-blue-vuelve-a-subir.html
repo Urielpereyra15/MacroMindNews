@@ -19,28 +19,25 @@
       background-color: #0a0a23;
       color: white;
       text-align: center;
-      padding: 15px;
+      padding: 20px 0;
       position: relative;
     }
 
-    /* Contenedor para el logo y título */
-    .header-container {
+    /* Logo, título y eslogan centrados */
+    header .header-container {
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      text-align: center;
       position: relative;
     }
 
-    /* Logo pegado al borde izquierdo */
     header img {
-      position: absolute;
-      left: 20px;
       height: 60px;
     }
 
     .titulo-header {
-      text-align: center;
-      width: 100%;
+      margin-left: 20px;
     }
 
     .titulo-header h1 {
@@ -146,6 +143,9 @@
 
       .mobile-menu-button {
         display: block;
+        position: absolute;
+        top: 15px;
+        left: 15px;
       }
 
       .sidebar {
@@ -176,8 +176,12 @@
 <body>
 
   <header>
+    <div class="mobile-menu-button">
+      <img src="img/menu.png" alt="Menú" style="height: 30px;">
+    </div>
+
     <div class="header-container">
-      <img src="img/logo.png" alt="Logo de MacroMind News" />
+      <img src="img/logo.png" alt="Logo de MacroMind News">
       <div class="titulo-header">
         <h1>MacroMind News</h1>
         <p>Tu fuente de análisis económico y financiero</p>
