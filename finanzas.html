@@ -6,13 +6,12 @@
   <title>Finanzas - MacroMind News</title>
   <link rel="stylesheet" href="estilos.css" />
 
-  <!-- ESTILOS EXCLUSIVOS DE ESTA PÁGINA -->
   <style>
 
     .content p {
-  font-size: 22px; /* Cambiar tamaño del texto */
-  line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
-}
+      font-size: 22px; /* Cambiar tamaño del texto */
+      line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
+    }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -27,18 +26,18 @@
       padding: 20px;
       text-align: center;
     }
-    
+
     header h1 {
-  font-family: serif;
-  font-size: 36px;
-  margin-bottom: 5px; /* Ajusta el espacio debajo del título */
-}
+      font-family: serif;
+      font-size: 36px;
+      margin-bottom: 5px; /* Ajusta el espacio debajo del título */
+    }
 
     header p {
-  margin-top: 0; /* Elimina el espacio superior del eslogan */
-  margin-bottom: 0; /* Elimina el espacio inferior del eslogan */
-}
-    
+      margin-top: 0; /* Elimina el espacio superior del eslogan */
+      margin-bottom: 0; /* Elimina el espacio inferior del eslogan */
+    }
+
     nav {
       background-color: #1a1a40;
       display: flex;
@@ -127,7 +126,7 @@
       height: auto;
     }
 
-     article {
+    article {
       grid-column: 1 / -1;
       background-color: white;
       padding: 20px;
@@ -189,9 +188,7 @@
     <p>Tu fuente de análisis económico y financiero</p>
   </div>
  </div>
-</header>  
 
-  <!-- Menú hamburguesa -->
   <button class="hamburger" onclick="toggleMenu()">☰ Menú</button>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Inicio</a>
@@ -201,7 +198,6 @@
     <a href="internacional.html">Internacional</a>
   </div>
 
-  <!-- Menú de navegación normal -->
   <nav>
     <a href="index.html">Inicio</a>
     <a href="economia.html">Economía</a>
@@ -211,37 +207,36 @@
   </nav>
 
   <main>
-    <!-- Columna principal -->
-    <h2><a href="cotizacion.html">Cotización del dólar</a></h2>
+    <div class="bloque-lateral">
+      <h2><a href="cotizacion.html">Cotización del dólar</a></h2>
       <h3>Mira la cotización de todos los tipo de dólares</h3>
-    
-    <!-- Columna principal -->
-    <div class="article-internacional">
+    </div>
+
+    <div class="bloque-lateral">
       <h2>Últimas noticias de Finanzas</h2>
       <p>Acá irían todas las noticias financieras locales e internacionales.</p>
     </div>
 
-    <!-- Columna lateral -->
     <aside class="lateral">
       <div class="bloque-lateral">
         <h3><a href="pagina.html">Noticia 1</a></h3>
       </div>
-      
+
       <div class="bloque-lateral">
         <h2><a href="pagina.html">Noticia 2</a></h2>
-      <h3>Texto...</h3>
+        <h3>Texto...</h3>
       </div>
 
       <div class="bloque-lateral">
         <h2><a href="pagina.html">Noticia 3</a></h2>
-      <h3>Texto...</h3>
+        <h3>Texto...</h3>
       </div>
 
     <div class="bloque-lateral">
       <h2><a href="pagina.html">Noticia 4</a></h2>
       <h3>Texto...</h3>
     </div>
-      
+
     </aside>
   </main>
 
