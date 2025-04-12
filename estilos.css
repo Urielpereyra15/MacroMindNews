@@ -82,10 +82,11 @@ main {
   gap: 30px;
   padding: 30px;
   flex: 1;
+  background-color: transparent; /* Fondo claro del body se mantiene */
 }
 
 .main-news {
-  background-color: white;
+  background-color: #ffffff; /* Fondo blanco para separar visualmente del header */
   color: black;
   padding: 20px;
   border-radius: 10px;
@@ -102,7 +103,7 @@ main {
 }
 
 .news-item {
-  background-color: white;
+  background-color: #ffffff; /* También fondo blanco */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
