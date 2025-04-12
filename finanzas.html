@@ -36,6 +36,35 @@
       font-weight: bold;
     }
 
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 28px;
+      padding: 10px 20px;
+      background-color: #1a1a40;
+      text-align: left;
+      width: 100%;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #1a1a40;
+    }
+
+    .mobile-menu a {
+      padding: 12px;
+      border-top: 1px solid #333;
+      text-decoration: none;
+      color: white;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #333;
+    }
+
     nav a:hover {
       text-decoration: underline;
     }
@@ -117,15 +146,45 @@
       padding: 15px;
       margin-top: 40px;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .mobile-menu.show {
+        display: flex;
+      }
+      main {
+        display: block;
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
+    <div class="header-container">
     <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;" />
     <h1>MacroMind News</h1>
     <p>Tu fuente de análisis económico y financiero</p>
-  </header>  
+  </div>
+ </div>
+</header>  
 
+  <!-- Menú hamburguesa -->
+  <button class="hamburger" onclick="toggleMenu()">☰ Menú</button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </div>
+
+  <!-- Menú de navegación normal -->
   <nav>
     <a href="index.html">Inicio</a>
     <a href="economia.html">Economía</a>
@@ -174,5 +233,12 @@
   <footer>
     © 2025 MacroMind News | Todos los derechos reservados
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
