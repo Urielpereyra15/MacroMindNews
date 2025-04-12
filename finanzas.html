@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finanzas - MacroMind News</title>
-  <link rel="stylesheet" href="estilos.css" />
-
+  <link rel="stylesheet" href="estilos.css">
+  
+  <!-- ESTILOS EXCLUSIVOS DE ESTA PÁGINA -->
   <style>
 
     .content p {
-      font-size: 22px; /* Cambiar tamaño del texto */
-      line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
-    }
+  font-size: 22px; /* Cambiar tamaño del texto */
+  line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
+}
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -28,16 +29,16 @@
     }
 
     header h1 {
-      font-family: serif;
-      font-size: 36px;
-      margin-bottom: 5px; /* Ajusta el espacio debajo del título */
-    }
+  font-family: serif;
+  font-size: 36px;
+  margin-bottom: 5px; /* Ajusta el espacio debajo del título */
+}
 
     header p {
-      margin-top: 0; /* Elimina el espacio superior del eslogan */
-      margin-bottom: 0; /* Elimina el espacio inferior del eslogan */
-    }
-
+  margin-top: 0; /* Elimina el espacio superior del eslogan */
+  margin-bottom: 0; /* Elimina el espacio inferior del eslogan */
+}
+    
     nav {
       background-color: #1a1a40;
       display: flex;
@@ -50,6 +51,10 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .hamburger {
@@ -79,10 +84,6 @@
 
     .mobile-menu a:hover {
       background-color: #333;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
     }
 
     main {
@@ -162,7 +163,6 @@
       padding: 15px;
       margin-top: 40px;
     }
-
     @media (max-width: 768px) {
       nav {
         display: none;
@@ -177,18 +177,19 @@
         display: block;
         padding: 20px;
       }
-    }
+    }  
   </style>
 </head>
 <body>
   <header>
     <div class="header-container">
-    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;" />
+    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
     <h1>MacroMind News</h1>
     <p>Tu fuente de análisis económico y financiero</p>
-  </div>
+   </div>
  </div>
-
+</header>
+  
   <!-- Menú hamburguesa -->
   <button class="hamburger" onclick="toggleMenu()">☰ Menú</button>
   <div class="mobile-menu" id="mobileMenu">
@@ -219,15 +220,10 @@
       <aside class="lateral">
       <div class="bloque-lateral">
     <h2><a href="cotizacion.html">Cotización del dólar</a></h2>
-    <h3>Mira la cotización de todos los tipo de dólares</h3>
+    <h3>Mira la cotización de todo los tipos de dólares</h3>
   </div>
 
   <aside class="lateral">
-    <div class="bloque-lateral">
-      <h2><a href="pagina.html">Noticia 1</a></h2>
-      <h3>Texto...</h3>
-    </div>
-
     <div class="bloque-lateral">
       <h2><a href="pagina.html">Noticia 2</a></h2>
       <h3>Texto...</h3>
@@ -243,9 +239,14 @@
       <h3>Texto...</h3>
     </div>
 
+    <div class="bloque-lateral">
+      <h2><a href="pagina.html">Noticia 5</a></h2>
+      <h3>Texto...</h3>
+    </div>
+
     </aside>
   </main>
-    
+  
   <footer>
     © 2025 MacroMind News | Todos los derechos reservados
   </footer>
