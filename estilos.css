@@ -8,26 +8,39 @@ body {
 
 header {
   background-color: #0a0a23; /* fondo oscuro elegante */
-  color: white;          /* texto blanco */
-  padding: 10px 0;
-  text-align: center;
+  color: white; /* texto blanco */
+  padding: 20px 0;
   position: relative; /* Para posicionar el botón del menú */
 }
 
+header .header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 header img {
-  float: left;
-  margin-right: 20px;
-}
-
-.mobile-menu-button {
-  display: none; /* Oculto por defecto en pantallas grandes */
   position: absolute;
-  top: 15px; /* Ajusta la posición vertical */
-  left: 15px; /* Ajusta la posición horizontal */
-  z-index: 20; /* Asegura que esté por encima del header */
-  cursor: pointer;
+  left: 20px; /* Logo pegado al borde izquierdo */
+  height: 60px; /* Ajusta el tamaño del logo */
 }
 
+.titulo-header {
+  text-align: center;
+}
+
+.titulo-header h1 {
+  font-family: serif;
+  font-size: 42px;
+  margin: 0;
+}
+
+.titulo-header p {
+  margin: 5px 0;
+}
+
+/* Menú de navegación */
 nav.main-nav {
   background-color: #0a0a23; /* mismo color que el header */
   display: flex;
@@ -47,6 +60,7 @@ nav.main-nav a:hover {
   text-decoration: underline;
 }
 
+/* Diseño de la página */
 main {
   display: flex;
   gap: 20px;
@@ -58,68 +72,4 @@ main {
   color: black; /* texto negro sobre fondo blanco */
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-  max-width: 800px;
-  margin: auto;
-  flex: 3; /* Ocupa más espacio */
-}
-
-footer {
-  background-color: #0a0a23;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-}
-
-h1 {
-  font-family: serif;
-  font-size: 42px;
-  margin: 10px 0;
-}
-
-.lateral {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* Por defecto, la barra lateral está oculta */
-.sidebar {
-  display: none;
-  width: 150px; /* Mantén el ancho aquí */
-}
-
-/* Mostrar la barra lateral en pantallas de 769px o más */
-@media (min-width: 769px) {
-  .sidebar {
-    display: block;
-  }
-
-  .mobile-ads {
-    display: none;
-  }
-}
-
-/* Publicidad para celulares */
-@media (max-width: 768px) {
-  .mobile-ads {
-    display: block;
-    text-align: center;
-    padding: 20px 10px;
-  }
-
-  .mobile-ads img {
-    max-width: 100%;
-    margin-bottom: 15px;
-    border-radius: 8px;
-  }
-}
-
-.titulo-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+  box-shadow: 0px 0px 10px rgba(0,0
