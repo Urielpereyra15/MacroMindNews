@@ -150,6 +150,63 @@
     }
   </style>
 </head>
+  
+  <!-- Modal de anuncio -->
+<div id="modalAnuncio" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <img src="img/x.jpg" alt="Anuncio" style="width:100%; border-radius: 10px;">
+  </div>
+</div>
+
+<style>
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-contenido {
+  margin: auto;
+  background-color: #fff;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  position: relative;
+  padding: 0;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+</style>
+
+<script>
+// Mostrar el anuncio solo una vez por sesión
+window.onload = function() {
+  if (!sessionStorage.getItem("anuncioMostrado")) {
+    document.getElementById("modalAnuncio").style.display = "block";
+    sessionStorage.setItem("anuncioMostrado", "true");
+  }
+};
+
+function cerrarModal() {
+  document.getElementById("modalAnuncio").style.display = "none";
+}
+</script>
+
 <body>
   <header>
     <div class="header-container">
