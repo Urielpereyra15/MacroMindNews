@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCA elimina percepciones para la compra de moneda extranjera</title>
+  <link rel="stylesheet" href="estilos.css">
+  
+  <style>
+
+    .content p {
+  font-size: 22px; /* Cambiar tamaño del texto */
+  line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
+}
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+    }
+
+    /* Logo, título y eslogan centrados */
+    header .header-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    .titulo-header {
+      margin-left: 20px;
+    }
+
+    .titulo-header h1 {
+      font-family: serif;
+      font-size: 42px;
+      margin: 0;
+    }
+
+    .titulo-header p {
+      margin: 5px 0;
+    }
+
+    /* Menú de navegación */
+    nav.main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 10px;
+      background-color: #12123a;
+    }
+
+    nav.main-nav a {
+      font-family: 'Georgia', serif;
+      font-size: 18px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav.main-nav a:hover {
+      color: #66ccff;
+    }
+
+    .layout {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .sidebar {
+      width: 150px;
+      display: none;
+    }
+
+    .sidebar img {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .content {
+      max-width: 800px;
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .mobile-ads {
+      display: none;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .mobile-ads img {
+      max-width: 100%;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* Vista móvil */
+    @media (max-width: 768px) {
+      nav.main-nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        background-color: #12123a;
+        z-index: 15;
+        padding: 20px 0;
+      }
+
+      nav.main-nav a {
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .mobile-menu-button {
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .mobile-ads {
+        display: block;
+      }
+    }
+
+    /* Vista escritorio */
+    @media (min-width: 769px) {
+      .sidebar {
+        display: block;
+      }
+
+      .mobile-ads {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="mobile-menu-button">
+      <img src="img/menu.png" alt="Menú" style="height: 30px;">
+    </div>
+
+    <div class="header-container">
+      <img src="img/logo.png" alt="Logo de MacroMind News">
+      <div class="titulo-header">
+        <h1>MacroMind News</h1>
+        <p>Tu fuente de análisis económico y financiero</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </nav>
+
+  <div class="layout">
+    <!-- Publicidad escritorio izquierda -->
+    <aside class="sidebar">
+      <img src="publicidad.jpg" alt="Publicidad 1">
+    </aside>
+
+    <!-- Contenido principal -->
+    <div class="content">
+      <h2> ARCA elimina percepciones para la compra de moneda extranjera</h2>
+      <img src="img/arca.jpg" alt="Logo de ARCA" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+      <p><strong>14 de abril de 2025</strong> — La Agencia de Recaudación y Control Aduanero (ARCA) publicó una resolución mediante la cual elimina las percepciones a cuenta de los impuestos a las Ganancias y sobre los Bienes Personales aplicadas a la compra de moneda extranjera por parte de personas humanas, siempre que esté destinada al atesoramiento u otros destinos específicos.</p>
+      <p>Esta medida, que rige desde su publicación, representa un cambio importante en el esquema impositivo vigente para quienes acceden al mercado de cambios de forma oficial, ya que deja sin efecto el recargo anticipado del 30% que se venía aplicando como adelanto de tributos.</p>
+
+      <blockquote class="twitter-tweet"><p lang="es" dir="ltr">✅ Eliminamos el régimen de percepciones de los impuestos a las Ganancias y sobre los Bienes Personales sobre la compra de moneda extranjera.<br><br>👉 Ya no se aplicará el cobro a cuenta del 30% de impuestos sobre la compra de divisas a cargo de personas humanas para atesoramiento. <a href="https://t.co/rJyaAVrlfW">pic.twitter.com/rJyaAVrlfW</a></p>&mdash; ARCA | Agencia de Recaudación y Control Aduanero (@ARCA_informa) <a href="https://twitter.com/ARCA_informa/status/1911780572340306239?ref_src=twsrc%5Etfw">April 14, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      
+      <p>Sin embargo, ARCA aclaró que la resolución no alcanza a todas las operaciones en moneda extranjera. En particular, siguen vigentes las percepciones previstas en la Resolución General N.º 5617/2020, que aplican, entre otros casos, a:</p>
+      <p>Compras en dólares realizadas en el exterior con tarjeta de crédito o débito.</p>
+      <p>Adquisición de servicios prestados por no residentes.</p>
+      <p>Contratación de servicios turísticos y de transporte con destino fuera del país.</p>
+      
+      <p>De esta forma, si bien se elimina la carga impositiva anticipada para quienes compran dólares para ahorrar, otras operaciones en moneda extranjera continúan alcanzadas por percepciones y recargos vigentes.</p>
+      
+      <!-- Publicidad móvil -->
+      <div class="mobile-ads">
+        <img src="publicidad.jpg" alt="Publicidad móvil 1">
+        <img src="publicidad.jpg" alt="Publicidad móvil 2">
+      </div>
+    </div>
+
+    <!-- Publicidad escritorio derecha -->
+    <aside class="sidebar">
+      <img src="publicidad.jpg" alt="Publicidad 2">
+    </aside>
+  </div>
+
+  <footer>
+    © 2025 MacroMind News | Todos los derechos reservados
+  </footer>
+
+  <script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mainNav = document.querySelector('.main-nav');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mainNav.style.display = mainNav.style.display === 'none' ? 'flex' : 'none';
+    });
+  </script>
+
+</body>
+</html>
