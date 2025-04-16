@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javier Milei fue incluido entre las 100 personas más influyentes del mundo según la revista Time</title>
+  <link rel="stylesheet" href="estilos.css">
+  
+  <style>
+
+    .content p {
+  font-size: 22px; /* Cambiar tamaño del texto */
+  line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
+}
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+    }
+
+    /* Logo, título y eslogan centrados */
+    header .header-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    .titulo-header {
+      margin-left: 20px;
+    }
+
+    .titulo-header h1 {
+      font-family: serif;
+      font-size: 42px;
+      margin: 0;
+    }
+
+    .titulo-header p {
+      margin: 5px 0;
+    }
+
+    /* Menú de navegación */
+    nav.main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 10px;
+      background-color: #12123a;
+    }
+
+    nav.main-nav a {
+      font-family: 'Georgia', serif;
+      font-size: 18px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav.main-nav a:hover {
+      color: #66ccff;
+    }
+
+    .layout {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .sidebar {
+      width: 150px;
+      display: none;
+    }
+
+    .sidebar img {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .content {
+      max-width: 800px;
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .mobile-ads {
+      display: none;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .mobile-ads img {
+      max-width: 100%;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* Vista móvil */
+    @media (max-width: 768px) {
+      nav.main-nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        background-color: #12123a;
+        z-index: 15;
+        padding: 20px 0;
+      }
+
+      nav.main-nav a {
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .mobile-menu-button {
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .mobile-ads {
+        display: block;
+      }
+    }
+
+    /* Vista escritorio */
+    @media (min-width: 769px) {
+      .sidebar {
+        display: block;
+      }
+
+      .mobile-ads {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="mobile-menu-button">
+      <img src="img/menu.png" alt="Menú" style="height: 30px;">
+    </div>
+
+    <div class="header-container">
+      <img src="img/logo.png" alt="Logo de MacroMind News">
+      <div class="titulo-header">
+        <h1>MacroMind News</h1>
+        <p>Tu fuente de análisis económico y financiero</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </nav>
+
+  <div class="layout">
+    <!-- Publicidad escritorio izquierda -->
+    <aside class="sidebar">
+      <img src="publicidad.jpg" alt="Publicidad 1">
+    </aside>
+
+    <!-- Contenido principal -->
+    <div class="content">
+      <h2>Javier Milei fue incluido entre las 100 personas más influyentes del mundo según la revista Time</h2>
+      <img src="img/time-y-milei.jpg" alt="Milei en la tapa de Time" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+      <p><strong>Política | 16 de abril de 2025</strong> — Por segundo año consecutivo, el presidente argentino Javier Milei fue seleccionado por la revista Time como una de las 100 personas más influyentes del mundo. La lista, que se publica anualmente, lo ubicó en la categoría de “Líderes Mundiales”, junto a figuras destacadas como Donald Trump, Claudia Sheinbaum (México) y Keir Starmer (Reino Unido).<p>
+      <p>Milei fue destacado en la categoría de “Líderes Mundiales”, junto a figuras como Donald Trump (EE.UU.), Claudia Sheinbaum (México) y Keir Starmer (Reino Unido). El texto que acompaña su inclusión fue escrito por el reconocido politólogo Ian Bremmer, quien lo definió como el líder que “asumió los mayores riesgos dentro del G20 para corregir el rumbo económico de su país” y resaltó que “esas decisiones ya están dando resultados concretos”.</p>
+      <p>Entre los logros económicos mencionados, se destaca la notable reducción de la inflación interanual, que cayó del 289% en abril de 2024 al 66,9% en febrero de 2025. Asimismo, el índice de pobreza descendió del 52,9% al 38,1% en el segundo semestre del año pasado, desafiando los pronósticos más pesimistas sobre el impacto social de su programa económico.</p>  
+      <p>Con un enfoque liberal, firme y disruptivo, Milei ha logrado posicionar a la Argentina nuevamente en el centro del debate económico internacional, captando la atención de inversores, medios y líderes de todo el mundo.</p>
+      <p>La lista de Time también incluye a personalidades destacadas como Elon Musk, Mark Zuckerberg, Scarlett Johansson, Ed Sheeran y María Corina Machado, entre otros.</p>
+      <blockquote class="twitter-tweet"><p lang="es" dir="ltr">FENÓMENO BARRIAL <br>DOLOR EN MANDRILANDIA<br>¿Qué dirán los imbéciles que ponen a las formas por sobre el contenido?<br>¿Déficit de IQ, pereza o sobre?<br><br>Javier Milei fue elegido por la revista Time entre las 100 personalidades más influyentes del mundo - Infobae <a href="https://t.co/wMqh2MKuvQ">https://t.co/wMqh2MKuvQ</a></p>&mdash; Javier Milei (@JMilei) <a href="https://twitter.com/JMilei/status/1912511709597548765?ref_src=twsrc%5Etfw">April 16, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <p>A través de sus redes sociales, el presidente celebró el reconocimiento internacional con un mensaje irónico hacia sus críticos: “¿Déficit de IQ, pereza o sobre?”</p>
+      
+      <!-- Publicidad móvil -->
+      <div class="mobile-ads">
+        <img src="publicidad.jpg" alt="Publicidad móvil 1">
+        <img src="publicidad.jpg" alt="Publicidad móvil 2">
+      </div>
+    </div>
+
+    <!-- Publicidad escritorio derecha -->
+    <aside class="sidebar">
+      <img src="publicidad.jpg" alt="Publicidad 2">
+    </aside>
+  </div>
+
+  <footer>
+    © 2025 MacroMind News | Todos los derechos reservados
+  </footer>
+
+  <script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mainNav = document.querySelector('.main-nav');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mainNav.style.display = mainNav.style.display === 'none' ? 'flex' : 'none';
+    });
+  </script>
+
+</body>
+</html>
