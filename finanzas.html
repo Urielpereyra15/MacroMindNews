@@ -150,6 +150,18 @@
         padding: 20px;
       }
     }
+
+    h2 a {
+  text-decoration: none; /* Quita el subrayado */
+  color: #4B0082; /* Color negro */
+  font-weight: bold;
+  line-height: 1.4; /* Espaciado entre líneas */
+}
+
+h2 a:hover {
+  text-decoration: underline; /* Subrayado solo cuando el mouse pasa por encima */
+}
+
   </style>
 </head>
 <body>
@@ -217,7 +229,6 @@
     const menu = document.getElementById('mobileMenu');
     menu.classList.toggle('show');
   }
-</script>
-
-</body>
+    </script>
+  </body>
 </html>
