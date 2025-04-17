@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Política - MacroMind News</title>
+  <title>Política Macrimind News </title>
   <link rel="stylesheet" href="estilos.css">
   
   <!-- ESTILOS EXCLUSIVOS DE ESTA PÁGINA -->
@@ -38,7 +38,7 @@
   margin-top: 0; /* Elimina el espacio superior del eslogan */
   margin-bottom: 0; /* Elimina el espacio inferior del eslogan */
 }
-
+    
     nav {
       background-color: #1a1a40;
       display: flex;
@@ -85,7 +85,7 @@
     .mobile-menu a:hover {
       background-color: #333;
     }
-    
+
     main {
       display: grid;
       grid-template-columns: 3fr 1fr;
@@ -163,7 +163,6 @@
       padding: 15px;
       margin-top: 40px;
     }
-
     @media (max-width: 768px) {
       nav {
         display: none;
@@ -178,7 +177,24 @@
         display: block;
         padding: 20px;
       }
-    }
+    }  
+
+    .noticias-inferiores {
+  grid-column: 1 / -1; /* ocupa toda la fila del grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.noticia-cuadro {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: black;
+}
+
   </style>
 </head>
 <body>
@@ -187,7 +203,7 @@
     <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
     <h1>MacroMind News</h1>
     <p>Tu fuente de análisis económico y financiero</p>
-  </div>
+   </div>
  </div>
 </header>
   
@@ -211,44 +227,46 @@
   </nav>
 
   <main>
-    <!-- Columna principal -->
-    <div class="article-principal">
-      <h2><a href="javier-milei-fue-incluido-entre-las-100-personas-mas-influyentes.html">Javier Milei, entre las 100 personas más influyentes del mundo según Time</a></h2>
-      <img src="img/time-y-milei.jpg" alt="Javier Milei en la tapa de Time" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
-      <p>La prestigiosa revista estadounidense Time eligió al presidente argentino Javier Milei como una de las 100 personas más influyentes del mundo en su edición 2025.</p>
-      
+  <!-- Columna principal -->
+  <div class="article-principal">
+    <h2><a href="javier-milei-fue-incluido-entre-las-100-personas-mas-influyentes.html">Javier Milei, entre las 100 personas más influyentes del mundo según Time</a></h2>
+    <img src="img/time-y-milei.jpg" alt="Javier Milei en la tapa de Time" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+    <p>La prestigiosa revista estadounidense Time eligió al presidente argentino Javier Milei como una de las 100 personas más influyentes del mundo en su edición 2025.<</p>
+</div>
+
+  <!-- Columna lateral -->
+  <aside class="lateral">
+    <div class="bloque-lateral">
       <h2><a href="cristina-la-corte-evalua-ampliar-la-condena.html">Cristina: la Corte evalúa ampliar la condena</a></h2>
-      <img src="img/cristina.jpg" alt="cristina" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
       <p>La Corte avanzó en el tratamiento de la causa Vialidad.</p>
     </div>
 
-    <!-- Columna lateral -->
-      <aside class="lateral">
-      <div class="bloque-lateral">
-    <h2><a href="the-economist-respalda-el-plan-economico-de-milei-y-destaca-un-giro-historico-en-la-economia-argentina.html">The Economist respalda el plan económico de Milei y destaca un giro histórico en la economía Argentina</a></h2>
-    <p>El prestigioso medio británico The Economist publicó un contundente elogio al plan económico del presidente Javier Milei, asegurando que Argentina “nunca estuvo tan cerca de convertirse en una economía normal”.</p>
-  </div>
-    
-      <aside class="lateral">
-      <div class="bloque-lateral">
-    <h2><a href="el-gobierno-bonoarense-analiza-prohibir-que-dos-personas-cierculen-en-una-misma-moto.html">El Gobierno bonaerense analiza prohibir que dos personas circulen en una misma moto</a></h2>
-    <p>El Gobierno de la provincia de Buenos Aires evalúa implementar una medida que restringiría la circulación de dos personas en una misma motocicleta.</p>                                            
-  </div>
-    
-    <aside class="lateral">
     <div class="bloque-lateral">
-      <h2><a href="milei-y-bessent-anuncian-avances-en-acuerdo-comercial-entre-argentina-y-ee-uu.html">Milei y Bessent anuncian avances en acuerdo comercial entre Argentina y EE. UU.</a></h2>      
+      <h2><a href="the-economist-respalda-el-plan-economico-de-milei-y-destaca-un-giro-historico-en-la-economia-argentina.html">The Economist respalda el plan económico de Milei y destaca un giro histórico en la economía Argentina</a></h2>
+      <p>El prestigioso medio británico The Economist publicó un contundente elogio al plan económico del presidente Javier Milei, asegurando que Argentina “nunca estuvo tan cerca de convertirse en una economía normal”.</p>
+    </div>
+
+    <div class="bloque-lateral">
+      <h2><a href="el-gobierno-bonoarense-analiza-prohibir-que-dos-personas-cierculen-en-una-misma-moto.html">El Gobierno bonaerense analiza prohibir que dos personas circulen en una misma moto</a></h2>
+      <p>El Gobierno de la provincia de Buenos Aires evalúa implementar una medida que restringiría la circulación de dos personas en una misma motocicleta.</p>
+    </div>
+  </aside>
+
+  <!-- CUADRITOS debajo de las dos columnas -->
+  <div class="noticias-inferiores">
+    <div class="noticia-cuadro">
+      <h3><a href="milei-y-bessent-anuncian-avances-en-acuerdo-comercial-entre-argentina-y-ee-uu.html">Milei y Bessent anuncian avances en acuerdo comercial entre Argentina y EE. UU.</a></h3>
       <p>El secretario del Tesoro de Estados Unidos, Scott Bessent, llegó hoy a Buenos Aires para una visita oficial que promete marcar un hito en las relaciones económicas entre ambos países.</p>
     </div>
-      
-    <aside class="lateral">
-     <div class="bloque-lateral">
-      <h2><a href="cadena-nacional.html">Cadena nacional ¿qué dijo Milei?</a></h2>
+
+    <div class="noticia-cuadro">
+      <h3><a href="cadena-nacional.html">Cadena nacional ¿qué dijo Milei?</a></h3>
       <p>Habló el Presidente Javier Milei en cadena nacional.</p>
-    </div>  
+    </div>
+
   </aside>
 </main>
-
+  
   <footer>
     © 2025 MacroMind News | Todos los derechos reservados
   </footer>
