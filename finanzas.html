@@ -1,240 +1,153 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MacroMind News</title>
-  <link rel="stylesheet" href="estilos.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #0a0a23;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacroMind News</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color: #f9f9f9;
+     margin: 0;
+     padding: 0;
+}
 
-    header {
-      background-color: #0a0a23;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+header {
+    background-color: #006f61;
+    color: white;
+    padding: 10px;
+    text-align: right;
+}
 
-    header img {
-      height: 50px;
-    }
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
 
-    header h1 {
-      font-family: serif;
-      font-size: 36px;
-      margin-bottom: 5px;
-    }
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
 
-    header p {
-      margin: 0;
-    }
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    nav {
-      background-color: #1a1a40;
-    }
+main {
+    padding: 20px;
+}
 
-    .nav-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 10px;
-    }
+.top-news {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 30px;
-    }
+.top-news .news-item {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.top-news .news-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
 
-    .nav-links a:hover {
-      text-decoration: underline;
-    }
+.top-news .news-item h2 {
+    font-size: 24px;
+    margin: 15px 0;
+}
 
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 28px;
-      cursor: pointer;
-    }
+.top-news .news-item p {
+    font-size: 16px;
+}
 
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background-color: #1a1a40;
-    }
-    
-    .menu-text {
-      font-size: 18px;
-      color: white;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    
-    .mobile-menu a {
-      padding: 12px 20px;
-      color: white;
-      text-decoration: none;
-      border-top: 1px solid #333;
-    }
+.top-news .news-item .author {
+    font-size: 14px;
+    color: #888;
+}
 
-    .mobile-menu a:hover {
-      background-color: #333;
-    }
+.other-news {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-    .container {
-      display: grid;
-      grid-template-columns: 3fr 1fr;
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+.other-news .news-item {
+    background-color: white;
+    padding: 15px;
+    width: 32%;
+    margin: 0 1% 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-    .noticia-dia,
-    .otras-noticias,
-    .anteriores {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
+.other-news .news-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 
-    h2 {
-      font-size: 1.5em;
-      color: black;
-      margin-top: 0;
-    }
+.other-news .news-item h2 {
+    font-size: 18px;
+    margin-top: 15px;
+}
 
-    h2 a {
-      text-decoration: none;
-      color: black;
-    }
+.other-news .news-item p {
+    font-size: 14px;
+}
 
-    h2 a:hover {
-      text-decoration: underline;
-    }
-
-    img {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 8px;
-      margin: 15px 0;
-    }
-
-    footer {
-      background-color: #0a0a23;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-    }
-
-    @media (max-width: 768px) {
-      .menu-icon {
-        position: absolute;
-        left: 20px; /* Ajusta esta cantidad según el margen que quieras */
-      }
-    }
-
-      .hamburger {
-        display: block;
-      }
-
-      .mobile-menu.show {
-        display: flex;
-      }
-
-      .container {
-        grid-template-columns: 1fr;
-        padding: 15px;
-      }
-    }
-  </style>
+.other-news .news-item .author {
+    font-size: 12px;
+    color: #888;
+}
+  
+</style>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Suscríbete</a></li>
+                <li><a href="#">Ingresar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="top-news">
+            <article class="news-item">
+                <img src="image1.jpg" alt="Imagen noticia">
+                <h2>Lo que mira el mercado...</h2>
+                <p>¿Los bonos tienen potencial para volver a máximos previos? Cuáles podrían subir más</p>
+                <p class="author">Julian Yosovitch</p>
+            </article>
+        </section>
 
-<header>
-  <img src="img/logo.png" alt="Logo MacroMind News" style="height: 60px;">
-  <h1>MacroMind News</h1>
-  <p>Tu fuente de análisis económico y financiero</p>
-</header>
-
-<nav>
-  <div class="nav-container">
-    <button class="hamburger" onclick="toggleMenu()">
-      <span class="menu-text">☰ Menú</span>
-    <div class="nav-links">
-      <a href="index.html">Inicio</a>
-      <a href="economia.html">Economía</a>
-      <a href="finanzas.html">Finanzas</a>
-      <a href="politica.html">Política</a>
-      <a href="internacional.html">Internacional</a>
-    </div>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Inicio</a>
-    <a href="economia.html">Economía</a>
-    <a href="finanzas.html">Finanzas</a>
-    <a href="politica.html">Política</a>
-    <a href="internacional.html">Internacional</a>
-  </div>
-</nav>
-
-<div class="container">
-  <div>
-    <section class="noticia-dia">
-      <h2>Noticia del Día</h2>
-      <h2><a href="el-gobierno-desregula-el-agro.html">Avanzan las reformas: el Gobierno desregula el agro e impulsa la apertura financiera</a></h2>
-      <img src="img/sec-comercio-comunicado.jpg" alt="Secretaria de Industria y Comercio">
-      <p>El Gobierno impulsa reformas clave en el agro y el sistema financiero.</p>
-    </section>
-
-    <section class="otras-noticias">
-      <h2>Otras Noticias</h2>
-      <h2><a href="el-bcra-emitira-un-nuevo-bono-bopreal-para-impulsar-la-economia.html">El BCRA emitirá un nuevo Bono BOPREAL para Impulsar la Economía</a></h2>
-      <p>En un paso decisivo para consolidar la estabilidad económica, el Banco Central ha presentado una nueva serie de Bonos para la Reconstrucción de una Argentina Libre (BOPREAL).</p>
-
-      <h2><a href="el-bcra-sostiene-la-estabilidad-cambiaria.html">El BCRA sostiene la estabilidad cambiaria</a></h2>
-      <p>El Banco Central de la República Argentina (BCRA) dio a conocer las cifras actualizadas de las principales variables cambiarias, reflejando señales de estabilidad en el mercado.</p>
-    </section>
-  </div>
-
-  <aside>
-    <section class="anteriores">
-      <h2>Noticias Anteriores</h2>
-      <h2><a href="cotizacion.html">Cotización del dólar</a></h2>
-      <p>Mira la cotización de todos los tipos de dólares.</p>
-    </section>
-  </aside>
-</div>
-
-<footer>
-  © 2025 MacroMind News | Todos los derechos reservados
-</footer>
-
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('show');
-  }
-</script>
-
+        <section class="other-news">
+            <article class="news-item">
+                <img src="image2.jpg" alt="Imagen noticia">
+                <h2>Dólar barato...</h2>
+                <p>Vuelve el carry trade con un dólar que se desploma por debajo de $1200</p>
+                <p class="author">Mariano Gorodisch</p>
+            </article>
+            <article class="news-item">
+                <img src="image3.jpg" alt="Imagen noticia">
+                <h2>Serie 4...</h2>
+                <p>Nuevo Bopreal: por qué el Gobierno emite este bono y cuánto se espera que rinda</p>
+                <p class="author">Julian Yosovitch</p>
+            </article>
+            <article class="news-item">
+                <img src="image4.jpg" alt="Imagen noticia">
+                <h2>Nuevas bandas...</h2>
+                <p>Se hundió el precio del dólar: a cuánto cotizó en los bancos</p>
+                <p class="author">Pilar Wolffelt</p>
+            </article>
+        </section>
+    </main>
 </body>
 </html>
