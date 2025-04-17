@@ -1,114 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MacroMind News</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #b3b3b3;
+    }
+
+    header {
+      background-color: #1b1b5e;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    header img {
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      background-color: #2d2d7d;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .noticia-dia {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      min-height: 300px;
+    }
+
+    .otras-noticias {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .otras-noticias .bloque {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      min-height: 100px;
+    }
+
+    .anteriores {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 0 30px 30px;
+    }
+
+    .anteriores .bloque {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .titulo-anteriores {
+      text-align: center;
+      font-weight: bold;
+      margin: 30px 0 10px;
+      font-size: 20px;
+    }
+
+    footer {
+      background-color: #1b1b5e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
 <body>
   <header>
-    <div class="header-container">
-      <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
-      <h1>MacroMind News</h1>
-      <p>Tu fuente de análisis económico y financiero</p>
-    </div>
+    <img src="img/logo.png" alt="Logo de MacroMind News" />
+    <h1>MacroMind News</h1>
+    <p>Tu fuente de análisis económico y financiero</p>
   </header>
 
-  <!-- Menú hamburguesa -->
-  <button class="hamburger" onclick="toggleMenu()">☰ Menú</button>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Inicio</a>
-    <a href="economia.html">Economía</a>
-    <a href="finanzas.html">Finanzas</a>
-    <a href="politica.html">Política</a>
-    <a href="internacional.html">Internacional</a>
-  </div>
-
-  <!-- Menú de navegación normal -->
   <nav>
-    <a href="index.html">Inicio</a>
-    <a href="economia.html">Economía</a>
-    <a href="finanzas.html">Finanzas</a>
-    <a href="politica.html">Política</a>
-    <a href="internacional.html">Internacional</a>
+    PANEL DE NAVEGACIÓN
   </nav>
 
-  <!-- Contenido principal -->
-  <main class="layout">
-    <!-- NOTICIAS DEL DÍA -->
-    <section class="noticias-dia">
-      <h2>Noticias del día</h2>
+  <main>
+    <!-- Noticias del día -->
+    <div class="noticia-dia">
+      <h2>NOTICIAS DEL DÍA</h2>
+      <div class="bloque">
+        <h3><a href="#">Título de la Noticia Principal</a></h3>
+        <p>Resumen breve o contenido de la noticia...</p>
+      </div>
+    </div>
 
-      <article>
-        <h3><a href="el-gobierno-cconsolida-el-superavit.html">El Gobierno de Javier Milei consolida el superávit financiero en marzo</a></h3>
-        <img src="img/caputo-y-milei.jpg" alt="Caputo y Milei">
-        <p>El Gobierno nacional ha anunciado que durante el mes de marzo se registró un superávit primario...</p>
-      </article>
-
-      <article>
-        <h3><a href="el-gobierno-desregula-el-agro.html">Avanzan las reformas: el Gobierno desregula el agro e impulsa la apertura financiera</a></h3>
-        <img src="img/sec-comercio-comunicado.jpg" alt="Secretaria de Industria y Comercio">
-        <p>El Gobierno impulsa reformas clave en el agro y el sistema financiero...</p>
-      </article>
-    </section>
-
-    <!-- OTRAS NOTICIAS -->
+    <!-- Otras noticias -->
     <aside class="otras-noticias">
-      <h2>Otras noticias</h2>
-
-      <div class="bloque-lateral">
-        <h3><a href="cotizacion.html">Cotización del dólar</a></h3>
-        <p>Mirá la cotización de todos los tipos de dólares.</p>
+      <div class="bloque">
+        <h3><a href="#">Otra noticia 1</a></h3>
+        <p>Resumen...</p>
       </div>
-
-      <div class="bloque-lateral">
-        <h3><a href="el-bcra-emitira-un-nuevo-bono-bopreal-para-impulsar-la-economia.html">El BCRA emitirá un nuevo Bono BOPREAL</a></h3>
-        <p>El Banco Central presentó una nueva serie de Bonos BOPREAL...</p>
+      <div class="bloque">
+        <h3><a href="#">Otra noticia 2</a></h3>
+        <p>Resumen...</p>
       </div>
-
-      <div class="bloque-lateral">
-        <h3><a href="el-bcra-sostiene-la-estabilidad-cambiaria.html">El BCRA sostiene la estabilidad cambiaria</a></h3>
-        <p>Cifras actualizadas reflejan señales de estabilidad en el mercado...</p>
+      <div class="bloque">
+        <h3><a href="#">Otra noticia 3</a></h3>
+        <p>Resumen...</p>
       </div>
     </aside>
   </main>
 
-  <!-- NOTICIAS DE DÍAS ANTERIORES -->
+  <div class="titulo-anteriores">NOTICIAS DE DÍAS ANTERIORES</div>
   <section class="anteriores">
-    <h2>Noticias de días anteriores</h2>
-    <div class="grid-anteriores">
-      <div class="item-anterior">
-        <h3><a href="eliminacion-del-certificado-de-importacion-de-bienes-usados.html">Eliminación del Certificado de Importación</a></h3>
-        <p>Simplificación para importar bienes usados.</p>
-      </div>
-
-      <div class="item-anterior">
-        <h3><a href="arca-elimina-percepciones-para-la-compra-de-moneda-extranjera.html">ARCA elimina percepciones</a></h3>
-        <p>Se eliminan percepciones para compra de dólares.</p>
-      </div>
-
-      <div class="item-anterior">
-        <h3><a href="argentina-recibe-primer-desembolso-del-fmi.html">Argentina recibe desembolso del FMI</a></h3>
-        <p>U$S 12.000 millones y relajación del cepo.</p>
-      </div>
-
-      <div class="item-anterior">
-        <h3><a href="inflacion-de-marzo.html">Inflación de marzo</a></h3>
-        <p>Repunte al 3,7%.</p>
-      </div>
-
-      <div class="item-anterior">
-        <h3><a href="zuchovicki-nuevo-presidente-de-la-bolsa-de-comercio.html">Zuchovicki presidente de la Bolsa</a></h3>
-        <p>Promete acercar el mercado a los argentinos.</p>
-      </div>
-
-      <div class="item-anterior">
-        <h3><a href="el-merval-sube-un-13-ante-expectativa-por-acuerdo-con-el-fmi.html">El Merval sube un 13%</a></h3>
-        <p>Sube ante expectativas con el FMI.</p>
-      </div>
+    <div class="bloque">
+      <h4><a href="#">Noticia anterior 1</a></h4>
+      <p>Resumen...</p>
     </div>
+    <div class="bloque">
+      <h4><a href="#">Noticia anterior 2</a></h4>
+      <p>Resumen...</p>
+    </div>
+    <div class="bloque">
+      <h4><a href="#">Noticia anterior 3</a></h4>
+      <p>Resumen...</p>
+    </div>
+    <!-- Más bloques se pueden agregar fácilmente aquí -->
   </section>
 
   <footer>
     © 2025 MacroMind News | Todos los derechos reservados
   </footer>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById("mobileMenu").classList.toggle("show");
-    }
-  </script>
 </body>
+</html>
