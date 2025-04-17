@@ -25,15 +25,14 @@
     }
 
     header h1 {
-  font-family: serif;
-  font-size: 36px;
-  margin-bottom: 5px; /* Ajusta el espacio debajo del título */
-}
-    
+      font-family: serif;
+      font-size: 36px;
+      margin-bottom: 5px;
+    }
+
     header p {
-  margin-top: 0; /* Elimina el espacio superior del eslogan */
-  margin-bottom: 0; /* Elimina el espacio inferior del eslogan */
-}
+      margin: 0;
+    }
 
     nav {
       background-color: #1a1a40;
@@ -41,9 +40,8 @@
 
     .nav-container {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       max-width: 1200px;
       margin: 0 auto;
       padding: 10px;
@@ -52,15 +50,12 @@
     .nav-links {
       display: flex;
       gap: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
     }
 
     .nav-links a {
       color: white;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1em;
     }
 
     .nav-links a:hover {
@@ -73,10 +68,7 @@
       border: none;
       color: white;
       font-size: 28px;
-      padding: 10px 20px;
-      background-color: white;
-      text-aling:left;
-      width: 25px;
+      cursor: pointer;
     }
 
     .mobile-menu {
@@ -86,7 +78,7 @@
     }
 
     .mobile-menu a {
-      padding: 12px;
+      padding: 12px 20px;
       color: white;
       text-decoration: none;
       border-top: 1px solid #333;
@@ -99,9 +91,15 @@
     .container {
       display: grid;
       grid-template-columns: 3fr 1fr;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .noticia-dia, .otras-noticias, .anteriores {
+    .noticia-dia,
+    .otras-noticias,
+    .anteriores {
       background: white;
       padding: 20px;
       border-radius: 12px;
@@ -110,11 +108,25 @@
     }
 
     h2 {
-      border-bottom: none; /* Quita la raya */
-      padding-bottom: 10px;
-      margin-bottom: 20px;
       font-size: 1.5em;
-      color: black; /* Texto en negro */
+      color: black;
+      margin-top: 0;
+    }
+
+    h2 a {
+      text-decoration: none;
+      color: black;
+    }
+
+    h2 a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 8px;
+      margin: 15px 0;
     }
 
     footer {
@@ -131,11 +143,7 @@
       }
 
       .hamburger {
-        display: flex;
-      }
-
-      .mobile-menu {
-        display: none;
+        display: block;
       }
 
       .mobile-menu.show {
@@ -144,21 +152,9 @@
 
       .container {
         grid-template-columns: 1fr;
-        padding: 20px;
+        padding: 15px;
       }
     }
-
-    h2 a {
-  text-decoration: none;
-  color: #black;
-  font-weight: bold;
-  line-height: 1.4;
-}
-
-h2 a:hover {
-  text-decoration: underline; /* Subrayado solo cuando el mouse pasa por encima */
-}
-
   </style>
 </head>
 <body>
@@ -171,17 +167,13 @@ h2 a:hover {
 
 <nav>
   <div class="nav-container">
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
     <div class="nav-links">
       <a href="index.html">Inicio</a>
-    <a href="economia.html">Economía</a>
-    <a href="finanzas.html">Finanzas</a>
-    <a href="politica.html">Política</a>
-    <a href="internacional.html">Internacional</a>
-    </div>
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
+      <a href="economia.html">Economía</a>
+      <a href="finanzas.html">Finanzas</a>
+      <a href="politica.html">Política</a>
+      <a href="internacional.html">Internacional</a>
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
@@ -198,26 +190,29 @@ h2 a:hover {
     <section class="noticia-dia">
       <h2>Noticia del Día</h2>
       <h2><a href="el-gobierno-desregula-el-agro.html">Avanzan las reformas: el Gobierno desregula el agro e impulsa la apertura financiera</a></h2>
-      <img src="img/sec-comercio-comunicado.jpg" alt="Secretaria de Industria y Comercio" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+      <img src="img/sec-comercio-comunicado.jpg" alt="Secretaria de Industria y Comercio">
       <p>El Gobierno impulsa reformas clave en el agro y el sistema financiero.</p>
     </section>
 
-  <div class="otras-noticias">
+    <section class="otras-noticias">
       <h2>Otras Noticias</h2>
       <h2><a href="el-bcra-emitira-un-nuevo-bono-bopreal-para-impulsar-la-economia.html">El BCRA emitirá un nuevo Bono BOPREAL para Impulsar la Economía</a></h2>
-      <p>En un paso decisivo para consolidar la estabilidad económica, el Banco Central ha presentado una nueva serie de Bonos para la Reconstrucción de una Argentina Libre (BOPREAL).</p>  
-    
+      <p>En un paso decisivo para consolidar la estabilidad económica, el Banco Central ha presentado una nueva serie de Bonos para la Reconstrucción de una Argentina Libre (BOPREAL).</p>
+
       <h2><a href="el-bcra-sostiene-la-estabilidad-cambiaria.html">El BCRA sostiene la estabilidad cambiaria</a></h2>
       <p>El Banco Central de la República Argentina (BCRA) dio a conocer las cifras actualizadas de las principales variables cambiarias, reflejando señales de estabilidad en el mercado.</p>
-    </div>
+    </section>
   </div>
-  
-    <div class="anteriores">
+
+  <aside>
+    <section class="anteriores">
       <h2>Noticias Anteriores</h2>
       <h2><a href="cotizacion.html">Cotización del dólar</a></h2>
       <p>Mira la cotización de todos los tipos de dólares.</p>
-    </div>
-  </div>
+    </section>
+  </aside>
+</div>
+
 <footer>
   © 2025 MacroMind News | Todos los derechos reservados
 </footer>
@@ -227,6 +222,7 @@ h2 a:hover {
     const menu = document.getElementById('mobileMenu');
     menu.classList.toggle('show');
   }
-    </script>
-  </body>
+</script>
+
+</body>
 </html>
