@@ -40,8 +40,9 @@
 
     .nav-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
       max-width: 1200px;
       margin: 0 auto;
       padding: 10px;
@@ -76,7 +77,15 @@
       flex-direction: column;
       background-color: #1a1a40;
     }
-
+    
+    .menu-text {
+      font-size: 18px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
     .mobile-menu a {
       padding: 12px 20px;
       color: white;
@@ -160,14 +169,15 @@
 <body>
 
 <header>
-  <img src="img/logo.png" alt="Logo MacroMind News" />
+  <img src="img/logo.png" alt="Logo MacroMind News" style="height: 60px; border-radius: 10px;"/>
   <h1>MacroMind News</h1>
   <p>Tu fuente de análisis económico y financiero</p>
 </header>
 
 <nav>
   <div class="nav-container">
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <button class="hamburger" onclick="toggleMenu()">
+      <span class="menu-text">☰ Menú</span>
     <div class="nav-links">
       <a href="index.html">Inicio</a>
       <a href="economia.html">Economía</a>
