@@ -41,8 +41,9 @@
 
     .nav-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
       max-width: 1200px;
       margin: 0 auto;
       padding: 10px;
@@ -51,6 +52,8 @@
     .nav-links {
       display: flex;
       gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .nav-links a {
@@ -68,6 +71,7 @@
       display: none;
       flex-direction: column;
       cursor: pointer;
+      margin-left: auto;
     }
 
     .hamburger div {
@@ -184,10 +188,9 @@
   <div>
     <section class="noticia-dia">
       <h2>Noticia del Día</h2>
-     <h2><a href="el-gobierno-desregula-el-agro.html">Avanzan las reformas: el Gobierno desregula el agro e impulsa la apertura financiera</a></h2>
-    <img src="img/sec-comercio-comunicado.jpg" alt="Secretaria de Industria y Comercio" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
-    <p>El Gobierno impulsa reformas clave en el agro y el sistema financiero.</p> 
-  </div>
+      <h2><a href="el-gobierno-desregula-el-agro.html">Avanzan las reformas: el Gobierno desregula el agro e impulsa la apertura financiera</a></h2>
+      <img src="img/sec-comercio-comunicado.jpg" alt="Secretaria de Industria y Comercio" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+      <p>El Gobierno impulsa reformas clave en el agro y el sistema financiero.</p>
     </section>
 
     <section class="otras-noticias">
@@ -199,11 +202,11 @@
   <div>
     <section class="anteriores">
       <h2>Noticias Anteriores</h2>
-    <div<h2><a href="cotizacion.html">Cotización del dólar</a></h2>
-    <p>Mira la cotización de todo los tipos de dólares.</p>
-  </div>
+      <div>
+        <h2><a href="cotizacion.html">Cotización del dólar</a></h2>
+        <p>Mira la cotización de todos los tipos de dólares.</p>
+      </div>
     </section>
-    
   </div>
 </div>
 
