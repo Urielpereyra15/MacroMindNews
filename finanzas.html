@@ -7,12 +7,13 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #b3b3b3;
+      font-family: 'Georgia', serif;
+      background-color: #f5f5f5;
+      color: #0a0a23;
     }
 
     header {
-      background-color: #1b1b5e;
+      background-color: #0a0a23;
       color: white;
       text-align: center;
       padding: 20px 10px;
@@ -20,151 +21,202 @@
 
     header img {
       height: 50px;
-      margin-bottom: 10px;
+    }
+
+    header h1 {
+      margin: 10px 0 5px;
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    header p {
+      margin: 0;
+      font-style: italic;
+      font-size: 1em;
     }
 
     nav {
-      background-color: #2d2d7d;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      font-weight: bold;
+      background-color: #191970;
     }
 
-    main {
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #191970;
+    }
+
+    .mobile-menu a {
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      border-top: 1px solid #333;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #000080;
+    }
+
+    .container {
       display: grid;
       grid-template-columns: 3fr 1fr;
       gap: 20px;
-      padding: 30px;
+      padding: 40px 10%;
+      background-color: #f5f5f5;
     }
 
-    .noticia-dia {
-      background-color: white;
+    .noticia-dia, .otras-noticias, .anteriores {
+      background: white;
       padding: 20px;
-      border-radius: 10px;
-      min-height: 300px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
     }
 
-    .otras-noticias {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .otras-noticias .bloque {
-      background-color: white;
-      padding: 15px;
-      border-radius: 10px;
-      min-height: 100px;
-    }
-
-    .anteriores {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      padding: 0 30px 30px;
-    }
-
-    .anteriores .bloque {
-      background-color: white;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .titulo-anteriores {
-      text-align: center;
-      font-weight: bold;
-      margin: 30px 0 10px;
-      font-size: 20px;
+    h2 {
+      border-bottom: 2px solid #191970;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: #191970;
     }
 
     footer {
-      background-color: #1b1b5e;
+      background-color: #0a0a23;
       color: white;
       text-align: center;
       padding: 15px;
+      font-size: 0.9em;
     }
 
     @media (max-width: 768px) {
-      main {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.show {
+        display: flex;
+      }
+
+      .container {
         grid-template-columns: 1fr;
+        padding: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="img/logo.png" alt="Logo de MacroMind News" />
-    <h1>MacroMind News</h1>
-    <p>Tu fuente de análisis económico y financiero</p>
-  </header>
 
-  <!-- Menú hamburguesa -->
-  <button class="hamburger" onclick="toggleMenu()">☰ Menú</button>
+<header>
+  <img src="img/logo.png" alt="Logo MacroMind News" />
+  <h1>MacroMind News</h1>
+  <p>Tu fuente de análisis económico y financiero</p>
+</header>
+
+<nav>
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="#">Economía</a>
+      <a href="#">Finanzas</a>
+      <a href="#">Política</a>
+      <a href="#">Internacional</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Inicio</a>
-    <a href="economia.html">Economía</a>
-    <a href="finanzas.html">Finanzas</a>
-    <a href="politica.html">Política</a>
-    <a href="internacional.html">Internacional</a>
+    <a href="#">Economía</a>
+    <a href="#">Finanzas</a>
+    <a href="#">Política</a>
+    <a href="#">Internacional</a>
   </div>
-  
-  <!-- Menú de navegación normal -->
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="economia.html">Economía</a>
-    <a href="finanzas.html">Finanzas</a>
-    <a href="politica.html">Política</a>
-    <a href="internacional.html">Internacional</a>
-  </nav>
+</nav>
 
-  <main>
-    <!-- Noticias del día -->
-    <div class="noticia-dia">
-      <h2>NOTICIAS DEL DÍA</h2>
-      <div class="bloque">
-        <h2><a href="el-gobierno-cconsolida-el-superavit.html">El Gobierno de Javier Milei consolida el superávit financiero en marzo</a></h2>
-        <img src="img/caputo-y-milei.jpg" alt="Ministro de Economia Luis Caputo y el Presidente Javier Milei" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
-        <p>El Gobierno nacional ha anunciado que durante el mes de marzo se registró un superávit primario.</p>
-    </div> 
+<div class="container">
+  <div>
+    <section class="noticia-dia">
+      <h2>Noticia del Día</h2>
+     <h2><a href="el-gobierno-desregula-el-agro.html">Avanzan las reformas: el Gobierno desregula el agro e impulsa la apertura financiera</a></h2>
+    <img src="img/sec-comercio-comunicado.jpg" alt="Secretaria de Industria y Comercio" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+    <p>El Gobierno impulsa reformas clave en el agro y el sistema financiero.</p> 
+  </div>
+    </section>
+
+    <section class="otras-noticias">
+      <h2>Otras Noticias</h2>
+      <!-- Aquí más noticias -->
+    </section>
   </div>
 
-    <!-- Otras noticias -->
-    <aside class="otras-noticias">
-      <div class="bloque">
-        <h3><a href="#">Otra noticia 1</a></h3>
-        <p>Resumen...</p>
-      </div>
-      <div class="bloque">
-        <h3><a href="#">Otra noticia 2</a></h3>
-        <p>Resumen...</p>
-      </div>
-      <div class="bloque">
-        <h3><a href="#">Otra noticia 3</a></h3>
-        <p>Resumen...</p>
-      </div>
-    </aside>
-  </main>
+  <div>
+    <section class="anteriores">
+      <h2>Noticias Anteriores</h2>
+    <div<h2><a href="cotizacion.html">Cotización del dólar</a></h2>
+    <p>Mira la cotización de todo los tipos de dólares.</p>
+  </div>
+    </section>
+    
+  </div>
+</div>
 
-  <div class="titulo-anteriores">NOTICIAS DE DÍAS ANTERIORES</div>
-  <section class="anteriores">
-    <div class="bloque">
-      <h4><a href="#">Noticia anterior 1</a></h4>
-      <p>Resumen...</p>
-    </div>
-    <div class="bloque">
-      <h4><a href="#">Noticia anterior 2</a></h4>
-      <p>Resumen...</p>
-    </div>
-    <div class="bloque">
-      <h4><a href="#">Noticia anterior 3</a></h4>
-      <p>Resumen...</p>
-    </div>
-    <!-- Más bloques se pueden agregar fácilmente aquí -->
-  </section>
+<footer>
+  © 2025 MacroMind News | Todos los derechos reservados
+</footer>
 
-  <footer>
-    © 2025 MacroMind News | Todos los derechos reservados
-  </footer>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('show');
+  }
+</script>
+
 </body>
 </html>
