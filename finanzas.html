@@ -1,153 +1,253 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MacroMind News</title>
-    <link rel="stylesheet" href="styles.css">
-<style>
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     background-color: #f9f9f9;
-     margin: 0;
-     padding: 0;
-}
-
-header {
-    background-color: #006f61;
-    color: white;
-    padding: 10px;
-    text-align: right;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-main {
-    padding: 20px;
-}
-
-.top-news {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.top-news .news-item {
-    display: inline-block;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.top-news .news-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.top-news .news-item h2 {
-    font-size: 24px;
-    margin: 15px 0;
-}
-
-.top-news .news-item p {
-    font-size: 16px;
-}
-
-.top-news .news-item .author {
-    font-size: 14px;
-    color: #888;
-}
-
-.other-news {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.other-news .news-item {
-    background-color: white;
-    padding: 15px;
-    width: 32%;
-    margin: 0 1% 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.other-news .news-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.other-news .news-item h2 {
-    font-size: 18px;
-    margin-top: 15px;
-}
-
-.other-news .news-item p {
-    font-size: 14px;
-}
-
-.other-news .news-item .author {
-    font-size: 12px;
-    color: #888;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanzas - MacroMind News</title>
+  <link rel="stylesheet" href="estilos.css">
   
-</style>
+  <!-- ESTILOS EXCLUSIVOS DE ESTA PÁGINA -->
+  <style>
+
+    .content p {
+  font-size: 22px; /* Cambiar tamaño del texto */
+  line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
+}
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0a0a23;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+  font-family: serif;
+  font-size: 36px;
+  margin-bottom: 5px; /* Ajusta el espacio debajo del título */
+}
+
+    header p {
+  margin-top: 0; /* Elimina el espacio superior del eslogan */
+  margin-bottom: 0; /* Elimina el espacio inferior del eslogan */
+}
+    
+    nav {
+      background-color: #1a1a40;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 28px;
+      padding: 10px 20px;
+      background-color: #1a1a40;
+      text-align: left;
+      width: 100%;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #1a1a40;
+    }
+
+    .mobile-menu a {
+      padding: 12px;
+      border-top: 1px solid #333;
+      text-decoration: none;
+      color: white;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #333;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .article-principal {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    .article-principal img {
+      border-radius: 10px;
+      margin: 15px 0;
+      max-width: 100%;
+    }
+
+    aside.lateral {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .bloque-lateral {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    .bloque-lateral img {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    article {
+      grid-column: 1 / -1;
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    article img {
+      border-radius: 10px;
+      margin: 15px 0;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #1a1a40;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .mobile-menu.show {
+        display: flex;
+      }
+      main {
+        display: block;
+        padding: 20px;
+      }
+    }  
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Suscríbete</a></li>
-                <li><a href="#">Ingresar</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="top-news">
-            <article class="news-item">
-                <img src="image1.jpg" alt="Imagen noticia">
-                <h2>Lo que mira el mercado...</h2>
-                <p>¿Los bonos tienen potencial para volver a máximos previos? Cuáles podrían subir más</p>
-                <p class="author">Julian Yosovitch</p>
-            </article>
-        </section>
+  <header>
+    <div class="header-container">
+    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
+    <h1>MacroMind News</h1>
+    <p>Tu fuente de análisis económico y financiero</p>
+   </div>
+ </div>
+</header>
+  
+  <!-- Menú hamburguesa -->
+  <button class="hamburger" onclick="toggleMenu()">☰ Menú</button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </div>
 
-        <section class="other-news">
-            <article class="news-item">
-                <img src="image2.jpg" alt="Imagen noticia">
-                <h2>Dólar barato...</h2>
-                <p>Vuelve el carry trade con un dólar que se desploma por debajo de $1200</p>
-                <p class="author">Mariano Gorodisch</p>
-            </article>
-            <article class="news-item">
-                <img src="image3.jpg" alt="Imagen noticia">
-                <h2>Serie 4...</h2>
-                <p>Nuevo Bopreal: por qué el Gobierno emite este bono y cuánto se espera que rinda</p>
-                <p class="author">Julian Yosovitch</p>
-            </article>
-            <article class="news-item">
-                <img src="image4.jpg" alt="Imagen noticia">
-                <h2>Nuevas bandas...</h2>
-                <p>Se hundió el precio del dólar: a cuánto cotizó en los bancos</p>
-                <p class="author">Pilar Wolffelt</p>
-            </article>
-        </section>
-    </main>
+  <!-- Menú de navegación normal -->
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </nav>
+
+  <main>
+    <!-- Columna principal -->
+    <div class="article-principal">
+    <h2><a href="pagina.html">Titulo de noticia</a></h2>
+  <img src="img/imagen.jpeg" alt="Descripcion" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+  <p>Texto...</p>
+</div>
+      
+    <!-- Columna lateral -->
+      <aside class="lateral">
+      <div class="bloque-lateral">
+    <h2><a href="pagina.html">Titulo</a></h2>
+    <p>Texto...</p>
+  </div>
+      
+      <aside class="lateral">
+      <div class="bloque-lateral">
+    <h2><a href="pagina.html">Titulo</a></h2>
+    <p>Texto...</p>
+  </div>
+        
+      <aside class="lateral">
+      <div class="bloque-lateral">
+    <h2><a href="pagina.html">Titulo</a></h2>
+    <p>Texto...</p>
+</div>
+    
+    </aside>
+  </main>
+  
+  <footer>
+    © 2025 MacroMind News | Todos los derechos reservados
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
