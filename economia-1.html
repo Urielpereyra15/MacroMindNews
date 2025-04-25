@@ -195,6 +195,35 @@
   color: black;
 }
 
+  <script>
+  let paginaActual = 1;
+  const paginador = document.getElementById('paginador');
+
+  function renderizarPaginador() {
+    paginador.innerHTML = '';
+
+    for (let i = 0; i < 5; i++) {
+      const numero = (paginaActual - 1) * 5 + (i + 1);
+      const boton = document.createElement('a');
+      boton.href = '#';
+      boton.textContent = numero;
+      if (i === 0) boton.classList.add('active');
+      paginador.appendChild(boton);
+    }
+
+    const siguiente = document.createElement('a');
+    siguiente.href = '#';
+    siguiente.textContent = 'Siguiente >';
+    siguiente.onclick = () => {
+      paginaActual++;
+      renderizarPaginador();
+    };
+    paginador.appendChild(siguiente);
+  }
+
+  renderizarPaginador();
+</script>
+
   </style>
 </head>
 <body>
@@ -267,6 +296,15 @@
   <!-- Segundo bloque de noticias (cuadritos abajo de los anteriores) -->
   <!-- CUADRITOS debajo de las dos columnas -->
 </main>
+
+<div class="paginador">
+  <a href="#" class="active">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">Siguiente ></a>
+</div>
   
   <footer>
     © 2025 MacroMind News | Todos los derechos reservados
