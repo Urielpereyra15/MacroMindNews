@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Economía - MacroMind News</title>
+  <link rel="stylesheet" href="estilos.css">
+  
+  <!-- ESTILOS EXCLUSIVOS DE ESTA PÁGINA -->
+  <style>
+
+    .content p {
+  font-size: 22px; /* Cambiar tamaño del texto */
+  line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
+}
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0a0a23;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+  font-family: serif;
+  font-size: 36px;
+  margin-bottom: 5px; /* Ajusta el espacio debajo del título */
+}
+
+    header p {
+  margin-top: 0; /* Elimina el espacio superior del eslogan */
+  margin-bottom: 0; /* Elimina el espacio inferior del eslogan */
+}
+    
+    nav {
+      background-color: #1a1a40;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 28px;
+      padding: 10px 20px;
+      background-color: #1a1a40;
+      text-align: left;
+      width: 100%;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #1a1a40;
+    }
+
+    .mobile-menu a {
+      padding: 12px;
+      border-top: 1px solid #333;
+      text-decoration: none;
+      color: white;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #333;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .article-principal {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    .article-principal img {
+      border-radius: 10px;
+      margin: 15px 0;
+      max-width: 100%;
+    }
+
+    aside.lateral {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .bloque-lateral {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    .bloque-lateral img {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    article {
+      grid-column: 1 / -1;
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    article img {
+      border-radius: 10px;
+      margin: 15px 0;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #1a1a40;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .mobile-menu.show {
+        display: flex;
+      }
+      main {
+        display: block;
+        padding: 20px;
+      }
+    }  
+
+    .noticias-inferiores {
+  grid-column: 1 / -1; /* ocupa toda la fila del grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.noticia-cuadro {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: black;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
+    <h1>MacroMind News</h1>
+    <p>Tu fuente de análisis económico y financiero</p>
+   </div>
+ </div>
+</header>
+  
+  <!-- Menú hamburguesa -->
+  <button class="hamburger" onclick="toggleMenu()">☰ Menú</button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </div>
+
+  <!-- Menú de navegación normal -->
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </nav>
+
+  <main>
+  <!-- Columna principal -->
+  <div class="article-principal">
+    <h2><a href="el-gobierno-avanza-con-la-privatizacion-de-enarsa.html">El Gobierno Nacional avanza con la modernización del sector energético: inicia la privatización de ENARSA</a></h2>    
+    <img src="img/enarsa.jpg" alt="Empresa pública Argentina | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+    <p>El Gobierno Nacional anunció el inicio del proceso de privatización de ENARSA.</p>
+  </div>
+
+  <!-- Columna lateral -->
+  <aside class="lateral">
+    <div class="bloque-lateral">
+    <h2><a href="dr-martens-vuelve-a-argentina.html">Dr. Martens vuelve a la Argentina con una inversión de US$400.000</a></h2>    
+    <p>La icónica marca británica de calzado Dr. Martens confirmó su regreso al mercado argentino con una inversión inicial de 400 mil dólares.</p>
+    </div>
+    <div class="bloque-lateral">
+    <h2><a href="on-llega-a-argentina.html">La marca suiza de zapatillas ON llegará a la Argentina en 2026</a></h2>    
+    <p>La reconocida firma suiza de calzado deportivo ON anunció oficialmente su desembarco en el mercado argentino.</p>
+    </div>
+    <div class="bloque-lateral">
+    <h2><a href="arca-detecta-gasto-millonario en-alquileres-el-próximo-objetivo-de-la-motosierra.html">ARCA detecta gasto millonario en alquileres: el próximo objetivo de la motosierra</a></h2>    
+    <p>La Agencia de Recaudación y Control Aduanero (ARCA) reveló que el Estado gastará más de $4.000 millones en alquiler de oficinas en 2025, y apunta a recortes drásticos.</p>
+    </div>
+  </aside>
+
+  <!-- Cuarto bloque de noticias (cuadritos abajo de los anteriores) -->
+   <div class="noticias-inferiores">
+    <div class="noticia-cuadro">
+      <h3><a href="la-economia-crecio-un-5-interanual-en-febrero.html">La economía argentina creció un 5,7% interanual en febrero, según el INDEC</a></h3>
+      <p>La economía argentina registró en febrero un crecimiento interanual del 5,7%, de acuerdo con los datos difundidos por el INDEC a través del EMAE.</p>
+   </div>
+    <div class="noticia-cuadro">
+      <h3><a href="neobanco-desembarca-en-argentina.html">Neobanco brasileño desembarca en Argentina</a></h3>
+      <p>El multimillonario brasileño João Vitor Menin, CEO del banco digital Inter, anunció el desembarco de su neobanco en Argentina.</p>
+   </div>
+  </div>
+ </aside>
+    
+  <!-- Tercer bloque de noticias (cuadritos abajo de los anteriores) -->
+  <!-- Segundo bloque de noticias (cuadritos abajo de los anteriores) -->
+  <!-- CUADRITOS debajo de las dos columnas -->
+</main>
+  
+  <footer>
+    © 2025 MacroMind News | Todos los derechos reservados
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
