@@ -182,7 +182,7 @@
     .noticias-inferiores {
   grid-column: 1 / -1; /* ocupa toda la fila del grid */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste dinámico */
   gap: 20px;
   margin-top: 30px;
 }
@@ -281,27 +281,27 @@
   </aside>
 
   <!-- Tercer bloque de noticias (cuadritos abajo de los anteriores) -->
-  <div class="noticias-inferiores">
+  <aside class="noticias-inferiores">
     <div class="noticia-cuadro">
-      <h3><a href="el-banco-mundial-anuncia-ayuda-financiera-para-la-argentina.html">El Banco Mundial anuncia un paquete de ayuda para la Argentina</a></h3>
-      <p>El Banco Mundial anuncia ayuda financiera para la Argentina.</p>
+    <h3><a href="el-banco-mundial-anuncia-ayuda-financiera-para-la-argentina.html">El Banco Mundial anuncia un paquete de ayuda para la Argentina</a></h3>
+    <p>El Banco Mundial anuncia ayuda financiera para la Argentina.</p>
     </div>
-  </div>
+  </aside>
     
   <!-- CUADRITOS debajo de las dos columnas -->
-  <div class="noticias-inferiores">
-      <h3><a href="el-banco-interamericano-de-desarrollo-anuncio-un-paquete-de-financiamiento.html">BID anuncio un paquete de financiamiento</a></h3>
-      <p>El BID se suma con US$ 10.000 millones.</p>
+  <aside class="noticias-inferiores">
+    <div class="noticia-cuadro">
+    <h3><a href="el-banco-interamericano-de-desarrollo-anuncio-un-paquete-de-financiamiento.html">BID anuncio un paquete de financiamiento</a></h3>
+    <p>El BID se suma con US$ 10.000 millones.</p>
     </div>
-  <div class="noticia-cuadro">
-      <h3><a href="eliminacion-del-dolar-blend.html">Se elimina el dólar blend</a></h3>
-      <p>El Ministro de Economia, Luis Caputo, anunció la eliminación del dólar blend.</p>
+    <div class="noticia-cuadro">
+    <h3><a href="eliminacion-del-dolar-blend.html">Se elimina el dólar blend</a></h3>
+    <p>El Ministro de Economia, Luis Caputo, anunció la eliminación del dólar blend.</p>
     </div>
-  <div class="noticia-cuadro">
-      <h3><a href="acuerdo-con-el-fmi.html">Acuerdo con el FMI y flexibilización del cepo cambiario</a></h3>
-      <p>Acuerdo con el FMI y flexibilización de cepo.</p>
+    <div class="noticia-cuadro">
+    <h3><a href="acuerdo-con-el-fmi.html">Acuerdo con el FMI y flexibilización del cepo cambiario</a></h3>
+    <p>Acuerdo con el FMI y flexibilización de cepo.</p>
     </div>
-  </div>
  </aside>
 </main>
 
