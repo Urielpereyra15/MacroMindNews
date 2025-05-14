@@ -195,6 +195,35 @@
   color: black;
 }
 
+ <script>
+  let paginaActual = 1;
+  const paginador = document.getElementById('paginador');
+
+  function renderizarPaginador() {
+    paginador.innerHTML = '';
+
+    for (let i = 0; i < 5; i++) {
+      const numero = (paginaActual - 1) * 5 + (i + 1);
+      const boton = document.createElement('a');
+      boton.href = '#';
+      boton.textContent = numero;
+      if (i === 0) boton.classList.add('active');
+      paginador.appendChild(boton);
+    }
+
+    const siguiente = document.createElement('a');
+    siguiente.href = '#';
+    siguiente.textContent = 'Siguiente >';
+    siguiente.onclick = () => {
+      paginaActual++;
+      renderizarPaginador();
+    };
+    paginador.appendChild(siguiente);
+  }
+
+  renderizarPaginador();
+</script>   
+    
   </style>
 </head>
 <body>
@@ -299,6 +328,10 @@
     </div>
   </aside>
 </main>
+
+  <div class="paginador">
+  <a href="politica.html" class="active">1</a>
+  <a href="politica-1.html">2</a>
   
   <footer>
     © 2025 MacroMind News | Todos los derechos reservados
