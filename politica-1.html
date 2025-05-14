@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política Macrimind News </title>
+  <link rel="stylesheet" href="estilos.css">
+  
+  <!-- ESTILOS EXCLUSIVOS DE ESTA PÁGINA -->
+  <style>
+
+    .content p {
+  font-size: 22px; /* Cambiar tamaño del texto */
+  line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
+}
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0a0a23;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+  font-family: serif;
+  font-size: 36px;
+  margin-bottom: 5px; /* Ajusta el espacio debajo del título */
+}
+
+    header p {
+  margin-top: 0; /* Elimina el espacio superior del eslogan */
+  margin-bottom: 0; /* Elimina el espacio inferior del eslogan */
+}
+    
+    nav {
+      background-color: #1a1a40;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 28px;
+      padding: 10px 20px;
+      background-color: #1a1a40;
+      text-align: left;
+      width: 100%;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #1a1a40;
+    }
+
+    .mobile-menu a {
+      padding: 12px;
+      border-top: 1px solid #333;
+      text-decoration: none;
+      color: white;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #333;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .article-principal {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    .article-principal img {
+      border-radius: 10px;
+      margin: 15px 0;
+      max-width: 100%;
+    }
+
+    aside.lateral {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .bloque-lateral {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    .bloque-lateral img {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    article {
+      grid-column: 1 / -1;
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: black; /* texto negro */
+    }
+
+    article img {
+      border-radius: 10px;
+      margin: 15px 0;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #1a1a40;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .mobile-menu.show {
+        display: flex;
+      }
+      main {
+        display: block;
+        padding: 20px;
+      }
+    }  
+
+    .noticias-inferiores {
+  grid-column: 1 / -1; /* ocupa toda la fila del grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.noticia-cuadro {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: black;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+    <img src="img/logo.png" alt="Logo de MacroMind News" style="height: 60px;">
+    <h1>MacroMind News</h1>
+    <p>Tu fuente de análisis económico y financiero</p>
+   </div>
+ </div>
+</header>
+  
+  <!-- Menú hamburguesa -->
+  <button class="hamburger" onclick="toggleMenu()">☰ Menú</button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </div>
+
+  <!-- Menú de navegación normal -->
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </nav>
+
+  <main>
+  <!-- Columna principal -->
+  <div class="article-principal">
+    <h2><a href="milei-en-el-congreso-del-iaef.html">Milei en el Congreso del IAEF: “Los econochantas de Mandrilandia no pegaron una”</a></h2>
+    <img src="img/milei3.jpeg" alt="Presidente de la Nación | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+    <p>El presidente Javier Milei fue protagonista del 42° Congreso Anual del Instituto Argentino de Ejecutivos de Finanzas (IAEF), realizado en el Centro de Convenciones de Buenos Aires.</p>
+  </div>
+
+  <!-- Columna lateral -->
+  <aside class="lateral">
+    <div class="bloque-lateral">
+    <h2><a href="la-libertad-avanza-logra-historica-victoria-en-salta.html">La Libertad Avanza logra histórica victoria en Salta Capital y desplaza al oficialismo de Sáenz</a></h2>
+    <p> La Libertad Avanza obtuvo un triunfo contundente en la provincia de Salta.</p>
+    </div>
+    <div class="bloque-lateral">
+    <h2><a href="la-libertad-avanza-logra-contundente-victoria.html">La Libertad Avanza logra contundente victoria en la eleccion legislativa de Chaco</a></h2>
+    <p>La alianza entre Chaco Puede y La Libertad Avanza (LLA) obtuvo un triunfo contundente en las elecciones legislativas.</p>
+    </div>
+    <div class="bloque-lateral">
+    <h2><a href="visita-del-jefe-del-comando-sur-a-argentina.html">Visita del Jefe del Comando Sur de EE. UU. a Argentina: Un Paso hacia el Fortalecimiento de la Cooperación Bilateral</a></h2>
+    <p>El almirante Alvin Holsey, jefe del Comando Sur de Estados Unidos (SOUTHCOM), llegará a Argentina la próxima semana con el objetivo de consolidar la cooperación estratégica entre ambos países.</p>
+    </div>
+  </aside>
+
+  <!-- CUADRITOS debajo de las dos columnas -->
+  <div class="noticias-inferiores">
+    <div class="noticia-cuadro">
+      <h3><a href="cadena-nacional.html">Cadena nacional ¿qué dijo Milei?</a></h3>
+      <p>Habló el Presidente Javier Milei en cadena nacional.</p>
+    </div>
+  </aside>
+</main>
+  
+  <footer>
+    © 2025 MacroMind News | Todos los derechos reservados
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
