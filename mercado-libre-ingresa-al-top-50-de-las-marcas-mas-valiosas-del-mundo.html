@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercado Libre ingresa al Top 50 de las marcas más valiosas del mundo</title>
+  <link rel="stylesheet" href="estilos.css">
+  
+  <style>
+
+    .content p {
+  font-size: 22px; /* Cambiar tamaño del texto */
+  line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
+}
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+    }
+
+    /* Logo, título y eslogan centrados */
+    header .header-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    .titulo-header {
+      margin-left: 20px;
+    }
+
+    .titulo-header h1 {
+      font-family: serif;
+      font-size: 42px;
+      margin: 0;
+    }
+
+    .titulo-header p {
+      margin: 5px 0;
+    }
+
+    /* Menú de navegación */
+    nav.main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 10px;
+      background-color: #12123a;
+    }
+
+    nav.main-nav a {
+      font-family: 'Georgia', serif;
+      font-size: 18px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav.main-nav a:hover {
+      color: #66ccff;
+    }
+
+    .layout {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .sidebar {
+      width: 150px;
+      display: none;
+    }
+
+    .sidebar img {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .content {
+      max-width: 800px;
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .mobile-ads {
+      display: none;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .mobile-ads img {
+      max-width: 100%;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* Vista móvil */
+    @media (max-width: 768px) {
+      nav.main-nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        background-color: #12123a;
+        z-index: 15;
+        padding: 20px 0;
+      }
+
+      nav.main-nav a {
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .mobile-menu-button {
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .mobile-ads {
+        display: block;
+      }
+    }
+
+    /* Vista escritorio */
+    @media (min-width: 769px) {
+      .sidebar {
+        display: block;
+      }
+
+      .mobile-ads {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="mobile-menu-button">
+      <img src="img/menu.png" alt="Menú" style="height: 30px;">
+    </div>
+
+    <div class="header-container">
+      <img src="img/logo.png" alt="Logo de MacroMind News">
+      <div class="titulo-header">
+        <h1>MacroMind News</h1>
+        <p>Tu fuente de análisis económico y financiero</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
+  </nav>
+
+  <div class="layout">
+    <!-- Publicidad escritorio izquierda -->
+    <aside class="sidebar">
+      <img src="publicidad.jpg" alt="Publicidad 1">
+    </aside>
+
+    <!-- Contenido principal -->
+    <div class="content">
+      <h2>Mercado Libre ingresa al Top 50 de las marcas más valiosas del mundo</h2>
+      <img src="img/mercado-libre.jpg" alt="Mercado Libre | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+      <p><strong>17 de mayo del 2025 | Finanzas</strong> — La compañía argentina alcanza un nuevo hito global, consolidándose como referente del comercio electrónico en América Latina.<p>
+      <p>Mercado Libre se posicionó entre las 50 marcas más valiosas del mundo según el ranking global 2025 de Kantar BrandZ, que destaca a las empresas con mayor valor de marca a nivel internacional. Con una valuación estimada en 49.846 millones de dólares, la firma fundada por Marcos Galperin ocupa el puesto 50 del listado, siendo además la única empresa latinoamericana presente en el Top 100.</p>
+      <p>Este reconocimiento marca el tercer año consecutivo en el que Mercado Libre asciende en la clasificación: en 2023 ocupó el puesto 72, y en 2024, el 57. En términos interanuales, la compañía logró un crecimiento del 52% en su valor de marca, impulsado por su sólido desempeño en comercio electrónico y servicios financieros digitales.</p>
+      <p>En la categoría global de retail, Mercado Libre se posicionó en el séptimo lugar, con un valor específico de 24.600 millones de dólares, lo que representa un incremento del 66% con respecto al año anterior. El informe de Kantar destaca su fortaleza regional y su capacidad para enfrentar la competencia de plataformas transfronterizas, haciendo foco en su ecosistema integrado de pagos, logística y última milla.</p>
+      <p>Este avance reafirma la posición de Mercado Libre como líder tecnológico de América Latina, con proyección global y una estrategia de crecimiento sostenido basada en la innovación, la expansión de servicios y la confianza del consumidor.</p>
+      <p>Y así lo festejó Galperin: el fundador de la empresa compartió la noticia en sus redes sociales con una breve pero contundente frase: “Una empresa fundada en Argentina. Hecha en América Latina. Jugando en las grandes ligas”. Una celebración que refleja el orgullo y la visión de largo plazo detrás del crecimiento de Mercado Libre.</p>
+      <blockquote class="twitter-tweet"><p lang="es" dir="ltr">Mercado Libre entre las 50 marcas más valiosas del mundo, superando a marcas como Nike y Disney. Lo mejor de todo, es que lo mejor esta llegando.<a href="https://twitter.com/Mercadolibre?ref_src=twsrc%5Etfw">@Mercadolibre</a> <a href="https://t.co/49V1ejkMZP">pic.twitter.com/49V1ejkMZP</a></p>&mdash; Marcos Galperin (@marcos_galperin) <a href="https://twitter.com/marcos_galperin/status/1923494521867841563?ref_src=twsrc%5Etfw">May 16, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        
+      <!-- Publicidad móvil -->
+      <div class="mobile-ads">
+        <img src="publicidad.jpg" alt="Publicidad móvil 1">
+        <img src="publicidad.jpg" alt="Publicidad móvil 2">
+      </div>
+    </div>
+
+    <!-- Publicidad escritorio derecha -->
+    <aside class="sidebar">
+      <img src="publicidad.jpg" alt="Publicidad 2">
+    </aside>
+  </div>
+
+  <footer>
+    © 2025 MacroMind News | Todos los derechos reservados
+  </footer>
+
+  <script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mainNav = document.querySelector('.main-nav');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mainNav.style.display = mainNav.style.display === 'none' ? 'flex' : 'none';
+    });
+  </script>
+
+</body>
+</html>
