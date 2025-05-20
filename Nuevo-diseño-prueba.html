@@ -153,6 +153,31 @@ main.contenido {
     margin-bottom: 0.5em;
   }
 }
+
+.imagen-destacada {
+  text-align: center; /* Centra el contenido dentro de este div */
+  margin-bottom: 1em; /* Opcional: espacio entre la imagen y el siguiente párrafo */
+}
+
+.imagen-destacada h2 {
+  margin-bottom: 0.5em; /* Espacio entre el título y la imagen */
+}
+
+.imagen-destacada img {
+  display: block; /* Para que la propiedad margin: 0 auto; funcione para centrar */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  max-width: 100%; /* Ya lo tienes en línea, pero es buena práctica */
+  height: auto; /* Para mantener la proporción */
+  border-radius: 8px; /* Ya lo tienes en línea */
+  margin-top: 0; /* Aseguramos que no haya margen superior innecesario */
+  margin-bottom: 0; /* Aseguramos que no haya margen inferior innecesario (el espacio lo da .imagen-destacada) */
+}
+
+/* Si quieres quitar el margen que tenías en línea, puedes hacerlo aquí */
+.noticia grande img {
+  margin: 15px 0 0; /* Ajusta el margen superior si es necesario */
+}
+   
 </style>
 
 </head>
@@ -172,10 +197,13 @@ main.contenido {
   </nav>
 </header>
 
-  <main class="grid-principal">
-    <div class="noticia grande"><a href="argentina-logra-superavit-financiero-en-abril.html">Argentina logra superávit financiero en abril</a>
-    <img src="img/caputo-milei-2.jpg" alt="El Ministro de Economía Toto Caputo Junto al Presidente Javier Milei | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
-    <p>El Ministerio de Economía informó que abril cerró con un superávit financiero de $572.341 millones, equivalente al 0,2% del Producto Bruto Interno (PBI).</p></div>
+  <div class="noticia grande">
+  <div class="imagen-destacada">
+    <h2><a href="argentina-logra-superavit-financiero-en-abril.html">Argentina logra superávit financiero en abril</a></h2>
+    <img src="img/caputo-milei-2.jpg" alt="EL Ministro | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+  </div>
+  <p>El Ministerio de Economía informó que abril cerró con un superávit financiero de $572.341 millones, equivalente al 0,2% del Producto Bruto Interno (PBI).</p>
+</div>
     <div class="noticia chica">NOTICIA 2</div>
     <div class="noticia chica">NOTICIA 3</div>
     <div class="publicidad vertical">PUBLI</div>
