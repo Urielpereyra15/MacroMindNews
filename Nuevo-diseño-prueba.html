@@ -13,21 +13,48 @@
   </script>
   
  <style>
-  /* Ocultamos el menú inicialmente en pantallas grandes */
+  body {
+  margin: 0;
+  background: #f4f4f4;
+  font-family: Georgia, serif;
+}
+
+header {
+  background-color: #0a0a23;
+  color: white;
+  padding: 1em;
+  display: flex;
+  justify-content: flex-start; /* Alineamos los elementos al inicio (izquierda) */
+  align-items: center;
+  position: relative; /* Establecemos el header como el punto de referencia para el menú absoluto */
+  flex-direction: row;
+}
+
+.menu-toggle {
+  font-size: 1.5em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 2em; /* Añadimos un margen a la derecha para separar del logo */
+}
+
+.menu-toggle span {
+  margin-right: 0.5em;
+}
+
 #menu-secciones {
   display: none;
-  position: absolute; /* Para que no afecte el flujo normal de la página */
-  top: 100%; /* Lo coloca debajo del header */
-  left: 0;
+  position: absolute;
+  top: 100%; /* Debajo del header */
+  left: 0; /* Alineado a la izquierda del header */
   background-color: white;
   color: #0a0a23;
-  width: auto; /* Ajusta el ancho al contenido */
+  width: auto; /* Se ajusta al ancho del contenido */
   border: 1px solid #ccc;
   border-top: none;
   z-index: 1000;
 }
 
-/* Mostramos el menú cuando la clase 'visible' está presente */
 #menu-secciones.visible {
   display: block;
 }
@@ -47,6 +74,7 @@
   text-decoration: none;
   color: inherit;
 }
+
 main.contenido {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -57,73 +85,26 @@ main.contenido {
 /* ... el resto de tus estilos para escritorio ... */
 
 @media (max-width: 768px) {
-  body {
-    margin: 0;
-    background: #f4f4f4;
-    font-family: Georgia, serif;
-  }
+  /* ... tus estilos para móvil ... */
 
   header {
-    background-color: #0a0a23;
-    color: white;
-    padding: 1em;
-    display: flex;
-    justify-content: space-between; /* Espacio entre el menú y el título */
-    align-items: center;
-    position: relative;
-    flex-direction: row; /* Aseguramos que los elementos estén en fila horizontal en móvil también */
+    /* ... tus estilos para el header en móvil ... */
+    flex-direction: row;
+    justify-content: space-between; /* Volvemos a space-between en móvil */
   }
 
   .menu-toggle {
-    position: static; /* Ya no es absoluto */
+    /* ... tus estilos para el botón de menú en móvil ... */
+    position: static;
     left: auto;
     top: auto;
-    font-size: 1.5em;
-    cursor: pointer;
-    display: flex; /* Para alinear el icono y el texto dentro */
-    align-items: center; /* Centrar verticalmente el icono y el texto */
+    margin-right: 1em; /* Ajustamos el margen en móvil si es necesario */
   }
 
-  .menu-toggle span { /* Si quieres estilizar el icono o el texto por separado */
-    margin-right: 0.5em; /* Espacio entre el icono y "SECCIONES" */
+  #menu-secciones {
+    /* ... tus estilos para el menú en móvil (fixed, pantalla completa) ... */
   }
-
-  .menu-secciones {
-    display: none;
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding-top: 4em;
-    z-index: 1000;
-    text-align: center;
-  }
-
-  .menu-secciones.visible {
-    display: block;
-  }
-
-  .menu-secciones ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .menu-secciones li {
-    margin: 1.5em 0;
-  }
-
-  .menu-secciones a, .menu-secciones button {
-    font-size: 1.5em;
-    text-decoration: none;
-    color: #0a0a23;
-    background: none;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
+}
   /* ... el resto de tus estilos para móvil ... */
 }
 
