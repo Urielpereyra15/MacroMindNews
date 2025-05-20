@@ -19,6 +19,28 @@
   font-family: Georgia, serif;
 }
 
+header {
+  background-color: #0a0a23;
+  color: white;
+  padding: 1em;
+  display: flex; /* Usamos Flexbox para alinear los elementos del header */
+  justify-content: space-between; /* Espacio entre el menú y el título */
+  align-items: center; /* Alinea verticalmente los elementos */
+  position: relative;
+  flex-direction: row; /* Aseguramos que los elementos estén en fila horizontal en escritorio */
+}
+
+.menu-toggle {
+  font-size: 1.5em;
+  cursor: pointer;
+  display: flex; /* Para alinear el icono y el texto dentro */
+  align-items: center; /* Centrar verticalmente el icono y el texto */
+}
+
+.menu-toggle span { /* Si quieres estilizar el icono o el texto por separado */
+  margin-right: 0.5em; /* Espacio entre el icono y "SECCIONES" */
+}
+
 main.contenido {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -26,21 +48,9 @@ main.contenido {
   padding: 2em;
 }
 
-.noticia {
-  background-color: white;
-  color: black;
-  padding: 1em;
-  border-radius: 12px;
-  font-size: 1.1em;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
+/* ... el resto de tus estilos para escritorio ... */
 
-.noticia:hover {
-  transform: translateY(-4px);
-}
-
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
   body {
     margin: 0;
     background: #f4f4f4;
@@ -51,16 +61,25 @@ main.contenido {
     background-color: #0a0a23;
     color: white;
     padding: 1em;
+    display: flex;
+    justify-content: space-between; /* Espacio entre el menú y el título */
+    align-items: center;
     position: relative;
-    text-align: center;
+    flex-direction: row; /* Aseguramos que los elementos estén en fila horizontal en móvil también */
   }
 
   .menu-toggle {
-    position: absolute;
-    left: 1em;
-    top: 1em;
+    position: static; /* Ya no es absoluto */
+    left: auto;
+    top: auto;
     font-size: 1.5em;
     cursor: pointer;
+    display: flex; /* Para alinear el icono y el texto dentro */
+    align-items: center; /* Centrar verticalmente el icono y el texto */
+  }
+
+  .menu-toggle span { /* Si quieres estilizar el icono o el texto por separado */
+    margin-right: 0.5em; /* Espacio entre el icono y "SECCIONES" */
   }
 
   .menu-secciones {
@@ -98,6 +117,9 @@ main.contenido {
     font-weight: bold;
     cursor: pointer;
   }
+
+  /* ... el resto de tus estilos para móvil ... */
+}
 
   .contenido {
     display: flex;
@@ -139,17 +161,19 @@ main.contenido {
 </head>
 <body>
   <header>
-    <div class="menu" onclick="toggleMenu()">☰ SECCIONES</div>
-    <h1>MM <br> NEWS</h1>
-    <nav id="menu-secciones" class="menu-secciones">
-      <ul>
-        <li><a href="economia.html">Economía</a></li>
-        <li><a href="politica.html">Política</a></li>
-        <li><a href="finanzas.html">Finanzas</a></li>
-        <li><a href="internacional.html">Internacional</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    ☰ SECCIONES
+  </div>
+  <h1>MM <br> NEWS</h1>
+  <nav id="menu-secciones" class="menu-secciones">
+    <ul>
+      <li><a href="economia.html">Economía</a></li>
+      <li><a href="politica.html">Política</a></li>
+      <li><a href="finanzas.html">Finanzas</a></li>
+      <li><a href="internacional.html">Internacional</a></li>
+    </ul>
+  </nav>
+</header>
 
   <main class="grid-principal">
     <div class="noticia grande">que es esto??</div>
