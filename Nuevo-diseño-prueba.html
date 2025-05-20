@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MacroMind News</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <script defer>
+    function toggleMenu() {
+      const menu = document.getElementById("menu-secciones");
+      menu.classList.toggle("visible");
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="menu" onclick="toggleMenu()">☰ SECCIONES</div>
+    <h1>MM <br> NEWS</h1>
+    <nav id="menu-secciones" class="menu-secciones">
+      <ul>
+        <li><a href="economia.html">Economía</a></li>
+        <li><a href="politica.html">Política</a></li>
+        <li><a href="finanzas.html">Finanzas</a></li>
+        <li><a href="internacional.html">Internacional</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="grid-principal">
+    <div class="noticia grande">que es esto??</div>
+    <a href="arca-detecta-gasto-millonario en-alquileres-el-próximo-objetivo-de-la-motosierra.html">Arcaaa</a>
+    <div class="noticia chica">NOTICIA 2</div>
+    <div class="noticia chica">NOTICIA 3</div>
+    <div class="publicidad vertical">PUBLI</div>
+
+    <div class="noticia media">NOTICIA 4</div>
+    <div class="noticia media">NOTICIA 5</div>
+    <div class="noticia media">NOTICIA 6</div>
+
+    <div class="publicidad cuadrada">PUBLICIDAD</div>
+    <div class="publicidad cuadrada">PUBLICIDAD</div>
+    <div class="publicidad cuadrada">PUBLICIDAD</div>
+
+    <div class="noticia grande">NOTICIA 7</div>
+    <div class="noticia grande">NOTICIA 8</div>
+
+    <div class="publicidad horizontal">PUBLICIDAD</div>
+  </main>
+
+  <footer>
+    <h1>MM <br> NEWS</h1>
+    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>
