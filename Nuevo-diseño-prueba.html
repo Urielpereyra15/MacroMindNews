@@ -154,28 +154,45 @@ main.contenido {
   }
 }
 
-.imagen-destacada {
-  text-align: center; /* Centra el contenido dentro de este div */
-  margin-bottom: 1em; /* Opcional: espacio entre la imagen y el siguiente párrafo */
+.noticia.grande {
+  background-color: white; /* Fondo blanco */
+  color: black; /* Texto negro (si es necesario, ya lo tienes por defecto) */
+  padding: 1em; /* Espacio interior alrededor del contenido */
+  border-radius: 12px; /* Bordes redondeados, igual que las otras noticias */
+  font-size: 1.1em; /* Igual que las otras noticias */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave, igual que las otras noticias */
+  /* Ya no necesitamos que ocupe todo el ancho, así que no definimos un ancho específico aquí */
+  /* El grid principal controlará su ancho */
 }
 
-.imagen-destacada h2 {
-  margin-bottom: 0.5em; /* Espacio entre el título y la imagen */
+/* Si quieres que ocupe más de una columna en el grid principal, puedes usar grid-column */
+.grid-principal > .noticia.grande {
+  grid-column: span 2; /* Ejemplo: ocupa 2 columnas del grid */
+  /* Ajusta el valor de span según tu diseño del grid */
 }
 
-.imagen-destacada img {
-  display: block; /* Para que la propiedad margin: 0 auto; funcione para centrar */
-  margin: 0 auto; /* Centra la imagen horizontalmente */
-  max-width: 100%; /* Ya lo tienes en línea, pero es buena práctica */
-  height: auto; /* Para mantener la proporción */
-  border-radius: 8px; /* Ya lo tienes en línea */
-  margin-top: 0; /* Aseguramos que no haya margen superior innecesario */
-  margin-bottom: 0; /* Aseguramos que no haya margen inferior innecesario (el espacio lo da .imagen-destacada) */
+.noticia.grande .imagen-destacada {
+  text-align: center;
+  margin-bottom: 1em;
 }
 
-/* Si quieres quitar el margen que tenías en línea, puedes hacerlo aquí */
-.noticia grande img {
-  margin: 15px 0 0; /* Ajusta el margen superior si es necesario */
+.noticia.grande .imagen-destacada h2 {
+  margin-bottom: 0.5em;
+}
+
+.noticia.grande .imagen-destacada img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.noticia.grande p {
+  text-align: left;
+  margin-top: 1em;
 }
    
 </style>
@@ -197,13 +214,15 @@ main.contenido {
   </nav>
 </header>
 
+  <main class="grid-principal">
   <div class="noticia grande">
-  <div class="imagen-destacada">
-    <h2><a href="argentina-logra-superavit-financiero-en-abril.html">Argentina logra superávit financiero en abril</a></h2>
-    <img src="img/caputo-milei-2.jpg" alt="EL Ministro | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+    <div class="imagen-destacada">
+      <h2><a href="argentina-logra-superavit-financiero-en-abril.html">Argentina logra superávit financiero en abril</a></h2>
+      <img src="img/caputo-milei-2.jpg" alt="EL Ministro | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+    </div>
+    <p>El Ministerio de Economía informó que abril cerró con un superávit financiero de $572.341 millones, equivalente al 0,2% del Producto Bruto Interno (PBI).</p>
   </div>
-  <p>El Ministerio de Economía informó que abril cerró con un superávit financiero de $572.341 millones, equivalente al 0,2% del Producto Bruto Interno (PBI).</p>
-</div>
+  </main>
     <div class="noticia chica">NOTICIA 2</div>
     <div class="noticia chica">NOTICIA 3</div>
     <div class="publicidad vertical">PUBLI</div>
