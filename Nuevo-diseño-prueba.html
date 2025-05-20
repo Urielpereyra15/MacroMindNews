@@ -13,7 +13,8 @@
   </script>
   
  <style>
-  body {
+  /* Estilos para pantallas más grandes (escritorio) */
+body {
   margin: 0;
   background: #f4f4f4;
   font-family: Georgia, serif;
@@ -24,10 +25,14 @@ header {
   color: white;
   padding: 1em;
   display: flex;
-  justify-content: flex-start; /* Alineamos los elementos al inicio (izquierda) */
+  justify-content: space-between; /* Espacio entre el botón y el título */
   align-items: center;
-  position: relative; /* Establecemos el header como el punto de referencia para el menú absoluto */
+  position: relative; /* Para posicionar el menú desplegable */
   flex-direction: row;
+}
+
+.menu-toggle-container {
+  /* No necesitamos estilos especiales, solo para agrupar */
 }
 
 .menu-toggle {
@@ -35,21 +40,26 @@ header {
   cursor: pointer;
   display: flex;
   align-items: center;
-  margin-right: 2em; /* Añadimos un margen a la derecha para separar del logo */
 }
 
 .menu-toggle span {
   margin-right: 0.5em;
 }
 
+h1 {
+  text-align: center; /* Centramos el título */
+  margin: 0;
+  flex-grow: 1; /* Permite que el título crezca y ocupe el espacio central */
+}
+
 #menu-secciones {
   display: none;
   position: absolute;
-  top: 100%; /* Debajo del header */
-  left: 0; /* Alineado a la izquierda del header */
+  top: 100%;
+  left: 0; /* Alineado al borde izquierdo del header */
   background-color: white;
   color: #0a0a23;
-  width: auto; /* Se ajusta al ancho del contenido */
+  width: auto;
   border: 1px solid #ccc;
   border-top: none;
   z-index: 1000;
