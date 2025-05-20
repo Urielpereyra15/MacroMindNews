@@ -13,34 +13,40 @@
   </script>
   
  <style>
-   body {
+  /* Ocultamos el menú inicialmente en pantallas grandes */
+#menu-secciones {
+  display: none;
+  position: absolute; /* Para que no afecte el flujo normal de la página */
+  top: 100%; /* Lo coloca debajo del header */
+  left: 0;
+  background-color: white;
+  color: #0a0a23;
+  width: auto; /* Ajusta el ancho al contenido */
+  border: 1px solid #ccc;
+  border-top: none;
+  z-index: 1000;
+}
+
+/* Mostramos el menú cuando la clase 'visible' está presente */
+#menu-secciones.visible {
+  display: block;
+}
+
+#menu-secciones ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  background: #f4f4f4;
-  font-family: Georgia, serif;
 }
 
-header {
-  background-color: #0a0a23;
-  color: white;
-  padding: 1em;
-  display: flex; /* Usamos Flexbox para alinear los elementos del header */
-  justify-content: space-between; /* Espacio entre el menú y el título */
-  align-items: center; /* Alinea verticalmente los elementos */
-  position: relative;
-  flex-direction: row; /* Aseguramos que los elementos estén en fila horizontal en escritorio */
+#menu-secciones li {
+  padding: 0.5em 1em;
 }
 
-.menu-toggle {
-  font-size: 1.5em;
-  cursor: pointer;
-  display: flex; /* Para alinear el icono y el texto dentro */
-  align-items: center; /* Centrar verticalmente el icono y el texto */
+#menu-secciones a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
-
-.menu-toggle span { /* Si quieres estilizar el icono o el texto por separado */
-  margin-right: 0.5em; /* Espacio entre el icono y "SECCIONES" */
-}
-
 main.contenido {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
