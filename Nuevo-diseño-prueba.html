@@ -11,6 +11,102 @@
       menu.classList.toggle("visible");
     }
   </script>
+
+  @media (max-width: 768px) {
+  body {
+    margin: 0;
+    background: #f4f4f4;
+    font-family: Georgia, serif;
+  }
+
+  header {
+    background-color: #0a0a23;
+    color: white;
+    padding: 1em;
+    position: relative;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  .menu-secciones {
+    display: none;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 4em;
+    z-index: 1000;
+    text-align: center;
+  }
+
+  .menu-secciones.visible {
+    display: block;
+  }
+
+  .menu-secciones ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .menu-secciones li {
+    margin: 1.5em 0;
+  }
+
+  .menu-secciones a, .menu-secciones button {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #0a0a23;
+    background: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+  }
+
+  .noticia, .publicidad {
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .noticia {
+    background-color: white;
+    color: black;
+  }
+
+  .publicidad {
+    background-color: black;
+    color: white;
+  }
+
+  footer {
+    background: #0a0a23;
+    color: white;
+    text-align: center;
+    padding: 2em 1em;
+  }
+
+  footer h1 {
+    margin-bottom: 0.5em;
+  }
+}
+
 </head>
 <body>
   <header>
@@ -29,6 +125,7 @@
   <main class="grid-principal">
     <div class="noticia grande">que es esto??</div>
     <a href="arca-detecta-gasto-millonario en-alquileres-el-próximo-objetivo-de-la-motosierra.html">Arcaaa</a>
+    </div>
     <div class="noticia chica">NOTICIA 2</div>
     <div class="noticia chica">NOTICIA 3</div>
     <div class="publicidad vertical">PUBLI</div>
