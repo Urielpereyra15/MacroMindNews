@@ -11,199 +11,129 @@
       menu.classList.toggle("visible");
     }
   </script>
-  
- <style>
-  /* Estilos para pantallas más grandes (escritorio) */
-body {
-  margin: 0;
-  background: #f4f4f4;
-  font-family: Georgia, serif;
-}
 
-header {
-  background-color: #0a0a23;
-  color: white;
-  padding: 1em;
-  display: flex;
-  justify-content: space-between; /* Espacio entre el botón y el título */
-  align-items: center;
-  position: relative; /* Para posicionar el menú desplegable */
-  flex-direction: row;
-}
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      background: #f4f4f4;
+      font-family: Georgia, serif;
+    }
 
-.menu-toggle-container {
-  /* No necesitamos estilos especiales, solo para agrupar */
-}
+    /* Header */
+    header {
+      background-color: #0a0a23;
+      color: white;
+      padding: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      flex-direction: row;
+    }
 
-.menu-toggle {
-  font-size: 1.5em;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
+    .menu-toggle {
+      font-size: 1.5em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
 
-.menu-toggle span {
-  margin-right: 0.5em;
-}
+    .menu-toggle span {
+      margin-right: 0.5em;
+    }
 
-h1 {
-  text-align: center; /* Centramos el título */
-  margin: 0;
-  flex-grow: 1; /* Permite que el título crezca y ocupe el espacio central */
-}
+    h1 {
+      text-align: center;
+      margin: 0;
+      flex-grow: 1;
+    }
 
-#menu-secciones {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0; /* Alineado al borde izquierdo del header */
-  background-color: white;
-  color: #0a0a23;
-  width: auto;
-  border: 1px solid #ccc;
-  border-top: none;
-  z-index: 1000;
-}
+    /* Menú de secciones (desplegable) */
+    #menu-secciones {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      color: #0a0a23;
+      width: auto;
+      border: 1px solid #ccc;
+      border-top: none;
+      z-index: 1000;
+    }
 
-#menu-secciones.visible {
-  display: block;
-}
+    #menu-secciones.visible {
+      display: block;
+    }
 
-#menu-secciones ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    #menu-secciones ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-#menu-secciones li {
-  padding: 0.5em 1em;
-}
+    #menu-secciones li {
+      padding: 0.5em 1em;
+    }
 
-#menu-secciones a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
+    #menu-secciones a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
 
-main.contenido {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1em;
-  padding: 2em;
-}
-
-/* ... el resto de tus estilos para escritorio ... */
-
-@media (max-width: 768px) {
-  /* ... tus estilos para móvil ... */
-
-  header {
-    /* ... tus estilos para el header en móvil ... */
-    flex-direction: row;
-    justify-content: space-between; /* Volvemos a space-between en móvil */
-  }
-
-  .menu-toggle {
-    /* ... tus estilos para el botón de menú en móvil ... */
-    position: static;
-    left: auto;
-    top: auto;
-    margin-right: 1em; /* Ajustamos el margen en móvil si es necesario */
-  }
-
-  #menu-secciones {
-    /* ... tus estilos para el menú en móvil (fixed, pantalla completa) ... */
-  }
-}
-  /* ... el resto de tus estilos para móvil ... */
-}
-
-  .contenido {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    padding: 1em;
-  }
-
-  .noticia, .publicidad {
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-
-  .noticia {
-    background-color: white;
-    color: black;
-  }
-
-  .publicidad {
-    background-color: black;
-    color: white;
-  }
-
-  footer {
-    background: #0a0a23;
-    color: white;
-    text-align: center;
-    padding: 2em 1em;
-  }
-
-  footer h1 {
-    margin-bottom: 0.5em;
-  }
-}
-
-.noticia.grande {
-  background-color: white; /* Fondo blanco */
-  color: black; /* Texto negro (si es necesario, ya lo tienes por defecto) */
-  padding: 1em; /* Espacio interior alrededor del contenido */
-  border-radius: 12px; /* Bordes redondeados, igual que las otras noticias */
-  font-size: 1.1em; /* Igual que las otras noticias */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave, igual que las otras noticias */
-  /* Ya no necesitamos que ocupe todo el ancho, así que no definimos un ancho específico aquí */
-  /* El grid principal controlará su ancho */
-}
-
-/* Si quieres que ocupe más de una columna en el grid principal, puedes usar grid-column */
-.grid-principal > .noticia.grande {
-  grid-column: span 2; /* Ejemplo: ocupa 2 columnas del grid */
-  /* Ajusta el valor de span según tu diseño del grid */
-}
-
-.noticia.grande .imagen-destacada {
-  text-align: center;
-  margin-bottom: 1em;
-}
-
-.noticia.grande .imagen-destacada h2 {
-  margin-bottom: 0.5em;
-}
-
-.noticia.grande .imagen-destacada img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.noticia.grande p {
-  text-align: left;
-  margin-top: 1em;
-}
-
-main.grid-principal {
+    /* Contenido principal (Grid) */
+    main.grid-principal {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1em;
       padding: 2em;
     }
 
+    /* Noticia grande */
     .grid-principal > .noticia.grande {
-      grid-column: 1 / -1;
+      background-color: white;
+      color: black;
+      padding: 1em;
+      border-radius: 12px;
+      font-size: 1.1em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      grid-column: 1 / -1; /* Ocupa todo el ancho inicialmente */
+    }
+
+    .noticia.grande .imagen-destacada {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .noticia.grande .imagen-destacada h2 {
+      margin-bottom: 0.5em;
+    }
+
+    .noticia.grande .imagen-destacada img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .noticia.grande p {
+      text-align: left;
+      margin-top: 1em;
+    }
+
+    /* Noticias chicas */
+    .grid-principal > .noticia.chica {
+      background-color: white;
+      color: black;
+      padding: 1em;
+      border-radius: 12px;
+      font-size: 1.1em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .grid-principal > .noticia.chica:nth-child(2) {
@@ -216,55 +146,133 @@ main.grid-principal {
       grid-column: 2;
     }
 
+    /* Publicidad vertical */
     .grid-principal > .publicidad.vertical {
+      background-color: black;
+      color: white;
+      padding: 1em;
+      border-radius: 12px;
+      font-size: 1.2em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       grid-row: 1 / span 2;
       grid-column: 3;
     }
-   
-</style>
+
+    /* Noticias medianas */
+    .grid-principal > .noticia.media {
+      background-color: white;
+      color: black;
+      padding: 1em;
+      border-radius: 12px;
+      font-size: 1.1em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Publicidad cuadrada */
+    .grid-principal > .publicidad.cuadrada {
+      background-color: black;
+      color: white;
+      padding: 1em;
+      border-radius: 12px;
+      font-size: 1.2em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Publicidad horizontal */
+    .grid-principal > .publicidad.horizontal {
+      background-color: black;
+      color: white;
+      padding: 1em;
+      border-radius: 12px;
+      font-size: 1.2em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      grid-column: 1 / -1;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 2em 1em;
+    }
+
+    footer h1 {
+      margin-bottom: 0.5em;
+    }
+
+    /* Estilos para móvil */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .menu-toggle {
+        position: static;
+        left: auto;
+        top: auto;
+        margin-right: 1em;
+      }
+
+      main.grid-principal {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em;
+      }
+
+      .noticia, .publicidad {
+        padding: 1em;
+        border-radius: 12px;
+        font-size: 1.2em;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+    }
+  </style>
 
 </head>
 <body>
   <header>
-  <div class="menu-toggle" onclick="toggleMenu()">
-    ☰ SECCIONES
-  </div>
-  <h1>MM <br> NEWS</h1>
-  <nav id="menu-secciones" class="menu-secciones">
-    <ul>
-      <li><a href="economia.html">Economía</a></li>
-      <li><a href="politica.html">Política</a></li>
-      <li><a href="finanzas.html">Finanzas</a></li>
-      <li><a href="internacional.html">Internacional</a></li>
-    </ul>
-  </nav>
-</header>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      ☰ SECCIONES
+    </div>
+    <h1>MM <br> NEWS</h1>
+    <nav id="menu-secciones" class="menu-secciones">
+      <ul>
+        <li><a href="economia.html">Economía</a></li>
+        <li><a href="politica.html">Política</a></li>
+        <li><a href="finanzas.html">Finanzas</a></li>
+        <li><a href="internacional.html">Internacional</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="grid-principal">
-  <div class="noticia grande">
-    <div class="imagen-destacada">
-      <h2><a href="argentina-logra-superavit-financiero-en-abril.html">Argentina logra superávit financiero en abril</a></h2>
-      <img src="img/caputo-milei-2.jpg" alt="EL Ministro | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+    <div class="noticia grande">
+      <div class="imagen-destacada">
+        <h2><a href="argentina-logra-superavit-financiero-en-abril.html">Argentina logra superávit financiero en abril</a></h2>
+        <img src="img/caputo-milei-2.jpg" alt="EL Ministro | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
+      </div>
+      <p>El Ministerio de Economía informó que abril cerró con un superávit financiero de $572.341 millones, equivalente al 0,2% del Producto Bruto Interno (PBI).</p>
     </div>
-    <p>El Ministerio de Economía informó que abril cerró con un superávit financiero de $572.341 millones, equivalente al 0,2% del Producto Bruto Interno (PBI).</p>
-  </div>
-  <div class="noticia chica">NOTICIA 2</div>
-  <div class="noticia chica">NOTICIA 3</div>
-  <div class="publicidad vertical">PUBLI</div>
+    <div class="noticia chica">NOTICIA 2</div>
+    <div class="noticia chica">NOTICIA 3</div>
+    <div class="publicidad vertical">PUBLI</div>
 
-  <div class="noticia media">NOTICIA 4</div>
-  <div class="noticia media">NOTICIA 5</div>
-  <div class="noticia media">NOTICIA 6</div>
+    <div class="noticia media">NOTICIA 4</div>
+    <div class="noticia media">NOTICIA 5</div>
+    <div class="noticia media">NOTICIA 6</div>
 
-  <div class="publicidad cuadrada">PUBLICIDAD</div>
-  <div class="publicidad cuadrada">PUBLICIDAD</div>
-  <div class="publicidad cuadrada">PUBLICIDAD</div>
+    <div class="publicidad cuadrada">PUBLICIDAD</div>
+    <div class="publicidad cuadrada">PUBLICIDAD</div>
+    <div class="publicidad cuadrada">PUBLICIDAD</div>
 
-  <div class="noticia grande">NOTICIA 7</div>
-  <div class="noticia grande">NOTICIA 8</div>
+    <div class="noticia grande">NOTICIA 7</div>
+    <div class="noticia grande">NOTICIA 8</div>
 
-  <div class="publicidad horizontal">PUBLICIDAD</div>
-</main>
+    <div class="publicidad horizontal">PUBLICIDAD</div>
+  </main>
 
   <footer>
     <h1>MM <br> NEWS</h1>
