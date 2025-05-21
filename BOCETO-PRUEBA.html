@@ -207,48 +207,51 @@
         }
 
         /* Estilos para móvil */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: row;
-                justify-content: space-between;
-            }
+  @media (max-width: 768px) {
+    header {
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
-            .menu-toggle {
-                position: static;
-                left: auto;
-                top: auto;
-                margin-right: 1em;
-            }
+    .menu-toggle {
+      position: static;
+      left: auto;
+      top: auto;
+      margin-right: 1em;
+    }
 
-            .contenido-noticia-individual {
-                grid-template-columns: 1fr; /* Una sola columna en móvil */
-                padding: 1em;
-            }
+    .contenido-noticia-individual {
+      grid-template-columns: 1fr; /* Una sola columna en móvil */
+      padding: 1em;
+      display: flex; /* Cambiamos a flexbox para usar 'order' */
+      flex-direction: column; /* Apilamos los elementos verticalmente */
+    }
 
-            .columna-publicidad-lateral {
-                order: 1; /* Pone la publicidad arriba en móvil */
-                padding: 1em; /* Añade padding para que no se pegue */
-                border-radius: 12px;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            }
+    .columna-publicidad-lateral {
+      order: 2; /* <<-- CAMBIO CLAVE: Hace que la publicidad aparezca DESPUÉS del contenido principal */
+      padding: 1em; /* Añade padding para que no se pegue */
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-top: 1.5em; /* Un poco de margen arriba para separarlo del contenido */
+    }
 
-            .columna-principal-noticia {
-                order: 2; /* Pone la noticia debajo de la publicidad en móvil */
-                padding: 1.5em; /* Ajusta padding */
-            }
+    .columna-principal-noticia {
+      order: 1; /* <<-- CAMBIO CLAVE: Hace que la noticia principal aparezca PRIMERO */
+      padding: 1.5em; /* Ajusta padding */
+    }
 
-            .columna-principal-noticia h2 {
-                font-size: 1.8em; /* Ajusta tamaño de título para móvil */
-            }
+    .columna-principal-noticia h2 {
+      font-size: 1.8em; /* Ajusta tamaño de título para móvil */
+    }
 
-            .columna-principal-noticia p {
-                font-size: 1em; /* Ajusta tamaño de párrafo para móvil */
-            }
+    .columna-principal-noticia p {
+      font-size: 1em; /* Ajusta tamaño de párrafo para móvil */
+    }
 
-            .social-share {
-                gap: 1em;
-            }
-        }
+    .social-share {
+      gap: 1em;
+    }
+  }
 
         /* Para los títulos de las noticias (ya lo tenías) */
         .noticia h2 a {
