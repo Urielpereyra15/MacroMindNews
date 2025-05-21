@@ -5,11 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Título de la Noticia | MacroMind News</title>
     <link rel="stylesheet" href="estilos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlalTjsFw6bLwUjW1F4zK1eW5bZ8z6S4q6Q2r8l4xM3n2y/9x4q7t2s/m5u2x5p7r5e6e7u8k9o2m7q8l+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer>
         function toggleMenu() {
             const menu = document.getElementById("menu-secciones");
             menu.classList.toggle("visible");
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener la URL y el título de la noticia actual
+            const currentUrl = encodeURIComponent(window.location.href);
+            const newsTitle = encodeURIComponent(document.querySelector('.columna-principal-noticia h2').innerText); // Obtiene el texto del título principal
+
+            // Función para copiar el enlace
+            const copyLinkButton = document.getElementById('copy-link');
+            if (copyLinkButton) {
+                copyLinkButton.addEventListener('click', function(e) {
+                    e.preventDefault(); // Previene la navegación
+                    navigator.clipboard.writeText(decodeURIComponent(currentUrl))
+                        .then(() => {
+                            alert('Enlace copiado al portapapeles!');
+                        })
+                        .catch(err => {
+                            console.error('Error al copiar el enlace:', err);
+                            alert('No se pudo copiar el enlace. Intenta manualmente.');
+                        });
+                });
+            }
+
+            // Configurar enlaces para compartir en redes sociales
+            const shareFacebook = document.getElementById('share-facebook');
+            if (shareFacebook) {
+                shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${newsTitle}`;
+            }
+
+            const shareTwitter = document.getElementById('share-twitter');
+            if (shareTwitter) {
+                // Nuevo formato para Twitter/X
+                shareTwitter.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
+            }
+
+            const shareWhatsapp = document.getElementById('share-whatsapp');
+            if (shareWhatsapp) {
+                // Asegúrate de usar el prefijo 'wa.me/' para móviles y 'web.whatsapp.com/send' para escritorio si lo necesitas.
+                // Generalmente, solo el enlace de wa.me funciona bien.
+                shareWhatsapp.href = `https://wa.me/?text=${newsTitle}%0A${currentUrl}`; // %0A es un salto de línea
+            }
+
+            const shareTelegram = document.getElementById('share-telegram');
+            if (shareTelegram) {
+                shareTelegram.href = `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
+            }
+        });
     </script>
 
     <style>
@@ -290,8 +339,13 @@
                 <img src="img/IMAGEN.png" alt="Descripción de la imagen de la noticia" style="width: 100%; max-width: 800px; border-radius: 8px;">
             </div>
 
-            <div class="social-share">
-                <a href="#" target="_blank" title="Compartir en Facebook">f</a> <a href="#" target="_blank" title="Compartir en X (Twitter)">X</a> <a href="#" target="_blank" title="Compartir por WhatsApp">W</a> <a href="#" target="_blank" title="Compartir por Telegram">T</a> <a href="#" target="_blank" title="Copiar enlace">🔗</a> </div>
+           <div class="social-share">
+                <a href="#" id="share-facebook" target="_blank" title="Compartir en Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" id="share-twitter" target="_blank" title="Compartir en X (Twitter)"><i class="fab fa-x-twitter"></i></a> <a href="#" id="share-whatsapp" target="_blank" title="Compartir por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" id="share-telegram" target="_blank" title="Compartir por Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="#" id="copy-link" title="Copiar enlace"><i class="fas fa-link"></i></a>
+           </div>
+            
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
