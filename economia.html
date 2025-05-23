@@ -50,6 +50,20 @@
             flex-direction: row;
         }
 
+        /* Nuevos estilos para los títulos centrales */
+        .titulos-centrales {
+            display: flex; /* Convierte este div en un flex container */
+            flex-direction: column; /* Apila los h1 uno debajo del otro */
+            align-items: center; /* Centra los h1 horizontalmente dentro de este div */
+            flex-grow: 1; /* Permite que este div ocupe el espacio disponible en el header */
+        }
+
+        /* Ajusta los h1 dentro de titulos-centrales si es necesario */ 
+        .titulos-centrales h1 {
+           text-align: center; /* Asegura que el texto dentro de cada h1 esté centrado */
+           margin: 0; /* Elimina márgenes extra si los hay */
+        }
+
         .menu-toggle {
             font-size: 1.5em;
             cursor: pointer;
