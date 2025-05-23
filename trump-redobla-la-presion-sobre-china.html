@@ -1,250 +1,389 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trump redobla la presión sobre China con aranceles acumulativos de hasta 245%</title>
-  <link rel="stylesheet" href="estilos.css">
-  
-  <style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trump redobla la presión sobre China con aranceles acumulativos de hasta 245%</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script defer>
+        function toggleMenu() {
+            const menu = document.getElementById("menu-secciones");
+            menu.classList.toggle("visible");
+        }
+    </script>
 
-    .content p {
-  font-size: 22px; /* Cambiar tamaño del texto */
-  line-height: 1.6; /* Ajustar la altura de las líneas para mejor legibilidad */
-}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener la URL y el título de la noticia actual
+            const currentUrl = encodeURIComponent(window.location.href);
+            const newsTitle = encodeURIComponent(document.querySelector('.columna-principal-noticia h2').innerText); // Obtiene el texto del título principal
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
+            // Función para copiar el enlace
+            const copyLinkButton = document.getElementById('copy-link');
+            if (copyLinkButton) {
+                copyLinkButton.addEventListener('click', function(e) {
+                    e.preventDefault(); // Previene la navegación
+                    navigator.clipboard.writeText(decodeURIComponent(currentUrl))
+                        .then(() => {
+                            alert('Enlace copiado al portapapeles!');
+                        })
+                        .catch(err => {
+                            console.error('Error al copiar el enlace:', err);
+                            alert('No se pudo copiar el enlace. Intenta manualmente.');
+                        });
+                });
+            }
 
+            // Configurar enlaces para compartir en redes sociales
+            const shareFacebook = document.getElementById('share-facebook');
+            if (shareFacebook) {
+                shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${newsTitle}`;
+            }
+
+            const shareTwitter = document.getElementById('share-twitter');
+            if (shareTwitter) {
+                // Nuevo formato para Twitter/X
+                shareTwitter.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
+            }
+
+            const shareWhatsapp = document.getElementById('share-whatsapp');
+            if (shareWhatsapp) {
+                // Asegúrate de usar el prefijo 'wa.me/' para móviles y 'web.whatsapp.com/send' para escritorio si lo necesitas.
+                // Generalmente, solo el enlace de wa.me funciona bien.
+                shareWhatsapp.href = `https://wa.me/?text=${newsTitle}%0A${currentUrl}`; // %0A es un salto de línea
+            }
+
+            const shareTelegram = document.getElementById('share-telegram');
+            if (shareTelegram) {
+                shareTelegram.href = `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
+            }
+        });
+    </script>
+
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Usamos la nueva tipografía */
+        }
+
+        /* Header */
+        header {
+            background-color: #0a0a23;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            flex-direction: row;
+        }
+
+        .menu-toggle {
+            font-size: 1.5em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-toggle span {
+            margin-right: 0.5em;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        /* Menú de secciones (desplegable) */
+        #menu-secciones {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            color: #0a0a23;
+            width: auto;
+            border: 1px solid #ccc;
+            border-top: none;
+            z-index: 1000;
+        }
+
+        #menu-secciones.visible {
+            display: block;
+        }
+
+        #menu-secciones ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu-secciones li {
+            padding: 0.5em 1em;
+        }
+
+        #menu-secciones a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Contenido principal de la NOTICIA INDIVIDUAL (Grid) */
+        .contenido-noticia-individual {
+            display: grid;
+            grid-template-columns: 1fr 250px; /* Columna principal para la noticia, y una fija para publicidad */
+            gap: 2em;
+            padding: 2em;
+            max-width: 1200px; /* Ancho máximo para la página de noticia */
+            margin: 0 auto; /* Centra el contenido en pantallas grandes */
+        }
+
+        .columna-principal-noticia {
+            background-color: white;
+            padding: 2em;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .columna-publicidad-lateral {
+            /* Estilos para la barra lateral de publicidad */
+            display: flex;
+            flex-direction: column;
+            gap: 1em; /* Espacio entre publicidades si hay varias */
+        }
+
+        /* Título de la noticia principal */
+        .columna-principal-noticia h2 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2.2em; /* Título más grande para una noticia individual */
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+            color: #0a0a23; /* O el color que desees para los títulos */
+        }
+
+        /* Imagen destacada de la noticia individual */
+        .imagen-destacada-noticia img {
+            display: block;
+            margin: 0 auto 1.5em auto; /* Centra la imagen y añade margen inferior */
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para la imagen */
+        }
+
+        /* Párrafos del contenido de la noticia */
+        .columna-principal-noticia p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 1em;
+            text-align: justify; /* Justificado para el cuerpo del texto */
+            color: #333;
+        }
+
+        /* Estilos para la sección de compartir */
+        .social-share {
+            display: flex;
+            gap: 1.5em; /* Espacio entre los íconos */
+            margin-top: 2em;
+            margin-bottom: 2em;
+            justify-content: flex-start; /* Centra los íconos */
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 1em 0;
+        }
+
+        .social-share a {
+            font-size: 1.8em;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-share a:hover {
+            color: #0a0a23; /* Color al pasar el ratón */
+        }
+
+
+        /* Publicidad horizontal en la parte superior */
+        .publicidad.horizontal-top {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 2em; /* Espacio debajo de la publicidad */
+        }
+        .publicidad.horizontal-top img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Publicidad vertical (para la barra lateral) */
+        .publicidad.vertical {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            border-radius: 8px; /* Un poco más pequeño para publicidad vertical */
+            font-size: 1em;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .publicidad.vertical img {
+             max-width: 100%;
+             height: auto;
+             display: block;
+             margin: 0 auto;
+        }
+
+        /* Footer (ajustes para la página individual) */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+            margin-top: 3em; /* Espacio superior antes del footer */
+        }
+
+    footer h1 {
+      margin-bottom: 0.5em;
+        }
+
+  /* Estilos para móvil */
+  @media (max-width: 768px) {
     header {
-      background-color: #0a0a23;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      position: relative;
-    }
-
-    /* Logo, título y eslogan centrados */
-    header .header-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-    }
-
-    header img {
-      height: 60px;
-    }
-
-    .titulo-header {
-      margin-left: 20px;
-    }
-
-    .titulo-header h1 {
-      font-family: serif;
-      font-size: 42px;
-      margin: 0;
-    }
-
-    .titulo-header p {
-      margin: 5px 0;
-    }
-
-    /* Menú de navegación */
-    nav.main-nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 15px 10px;
-      background-color: #12123a;
-    }
-
-    nav.main-nav a {
-      font-family: 'Georgia', serif;
-      font-size: 18px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav.main-nav a:hover {
-      color: #66ccff;
-    }
-
-    .layout {
-      display: flex;
       flex-direction: row;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-      flex-wrap: wrap;
+      justify-content: space-between;
     }
 
-    .sidebar {
-      width: 150px;
-      display: none;
+    .menu-toggle {
+      position: static;
+      left: auto;
+      top: auto;
+      margin-right: 1em;
     }
 
-    .sidebar img {
-      width: 100%;
-      margin-bottom: 20px;
-      border-radius: 8px;
+    .contenido-noticia-individual {
+      grid-template-columns: 1fr; /* Una sola columna en móvil */
+      padding: 1em;
+      display: flex; /* Cambiamos a flexbox para usar 'order' */
+      flex-direction: column; /* Apilamos los elementos verticalmente */
     }
 
-    .content {
-      max-width: 800px;
-      flex: 1;
-      min-width: 300px;
+    .columna-publicidad-lateral {
+      order: 2; /* <<-- CAMBIO CLAVE: Hace que la publicidad aparezca DESPUÉS del contenido principal */
+      padding: 1em; /* Añade padding para que no se pegue */
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-top: 1.5em; /* Un poco de margen arriba para separarlo del contenido */
     }
 
-    .mobile-ads {
-      display: none;
-      text-align: center;
-      padding: 20px 10px;
+    .columna-principal-noticia {
+      order: 1; /* <<-- CAMBIO CLAVE: Hace que la noticia principal aparezca PRIMERO */
+      padding: 1.5em; /* Ajusta padding */
     }
 
-    .mobile-ads img {
-      max-width: 100%;
-      margin-bottom: 15px;
-      border-radius: 8px;
+    .columna-principal-noticia h2 {
+      font-size: 1.8em; /* Ajusta tamaño de título para móvil */
     }
 
-    footer {
-      margin-top: 50px;
-      font-size: 14px;
-      background-color: #0a0a23;
-      color: white;
-      text-align: center;
-      padding: 15px;
+    .columna-principal-noticia p {
+      font-size: 1em; /* Ajusta tamaño de párrafo para móvil */
     }
 
-    /* Vista móvil */
-    @media (max-width: 768px) {
-      nav.main-nav {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        top: 100px;
-        left: 0;
-        width: 100%;
-        background-color: #12123a;
-        z-index: 15;
-        padding: 20px 0;
-      }
-
-      nav.main-nav a {
-        padding: 10px 20px;
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
-      }
-
-      .mobile-menu-button {
-        display: block;
-        position: absolute;
-        top: 15px;
-        left: 15px;
-      }
-
-      .sidebar {
-        display: none;
-      }
-
-      .mobile-ads {
-        display: block;
-      }
+    .social-share {
+      gap: 1em;
     }
+  }
 
-    /* Vista escritorio */
-    @media (min-width: 769px) {
-      .sidebar {
-        display: block;
-      }
+    /* Para los títulos de las noticias (ya lo tenías) */
+    .noticia h2 a {
+      text-decoration: none;
+      color: inherit;
+  }
 
-      .mobile-ads {
-        display: none;
-      }
-
-      .mobile-menu-button {
-        display: none;
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
+    <header>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        ☰ SECCIONES
+    </div>
+        <h1>MM <br> NEWS</h1>
+        <nav id="menu-secciones" class="menu-secciones">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="economia.html">Economía</a></li>
+            <li><a href="politica.html">Política</a></li>
+            <li><a href="finanzas.html">Finanzas</a></li>
+            <li><a href="internacional.html">Internacional</a></li>
+        </ul>
+    </nav>
+    </header>
 
-  <header>
-    <div class="mobile-menu-button">
-      <img src="img/menu.png" alt="Menú" style="height: 30px;">
+    <div class="publicidad horizontal-top">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE_HORIZONTAL" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Superior" width="728" height="90">
+        </a>
     </div>
 
-    <div class="header-container">
-      <img src="img/logo.png" alt="Logo de MacroMind News">
-      <div class="titulo-header">
-        <h1>MacroMind News</h1>
-        <p>Tu fuente de análisis económico y financiero</p>
-      </div>
+    <main class="contenido-noticia-individual">
+    <section class="columna-principal-noticia">
+        <h2>Trump redobla la presión sobre China con aranceles acumulativos de hasta 245%</h2>
+    <div class="imagen-destacada-noticia">
+        <img src="img/trump.jpg" alt="Presidente de los Estados Unidos Donald Trump | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
     </div>
-  </header>
 
-  <nav class="main-nav">
-    <a href="index.html">Inicio</a>
-    <a href="economia.html">Economía</a>
-    <a href="finanzas.html">Finanzas</a>
-    <a href="politica.html">Política</a>
-    <a href="internacional.html">Internacional</a>
-  </nav>
-
-  <div class="layout">
-    <!-- Publicidad escritorio izquierda -->
-    <aside class="sidebar">
-      <img src="publicidad.jpg" alt="Publicidad 1">
-    </aside>
-
-    <!-- Contenido principal -->
-    <div class="content">
-      <h2>Trump redobla la presión sobre China con aranceles acumulativos de hasta 245%</h2>
-      <img src="img/trump.jpg" alt="Presidente de los Estados Unidos Donald Trump" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 15px 0;">
-      <p><strong>Internacional | 16 de abril de 2025</strong> — La administración de Donald Trump ha intensificado su ofensiva comercial contra China con la imposición de una nueva batería de aranceles que, en conjunto, podrían alcanzar un impactante 245% sobre determinados productos importados desde el país asiático. La medida forma parte de una estrategia más amplia para forzar a Beijing a regresar a la mesa de negociaciones y abordar desequilibrios comerciales históricos.<p>
+    <div class="social-share">
+        <a href="#" id="share-facebook" target="_blank" title="Compartir en Facebook"><i class="fa-brands fa-facebook"></i>
+        <img src="img/facebook-logo.png" class="social-icon">
+     </a>
+        <a href="#" id="share-twitter" target="_blank" title="Compartir en X (Twitter)"><i class="fa-brands fa-square-x-twitter"></i>
+        <img src="img/logo-x.png" class="social-icon">
+     </a>
+        <a href="#" id="share-whatsapp" target="_blank" title="Compartir por WhatsApp"><i class="fa-brands fa-square-whatsapp"></i>
+        <img src="img/whatsapp-logo.png" class="social-icon">
+     </a>
+        <a href="#" id="share-telegram" target="_blank" title="Compartir por Telegram"><i class="fa-brands fa-telegram"></i>
+        <img src="img/telegram-logo.png" class="social-icon">
+     </a>
+        <a href="#" id="copy-link" title="Copiar enlace"><i class="fa-solid fa-link"></i>
+        <img src="img/link-logo.png" class="social-icon">
+     </a>
+    </div>
+        <p><strong>Internacional | 16 de abril de 2025</strong> — La administración de Donald Trump ha intensificado su ofensiva comercial contra China con la imposición de una nueva batería de aranceles que, en conjunto, podrían alcanzar un impactante 245% sobre determinados productos importados desde el país asiático. La medida forma parte de una estrategia más amplia para forzar a Beijing a regresar a la mesa de negociaciones y abordar desequilibrios comerciales históricos.<p>
       <p>Según informó la Casa Blanca, la alícuota acumulativa incluye un 125% aplicado bajo el principio de reciprocidad, un 20% adicional vinculado a la crisis del fentanilo —atribuyendo a China responsabilidad indirecta en la proliferación de esta droga sintética— y entre un 7,5% y 100% extra bajo la Sección 301 del Código de Comercio, destinada a contrarrestar prácticas comerciales desleales.</p>
       <p>Además de los nuevos aranceles, Estados Unidos está promoviendo una ofensiva diplomática global. Más de 70 países habrían recibido pedidos formales para restringir sus vínculos económicos con China. Entre las medidas solicitadas se encuentran el bloqueo del tránsito marítimo de embarcaciones chinas, la negativa a permitir la radicación de empresas tecnológicas del país asiático y la exclusión de entidades chinas de proyectos estratégicos.</p>
       <p>En respuesta, el gobierno chino anunció represalias: elevó sus propios aranceles a productos estadounidenses hasta el 125%, restringió la exportación de minerales raros —clave para industrias tecnológicas— y aplicó entre un 10% y un 15% de arancel sobre productos como petróleo y maquinaria agrícola. También inició una investigación antimonopolio contra el gigante tecnológico Google.</p>
       <p>La escalada ha encendido las alarmas en los mercados globales. Economistas advierten sobre el riesgo de una guerra de divisas y una eventual pérdida de confianza en el dólar como moneda de reserva internacional.</p>
       <p>La disputa comercial entre las dos mayores economías del mundo parece lejos de concluir, y los próximos movimientos serán clave para definir el impacto global de esta nueva fase de tensión geopolítica.</p>
         
-      <!-- Publicidad móvil -->
-      <div class="mobile-ads">
-        <img src="publicidad.jpg" alt="Publicidad móvil 1">
-        <img src="publicidad.jpg" alt="Publicidad móvil 2">
-      </div>
+    </section>
+    <aside class="columna-publicidad-lateral">
+    <div class="publicidad vertical">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE_VERTICAL_1" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Lateral 1" width="200" height="400">
+    </a>
     </div>
-
-    <!-- Publicidad escritorio derecha -->
-    <aside class="sidebar">
-      <img src="publicidad.jpg" alt="Publicidad 2">
+    <div class="publicidad vertical">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE_VERTICAL_2" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Lateral 2" width="200" height="400">
+        </a>
+    </div>
     </aside>
-  </div>
+    </main>
 
-  <footer>
-    © 2025 MacroMind News | Todos los derechos reservados
-  </footer>
-
-  <script>
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
-    const mainNav = document.querySelector('.main-nav');
-
-    mobileMenuButton.addEventListener('click', () => {
-      mainNav.style.display = mainNav.style.display === 'none' ? 'flex' : 'none';
-    });
-  </script>
-
+    <footer>
+        <h1>MM <br> NEWS</h1>
+        <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
+        <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
+        </a>
+        <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>
