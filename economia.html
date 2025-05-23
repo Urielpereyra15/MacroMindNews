@@ -1,614 +1,511 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Economía | MacroMind News</title>
-  <link rel="stylesheet" href="estilos.css" />
-  <script defer>
-    function toggleMenu() {
-      const menu = document.getElementById("menu-secciones");
-      menu.classList.toggle("visible");
-    }
-  </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Economía | MacroMind News</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script defer>
+        function toggleMenu() {
+            const menu = document.getElementById("menu-secciones");
+            menu.classList.toggle("visible");
+        }
+    </script>
 
-  <style>
-  /* Estilos generales */
-  body {
-    margin: 0;
-    background: #f4f4f4;
-    font-family: Georgia, serif;
-  }
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            font-family: Georgia, serif;
+        }
 
-  /* Para los títulos de las noticias */
-  .noticia h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aplica la tipografía deseada */
-  }
-  .noticia h2 a {
-    text-decoration: none;
-    color: inherit;
-  }
+        /* Para los títulos de las noticias */
+        .noticia h2 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .noticia h2 a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-  /* Para los párrafos de las noticias (descripciones) */
-  .noticia p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aplica la tipografía deseada */
-  }  
+        /* Para los párrafos de las noticias (descripciones) */
+        .noticia p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }    
 
-  /* Header */
-  header {
-    background-color: #0a0a23;
-    color: white;
-    padding: 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    flex-direction: row;
-  }
+        /* Header */
+        header {
+            background-color: #0a0a23;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            flex-direction: row;
+        }
 
-  .menu-toggle {
-    font-size: 1.5em;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
+        .menu-toggle {
+            font-size: 1.5em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
 
-  .menu-toggle span {
-    margin-right: 0.5em;
-  }
+        .menu-toggle span {
+            margin-right: 0.5em;
+        }
 
-  h1 {
-    text-align: center;
-    margin: 0;
-    flex-grow: 1;
-  }
+        h1 {
+            text-align: center;
+            margin: 0;
+            flex-grow: 1;
+        }
 
-  /* Menú de secciones (desplegable) */
-  #menu-secciones {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    color: #0a0a23;
-    width: auto;
-    border: 1px solid #ccc;
-    border-top: none;
-    z-index: 1000;
-  }
+        /* Menú de secciones (desplegable) */
+        #menu-secciones {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            color: #0a0a23;
+            width: auto;
+            border: 1px solid #ccc;
+            border-top: none;
+            z-index: 1000;
+        }
 
-  #menu-secciones.visible {
-    display: block;
-  }
+        #menu-secciones.visible {
+            display: block;
+        }
 
-  #menu-secciones ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+        #menu-secciones ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-  #menu-secciones li {
-    padding: 0.5em 1em;
-  }
+        #menu-secciones li {
+            padding: 0.5em 1em;
+        }
 
-  #menu-secciones a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
+        #menu-secciones a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
 
-  /* Contenido principal (Grid) */
-  main.grid-principal {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Cuatro columnas */
-    gap: 1em;
-    padding: 2em;
-  }
+        /* Contenido principal (Grid) */
+        main.grid-principal {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Hacemos el grid adaptable para que las columnas se ajusten automáticamente */
+            gap: 1em;
+            padding: 2em;
+            max-width: 1200px; /* Ancho máximo para centrar el contenido */
+            margin: 2em auto; /* Centrar el grid principal */
+        }
 
-  /* Noticia grande (primer elemento) */
-  .grid-principal > .noticia.grande:nth-child(1) { /* Selecciona el primer .noticia.grande */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 2;
-  }
+        /* Estilos comunes para todas las noticias y publicidad para el efecto de "cuadro" */
+        .noticia, .publicidad {
+            background-color: white; /* Fondo blanco */
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra para el efecto de "cuadro" */
+        }
 
-  /* Estilos comunes para el contenedor de imagen-destacada en noticias grandes */
-  .noticia.grande .imagen-destacada {
-    margin-bottom: 1em;
-  }
+        /* Noticia grande (primer elemento en el grid) - si es que tu pagina principal lo tiene*/
+        /* Si esta página de economía NO tiene un elemento que ocupe 2x2, puedes eliminar esta regla */
+        .grid-principal > .noticia.grande:nth-child(1) {
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+            /* Estos estilos ya están en .noticia, no es necesario duplicarlos aquí */
+            /* background-color: white; */
+            /* color: black; */
+            /* padding: 1em; */
+            /* border-radius: 12px; */
+            /* font-size: 1.1em; */
+            /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
+        }
 
-  /* Estilos específicos para el título de la PRIMERA noticia grande (alineado a la izquierda) */
-  .grid-principal > .noticia.grande:nth-child(1) .imagen-destacada h2 {
-    text-align: left;
-    margin-bottom: 0.5em;
-  }
+        /* Estilos para el contenedor de imagen-destacada en CUALQUIER noticia */
+        .imagen-destacada { /* Aplicado a todas las .imagen-destacada */
+            margin-bottom: 1em;
+        }
 
-  /* Estilos para el párrafo de la PRIMERA noticia grande */
-  .grid-principal > .noticia.grande:nth-child(1) p {
-    text-align: left;
-    margin-top: 1em;
-  }
+        /* Estilos para el título h2 dentro de la noticia. Asegurarse de que esté fuera de imagen-destacada si quieres alineación */
+        .noticia h2 {
+            text-align: left; /* Alinea los títulos de las noticias a la izquierda */
+            margin-bottom: 0.5em;
+        }
 
-  /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
-  .imagen-destacada img {
-    display: block; /* La imagen debe ser un elemento de bloque para que margin: auto funcione */
-    margin-left: auto; /* Centra horizontalmente */
-    margin-right: auto; /* Centra horizontalmente */
-    max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 8px;
-    margin-top: 15px; /* Define el margen superior aquí (era el que tenías en línea) */
-    margin-bottom: 15px; /* Define el margen inferior aquí (era el que tenías en línea) */
-  }
-  /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+        /* Estilos para el párrafo de la noticia */
+        .noticia p {
+            text-align: left;
+            margin-top: 1em;
+        }
+
+        /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
+        .imagen-destacada img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
 
-  /* Noticias chicas */
-  .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-row: 1;
-    grid-column: 3;
-  }
+        /* Noticias chicas y medianas - ahora heredan los estilos base de .noticia */
+        /* Estas reglas solo necesitan definir el posicionamiento en el grid si es necesario */
+        .noticia.chica, .noticia.media {
+            /* No necesitan background, padding, border-radius, box-shadow aquí si ya están en .noticia */
+            /* Solo si quieres anular algo específico */
+        }
 
-  .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-row: 2;
-    grid-column: 3;
-  }
+        /* Reglas de grid-column y grid-row para noticias específicas */
+        /* Si en economia.html no tienes una estructura de grid tan compleja con nth-child para cada noticia,
+           puedes simplemente añadir tus .noticia.grande, .noticia.chica, etc. y el grid se encargará.
+           Si quieres un diseño específico, mantén o adapta estas. */
 
-  /* Publicidad vertical */
-  .grid-principal > .publicidad.vertical:nth-child(4) { /* PUBLI */
-    background-color: black;
-    color: white;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    grid-row: 1 / span 2;
-    grid-column: 4; /* Intenta colocar en la cuarta columna */
-  }
+        /* Publicidad vertical */
+        .publicidad.vertical {
+            background-color: black; /* Esto anula el blanco de .noticia,.publicidad */
+            color: white;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            grid-column: 4; /* Asumiendo que quieres una columna fija para publicidad */
+            grid-row: span 2; /* Para que ocupe dos filas */
+        }
 
-  /* Noticias medianas */
-  .grid-principal > .noticia.media { /* "NOTICIA 4", "NOTICIA 5", "NOTICIA 6" */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
+        /* Publicidad cuadrada */
+        .publicidad.cuadrada {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-  .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
-    grid-row: 3;
-    grid-column: 1;
-  }
+        /* Publicidad horizontal */
+        .publicidad.horizontal {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            grid-column: 1 / -1; /* Ocupa todas las columnas */
+        }
 
-  .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
-    grid-row: 3;
-    grid-column: 2 / span 2;
-  }
 
-  .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
-    grid-row: 3;
-    grid-column: 4;
-  }
+        /* Footer */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+        }
 
-  /* Publicidad cuadrada */
-  .grid-principal > .publicidad.cuadrada {
-    background-color: black;
-    color: white;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
+        footer h1 {
+            margin-bottom: 0.5em;
+        }
 
-  .grid-principal > .publicidad.cuadrada:nth-child(8) {
-    grid-row: 4;
-    grid-column: 1;
-  }
+        /* Estilos para móvil */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
 
-  .grid-principal > .publicidad.cuadrada:nth-child(9) {
-    grid-row: 4;
-    grid-column: 2;
-  }
+            .menu-toggle {
+                position: static;
+                left: auto;
+                top: auto;
+                margin-right: 1em;
+            }
 
-  .grid-principal > .publicidad.cuadrada:nth-child(10) {
-    grid-row: 4;
-    grid-column: 3;
-  }
+            main.grid-principal {
+                display: flex; /* Cambia a flexbox para una columna en móvil */
+                flex-direction: column;
+                gap: 1em;
+                padding: 1em;
+            }
 
-  .grid-principal > .publicidad.cuadrada:nth-child(11) { 
-    grid-row: 4;
-    grid-column: 4;
-  }
+            /* .noticia, .publicidad { */
+            /* Ya tienen padding, border-radius, box-shadow de las reglas generales */
+            /* font-size: 1.2em; */
+            /* } */
+        }
 
-    
-  /* Noticia grande "NOTICIA 7" */
-  .grid-principal > .noticia.grande:nth-child(12) {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 1 / span 2;
-    grid-row: 5;
-  }
+        /* Paginación */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            padding: 2em 0;
+            margin-top: 2em;
+            border-top: 1px solid #eee;
+        }
 
-  /* Noticia grande "NOTICIA 8" */
-  .grid-principal > .noticia.grande:nth-child(13) {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 3 / span 2;
-    grid-row: 5;
-  }
+        .pagination .page-link {
+            text-decoration: none;
+            color: #0a0a23;
+            padding: 0.8em 1.2em;
+            margin: 0 0.4em;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-  /* Publicidad horizontal */
-  .grid-principal > .publicidad.horizontal:nth-child(14) {
-    background-color: black;
-    color: white;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    grid-column: 1 / -1;
-    grid-row: 6;
-  }
+        .pagination .page-link:hover {
+            background-color: #0a0a23;
+            color: white;
+            border-color: #0a0a23;
+        }
 
-  .grid-principal > .noticia.media:nth-child(15) {
-    grid-row: 7;
-    grid-column: 1;
-  }
+        .pagination .page-link.active {
+            background-color: #0a0a23;
+            color: white;
+            border-color: #0a0a23;
+            cursor: default;
+        }
 
-  .grid-principal > .noticia.media:nth-child(16) {
-    grid-row: 7;
-    grid-column: 2 / span 2;
-  }
-
-  .grid-principal > .noticia.media:nth-child(17) {
-    grid-row: 7;
-    grid-column: 4;
-  }
-
- .grid-principal > .publicidad.cuadrada:nth-child(18) {
-    grid-row: 8;
-    grid-column: 1;
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(19) {
-    grid-row: 8;
-    grid-column: 2;
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(20) {
-    grid-row: 8;
-    grid-column: 3;
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(21) { 
-    grid-row: 8;
-    grid-column: 4;
-  }
-
-  .grid-principal > .noticia.grande:nth-child(22) {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 1 / span 2;
-    grid-row: 9;
-  }
-
-  .grid-principal > .noticia.grande:nth-child(23) {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 3 / span 2;
-    grid-row: 9;
-  }
-
-  .grid-principal > .publicidad.horizontal:nth-child(24) {
-    background-color: black;
-    color: white;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    grid-column: 1 / -1;
-    grid-row:10;
-  }  
-    
-  /* Footer */
-  footer {
-    background: #0a0a23;
-    color: white;
-    text-align: center;
-    padding: 2em 1em;
-  }
-
-  footer h1 {
-    margin-bottom: 0.5em;
-  }
-
-  /* Estilos para móvil */
-  @media (max-width: 768px) {
-    header {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    .menu-toggle {
-      position: static;
-      left: auto;
-      top: auto;
-      margin-right: 1em;
-    }
-
-    main.grid-principal {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      padding: 1em;
-    }
-
-    .noticia, .publicidad {
-      padding: 1em;
-      border-radius: 12px;
-      font-size: 1.2em;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-  }
-
-  /* Para los títulos de las noticias */
-    .noticia h2 a {
-      text-decoration: none; /* Elimina el subrayado */
-      color: inherit;       /* Hereda el color del texto de su padre (el h2), que por defecto es negro */
-  }
-
-  /* Estilos para la Paginación (solo números) */
-    .pagination {
-      display: flex; /* Para que los números se pongan en línea */
-      justify-content: center; /* Centrar la paginación en la página */
-      padding: 2em 0; /* Espacio arriba y abajo de la paginación */
-      margin-top: 2em; /* Espacio para separarlo del contenido de arriba */
-      border-top: 1px solid #eee; /* Línea separadora sutil en la parte superior */
-  }
-
-    .pagination .page-link {
-      text-decoration: none; /* Elimina el subrayado de los enlaces */
-      color: #0a0a23; /* Color de texto predeterminado para los números */
-      padding: 0.8em 1.2em; /* Espacio interno dentro de cada "botón" de número */
-      margin: 0 0.4em; /* Espacio entre los números (botones) */
-      border: 1px solid #ddd; /* Borde suave alrededor de cada número */
-      border-radius: 6px; /* Bordes ligeramente redondeados */
-      transition: all 0.3s ease; /* Transición suave para efectos al pasar el ratón */
-      font-weight: bold; /* Texto en negrita */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Usa la tipografía deseada */
-  }
-
-    .pagination .page-link:hover {
-      background-color: #0a0a23; /* Fondo negro al pasar el ratón sobre un número */
-      color: white; /* Texto blanco al pasar el ratón */
-      border-color: #0a0a23; /* Borde negro al pasar el ratón */
-  }
-
-    .pagination .page-link.active {
-      background-color: #0a0a23; /* Fondo para el número de la página activa */
-      color: white; /* Texto blanco para el número de la página activa */
-      border-color: #0a0a23; /* Borde negro para la página activa */
-      cursor: default; /* No mostrar cursor de enlace en la página actual (ya que es la página actual) */
-  }
-
-  /* Media Queries para Paginación en móvil (opcional: si queda muy grande en pantallas pequeñas) */
-  @media (max-width: 600px) {
-    .pagination .page-link {
-      padding: 0.6em 0.8em; /* Ajusta el padding para que los números no sean tan grandes en móviles */
-      margin: 0 0.2em; /* Reduce el margen entre números en móviles */
-      font-size: 0.9em; /* Reduce el tamaño de la fuente en móviles */
-  }
-}
-    
-</style>
+        @media (max-width: 600px) {
+            .pagination .page-link {
+                padding: 0.6em 0.8em;
+                margin: 0 0.2em;
+                font-size: 0.9em;
+            }
+        }
+    </style>
 
 </head>
 <body>
-  <header>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      ☰ SECCIONES
-    </div>
-    <h1>MM <br> NEWS</h1>
-    <h1>ECONOMÍA</h1>
-    <nav id="menu-secciones" class="menu-secciones">
-      <ul>
-        <li><a href="economia.html">Economía</a></li>
-        <li><a href="politica.html">Política</a></li>
-        <li><a href="finanzas.html">Finanzas</a></li>
-        <li><a href="internacional.html">Internacional</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰ SECCIONES
+        </div>
+        <h1>MM <br> NEWS</h1>
+        <h1>ECONOMÍA</h1>
+        <nav id="menu-secciones" class="menu-secciones">
+            <ul>
+                <li><a href="economia.html">Economía</a></li>
+                <li><a href="politica.html">Política</a></li>
+                <li><a href="finanzas.html">Finanzas</a></li>
+                <li><a href="internacional.html">Internacional</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main class="grid-principal">
-    <div class="noticia grande">
-    <div class="imagen-destacada">
-      <h2><a href="argentina-logra-superavit-financiero-en-abril.html">Argentina logra superávit financiero en abril</a></h2>
-      <img src="img/caputo-milei-2.jpg" alt="El Ministro de Economía Toto Caputo Junto al Presidente Javier Milei | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      <p>El Ministerio de Economía informó que abril cerró con un superávit financiero de $572.341 millones, equivalente al 0,2% del Producto Bruto Interno (PBI).</p>
-    </div>
-    </div>
-    <div class="noticia chica">
-      <h2><a href="inflacion-de-abril-bajo-al-2-8-tras-el-fin-del-cepo.html">Inflación de abril bajó al 2,8% tras el fin del cepo</a></h2>
-      <p>El INDEC informó que la inflación de abril fue del 2,8%, marcando una importante desaceleración respecto al 3,7% registrado en marzo.</p>
-    </div>
-    <div class="noticia chica">
-    <div class="imagen-destacada">
-      <h2><a href="mejora-de-la-calificacion-de-argentina.html">Fitch Mejora la Calificación Crediticia de Argentina a "CCC+" por Reformas Económicas y Apoyo del FMI</a></h2>
-      <img src="img/fitch.jpg" alt="Empresa internacional | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      <p>La agencia calificadora Fitch Ratings elevó la calificación de riesgo soberano de Argentina</p>
-    </div>
-    </div>
-    <div class="publicidad vertical">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
+    <main class="grid-principal">
+        <div class="noticia grande">
+            <div class="imagen-destacada">
+                <a href="argentina-logra-superavit-financiero-en-abril.html">
+                    <img src="img/caputo-milei-2.jpg" alt="El Ministro de Economía Toto Caputo Junto al Presidente Javier Milei | MacroMind News">
+                </a>
+            </div>
+            <h2><a href="argentina-logra-superavit-financiero-en-abril.html">Argentina logra superávit financiero en abril</a></h2>
+            <p>El Ministerio de Economía informó que abril cerró con un superávit financiero de $572.341 millones, equivalente al 0,2% del Producto Bruto Interno (PBI).</p>
+        </div>
+
+        <div class="noticia chica">
+            <div class="imagen-destacada">
+                <a href="inflacion-de-abril-bajo-al-2-8-tras-el-fin-del-cepo.html">
+                    </a>
+            </div>
+            <h2><a href="inflacion-de-abril-bajo-al-2-8-tras-el-fin-del-cepo.html">Inflación de abril bajó al 2,8% tras el fin del cepo</a></h2>
+            <p>El INDEC informó que la inflación de abril fue del 2,8%, marcando una importante desaceleración respecto al 3,7% registrado en marzo.</p>
+        </div>
+
+        <div class="noticia chica">
+            <div class="imagen-destacada">
+                <a href="mejora-de-la-calificacion-de-argentina.html">
+                    <img src="img/fitch.jpg" alt="Empresa internacional | MacroMind News">
+                </a>
+            </div>
+            <h2><a href="mejora-de-la-calificacion-de-argentina.html">Fitch Mejora la Calificación Crediticia de Argentina a "CCC+" por Reformas Económicas y Apoyo del FMI</a></h2>
+            <p>La agencia calificadora Fitch Ratings elevó la calificación de riesgo soberano de Argentina</p>
+        </div>
+
+        <div class="publicidad vertical">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+        
+        <div class="noticia media">
+            <div class="imagen-destacada">
+                <a href="aerolineas-argentinas-reduce-su-estrutura.html">
+                    </a>
+            </div>
+            <h2><a href="aerolineas-argentinas-reduce-su-estrutura.html">Aerolíneas Argentinas reduce su estructura y consolida el superávit con una gestión eficiente</a></h2>        
+            <p>Aerolíneas Argentinas anunció el cierre de 17 oficinas comerciales en distintas provincias, una decisión que refuerza su compromiso con la eficiencia operativa y la sustentabilidad financiera.</p>
+        </div>
+
+        <div class="noticia media">
+            <div class="imagen-destacada">
+                <a href="el-bank-of-america-destaca-los-avances-de-argentina.html">
+                    <img src="img/bank-of-america.jpg" alt="Bank of America | MacroMind News">
+                </a>
+            </div>
+            <h2><a href="el-bank-of-america-destaca-los-avances-de-argentina.html">Bank of America destaca los avances económicos de Argentina y recomienda "comprar pesos" tras la salida del cepo</a></h2>
+            <p>En un giro favorable hacia la economía argentina, Bank of America ha emitido una recomendación optimista para los inversores: "comprar pesos"</p>
+        </div>
+
+        <div class="noticia media">
+            <div class="imagen-destacada">
+                <a href="el-gobierno-avanza-con-la-privatizacion-de-enarsa.html">
+                    </a>
+            </div>
+            <h2><a href="el-gobierno-avanza-con-la-privatizacion-de-enarsa.html">El Gobierno Nacional avanza con la modernización del sector energético: inicia la privatización de ENARSA</a></h2>
+            <p>El Gobierno Nacional anunció el inicio del proceso de privatización de ENARSA.</p>
+        </div>
+
+        <div class="publicidad cuadrada">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+        <div class="publicidad cuadrada">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+        <div class="publicidad cuadrada">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+        <div class="publicidad cuadrada">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+
+        <div class="noticia grande">
+            <div class="imagen-destacada">
+                <a href="dr-martens-vuelve-a-argentina.html">
+                    <img src="img/dr-martens.jpg" alt="Dr Martens | MacroMind News">
+                </a>
+            </div>
+            <h2><a href="dr-martens-vuelve-a-argentina.html">Dr. Martens vuelve a la Argentina con una inversión de US$400.000</a></h2>
+            <p>La icónica marca británica de calzado Dr. Martens confirmó su regreso al mercado argentino con una inversión inicial de 400 mil dólares.</p>
+        </div>
+
+        <div class="noticia grande">
+            <div class="imagen-destacada">
+                <a href="on-llega-a-argentina.html">
+                    <img src="img/empresa-on.jpg" alt="Empresa On | MacroMind News">
+                </a>
+            </div>
+            <h2><a href="on-llega-a-argentina.html">La marca suiza de zapatillas ON llegará a la Argentina en 2026</a></h2>
+            <p>La reconocida firma suiza de calzado deportivo ON anunció oficialmente su desembarco en el mercado argentino.</p>
+        </div>
+
+        <div class="publicidad horizontal">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" alt="Publicidad Horizontal" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+
+        <div class="noticia media">
+            <div class="imagen-destacada">
+                <a href="arca-detecta-gasto-millonario-en-alquileres-el-próximo-objetivo-de-la-motosierra.html">
+                    </a>
+            </div>
+            <h2><a href="arca-detecta-gasto-millonario-en-alquileres-el-próximo-objetivo-de-la-motosierra.html">ARCA detecta gasto millonario en alquileres: el próximo objetivo de la motosierra</a></h2>       
+            <p>La Agencia de Recaudación y Control Aduanero (ARCA) reveló que el Estado gastará más de $4.000 millones en alquiler de oficinas en 2025, y apunta a recortes drásticos.</p>
+        </div>
+
+        <div class="noticia media">
+            <div class="imagen-destacada">
+                <a href="la-economia-crecio-un-5-interanual-en-febrero.html">
+                    <img src="img/caputo-y-milei.jpg" alt="El Presidente junto al Ministro de Economía | MacroMind News">
+                </a>
+            </div>
+            <h2><a href="la-economia-crecio-un-5-interanual-en-febrero.html">La economía argentina creció un 5,7% interanual en febrero, según el INDEC</a></h2>
+            <p>La economía argentina registró en febrero un crecimiento interanual del 5,7%, de acuerdo con los datos difundidos por el INDEC a través del EMAE.</p>
+        </div>
+
+        <div class="noticia media">
+            <div class="imagen-destacada">
+                <a href="neobanco-desembarca-en-argentina.html">
+                    </a>
+            </div>
+            <h2><a href="neobanco-desembarca-en-argentina.html">Neobanco brasileño desembarca en Argentina</a></h2>
+            <p>El multimillonario brasileño João Vitor Menin, CEO del banco digital Inter, anunció el desembarco de su neobanco en Argentina.</p>
+        </div>
+
+        <div class="publicidad cuadrada">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+        <div class="publicidad cuadrada">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+        <div class="publicidad cuadrada">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+        <div class="publicidad cuadrada">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+
+        <div class="noticia grande">
+            <div class="imagen-destacada">
+                <a href="el-gobierno-acordo-con-el-fmi-una-reforma-tributaria-integral-para-2025.html">
+                    <img src="img/caputo-y-kristalina.jpeg" alt="Caputo con Kristalina | MacroMind News">
+                </a>
+            </div>
+            <h2><a href="el-gobierno-acordo-con-el-fmi-una-reforma-tributaria-integral-para-2025.html">El Gobierno acordó con el FMI una reforma tributaria integral para 2025</a></h2>
+            <p>El Gobierno argentino llegó a un nuevo acuerdo técnico con el FMI, en el cual se comprometió a presentar una reforma tributaria integral tras las elecciones legislativas de 2025.</p>
+        </div>
+
+        <div class="noticia grande">
+            <div class="imagen-destacada">
+                <a href="la-industria-metalurgica-crece-en-marzo-señales-de-recuperacion-bajo-la-gestion-milei.html">
+                    <img src="img/adimra.jpg" alt="Informe de ADIMRA | MacroMind News">
+                </a>
+            </div>
+            <h2><a href="la-industria-metalurgica-crece-en-marzo-señales-de-recuperacion-bajo-la-gestion-milei.html">La industria metalúrgica crece en marzo: señales de recuperación bajo la gestión Milei</a></h2>
+            <p>En el mes de marzo, el Índice de Producción Industrial Metalúrgica registró una variación interanual positiva del 2,9%.</p>
+        </div>
+
+        <div class="publicidad horizontal">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+                <img src="img/publicidad.jpg" alt="Publicidad Horizontal" style="width: 100%; height: auto; display: block;">
+            </a>
+        </div>
+    </main>
+
+    <div class="pagination">
+        <a href="economia.html" class="page-link active">1</a>
+        <a href="economia2.html" class="page-link">2</a>
     </div>
     
-    <div class="noticia media">
-      <h2><a href="aerolineas-argentinas-reduce-su-estrutura.html">Aerolíneas Argentinas reduce su estructura y consolida el superávit con una gestión eficiente</a></h2>      
-      <p>Aerolíneas Argentinas anunció el cierre de 17 oficinas comerciales en distintas provincias, una decisión que refuerza su compromiso con la eficiencia operativa y la sustentabilidad financiera.</p>
-    </div>
-    <div class="noticia media">
-    <div class="imagen-destacada">
-      <h2><a href="el-bank-of-america-destaca-los-avances-de-argentina.html">Bank of America destaca los avances económicos de Argentina y recomienda "comprar pesos" tras la salida del cepo</a></h2>
-      <img src="img/bank-of-america.jpg" alt="Bank of America | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      <p>En un giro favorable hacia la economía argentina, Bank of America ha emitido una recomendación optimista para los inversores: "comprar pesos"</p>
-    </div>
-    </div>
-    <div class="noticia media">
-      <h2><a href="el-gobierno-avanza-con-la-privatizacion-de-enarsa.html">El Gobierno Nacional avanza con la modernización del sector energético: inicia la privatización de ENARSA</a></h2>
-      <p>El Gobierno Nacional anunció el inicio del proceso de privatización de ENARSA.</p>
-    </div>
-
-    <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-    </div>
-    <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-    </div>
-    <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-    </div>
-    <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-    </div>
-
-    <div class="noticia grande">
-    <div class="imagen-destacada">
-      <h2><a href="dr-martens-vuelve-a-argentina.html">Dr. Martens vuelve a la Argentina con una inversión de US$400.000</a></h2>
-      <img src="img/dr-martens.jpg" alt="Dr Martens | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      <p>La icónica marca británica de calzado Dr. Martens confirmó su regreso al mercado argentino con una inversión inicial de 400 mil dólares.</p>
-    </div>
-    </div>
-    <div class="noticia grande">
-    <div class="imagen-destacada">
-      <h2><a href="on-llega-a-argentina.html">La marca suiza de zapatillas ON llegará a la Argentina en 2026</a></h2>
-      <img src="img/empresa-on.jpg" alt="Empresa On | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      <p>La reconocida firma suiza de calzado deportivo ON anunció oficialmente su desembarco en el mercado argentino.</p>
-    </div>
-    </div>
-
-    <div class="publicidad horizontal">
-      <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-    </div>
-
-    <div class="noticia media">
-      <h2><a href="arca-detecta-gasto-millonario en-alquileres-el-próximo-objetivo-de-la-motosierra.html">ARCA detecta gasto millonario en alquileres: el próximo objetivo de la motosierra</a></h2>      
-      <p>La Agencia de Recaudación y Control Aduanero (ARCA) reveló que el Estado gastará más de $4.000 millones en alquiler de oficinas en 2025, y apunta a recortes drásticos.</p>
-    </div>
-    <div class="noticia media">
-    <div class="imagen-destacada">
-      <h2><a href="la-economia-crecio-un-5-interanual-en-febrero.html">La economía argentina creció un 5,7% interanual en febrero, según el INDEC</a></h2>
-      <img src="img/caputo-y-milei.jpg" alt="El Presidente junto al Ministro de Economía | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      <p>La economía argentina registró en febrero un crecimiento interanual del 5,7%, de acuerdo con los datos difundidos por el INDEC a través del EMAE.</p>
-    </div>
-    </div>
-    <div class="noticia media">
-      <h2><a href="neobanco-desembarca-en-argentina.html">Neobanco brasileño desembarca en Argentina</a></h2>
-      <p>El multimillonario brasileño João Vitor Menin, CEO del banco digital Inter, anunció el desembarco de su neobanco en Argentina.</p>
-    </div>
-
-    <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-    </div>
-    <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-    </div>
-    <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-    </div>
-    <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-    </div>
-
-    <div class="noticia grande">
-    <div class="imagen-destacada">
-      <h2><a href="el-gobierno-acordo-con-el-fmi-una-reforma-tributaria-integral-para-2025.html">El Gobierno acordó con el FMI una reforma tributaria integral para 2025</a></h2>
-      <img src="img/caputo-y-kristalina.jpeg" alt="Caputo con Kristalina | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      <p>El Gobierno argentino llegó a un nuevo acuerdo técnico con el FMI, en el cual se comprometió a presentar una reforma tributaria integral tras las elecciones legislativas de 2025.</p>
-    </div>
-    </div>
-    <div class="noticia grande">
-    <div class="imagen-destacada">
-      <h2><a href="la-industria-metalurgica-crece-en-marzo-señales-de-recuperacion-bajo-la-gestion-milei.html">La industria metalúrgica crece en marzo: señales de recuperación bajo la gestión Milei</a></h2>
-      <img src="img/adimra.jpg" alt="Informe de ADIMRA | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      <p>En el mes de marzo, el Índice de Producción Industrial Metalúrgica registró una variación interanual positiva del 2,9%.</p>
-    </div>
-    </div>
-
-    <div class="publicidad horizontal">
-      <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-    </div>
-    </div>  
-  </main>
-
-  </main> <div class="pagination">
-      <a href="economia.html" class="page-link active">1</a>
-      <a href="economia2.html" class="page-link">2</a>
-    </div>
-  
-  <footer>
-    <h1>MM <br> NEWS</h1>
-    <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
-      <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-    </a>
-    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-  </footer>
+    <footer>
+        <h1>MM <br> NEWS</h1>
+        <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
+            <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
+        </a>
+        <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>
