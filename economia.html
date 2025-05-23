@@ -275,6 +275,74 @@
     grid-row: 6;
   }
 
+  .grid-principal > .noticia.media:nth-child(15) {
+    grid-row: 7;
+    grid-column: 1;
+  }
+
+  .grid-principal > .noticia.media:nth-child(16) {
+    grid-row: 7;
+    grid-column: 2 / span 2;
+  }
+
+  .grid-principal > .noticia.media:nth-child(17) {
+    grid-row: 7;
+    grid-column: 4;
+  }
+
+ .grid-principal > .publicidad.cuadrada:nth-child(18) {
+    grid-row: 8;
+    grid-column: 1;
+  }
+
+  .grid-principal > .publicidad.cuadrada:nth-child(19) {
+    grid-row: 8;
+    grid-column: 2;
+  }
+
+  .grid-principal > .publicidad.cuadrada:nth-child(20) {
+    grid-row: 8;
+    grid-column: 3;
+  }
+
+  .grid-principal > .publicidad.cuadrada:nth-child(21) { 
+    grid-row: 8;
+    grid-column: 4;
+  }
+
+  .grid-principal > .noticia.grande:nth-child(22) {
+    background-color: white;
+    color: black;
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    grid-column: 1 / span 2;
+    grid-row: 9;
+  }
+
+  .grid-principal > .noticia.grande:nth-child(23) {
+    background-color: white;
+    color: black;
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    grid-column: 3 / span 2;
+    grid-row: 9;
+  }
+
+  .grid-principal > .publicidad.horizontal:nth-child(24) {
+    background-color: black;
+    color: white;
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    grid-column: 1 / -1;
+    grid-row:10;
+  }  
+    
   /* Footer */
   footer {
     background: #0a0a23;
@@ -321,6 +389,50 @@
       text-decoration: none; /* Elimina el subrayado */
       color: inherit;       /* Hereda el color del texto de su padre (el h2), que por defecto es negro */
   }
+
+  /* Estilos para la Paginación (solo números) */
+    .pagination {
+      display: flex; /* Para que los números se pongan en línea */
+      justify-content: center; /* Centrar la paginación en la página */
+      padding: 2em 0; /* Espacio arriba y abajo de la paginación */
+      margin-top: 2em; /* Espacio para separarlo del contenido de arriba */
+      border-top: 1px solid #eee; /* Línea separadora sutil en la parte superior */
+  }
+
+    .pagination .page-link {
+      text-decoration: none; /* Elimina el subrayado de los enlaces */
+      color: #0a0a23; /* Color de texto predeterminado para los números */
+      padding: 0.8em 1.2em; /* Espacio interno dentro de cada "botón" de número */
+      margin: 0 0.4em; /* Espacio entre los números (botones) */
+      border: 1px solid #ddd; /* Borde suave alrededor de cada número */
+      border-radius: 6px; /* Bordes ligeramente redondeados */
+      transition: all 0.3s ease; /* Transición suave para efectos al pasar el ratón */
+      font-weight: bold; /* Texto en negrita */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Usa la tipografía deseada */
+  }
+
+    .pagination .page-link:hover {
+      background-color: #0a0a23; /* Fondo negro al pasar el ratón sobre un número */
+      color: white; /* Texto blanco al pasar el ratón */
+      border-color: #0a0a23; /* Borde negro al pasar el ratón */
+  }
+
+    .pagination .page-link.active {
+      background-color: #0a0a23; /* Fondo para el número de la página activa */
+      color: white; /* Texto blanco para el número de la página activa */
+      border-color: #0a0a23; /* Borde negro para la página activa */
+      cursor: default; /* No mostrar cursor de enlace en la página actual (ya que es la página actual) */
+  }
+
+  /* Media Queries para Paginación en móvil (opcional: si queda muy grande en pantallas pequeñas) */
+  @media (max-width: 600px) {
+    .pagination .page-link {
+      padding: 0.6em 0.8em; /* Ajusta el padding para que los números no sean tan grandes en móviles */
+      margin: 0 0.2em; /* Reduce el margen entre números en móviles */
+      font-size: 0.9em; /* Reduce el tamaño de la fuente en móviles */
+  }
+}
+    
 </style>
 
 </head>
@@ -476,8 +588,21 @@
       <p>En el mes de marzo, el Índice de Producción Industrial Metalúrgica registró una variación interanual positiva del 2,9%.</p>
     </div>
     </div>
+
+    <div class="publicidad horizontal">
+      <div class="publicidad cuadrada">
+      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
+      </a>
+    </div>
+    </div>  
   </main>
 
+  </main> <div class="pagination">
+      <a href="economia.html" class="page-link active">1</a>
+      <a href="economia2.html" class="page-link">2</a>
+    </div>
+  
   <footer>
     <h1>MM <br> NEWS</h1>
     <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
