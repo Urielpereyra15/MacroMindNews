@@ -227,56 +227,74 @@
             grid-column: 4;
         }
 
-        /* Noticia grande "NOTICIA 7" */
+        /* Noticia grande "NOTICIA 7" (Dr. Martens) */
         .grid-principal > .noticia.grande:nth-child(12) {
-            background-color: white;
-            color: black;
-            padding: 1em;
-            border-radius: 12px;
-            font-size: 1.1em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             grid-column: 1 / span 2;
             grid-row: 5;
         }
 
-        /* Noticia grande "NOTICIA 8" */
+        /* Noticia grande "NOTICIA 8" (ON) */
         .grid-principal > .noticia.grande:nth-child(13) {
-            background-color: white;
-            color: black;
-            padding: 1em;
-            border-radius: 12px;
-            font-size: 1.1em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             grid-column: 3 / span 2;
             grid-row: 5;
         }
 
-        /* Publicidad horizontal */
-        .publicidad.horizontal { /* Aplica estilos comunes a todas las publicidades horizontales */
-            background-color: black;
-            color: white;
-            padding: 1em;
-            border-radius: 12px;
-            font-size: 1.2em;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            grid-column: 1 / -1; /* Ocupa todas las columnas */
-        }
+        /* Publicidad horizontal (después de Dr. Martens y ON) */
         .grid-principal > .publicidad.horizontal:nth-child(14) {
-            grid-row: 6;
+            grid-column: 1 / -1; /* Ocupa todas las columnas */
+            grid-row: 6; /* Coloca esta publicidad en la fila 6 */
         }
-        /* Ajustando las posiciones para las nuevas noticias grandes */
-        .grid-principal > .noticia.grande:nth-child(22) { /* "El Gobierno acordó con el FMI..." - Anteriormente Noticia 14 */
-            grid-column: 1 / span 2; /* Ocupa 2 columnas */
-            grid-row: 8; /* Asegura que esté en su propia fila o debajo del contenido anterior */
+        
+        /* NOTICIA 9 (media) */
+        .grid-principal > .noticia.media:nth-child(15) {
+            grid-row: 7;
+            grid-column: 1;
+        }
+        /* NOTICIA 10 (media) */
+        .grid-principal > .noticia.media:nth-child(16) {
+            grid-row: 7;
+            grid-column: 2 / span 2;
+        }
+        /* NOTICIA 11 (media) */
+        .grid-principal > .noticia.media:nth-child(17) {
+            grid-row: 7;
+            grid-column: 4;
         }
 
-        .grid-principal > .noticia.grande:nth-child(23) { /* "La industria metalúrgica crece..." - Anteriormente Noticia 15 */
-            grid-column: 3 / span 2; /* Ocupa 2 columnas */
-            grid-row: 8; /* Asegura que esté en la misma fila que la anterior, si hay espacio */
+        /* Publicidad cuadrada (siguientes) */
+        .grid-principal > .publicidad.cuadrada:nth-child(18) {
+            grid-row: 8;
+            grid-column: 1;
         }
-        /* Ajuste para la publicidad horizontal final */
+        .grid-principal > .publicidad.cuadrada:nth-child(19) {
+            grid-row: 8;
+            grid-column: 2;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(20) {
+            grid-row: 8;
+            grid-column: 3;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(21) {
+            grid-row: 8;
+            grid-column: 4;
+        }
+
+        /* NOTICIA 12 (grande) - "El Gobierno acordó con el FMI..." */
+        .grid-principal > .noticia.grande:nth-child(22) {
+            grid-column: 1 / span 2;
+            grid-row: 9; /* Ajusta la fila para que esté debajo de la publicidad cuadrada */
+        }
+
+        /* NOTICIA 13 (grande) - "La industria metalúrgica crece..." */
+        .grid-principal > .noticia.grande:nth-child(23) {
+            grid-column: 3 / span 2;
+            grid-row: 9; /* Ajusta la fila para que esté en la misma fila que la anterior */
+        }
+
+        /* Segunda Publicidad horizontal (al final) */
         .grid-principal > .publicidad.horizontal:nth-child(24) {
-            grid-row: 9; /* Coloca la publicidad final debajo de las dos nuevas grandes noticias */
+            grid-column: 1 / -1; /* Ocupa todas las columnas */
+            grid-row: 10; /* Coloca esta publicidad en la fila 10 */
         }
 
 
@@ -406,7 +424,7 @@
             <h2><a href="mejora-de-la-calificacion-de-argentina.html">Fitch Mejora la Calificación Crediticia de Argentina a "CCC+" por Reformas Económicas y Apoyo del FMI</a></h2>
             <div class="imagen-destacada">
                 <a href="mejora-de-la-calificacion-de-argentina.html">
-                    <img src="img/fitch.jpeg" alt="Empresa internacional | MacroMind News">
+                    <img src="img/fitch.jpg" alt="Empresa internacional | MacroMind News">
                 </a>
             </div>
             <p>La agencia calificadora Fitch Ratings elevó la calificación de riesgo soberano de Argentina</p>
