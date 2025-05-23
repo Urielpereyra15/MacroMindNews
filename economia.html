@@ -22,7 +22,9 @@
 
         /* Para los títulos de las noticias */
         .noticia h2 {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aplica la tipografía deseada */
+            text-align: left; /* Alinea los títulos de las noticias a la izquierda */
+            margin-bottom: 0.5em;
         }
         .noticia h2 a {
             text-decoration: none;
@@ -31,7 +33,9 @@
 
         /* Para los párrafos de las noticias (descripciones) */
         .noticia p {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aplica la tipografía deseada */
+            text-align: left;
+            margin-top: 1em;
         }    
 
         /* Header */
@@ -100,90 +104,111 @@
         /* Contenido principal (Grid) */
         main.grid-principal {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Hacemos el grid adaptable para que las columnas se ajusten automáticamente */
+            grid-template-columns: 1fr 1fr 1fr 1fr; /* Cuatro columnas */
             gap: 1em;
             padding: 2em;
             max-width: 1200px; /* Ancho máximo para centrar el contenido */
             margin: 2em auto; /* Centrar el grid principal */
         }
 
-        /* Estilos comunes para todas las noticias y publicidad para el efecto de "cuadro" */
-        .noticia, .publicidad {
-            background-color: white; /* Fondo blanco */
+        /* Noticia grande (primer elemento en el grid) */
+        .grid-principal > .noticia.grande:nth-child(1) { /* Selecciona el primer .noticia.grande */
+            background-color: white;
             color: black;
             padding: 1em;
             border-radius: 12px;
             font-size: 1.1em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra para el efecto de "cuadro" */
-        }
-
-        /* Noticia grande (primer elemento en el grid) - si es que tu pagina principal lo tiene*/
-        /* Si esta página de economía NO tiene un elemento que ocupe 2x2, puedes eliminar esta regla */
-        .grid-principal > .noticia.grande:nth-child(1) {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             grid-column: 1 / span 2;
             grid-row: 1 / span 2;
-            /* Estos estilos ya están en .noticia, no es necesario duplicarlos aquí */
-            /* background-color: white; */
-            /* color: black; */
-            /* padding: 1em; */
-            /* border-radius: 12px; */
-            /* font-size: 1.1em; */
-            /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
         }
 
-        /* Estilos para el contenedor de imagen-destacada en CUALQUIER noticia */
-        .imagen-destacada { /* Aplicado a todas las .imagen-destacada */
+        /* Estilos comunes para el contenedor de imagen-destacada en noticias grandes */
+        .noticia.grande .imagen-destacada {
             margin-bottom: 1em;
         }
 
-        /* Estilos para el título h2 dentro de la noticia. Asegurarse de que esté fuera de imagen-destacada si quieres alineación */
-        .noticia h2 {
-            text-align: left; /* Alinea los títulos de las noticias a la izquierda */
-            margin-bottom: 0.5em;
-        }
+        /* Estilos específicos para el título de la PRIMERA noticia grande (alineado a la izquierda) */
+        /* Asegúrate de que el h2 no esté dentro de .imagen-destacada si quieres que el estilo funcione para el diseño general */
+        /* .grid-principal > .noticia.grande:nth-child(1) h2 { */
+        /* text-align: left; */
+        /* margin-bottom: 0.5em; */
+        /* } */
 
-        /* Estilos para el párrafo de la noticia */
-        .noticia p {
-            text-align: left;
-            margin-top: 1em;
-        }
+        /* Estilos para el párrafo de la PRIMERA noticia grande */
+        /* .grid-principal > .noticia.grande:nth-child(1) p { */
+        /* text-align: left; */
+        /* margin-top: 1em; */
+        /* } */
 
         /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
         .imagen-destacada img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 100%;
-            height: auto;
+            display: block; /* La imagen debe ser un elemento de bloque para que margin: auto funcione */
+            margin-left: auto; /* Centra horizontalmente */
+            margin-right: auto; /* Centra horizontalmente */
+            max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */
             border-radius: 8px;
-            margin-top: 15px;
-            margin-bottom: 15px;
+            margin-top: 15px; /* Define el margen superior aquí */
+            margin-bottom: 15px; /* Define el margen inferior aquí */
         }
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
-
-        /* Noticias chicas y medianas - ahora heredan los estilos base de .noticia */
-        /* Estas reglas solo necesitan definir el posicionamiento en el grid si es necesario */
-        .noticia.chica, .noticia.media {
-            /* No necesitan background, padding, border-radius, box-shadow aquí si ya están en .noticia */
-            /* Solo si quieres anular algo específico */
+        /* Noticias chicas */
+        .noticia.chica { /* Aplica estilos comunes a todas las noticias chicas */
+            background-color: white;
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        /* Reglas de grid-column y grid-row para noticias específicas */
-        /* Si en economia.html no tienes una estructura de grid tan compleja con nth-child para cada noticia,
-           puedes simplemente añadir tus .noticia.grande, .noticia.chica, etc. y el grid se encargará.
-           Si quieres un diseño específico, mantén o adapta estas. */
+        .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
+            grid-row: 1;
+            grid-column: 3;
+        }
+
+        .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
+            grid-row: 2;
+            grid-column: 3;
+        }
 
         /* Publicidad vertical */
-        .publicidad.vertical {
-            background-color: black; /* Esto anula el blanco de .noticia,.publicidad */
+        .publicidad.vertical { /* PUBLI */
+            background-color: black;
             color: white;
             padding: 1em;
             border-radius: 12px;
             font-size: 1.2em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            grid-column: 4; /* Asumiendo que quieres una columna fija para publicidad */
-            grid-row: span 2; /* Para que ocupe dos filas */
+            grid-row: 1 / span 2;
+            grid-column: 4; /* Intenta colocar en la cuarta columna */
+        }
+
+        /* Noticias medianas */
+        .noticia.media { /* Aplica estilos comunes a todas las noticias medianas */
+            background-color: white;
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
+            grid-row: 3;
+            grid-column: 1;
+        }
+
+        .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
+            grid-row: 3;
+            grid-column: 2 / span 2;
+        }
+
+        .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
+            grid-row: 3;
+            grid-column: 4;
         }
 
         /* Publicidad cuadrada */
@@ -196,8 +221,52 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
+        .grid-principal > .publicidad.cuadrada:nth-child(8) {
+            grid-row: 4;
+            grid-column: 1;
+        }
+
+        .grid-principal > .publicidad.cuadrada:nth-child(9) {
+            grid-row: 4;
+            grid-column: 2;
+        }
+
+        .grid-principal > .publicidad.cuadrada:nth-child(10) {
+            grid-row: 4;
+            grid-column: 3;
+        }
+
+        .grid-principal > .publicidad.cuadrada:nth-child(11) { 
+            grid-row: 4;
+            grid-column: 4;
+        }
+
+        /* Noticia grande "NOTICIA 7" */
+        .grid-principal > .noticia.grande:nth-child(12) {
+            background-color: white;
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            grid-column: 1 / span 2;
+            grid-row: 5;
+        }
+
+        /* Noticia grande "NOTICIA 8" */
+        .grid-principal > .noticia.grande:nth-child(13) {
+            background-color: white;
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            grid-column: 3 / span 2;
+            grid-row: 5;
+        }
+
         /* Publicidad horizontal */
-        .publicidad.horizontal {
+        .publicidad.horizontal { /* Aplica estilos comunes a todas las publicidades horizontales */
             background-color: black;
             color: white;
             padding: 1em;
@@ -206,7 +275,12 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             grid-column: 1 / -1; /* Ocupa todas las columnas */
         }
-
+        .grid-principal > .publicidad.horizontal:nth-child(14) {
+            grid-row: 6;
+        }
+        .grid-principal > .publicidad.horizontal:nth-child(24) { /* Si tienes otra horizontal al final */
+            grid-row: 9; /* Ajusta según cuántos elementos tengas antes */
+        }
 
         /* Footer */
         footer {
@@ -218,33 +292,6 @@
 
         footer h1 {
             margin-bottom: 0.5em;
-        }
-
-        /* Estilos para móvil */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-
-            .menu-toggle {
-                position: static;
-                left: auto;
-                top: auto;
-                margin-right: 1em;
-            }
-
-            main.grid-principal {
-                display: flex; /* Cambia a flexbox para una columna en móvil */
-                flex-direction: column;
-                gap: 1em;
-                padding: 1em;
-            }
-
-            /* .noticia, .publicidad { */
-            /* Ya tienen padding, border-radius, box-shadow de las reglas generales */
-            /* font-size: 1.2em; */
-            /* } */
         }
 
         /* Paginación */
@@ -281,7 +328,38 @@
             cursor: default;
         }
 
-        @media (max-width: 600px) {
+        /* Estilos para móvil */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .menu-toggle {
+                position: static;
+                left: auto;
+                top: auto;
+                margin-right: 1em;
+            }
+
+            main.grid-principal {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                padding: 1em;
+                max-width: none; /* Elimina el ancho máximo para que ocupe todo el ancho disponible */
+                margin: 1em; /* Ajusta el margen en móvil */
+            }
+
+            .noticia, .publicidad {
+                padding: 1em;
+                border-radius: 12px;
+                font-size: 1.2em;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                /* En móvil, no necesitamos las reglas de grid-column/row */
+                grid-column: auto !important;
+                grid-row: auto !important;
+            }
             .pagination .page-link {
                 padding: 0.6em 0.8em;
                 margin: 0 0.2em;
@@ -322,9 +400,7 @@
 
         <div class="noticia chica">
             <div class="imagen-destacada">
-                <a href="inflacion-de-abril-bajo-al-2-8-tras-el-fin-del-cepo.html">
-                    </a>
-            </div>
+                </div>
             <h2><a href="inflacion-de-abril-bajo-al-2-8-tras-el-fin-del-cepo.html">Inflación de abril bajó al 2,8% tras el fin del cepo</a></h2>
             <p>El INDEC informó que la inflación de abril fue del 2,8%, marcando una importante desaceleración respecto al 3,7% registrado en marzo.</p>
         </div>
@@ -341,15 +417,13 @@
 
         <div class="publicidad vertical">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad Vertical">
             </a>
         </div>
         
         <div class="noticia media">
             <div class="imagen-destacada">
-                <a href="aerolineas-argentinas-reduce-su-estrutura.html">
-                    </a>
-            </div>
+                 </div>
             <h2><a href="aerolineas-argentinas-reduce-su-estrutura.html">Aerolíneas Argentinas reduce su estructura y consolida el superávit con una gestión eficiente</a></h2>        
             <p>Aerolíneas Argentinas anunció el cierre de 17 oficinas comerciales en distintas provincias, una decisión que refuerza su compromiso con la eficiencia operativa y la sustentabilidad financiera.</p>
         </div>
@@ -366,31 +440,29 @@
 
         <div class="noticia media">
             <div class="imagen-destacada">
-                <a href="el-gobierno-avanza-con-la-privatizacion-de-enarsa.html">
-                    </a>
-            </div>
-            <h2><a href="el-gobierno-avanza-con-la-privatizacion-de-enarsa.html">El Gobierno Nacional avanza con la modernización del sector energético: inicia la privatización de ENARSA</a></h2>
+                 </div>
+            <h2><a href="el-gobierno-nacional-avanza-con-la-modernizacion-del-sector-energetico-inicia-la-privatizacion-de-enarsa.html">El Gobierno Nacional avanza con la modernización del sector energético: inicia la privatización de ENARSA</a></h2>
             <p>El Gobierno Nacional anunció el inicio del proceso de privatización de ENARSA.</p>
         </div>
 
         <div class="publicidad cuadrada">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad">
             </a>
         </div>
         <div class="publicidad cuadrada">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad">
             </a>
         </div>
         <div class="publicidad cuadrada">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad">
             </a>
         </div>
         <div class="publicidad cuadrada">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad">
             </a>
         </div>
 
@@ -416,17 +488,15 @@
 
         <div class="publicidad horizontal">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" alt="Publicidad Horizontal" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
             </a>
         </div>
 
         <div class="noticia media">
             <div class="imagen-destacada">
-                <a href="arca-detecta-gasto-millonario-en-alquileres-el-próximo-objetivo-de-la-motosierra.html">
-                    </a>
-            </div>
-            <h2><a href="arca-detecta-gasto-millonario-en-alquileres-el-próximo-objetivo-de-la-motosierra.html">ARCA detecta gasto millonario en alquileres: el próximo objetivo de la motosierra</a></h2>       
-            <p>La Agencia de Recaudación y Control Aduanero (ARCA) reveló que el Estado gastará más de $4.000 millones en alquiler de oficinas en 2025, y apunta a recortes drásticos.</p>
+                </div>
+            <h2><a href="arca-detecta-gasto-millonario-en-alquileres-el-proximo-objetivo-de-la-motosierra.html">ARCA detecta gasto millonario en alquileres: el próximo objetivo de la motosierra</a></h2>       
+            <p>La Agencia de Recaudación y Control Aduanera (ARCA) reveló que el Estado gastará más de $4.000 millones en alquiler de oficinas en 2025, y apunta a recortes drásticos.</p>
         </div>
 
         <div class="noticia media">
@@ -441,31 +511,29 @@
 
         <div class="noticia media">
             <div class="imagen-destacada">
-                <a href="neobanco-desembarca-en-argentina.html">
-                    </a>
-            </div>
+                </div>
             <h2><a href="neobanco-desembarca-en-argentina.html">Neobanco brasileño desembarca en Argentina</a></h2>
             <p>El multimillonario brasileño João Vitor Menin, CEO del banco digital Inter, anunció el desembarco de su neobanco en Argentina.</p>
         </div>
 
         <div class="publicidad cuadrada">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad">
             </a>
         </div>
         <div class="publicidad cuadrada">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad">
             </a>
         </div>
         <div class="publicidad cuadrada">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad">
             </a>
         </div>
         <div class="publicidad cuadrada">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" alt="Publicidad" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad">
             </a>
         </div>
 
@@ -491,7 +559,7 @@
 
         <div class="publicidad horizontal">
             <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-                <img src="img/publicidad.jpg" alt="Publicidad Horizontal" style="width: 100%; height: auto; display: block;">
+                <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
             </a>
         </div>
     </main>
@@ -504,7 +572,7 @@
     <footer>
         <h1>MM <br> NEWS</h1>
         <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
-            <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
+            <img src="img/x-logo.png" alt="X Logo" style="width: 30px; height: auto; filter: invert(100%);">
         </a>
         <p>© 2025 MacroMind News | Todos los derechos reservados</p>
     </footer>
