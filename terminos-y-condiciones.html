@@ -4,40 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos y Condiciones | MacroMind News</title>
-    <link rel="stylesheet" href="estilos.css"> </head>
+    <link rel="stylesheet" href="estilos.css"> 
+    <style>
+        /* Estilos generales para el body y la página */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4; /* Fondo claro para la página */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos para el encabezado de la página de Términos y Condiciones */
+        .header-tyc {
+            background-color: #0a0a23; /* Color de fondo oscuro */
+            color: white; /* Texto blanco */
+            padding: 1.5em 1em; /* Relleno */
+            text-align: center; /* Centrar el texto */
+            margin-bottom: 2em; /* Margen inferior */
+        }
+
+        .header-tyc h1 {
+            margin: 0; /* Eliminar margen predeterminado del h1 */
+            font-size: 2.5em; /* Tamaño de fuente para el título principal */
+        }
+        .header-tyc h2 {
+            margin: 0; /* Eliminar margen predeterminado del h2 */
+            font-size: 1.5em; /* Tamaño de fuente para el subtítulo */
+            font-weight: normal; /* Grosor de fuente normal */
+        }
+
+        /* Estilos para el contenedor principal del contenido de los términos */
+        main.tyc-contenido {
+            max-width: 900px; /* Ancho máximo para el contenido principal */
+            margin: 2em auto; /* Centrar el contenido y darle margen superior/inferior */
+            padding: 2.5em; /* Espacio interno dentro del cuadro blanco */
+            background-color: white; /* Fondo blanco para el contenido */
+            border-radius: 12px; /* Bordes redondeados */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente consistente con tus noticias */
+        }
+
+        /* Estilos para la fecha de última actualización */
+        .tyc-contenido .ultima-actualizacion {
+            text-align: right; /* Alinear a la derecha */
+            font-size: 0.9em; /* Tamaño de fuente más pequeño */
+            color: #777; /* Color de texto gris */
+            margin-bottom: 2em; /* Margen inferior */
+        }
+
+        /* Estilos para cada sección individual de los términos (ej. 1. Aceptación) */
+        .termino-seccion {
+            margin-bottom: 2em; /* Espacio entre cada sección */
+            padding-bottom: 1.5em; /* Espacio inferior dentro de cada sección */
+            border-bottom: 1px solid #eee; /* Línea separadora suave */
+        }
+
+        /* Quitar la línea inferior de la última sección */
+        .termino-seccion:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Estilos para los títulos de cada sección (ej. 1. Aceptación de los Términos) */
+        .termino-seccion h3 {
+            font-size: 1.4em; /* Tamaño del título de sección */
+            color: #0a0a23; /* Color oscuro para el título */
+            margin-top: 0; /* Eliminar margen superior predeterminado */
+            margin-bottom: 0.8em; /* Espacio entre título y párrafo */
+            font-family: Georgia, serif; /* O la fuente que uses para títulos de noticias si quieres */
+            text-align: left; /* Alinear títulos a la izquierda */
+        }
+
+        /* Estilos para los párrafos de texto dentro de cada sección */
+        .termino-seccion p {
+            margin-bottom: 1em; /* Espacio entre párrafos */
+            text-align: justify; /* Justificar el texto para mejor lectura */
+            color: #555; /* Un gris oscuro para el texto */
+        }
+
+        /* Estilos para el botón "Volver al Inicio" */
+        .link-volver {
+            display: block; /* Para que el enlace ocupe su propia línea */
+            text-align: center; /* Centrar el enlace */
+            margin-top: 3em; /* Espacio arriba del enlace */
+        }
+
+        .link-volver a {
+            background-color: #0a0a23; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            padding: 0.8em 1.5em; /* Relleno del botón */
+            border-radius: 6px; /* Bordes redondeados */
+            text-decoration: none; /* Quitar subrayado del enlace */
+            transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        .link-volver a:hover {
+            background-color: #333; /* Color al pasar el ratón */
+        }
+
+        /* Footer - Asegúrate de que los estilos del footer de tu economia.html también estén aquí o en estilos.css */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+            margin-top: 3em; /* Espacio entre el contenido principal y el footer */
+        }
+
+        footer h1 {
+            margin-bottom: 0.5em;
+            font-size: 2em; /* Asegurar el tamaño del título del footer */
+        }
+
+        footer a {
+            display: block;
+            margin-top: 10px;
+            color: white; /* Asegurar que los enlaces en el footer sean blancos */
+            text-decoration: none;
+        }
+
+        footer img {
+            width: 30px;
+            height: auto;
+            filter: invert(100%);
+        }
+    </style>
+</head>
 <body>
-    <header>
+    <header class="header-tyc">
         <h1>MacroMind News</h1>
         <h2>Términos y Condiciones</h2>
     </header>
-    <main style="padding: 2em; max-width: 800px; margin: 2em auto; background-color: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-        <h2>Última actualización: 05/06/2025 </h2>
-      
-        <h3>1. Aceptación de los Términos</h3>
-        <p>Al acceder y utilizar este sitio web (www.macromindnews.com.ar), usted acepta cumplir estos términos y condiciones de uso.</p>
 
-        <h3>2. Propiedad del contenido</h3>
-        <p>Todo contenido publicado en MacroMind News, incluidos textos, imágenes y diseños, salvo que se indique lo contrario, es propiedad del sitio y está protegido por derechos de autor.</p>
+    <main class="tyc-contenido">
+        <p class="ultima-actualizacion">Última actualización: 05/06/2025</p>
 
-        <h3>3. Uso de contenido</h3>
-        <p>El contenido es solo para uso informativo y personal. No está permitido reproducir, distribuir o modificar el contenido sin autorización previa.</p>
+        <div class="termino-seccion">
+            <h3>1. Aceptación de los Términos</h3>
+            <p>Al acceder y utilizar este sitio web (www.macromindnews.com.ar), usted acepta cumplir estos términos y condiciones de uso.</p>
+        </div>
 
-        <h3>4. Enlaces externos</h3>
-        <p>Este sitio puede contener enlaces a sitios de terceros. No nos hacemos responsables del contenido ni de las políticas de dichos sitios.</p>
+        <div class="termino-seccion">
+            <h3>2. Propiedad del contenido</h3>
+            <p>Todo contenido publicado en MacroMind News, incluidos textos, imágenes y diseños, salvo que se indique lo contrario, es propiedad del sitio y está protegido por derechos de autor.</p>
+        </div>
 
-        <h3>5. Publicidad</h3>
-        <p>Este sitio puede contener espacios publicitarios. MacroMind News no se responsabiliza por los productos o servicios ofrecidos por terceros anunciantes.</p>
+        <div class="termino-seccion">
+            <h3>3. Uso de contenido</h3>
+            <p>El contenido es solo para uso informativo y personal. No está permitido reproducir, distribuir o modificar el contenido sin autorización previa.</p>
+        </div>
 
-        <h3>6. Cambios en los términos</h3>
-        <p> Nos reservamos el derecho a modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor una vez publicadas en esta página.</p>
+        <div class="termino-seccion">
+            <h3>4. Enlaces externos</h3>
+            <p>Este sitio puede contener enlaces a sitios de terceros. No nos hacemos responsables del contenido ni de las políticas de dichos sitios.</p>
+        </div>
 
-        <h3>7. Contacto</h3>
-        <p> Para consultas relacionadas con estos términos, puede comunicarse a través del correo: newsmacromind@gmail.com</p>
+        <div class="termino-seccion">
+            <h3>5. Publicidad</h3>
+            <p>Este sitio puede contener espacios publicitarios. MacroMind News no se responsabiliza por los productos o servicios ofrecidos por terceros anunciantes.</p>
+        </div>
 
-        <h2><a href="index.html">Volver al Inicio</a></h2>
+        <div class="termino-seccion">
+            <h3>6. Cambios en los términos</h3>
+            <p>Nos reservamos el derecho a modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor una vez publicadas en esta página.</p>
+        </div>
+
+        <div class="termino-seccion">
+            <h3>7. Contacto</h3>
+            <p>Para consultas relacionadas con estos términos, puede comunicarse a través del correo: newsmacromind@gmail.com</p>
+        </div>
+
+        <div class="link-volver">
+            <a href="index.html">Volver al Inicio</a>
+        </div>
     </main>
+
     <footer>
+        <h1>MM <br> NEWS</h1>
+        <a href="https://x.com/MacroMindNews" target="_blank">
+            <img src="img/x-logo.png" alt="X Logo">
+        </a>
         <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+        <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
     </footer>
 </body>
 </html>
