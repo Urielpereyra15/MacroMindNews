@@ -37,13 +37,17 @@
 
         /* Estilos para el contenedor principal del contenido de los términos */
         main.tyc-contenido {
-            max-width: 950px; /* ANCHO AJUSTADO: Más ancho para que el texto se estire mejor */
+            max-width: 950px; /* Ancho máximo para el contenido principal */
             margin: 2em auto; /* Centrar el contenido y darle margen superior/inferior */
-            padding: 2em 3em; /* PADDING AJUSTADO: Un poco menos de padding vertical, un poco más horizontal */
+            padding: 2em 3em; /* Espacio interno dentro del cuadro blanco */
             background-color: white; /* Fondo blanco para el contenido */
             border-radius: 12px; /* Bordes redondeados */
             box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente consistente con tus noticias */
+            
+            /* MUY IMPORTANTE: Asegurarse de que no haya propiedades de grid o flex que fuercen columnas */
+            display: block; /* Asegura que el main se comporte como un bloque normal */
+            /* Quita cualquier grid-template-columns, grid-row, display: flex, flex-direction si las tuvieras aquí */
         }
 
         /* Estilos para la fecha de última actualización */
@@ -59,6 +63,8 @@
             margin-bottom: 2em; /* Espacio entre cada sección */
             padding-bottom: 1.5em; /* Espacio inferior dentro de cada sección */
             border-bottom: 1px solid #eee; /* Línea separadora suave */
+            /* Asegúrate de que las secciones individuales no sean flex o grid contenedores inesperadamente */
+            display: block; /* Cada sección ocupará su propia línea */
         }
 
         /* Quitar la línea inferior de la última sección */
@@ -75,20 +81,20 @@
             margin-top: 0; /* Eliminar margen superior predeterminado */
             margin-bottom: 0.8em; /* Espacio entre título y párrafo */
             font-family: Georgia, serif; /* O la fuente que uses para títulos de noticias si quieres */
-            text-align: left; /* ALINEACIÓN: Títulos a la izquierda (para una lectura más formal) */
+            text-align: left; /* Títulos alineados a la izquierda (cambiar a 'center' si lo prefieres) */
         }
 
         /* Estilos para los párrafos de texto dentro de cada sección */
         .termino-seccion p {
             margin-bottom: 1em; /* Espacio entre párrafos */
-            text-align: justify; /* ALINEACIÓN: Justificar el texto para que se estire horizontalmente */
+            text-align: justify; /* Justificar el texto para que se estire horizontalmente */
             color: #555; /* Un gris oscuro para el texto */
         }
 
         /* Estilos para el botón "Volver al Inicio" */
         .link-volver {
             display: block; /* Para que el enlace ocupe su propia línea */
-            text-align: center; /* ALINEACIÓN: Centrar el enlace */
+            text-align: center; /* Centrar el enlace */
             margin-top: 3em; /* Espacio arriba del enlace */
         }
 
