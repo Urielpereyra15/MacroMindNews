@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Economía | MacroMind News</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script defer>
+        function toggleMenu() {
+            const menu = document.getElementById("menu-secciones");
+            menu.classList.toggle("visible");
+        }
+    </script>
+
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            font-family: Georgia, serif;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        /* Para los títulos de las noticias */
+        .noticia h2 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: left; /* Alinea los títulos de las noticias a la izquierda */
+            margin-bottom: 0.5em;
+        }
+        .noticia h2 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Para los párrafos de las noticias (descripciones) */
+        .noticia p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: left;
+            margin-top: 1em;
+        }    
+
+        /* Header */
+        header {
+            background-color: #0a0a23;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            flex-direction: row;
+        }
+
+        /* Nuevos estilos para los títulos centrales */
+        .titulos-centrales {
+            display: flex; /* Convierte este div en un flex container */
+            flex-direction: column; /* Apila los h1 uno debajo del otro */
+            align-items: center; /* Centra los h1 horizontalmente dentro de este div */
+            flex-grow: 1; /* Permite que este div ocupe el espacio disponible en el header */
+        }
+
+        /* Ajusta los h1 dentro de titulos-centrales si es necesario */ 
+        .titulos-centrales h1 {
+           text-align: center; /* Asegura que el texto dentro de cada h1 esté centrado */
+           margin: 0; /* Elimina márgenes extra si los hay */
+        }
+
+        .menu-toggle {
+            font-size: 1.5em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-toggle span {
+            margin-right: 0.5em;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        /* Menú de secciones (desplegable) */
+        #menu-secciones {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            color: #0a0a23;
+            width: auto;
+            border: 1px solid #ccc;
+            border-top: none;
+            z-index: 1000;
+        }
+
+        #menu-secciones.visible {
+            display: block;
+        }
+
+        #menu-secciones ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu-secciones li {
+            padding: 0.5em 1em;
+        }
+
+        #menu-secciones a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Contenido principal (Grid) */
+        main.grid-principal {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr; /* Cuatro columnas */
+            gap: 1em;
+            padding: 2em;
+        }
+
+        /* Estilos comunes para todas las noticias y publicidad para el efecto de "cuadro" */
+        .noticia, .publicidad {
+            background-color: white; /* Fondo blanco */
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra para el efecto de "cuadro" */
+        }
+
+        /* Noticia grande (primer elemento en el grid) */
+        .grid-principal > .noticia.grande:nth-child(1) { /* Selecciona el primer .noticia.grande */
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+        }
+
+        /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
+        .imagen-destacada img {
+            display: block; /* La imagen debe ser un elemento de bloque para que margin: auto funcione */
+            margin-left: auto; /* Centra horizontalmente */
+            margin-right: auto; /* Centra horizontalmente */
+            max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */
+            border-radius: 8px;
+            margin-top: 15px; /* Define el margen superior aquí */
+            margin-bottom: 15px; /* Define el margen inferior aquí */
+        }
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+        /* Noticias chicas */
+        .noticia.chica { /* Aplica estilos comunes a todas las noticias chicas */
+            background-color: white;
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
+            grid-row: 1;
+            grid-column: 3;
+        }
+
+        .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
+            grid-row: 2;
+            grid-column: 3;
+        }
+
+        /* Publicidad vertical */
+        .publicidad.vertical { /* PUBLI */
+            background-color: black;
+            color: white;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            grid-row: 1 / span 2;
+            grid-column: 4; /* Intenta colocar en la cuarta columna */
+        }
+
+        /* Noticias medianas */
+        .noticia.media { /* Aplica estilos comunes a todas las noticias medianas */
+            background-color: white;
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
+            grid-row: 3;
+            grid-column: 1;
+        }
+
+        .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
+            grid-row: 3;
+            grid-column: 2 / span 2;
+        }
+
+        .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
+            grid-row: 3;
+            grid-column: 4;
+        }
+
+        /* Publicidad cuadrada */
+        .publicidad.cuadrada {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .grid-principal > .publicidad.cuadrada:nth-child(8) {
+            grid-row: 4;
+            grid-column: 1;
+        }
+
+        .grid-principal > .publicidad.cuadrada:nth-child(9) {
+            grid-row: 4;
+            grid-column: 2;
+        }
+
+        .grid-principal > .publicidad.cuadrada:nth-child(10) {
+            grid-row: 4;
+            grid-column: 3;
+        }
+
+        .grid-principal > .publicidad.cuadrada:nth-child(11) { 
+            grid-row: 4;
+            grid-column: 4;
+        }
+
+        /* Noticia grande "NOTICIA 7" (Dr. Martens) */
+        .grid-principal > .noticia.grande:nth-child(12) {
+            grid-column: 1 / span 2;
+            grid-row: 5;
+        }
+
+        /* Noticia grande "NOTICIA 8" (ON) */
+        .grid-principal > .noticia.grande:nth-child(13) {
+            grid-column: 3 / span 2;
+            grid-row: 5;
+        }
+
+        /* Publicidad horizontal (después de Dr. Martens y ON) */
+        .grid-principal > .publicidad.horizontal:nth-child(14) {
+            grid-column: 1 / -1; /* Ocupa todas las columnas */
+            grid-row: 6; /* Coloca esta publicidad en la fila 6 */
+        }
+        
+        /* NOTICIA 9 (media) */
+        .grid-principal > .noticia.media:nth-child(15) {
+            grid-row: 7;
+            grid-column: 1;
+        }
+        /* NOTICIA 10 (media) */
+        .grid-principal > .noticia.media:nth-child(16) {
+            grid-row: 7;
+            grid-column: 2 / span 2;
+        }
+        /* NOTICIA 11 (media) */
+        .grid-principal > .noticia.media:nth-child(17) {
+            grid-row: 7;
+            grid-column: 4;
+        }
+
+        /* Publicidad cuadrada (siguientes) */
+        .grid-principal > .publicidad.cuadrada:nth-child(18) {
+            grid-row: 8;
+            grid-column: 1;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(19) {
+            grid-row: 8;
+            grid-column: 2;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(20) {
+            grid-row: 8;
+            grid-column: 3;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(21) {
+            grid-row: 8;
+            grid-column: 4;
+        }
+
+        /* NOTICIA 12 (grande) - "El Gobierno acordó con el FMI..." */
+        .grid-principal > .noticia.grande:nth-child(22) {
+            grid-column: 1 / span 2;
+            grid-row: 9; /* Ajusta la fila para que esté debajo de la publicidad cuadrada */
+        }
+
+        /* NOTICIA 13 (grande) - "La industria metalúrgica crece..." */
+        .grid-principal > .noticia.grande:nth-child(23) {
+            grid-column: 3 / span 2;
+            grid-row: 9; /* Ajusta la fila para que esté en la misma fila que la anterior */
+        }
+
+        /* Segunda Publicidad horizontal (al final) */
+        .grid-principal > .publicidad.horizontal:nth-child(24) {
+            grid-column: 1 / -1; /* Ocupa todas las columnas */
+            grid-row: 10; /* Coloca esta publicidad en la fila 10 */
+        }
+
+
+        /* Footer */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+        }
+
+        footer h1 {
+            margin-bottom: 0.5em;
+        }
+
+        /* Paginación */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            padding: 2em 0;
+            margin-top: 2em;
+            border-top: 1px solid #eee;
+        }
+
+        .pagination .page-link {
+            text-decoration: none;
+            color: #0a0a23;
+            padding: 0.8em 1.2em;
+            margin: 0 0.4em;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #0a0a23;
+            color: white;
+            border-color: #0a0a23;
+        }
+
+        .pagination .page-link.active {
+            background-color: #0a0a23;
+            color: white;
+            border-color: #0a0a23;
+            cursor: default;
+        }
+
+        /* Estilos para móvil */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .menu-toggle {
+                position: static;
+                left: auto;
+                top: auto;
+                margin-right: 1em;
+            }
+
+            main.grid-principal {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                padding: 1em;
+                max-width: none; /* Elimina el ancho máximo para que ocupe todo el ancho disponible */
+                margin: 1em; /* Ajusta el margen en móvil */
+            }
+
+            .noticia, .publicidad {
+                padding: 1em;
+                border-radius: 12px;
+                font-size: 1.2em;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                /* En móvil, no necesitamos las reglas de grid-column/row */
+                grid-column: auto !important;
+                grid-row: auto !important;
+            }
+            .pagination .page-link {
+                padding: 0.6em 0.8em;
+                margin: 0 0.2em;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰ SECCIONES
+        </div>
+        <div class="titulos-centrales">
+          <h1>MM <br> NEWS</h1>
+          <h3>ECONOMÍA</h3>
+        </div>
+        <nav id="menu-secciones" class="menu-secciones">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="economia.html">Economía</a></li>
+                <li><a href="politica.html">Política</a></li>
+                <li><a href="finanzas.html">Finanzas</a></li>
+                <li><a href="internacional.html">Internacional</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="grid-principal">
+    <div class="noticia grande">
+        <h2><a href="la-inflacion-repunto-al-3-7-en-marzo-y-corto-la-racha-de-desaceleracion.html">La inflación repuntó al 3,7% en marzo y cortó la racha de desaceleración</a></h2>       
+    <div class="imagen-destacada">
+        <a href="la-inflacion-repunto-al-3-7-en-marzo-y-corto-la-racha-de-desaceleracion.html">
+        <img src="img/inflacion.jpg" alt="Supermecado | MacroMind News">
+        </a>
+    </div>
+        <p>La inflación en Argentina subió al 3,7% en marzo, interrumpiendo la tendencia de desaceleración registrada en los meses previos.</p>
+    </div>
+
+    <div class="noticia chica oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>
+    <div class="imagen-destacada">
+        <a href="pagina.html">
+        <img src="img/IMAGEN.PNG" alt="Descripción | MacroMind News">
+        </a>
+    </div>
+    </div>
+
+    <div class="noticia chica oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>
+    <div class="imagen-destacada">
+        <a href="pagina.html">
+        <img src="img/IMAGEN.PNG" alt="Descripción | MacroMind News">
+        </a>
+    </div>
+    </div>
+
+        <div class="publicidad vertical oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Vertical">
+        </a>
+        </div>
+        
+    <div class="noticia media oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>
+    <div class="imagen-destacada">
+    </div>
+        <p>Descripción...</p>
+    </div>
+
+    <div class="noticia media oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>
+    <div class="imagen-destacada">
+        <a href="pagina.html">
+        <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+        </a>
+    </div>
+        <p>Descripción...</p>
+    </div>
+
+    <div class="noticia media oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>
+    <div class="imagen-destacada">
+    </div>
+        <p>Descripción...</p>
+    </div>
+
+        <div class="publicidad cuadrada oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad">
+        </a>
+        </div>
+        <div class="publicidad oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad">
+        </a>
+        </div>
+        <div class="publicidad cuadrada oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad">
+        </a>
+        </div>
+        <div class="publicidad cuadrada oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad">
+        </a>
+        </div>
+
+    <div class="noticia grande oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>       
+    <div class="imagen-destacada">
+        <a href="pagina.html">
+        <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+        </a>
+    </div>
+        <p>Descripción...</p>
+    </div>
+
+    <div class="noticia grande oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>       
+    <div class="imagen-destacada">
+        <a href="pagina.html">
+        <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+        </a>
+    </div>
+        <p>Descripción...</p>
+    </div>
+
+        <div class="publicidad horizontal oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
+        </a>
+        </div>
+
+    <div class="noticia media oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>
+    <div class="imagen-destacada">
+    </div>
+        <p>Descripción...</p>
+    </div>
+
+    <div class="noticia media oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>
+    <div class="imagen-destacada">
+        <a href="pagina.html">
+        <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+        </a>
+    </div>
+        <p>Descripción...</p>
+    </div>
+
+    <div class="noticia media oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>
+    <div class="imagen-destacada">
+    </div>
+        <p>Descripción...</p>
+    </div>
+
+        <div class="publicidad cuadrada oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad">
+        </a>
+        </div>
+        <div class="publicidad cuadrada oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad">
+        </a>
+        </div>
+        <div class="publicidad cuadrada oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad">
+        </a>
+        </div>
+        <div class="publicidad cuadrada oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad">
+        </a>
+        </div>
+
+    <div class="noticia grande oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>       
+    <div class="imagen-destacada">
+        <a href="pagina.html">
+        <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+        </a>
+    </div>
+        <p>Descripción...</p>
+    </div>
+
+    <div class="noticia grande oculto">
+        <h2><a href="pagina.html">Titulo</a></h2>       
+    <div class="imagen-destacada">
+        <a href="pagina.html">
+        <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+        </a>
+    </div>
+        <p>Descripción...</p>
+    </div>
+
+        <div class="publicidad horizontal oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
+        </a>
+        </div>
+    </main>
+
+    <div class="pagination">
+        <a href="economia.html" class="page-link">1</a>
+        <a href="economia-1.html" class="page-link">2</a>
+        <a href="economia-2.html" class="page-link active">3</a>
+    </div>
+    
+    <footer>
+        <h1>MM <br> NEWS</h1>
+        <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
+        <img src="img/x-logo.png" alt="X Logo" style="width: 30px; height: auto; filter: invert(100%);">
+        </a>
+        <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+        <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
+    </footer>
+</body>
+</html>
