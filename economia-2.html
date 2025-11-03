@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Economía | MacroMind News</title>
-    <link rel="stylesheet" href="estilos.css" />
     <script defer>
         function toggleMenu() {
             const menu = document.getElementById("menu-secciones");
@@ -27,7 +26,7 @@
         /* Para los títulos de las noticias */
         .noticia h2 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: left; /* Alinea los títulos de las noticias a la izquierda */
+            text-align: left; 
             margin-bottom: 0.5em;
         }
         .noticia h2 a {
@@ -46,32 +45,40 @@
         header {
             background-color: #0a0a23;
             color: white;
-            padding: 1em;
+            padding: 0; 
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column; 
+            align-items: center;  
             position: relative;
-            flex-direction: row;
         }
 
         /* Nuevos estilos para los títulos centrales */
         .titulos-centrales {
-            display: flex; /* Convierte este div en un flex container */
-            flex-direction: column; /* Apila los h1 uno debajo del otro */
-            align-items: center; /* Centra los h1 horizontalmente dentro de este div */
-            flex-grow: 1; /* Permite que este div ocupe el espacio disponible en el header */
+            display: flex; 
+            flex-direction: row;  
+            /* --- ¡¡¡AQUÍ ESTÁ LA CORRECCIÓN!!! --- */
+            align-items: center; /* Centra verticalmente los bloques */
+            /* ------------------------------------ */
+            gap: 20px;            
+            padding: 1em;         
+            flex-grow: 0; 
         }
 
-        /* Ajusta los h1 dentro de titulos-centrales si es necesario */ 
-        .titulos-centrales h1 {
-           text-align: center; /* Asegura que el texto dentro de cada h1 esté centrado */
-           margin: 0; /* Elimina márgenes extra si los hay */
+        /* Estilo para el subtítulo "ECONOMÍA" */
+        .titulos-centrales h3 {
+             font-family: Georgia, serif; 
+             font-weight: normal; 
+             font-size: 1.2rem;
+             color: inherit; /* Hereda el color 'white' del header */
+             margin: 0; 
+             text-transform: uppercase;
         }
-
+        
+        /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
         .menu-toggle {
             font-size: 1.5em;
             cursor: pointer;
-            display: flex;
+            display: none; 
             align-items: center;
         }
 
@@ -82,20 +89,17 @@
         h1 {
             text-align: center;
             margin: 0;
-            flex-grow: 1;
+            flex-grow: 0; 
         }
 
         /* Menú de secciones (desplegable) */
         #menu-secciones {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            color: #0a0a23;
-            width: auto;
-            border: 1px solid #ccc;
-            border-top: none;
+            display: block; 
+            position: static; 
+            background-color: #2c3e50; /* Tu color de barra */
+            width: 100%;               
+            color: white; 
+            border: none;
             z-index: 1000;
         }
 
@@ -107,57 +111,55 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            justify-content: center;
         }
 
         #menu-secciones li {
-            padding: 0.5em 1em;
+            padding: 0.5em 1.5em; 
         }
 
         #menu-secciones a {
             display: block;
             text-decoration: none;
             color: inherit;
+            font-family: Georgia, serif;
+            font-weight: bold;
         }
 
         /* Contenido principal (Grid) */
         main.grid-principal {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr; /* Cuatro columnas */
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
             gap: 1em;
             padding: 2em;
         }
-
-        /* Estilos comunes para todas las noticias y publicidad para el efecto de "cuadro" */
+        
+        /* ... (El resto del CSS de la grilla sigue igual) ... */
+        
         .noticia, .publicidad {
-            background-color: white; /* Fondo blanco */
+            background-color: white; 
             color: black;
             padding: 1em;
             border-radius: 12px;
             font-size: 1.1em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra para el efecto de "cuadro" */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
         }
-
-        /* Noticia grande (primer elemento en el grid) */
-        .grid-principal > .noticia.grande:nth-child(1) { /* Selecciona el primer .noticia.grande */
+        .grid-principal > .noticia.grande:nth-child(1) { 
             grid-column: 1 / span 2;
             grid-row: 1 / span 2;
         }
-
-        /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
         .imagen-destacada img {
-            display: block; /* La imagen debe ser un elemento de bloque para que margin: auto funcione */
-            margin-left: auto; /* Centra horizontalmente */
-            margin-right: auto; /* Centra horizontalmente */
-            max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto; 
+            max-width: 100%; 
+            height: auto; 
             border-radius: 8px;
-            margin-top: 15px; /* Define el margen superior aquí */
-            margin-bottom: 15px; /* Define el margen inferior aquí */
+            margin-top: 15px; 
+            margin-bottom: 15px; 
         }
-        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
-        /* Noticias chicas */
-        .noticia.chica { /* Aplica estilos comunes a todas las noticias chicas */
+        .noticia.chica { 
             background-color: white;
             color: black;
             padding: 1em;
@@ -165,19 +167,15 @@
             font-size: 1.1em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
+        .grid-principal > .noticia.chica:nth-child(2) { 
             grid-row: 1;
             grid-column: 3;
         }
-
-        .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
+        .grid-principal > .noticia.chica:nth-child(3) { 
             grid-row: 2;
             grid-column: 3;
         }
-
-        /* Publicidad vertical */
-        .publicidad.vertical { /* PUBLI */
+        .publicidad.vertical { 
             background-color: black;
             color: white;
             padding: 1em;
@@ -185,11 +183,9 @@
             font-size: 1.2em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             grid-row: 1 / span 2;
-            grid-column: 4; /* Intenta colocar en la cuarta columna */
+            grid-column: 4; 
         }
-
-        /* Noticias medianas */
-        .noticia.media { /* Aplica estilos comunes a todas las noticias medianas */
+        .noticia.media { 
             background-color: white;
             color: black;
             padding: 1em;
@@ -197,23 +193,18 @@
             font-size: 1.1em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
+        .grid-principal > .noticia.media:nth-child(5) { 
             grid-row: 3;
             grid-column: 1;
         }
-
-        .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
+        .grid-principal > .noticia.media:nth-child(6) { 
             grid-row: 3;
             grid-column: 2 / span 2;
         }
-
-        .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
+        .grid-principal > .noticia.media:nth-child(7) { 
             grid-row: 3;
             grid-column: 4;
         }
-
-        /* Publicidad cuadrada */
         .publicidad.cuadrada {
             background-color: black;
             color: white;
@@ -222,62 +213,46 @@
             font-size: 1.2em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(8) {
             grid-row: 4;
             grid-column: 1;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(9) {
             grid-row: 4;
             grid-column: 2;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(10) {
             grid-row: 4;
             grid-column: 3;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(11) { 
             grid-row: 4;
             grid-column: 4;
         }
-
-        /* Noticia grande "NOTICIA 7" (Dr. Martens) */
         .grid-principal > .noticia.grande:nth-child(12) {
             grid-column: 1 / span 2;
             grid-row: 5;
         }
-
-        /* Noticia grande "NOTICIA 8" (ON) */
         .grid-principal > .noticia.grande:nth-child(13) {
             grid-column: 3 / span 2;
             grid-row: 5;
         }
-
-        /* Publicidad horizontal (después de Dr. Martens y ON) */
         .grid-principal > .publicidad.horizontal:nth-child(14) {
-            grid-column: 1 / -1; /* Ocupa todas las columnas */
-            grid-row: 6; /* Coloca esta publicidad en la fila 6 */
+            grid-column: 1 / -1; 
+            grid-row: 6; 
         }
-        
-        /* NOTICIA 9 (media) */
         .grid-principal > .noticia.media:nth-child(15) {
             grid-row: 7;
             grid-column: 1;
         }
-        /* NOTICIA 10 (media) */
         .grid-principal > .noticia.media:nth-child(16) {
             grid-row: 7;
             grid-column: 2 / span 2;
         }
-        /* NOTICIA 11 (media) */
         .grid-principal > .noticia.media:nth-child(17) {
             grid-row: 7;
             grid-column: 4;
         }
-
-        /* Publicidad cuadrada (siguientes) */
         .grid-principal > .publicidad.cuadrada:nth-child(18) {
             grid-row: 8;
             grid-column: 1;
@@ -294,25 +269,18 @@
             grid-row: 8;
             grid-column: 4;
         }
-
-        /* NOTICIA 12 (grande) - "El Gobierno acordó con el FMI..." */
         .grid-principal > .noticia.grande:nth-child(22) {
             grid-column: 1 / span 2;
-            grid-row: 9; /* Ajusta la fila para que esté debajo de la publicidad cuadrada */
+            grid-row: 9; 
         }
-
-        /* NOTICIA 13 (grande) - "La industria metalúrgica crece..." */
         .grid-principal > .noticia.grande:nth-child(23) {
             grid-column: 3 / span 2;
-            grid-row: 9; /* Ajusta la fila para que esté en la misma fila que la anterior */
+            grid-row: 9; 
         }
-
-        /* Segunda Publicidad horizontal (al final) */
         .grid-principal > .publicidad.horizontal:nth-child(24) {
-            grid-column: 1 / -1; /* Ocupa todas las columnas */
-            grid-row: 10; /* Coloca esta publicidad en la fila 10 */
+            grid-column: 1 / -1; 
+            grid-row: 10; 
         }
-
 
         /* Footer */
         footer {
@@ -321,7 +289,6 @@
             text-align: center;
             padding: 2em 1em;
         }
-
         footer h1 {
             margin-bottom: 0.5em;
         }
@@ -334,7 +301,6 @@
             margin-top: 2em;
             border-top: 1px solid #eee;
         }
-
         .pagination .page-link {
             text-decoration: none;
             color: #0a0a23;
@@ -346,13 +312,11 @@
             font-weight: bold;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         .pagination .page-link:hover {
             background-color: #0a0a23;
             color: white;
             border-color: #0a0a23;
         }
-
         .pagination .page-link.active {
             background-color: #0a0a23;
             color: white;
@@ -360,27 +324,66 @@
             cursor: default;
         }
 
-        /* Estilos para móvil */
+        /* ================================== */
+        /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
+        /* ================================== */
         @media (max-width: 768px) {
             header {
                 flex-direction: row;
                 justify-content: space-between;
+                padding: 1em; 
+            }
+
+            .titulos-centrales {
+                flex-grow: 1;
+                padding: 0; 
+                gap: 0;
+                align-items: center; 
+            }
+            
+            .titulos-centrales h3 {
+                display: none;
             }
 
             .menu-toggle {
+                display: flex; 
                 position: static;
                 left: auto;
                 top: auto;
                 margin-right: 1em;
             }
 
+            h1 {
+                flex-grow: 1;
+            }
+            
+            #menu-secciones {
+                display: none; 
+                position: absolute; 
+                top: 100%; 
+                left: 0;
+                background-color: white; 
+                color: #0a0a23; 
+                width: 100%; 
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+            
+            #menu-secciones ul {
+                display: block; 
+            }
+            
+            #menu-secciones li {
+               padding: 0.5em 1em; 
+            }
+            
             main.grid-principal {
                 display: flex;
                 flex-direction: column;
                 gap: 1em;
                 padding: 1em;
-                max-width: none; /* Elimina el ancho máximo para que ocupe todo el ancho disponible */
-                margin: 1em; /* Ajusta el margen en móvil */
+                max-width: none; 
+                margin: 1em; 
             }
 
             .noticia, .publicidad {
@@ -388,7 +391,6 @@
                 border-radius: 12px;
                 font-size: 1.2em;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                /* En móvil, no necesitamos las reglas de grid-column/row */
                 grid-column: auto !important;
                 grid-row: auto !important;
             }
@@ -421,34 +423,34 @@
         </nav>
     </header>
 
-    <main class="grid-principal">
-    <div class="noticia grande">
-        <h2><a href="dr-martens-vuelve-a-argentina.html">Dr. Martens vuelve a la Argentina con una inversión de US$400.000</a></h2>
-    <div class="imagen-destacada">
-        <a href="dr-martens-vuelve-a-argentina.html">
-        <img src="img/dr-martens.jpg" alt="Zapatos de la marca Dr. Martens | MacroMind News">
-        </a>
-    </div>
-        <p>La icónica marca británica de calzado Dr. Martens confirmó su regreso al mercado argentino con una inversión inicial de 400 mil dólares.</p>
-    </div>
+    <main class="grid-principal oculto">
+        <div class="noticia grande">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
 
-    <div class="noticia chica">
-        <h2><a href="la-marca-suiza-de-zapatillas-on-llegara-a-la-argentina-en-2026.html">La marca suiza de zapatillas ON llegará a la Argentina en 2026</a></h2>
-    <div class="imagen-destacada">
-        <a href="la-marca-suiza-de-zapatillas-on-llegara-a-la-argentina-en-2026.html">
-        <img src="img/empresa-on.jpg" alt="Local de la empresa ON | MacroMind News">
-        </a>
-    </div>
-    </div>
+        <div class="noticia chica oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>    
+        </div>
+        </div>
 
-    <div class="noticia chica">
-        <h2><a href="arca-analiza-recortes-tras-informar-que-el-estado-destinara-mas-de-4000-millones-al-alquiler-de-oficinas-en-2025.html">ARCA analiza recortes tras informar que el Estado destinará más de $4.000 millones al alquiler de oficinas en 2025</a></h2>       
-    <div class="imagen-destacada">
-        <a href="arca-analiza-recortes-tras-informar-que-el-estado-destinara-mas-de-4000-millones-al-alquiler-de-oficinas-en-2025.html">
-        <img src="img/arca.jpg" alt="Logo de la Agencia de Recaudación y Control Aduanero (ARCA) | MacroMind News">
-        </a>
-    </div>
-    </div>
+        <div class="noticia chica oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>    
+        </div>
+        </div>
 
         <div class="publicidad vertical oculto">
         <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
@@ -456,153 +458,153 @@
         </a>
         </div>
         
-    <div class="noticia media">
-        <h2><a href="la-economia-crecio-un-5-interanual-en-febrero.html">La economía argentina creció un 5,7% interanual en febrero, según el INDEC</a></h2>
-    <div class="imagen-destacada">
-    </div>
-        <p>La economía argentina registró en febrero un crecimiento interanual del 5,7%, de acuerdo con los datos difundidos por el INDEC a través del EMAE.</p>
-    </div>
-
-    <div class="noticia media">
-        <h2><a href="neobanco-desembarca-en-argentina.html">Neobanco brasileño desembarca en Argentina</a></h2>
-    <div class="imagen-destacada">
-        <a href="neobanco-desembarca-en-argentina.html">
-        <img src="img/santiago-stel.jpg" alt="Santiago Steal | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-        </a>
-    </div>
-        <p>El multimillonario brasileño João Vitor Menin, CEO del banco digital Inter, anunció el desembarco de su neobanco en Argentina.</p>
-    </div>
-
-    <div class="noticia media">
-        <h2><a href="el-gobierno-acordo-con-el-fmi-una-reforma-tributaria-integral-para-2025.html">El Gobierno acordó con el FMI una reforma tributaria integral para 2025</a></h2>
-    <div class="imagen-destacada">
-    </div>
-        <p>El Gobierno argentino llegó a un nuevo acuerdo técnico con el Fondo Monetario Internacional (FMI), en el cual se comprometió a presentar una reforma tributaria integral.</p>
-    </div>
-
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
         </div>
-        <div class="publicidad oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
-        </div>
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
-        </div>
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
+            <p>Descripción</p>
         </div>
 
-    <div class="noticia grande">
-        <h2><a href="crecimiento-de-la-industria-metalurgica-en-marzo.html">Crecimiento de la industria metalúrgica en marzo</a></h2>
-    <div class="imagen-destacada">
-        <a href="crecimiento-de-la-industria-metalurgica-en-marzo.html">
-        <img src="img/indice-adimra.jpg" alt="Índice ADIMRA | MacroMind News">
-        </a>
-    </div>
-        <p>En marzo, la producción industrial metalúrgica registró una suba interanual del 2,9%, según ADIMRA.</p>
-    </div>
-
-    <div class="noticia grande">
-        <h2><a href="milei-y-bessent-anuncian-avances-en-acuerdo-comercial-entre-argentina-y-ee-uu.html">Milei y Bessent Anuncian Avances en Acuerdo Comercial entre Argentina y EE. UU</a></h2>
-    <div class="imagen-destacada">
-        <a href="milei-y-bessent-anuncian-avances-en-acuerdo-comercial-entre-argentina-y-ee-uu.html">
-        <img src="img/milei-y-scott.jpg" alt="Presidente de Argentina, Javier Milei con el Secretario del Tesoro de EE.UU. | MacroMind News">
-        </a>
-    </div>
-        <p>El presidente argentino, Javier Milei, y el secretario del Tesoro de Estados Unidos, Scott Bessent, ofrecieron hoy una conferencia de prensa conjunta en la Casa Rosada.</p>
-    </div>
-
-        <div class="publicidad horizontal oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
-        </a>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
         </div>
 
-    <div class="noticia media">
-        <h2><a href="pae-invertira-usd-250-millones-para-desarrollar-shale-gas-en-la-cuenca-del-golfo-de-san-jorge.html">PAE invertirá USD 250 millones para desarrollar shale gas en la Cuenca del Golfo San Jorge</a></h2>
-    <div class="imagen-destacada">
-    </div>
-        <p>Pan American Energy (PAE) anunció una inversión de 250 millones de dólares destinada a proyectos de shale gas en la Cuenca del Golfo San Jorge, situada entre las provincias de Chubut y Santa Cruz.</p>
-    </div>
-
-    <div class="noticia media">
-        <h2><a href="eliminacion-del-cepo-cambiario-y-adopcion-de-un-regimen-de-flotacion.html">Eliminación del cepo cambiario y adopción de un régimen de flotación</a></h2>
-    <div class="imagen-destacada">
-        <a href="eliminacion-del-cepo-cambiario-y-adopcion-de-un-regimen-de-flotacion.html">
-        <img src="img/cepo.jpg" alt="Billete de 100 doláres | MacroMind News">
-        </a>
-    </div>
-        <p>El Gobierno nacional anunció la eliminación del cepo cambiario, que estuvo vigente desde 2019, y la implementación de un nuevo régimen de flotación limitada para el peso argentino.</p>
-    </div>
-
-    <div class="noticia media">
-        <h2><a href="el-banco-mundial-anuncia-ayuda-financiera-para-la-argentina.html">El Banco Mundial anuncia un paquete de ayuda financiera a la Argentina</a></h2>        
-    <div class="imagen-destacada">
-    </div>
-        <p>El Banco Mundial anunció un paquete de financiamiento por US$ 12.000 millones para Argentina, destinado a respaldar las reformas económicas y fomentar la creación de empleo.</p>
-    </div>
-
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
         </div>
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
-        </div>
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
-        </div>
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
+            <p>Descripción</p>
         </div>
 
-    <div class="noticia grande">
-        <h2><a href="el-banco-interamericano-de-desarrollo-anuncio-un-paquete-de-financiamiento.html">El Banco Interamericano de Desarrollo (BID) anunció un paquete de financiamiento</a></h2>
-    <div class="imagen-destacada">
-        <a href="el-banco-interamericano-de-desarrollo-anuncio-un-paquete-de-financiamiento.html">
-        <img src="img/bid.jpg" alt="Logo del BID | MacroMind News">
-        </a>
-    </div>
-        <p>El Banco Interamericano de Desarrollo (BID) anunció un paquete de financiamiento por US$ 10.000 millones para Argentina, destinado a respaldar las reformas económicas y fomentar la creación de empleo.</p>
-    </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
 
-    <div class="noticia grande">
-        <h2><a href="eliminacion-del-dolar-blend-y-nuevo-regimen-cambiario.html">Eliminación del dólar blend y nuevo régimen cambiario</a></h2>
-    <div class="imagen-destacada">
-        <a href="eliminacion-del-dolar-blend-y-nuevo-regimen-cambiario.html">
-        <img src="img/dolar-blend.jpg" alt="Imagen del Dolár con granos de fondo | MacroMind News">
-        </a>
-    </div>
-        <p>El ministro de Economía, Luis Caputo, anunció la eliminación del dólar blend y la implementación de un nuevo régimen cambiario, como parte de las medidas para estabilizar la economía.</p>
-    </div>
-
-        <div class="publicidad horizontal oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
-        </a>
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
         </div>
-    </main>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad horizontal oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
+            </a>
+            </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad horizontal oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
+            </a>
+            </div>
+</main>
 
     <div class="pagination">
         <a href="economia.html" class="page-link">1</a>
-        <a href="economia-1.html" class="page-link active">2</a>
-        <a href="economia-2.html" class="page-link">3</a>
+        <a href="economia-2.html" class="page-link active">2</a>
+        <a href="economia-3.html" class="page-link">3</a>
     </div>
     
     <footer>
