@@ -43,10 +43,11 @@
     color: white;
     padding: 1em;
     display: flex;
-    justify-content: space-between; /* <-- Mantiene espacio entre logo y nav */
-    align-items: center;
-    position: relative; /* Sigue siendo relative para el menú móvil */
-    flex-direction: row;
+    /* --- CAMBIO 1: CENTRADO VERTICAL Y HORIZONTAL --- */
+    flex-direction: column; /* Apila el logo y el nav verticalmente */
+    align-items: center;  /* Centra todo horizontalmente */
+    /* ----------------------------------------------- */
+    position: relative; 
   }
 
   /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
@@ -61,11 +62,13 @@
     margin-right: 0.5em;
   }
 
-  /* TÍTULO H1: Logo a la izquierda en escritorio */
+  /* TÍTULO H1: Logo centrado */
   h1 {
-    text-align: left; /* <--- ALINEADO A LA IZQUIERDA (ESCRITORIO) */
+    /* --- CAMBIO 2: LOGO CENTRADO --- */
+    text-align: center; /* Asegura que el texto esté centrado */
+    flex-grow: 0;       /* No necesita crecer */
+    /* ------------------------------ */
     margin: 0;
-    flex-grow: 0; /* <--- NO CRECE (ESCRITORIO) */
   }
 
   /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
@@ -74,10 +77,12 @@
     position: static; /* <--- POSICIÓN NORMAL (ESCRITORIO) */
     background-color: transparent; /* Fondo del header */
     color: white; /* Texto blanco */
-    width: auto;
+    /* --- CAMBIO 3: AJUSTE DE ANCHO --- */
+    width: 100%; /* Ocupa el ancho para centrar la lista <ul> */
+    flex-grow: 0; /* Ya no necesita crecer */
+    /* --------------------------------- */
     border: none;
     z-index: 1000;
-    flex-grow: 1; /* <--- HACE QUE OCUPE EL ESPACIO RESTANTE */
   }
 
   /* Esta clase solo se usará en móvil */
@@ -101,7 +106,10 @@
     display: block;
     text-decoration: none;
     color: inherit;
-    font-weight: bold; /* Opcional: ponerlo en negrita */
+    /* --- CAMBIO 4: MISMA TIPOGRAFÍA QUE EL LOGO --- */
+    font-family: Georgia, serif; /* Misma tipografía que el body/h1 */
+    font-weight: bold;           /* Mismo "peso" (negrita) que el h1 */
+    /* -------------------------------------------- */
   }
 
   /* Contenido principal (Grid) */
@@ -143,356 +151,4 @@
 
   /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
   .imagen-destacada img {
-    display: block; /* La imagen debe ser un elemento de bloque para que margin: auto funcione */
-    margin-left: auto; /* Centra horizontalmente */
-    margin-right: auto; /* Centra horizontalmente */
-    max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 8px;
-    margin-top: 15px; /* Define el margen superior aquí (era el que tenías en línea) */
-    margin-bottom: 15px; /* Define el margen inferior aquí (era el que tenías en línea) */
-  }
-  /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
-
-  /* Noticias chicas */
-  .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-row: 1;
-    grid-column: 3;
-  }
-
-  .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-row: 2;
-    grid-column: 3;
-  }
-
-  /* Publicidad vertical */
-  .grid-principal > .publicidad.vertical:nth-child(4) { /* PUBLI */
-    background-color: black;
-    color: white;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    grid-row: 1 / span 2;
-    grid-column: 4; /* Intenta colocar en la cuarta columna */
-  }
-
-  /* Noticias medianas */
-  .grid-principal > .noticia.media { /* "NOTICIA 4", "NOTICIA 5", "NOTICIA 6" */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
-    grid-row: 3;
-    grid-column: 1;
-  }
-
-  .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
-    grid-row: 3;
-    grid-column: 2 / span 2;
-  }
-
-  .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
-    grid-row: 3;
-    grid-column: 4;
-  }
-
-  /* Publicidad cuadrada */
-  .grid-principal > .publicidad.cuadrada {
-    background-color: black;
-    color: white;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(8) {
-    grid-row: 4;
-    grid-column: 1;
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(9) {
-    grid-row: 4;
-    grid-column: 2;
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(10) {
-    grid-row: 4;
-    grid-column: 3;
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(11) { 
-    grid-row: 4;
-    grid-column: 4;
-  }
-
-    
-  /* Noticia grande "NOTICIA 7" */
-  .grid-principal > .noticia.grande:nth-child(12) {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 1 / span 2;
-    grid-row: 5;
-  }
-
-  /* Noticia grande "NOTICIA 8" */
-  .grid-principal > .noticia.grande:nth-child(13) {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 3 / span 2;
-    grid-row: 5;
-  }
-
-  /* Publicidad horizontal */
-  .grid-principal > .publicidad.horizontal:nth-child(14) {
-    background-color: black;
-    color: white;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    grid-column: 1 / -1;
-    grid-row: 6;
-  }
-
-  /* Footer */
-  footer {
-    background: #0a0a23;
-    color: white;
-    text-align: center;
-    padding: 2em 1em;
-  }
-
-  footer h1 {
-    margin-bottom: 0.5em;
-  }
-
-  /* ================================== */
-  /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
-  /* ================================== */
-  @media (max-width: 768px) {
-    header {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
-    .menu-toggle {
-      display: flex; /* <--- SE MUESTRA EN MÓVIL */
-      position: static;
-      left: auto;
-      top: auto;
-      margin-right: 1em;
-    }
-    
-    /* CENTRAR EL H1 EN MÓVIL */
-    h1 {
-      text-align: center; /* <--- CENTRADO EN MÓVIL */
-      flex-grow: 1; /* <--- CRECE PARA CENTRARSE EN MÓVIL */
-    }
-    
-    /* OCULTAR Y RE-ESTILIZAR EL MENÚ EN MÓVIL (MODO DROPDOWN) */
-    #menu-secciones {
-      display: none; /* <--- OCULTO EN MÓVIL (hasta click) */
-      position: absolute; /* <--- POSICIÓN ABSOLUTA */
-      top: 100%; /* Abajo del header */
-      left: 0;
-      background-color: white; /* <--- FONDO BLANCO */
-      color: #0a0a23; /* <--- TEXTO OSCURO */
-      width: 100%; /* Ancho completo */
-      border: 1px solid #ccc;
-      border-top: none;
-    }
-    
-    /* LISTA VERTICAL EN MÓVIL */
-    #menu-secciones ul {
-      display: block; /* <--- VUELVE A SER VERTICAL */
-    }
-    
-    #menu-secciones li {
-       padding: 0.5em 1em; /* Padding original para móvil */
-    }
-
-    /* GRID DE NOTICIAS (SE HACE UNA SOLA COLUMNA) */
-    main.grid-principal {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      padding: 1em;
-    }
-
-    .noticia, .publicidad {
-      padding: 1em;
-      border-radius: 12px;
-      font-size: 1.2em;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-  }
-
-  /* Para los títulos de las noticias */
-    .noticia h2 a {
-      text-decoration: none; /* Elimina el subrayado */
-      color: inherit;       /* Hereda el color del texto de su padre (el h2), que por defecto es negro */
-  }
-</style>
-
-</head>
-<body>
-  <header>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      ☰ SECCIONES
-    </div>
-    <h1>MM <br> NEWS</h1>
-    <nav id="menu-secciones" class="menu-secciones">
-      <ul>
-        <li><a href="economia.html">Economía</a></li>
-        <li><a href="politica.html">Política</a></li>
-        <li><a href="finanzas.html">Finanzas</a></li>
-        <li><a href="internacional.html">Internacional</a></li>
-      </ul>
-    </nav>
-  </header>
-
-<main class="grid-principal oculto">
-  <div class="noticia grande">
-      <h2><a href="noticia.html">Titulo</a></h2>
-  <div class="imagen-destacada">
-      <a href="noticia.html">
-        <img src="img/IMAGEN.png" alt="Descripción | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-      </a>
-  </div>
-      <p>Descripción de la noticia.</p>
-  </div>
-        
-  <div class="noticia chica oculto">
-      <h2><a href="noticia.html">Titulo</a></h2>
-  <div class="imagen-destacada">
-      <a href="noticia.html">
-      <img src="img/IMAGEN.png" alt="Descripción | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
- 
-  <div class="noticia chica oculto">
-      <h2><a href="noticia.html">Titulo</a></h2>
-  <div class="imagen-destacada">
-      <a href="noticia.html">
-      <img src="img/IMAGEN.png" alt="Descripció | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
-    
-      <div class="publicidad vertical oculto">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-      </div>
-    
-  <div class="noticia media oculto">
-      <h2><a href="noticia.html">Titulo</a></h2>
-  <div class="imagen-destacada">
-  </div>
-      <p>Descripción de la noticia</p>
-  </div>
- 
-  <div class="noticia media oculto">
-      <h2><a href="noticia.html">Titulo</a></h2>
-  <div class="imagen-destacada">
-      <a href="noticia.html">
-      <img src="img/IMAGEN.png" alt="Descripción | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      </a>
-  </div>
-      <p>Descripción de la notica</p>
-  </div>
- 
-  <div class="noticia media oculto">
-      <h2><a href="noticia.html">Titulo</a></h2>
-  <div class="imagen-destacada">
-  </div> 
-      <p>Descripción de la notica</p>
-  </div>
-
-      <div class="publicidad cuadrada oculto">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-      </div>
-      <div class="publicidad cuadrada oculto">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-      </div>
-      <div class="publicidad cuadrada oculto">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-      </div>
-      <div class="publicidad cuadrada oculto">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-      </div>
-
-  <div class="noticia grande oculto">
-      <h2><a href="noticia.html">Titulo de nocia</a></h2>
-  <div class="imagen-destacada">
-      <a href="noticia.html">
-      <img src="img/" alt="Descripción | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
- 
-  <div class="noticia grande oculto">
-      <h2><a href="noticia.html">Titulo de nocia</a></h2>
-  <div class="imagen-destacada">
-      <a href="noticia.html">
-      <img src="img/" alt="Descripción | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
-
-      <div class="publicidad horizontal oculto">
-      <div class="publicidad cuadrada">
-      <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-      <img src="img/publicidad.jpg" style="width: 100%; height: auto; display: block;">
-      </a>
-      </div>
-      </main>
-
-  <footer>
-    <h1>MM <br> NEWS</h1>
-    <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
-      <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-    </a>
-    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-    <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
-  </footer>
-</body>
-</html>
+    display: block; /* La imagen debe ser un elemento de bloque para que margin:
