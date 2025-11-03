@@ -25,7 +25,7 @@
 
   /* Para los títulos de las noticias */
   .noticia h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aplica la tipografía deseada */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
   }
   .noticia h2 a {
     text-decoration: none;
@@ -34,27 +34,37 @@
 
   /* Para los párrafos de las noticias (descripciones) */
   .noticia p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aplica la tipografía deseada */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
   }  
 
   /* Header */
   header {
     background-color: #0a0a23;
     color: white;
-    padding: 1em;
+    /* --- CAMBIO 1: SE QUITA EL PADDING DEL HEADER --- */
+    padding: 0; 
     display: flex;
-    /* --- CAMBIO 1: CENTRADO VERTICAL Y HORIZONTAL --- */
-    flex-direction: column; /* Apila el logo y el nav verticalmente */
-    align-items: center;  /* Centra todo horizontalmente */
-    /* ----------------------------------------------- */
+    flex-direction: column; 
+    align-items: center;  
     position: relative; 
   }
 
+  /* --- SE AÑADE ESTA REGLA (COMO EN ECONOMIA.HTML) --- */
+  .titulos-centrales {
+    display: flex; 
+    flex-direction: row;  
+    align-items: center; 
+    justify-content: center; /* Centra el logo */
+    gap: 20px;            
+    padding: 1em;         /* <--- El padding se mueve aquí */
+    flex-grow: 0; 
+  }
+  
   /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
   .menu-toggle {
     font-size: 1.5em;
     cursor: pointer;
-    display: none; /* <--- OCULTO POR DEFECTO (ESCRITORIO) */
+    display: none; 
     align-items: center;
   }
 
@@ -64,23 +74,20 @@
 
   /* TÍTULO H1: Logo centrado */
   h1 {
-    /* --- CAMBIO 2: LOGO CENTRADO --- */
-    text-align: center; /* Asegura que el texto esté centrado */
-    flex-grow: 0;       /* No necesita crecer */
-    /* ------------------------------ */
+    text-align: center; 
+    flex-grow: 0;       
     margin: 0;
   }
 
   /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
   #menu-secciones {
-    display: block; /* <--- VISIBLE POR DEFECTO (ESCRITORIO) */
-    position: static; /* <--- POSICIÓN NORMAL (ESCRITORIO) */
-    background-color: transparent; /* Fondo del header */
-    color: white; /* Texto blanco */
-    /* --- CAMBIO 3: AJUSTE DE ANCHO --- */
-    width: 100%; /* Ocupa el ancho para centrar la lista <ul> */
-    flex-grow: 0; /* Ya no necesita crecer */
-    /* --------------------------------- */
+    display: block; 
+    position: static; 
+    /* --- CAMBIO 2: FONDO NUEVO Y ANCHO COMPLETO --- */
+    background-color: #2c3e50; /* <--- Tu color elegido */
+    width: 100%;               /* <--- Ocupa todo el ancho */
+    /* ------------------------------------------- */
+    color: white; 
     border: none;
     z-index: 1000;
   }
@@ -94,34 +101,32 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* <--- LISTA HORIZONTAL (ESCRITORIO) */
-    justify-content: center; /* <--- ¡CENTRADO HORIZONTAL! */
+    display: flex; 
+    justify-content: center; 
   }
 
   #menu-secciones li {
-    padding: 0.5em 1.5em; /* Espacio entre ítems (escritorio) */
+    padding: 0.5em 1.5em; 
   }
 
   #menu-secciones a {
     display: block;
     text-decoration: none;
     color: inherit;
-    /* --- CAMBIO 4: MISMA TIPOGRAFÍA QUE EL LOGO --- */
-    font-family: Georgia, serif; /* Misma tipografía que el body/h1 */
-    font-weight: bold;           /* Mismo "peso" (negrita) que el h1 */
-    /* -------------------------------------------- */
+    font-family: Georgia, serif; 
+    font-weight: bold;           
   }
 
   /* Contenido principal (Grid) */
   main.grid-principal {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Cuatro columnas */
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
     gap: 1em;
     padding: 2em;
   }
 
   /* Noticia grande (primer elemento) */
-  .grid-principal > .noticia.grande:nth-child(1) { /* Selecciona el primer .noticia.grande */
+  .grid-principal > .noticia.grande:nth-child(1) { 
     background-color: white;
     color: black;
     padding: 1em;
@@ -151,14 +156,14 @@
 
   /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
   .imagen-destacada img {
-    display: block; /* La imagen debe ser un elemento de bloque para que margin: auto funcione */
-    margin-left: auto; /* Centra horizontalmente */
-    margin-right: auto; /* Centra horizontalmente */
-    max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 100%; 
+    height: auto; 
     border-radius: 8px;
-    margin-top: 15px; /* Define el margen superior aquí (era el que tenías en línea) */
-    margin-bottom: 15px; /* Define el margen inferior aquí (era el que tenías en línea) */
+    margin-top: 15px; 
+    margin-bottom: 15px; 
   }
   /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
@@ -195,11 +200,11 @@
     font-size: 1.2em;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     grid-row: 1 / span 2;
-    grid-column: 4; /* Intenta colocar en la cuarta columna */
+    grid-column: 4; 
   }
 
   /* Noticias medianas */
-  .grid-principal > .noticia.media { /* "NOTICIA 4", "NOTICIA 5", "NOTICIA 6" */
+  .grid-principal > .noticia.media { 
     background-color: white;
     color: black;
     padding: 1em;
@@ -310,6 +315,15 @@
       /* EN MÓVIL, VUELVE A SER HORIZONTAL */
       flex-direction: row;
       justify-content: space-between;
+      padding: 1em; /* <--- Vuelve el padding */
+    }
+
+    /* --- SE AÑADE ESTA REGLA MÓVIL --- */
+    .titulos-centrales {
+        flex-grow: 1;
+        padding: 0; 
+        gap: 0;
+        align-items: center; 
     }
 
     /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
@@ -378,7 +392,9 @@
     <div class="menu-toggle" onclick="toggleMenu()">
       ☰ SECCIONES
     </div>
-    <h1>MM <br> NEWS</h1>
+    <div class="titulos-centrales">
+        <h1>MM <br> NEWS</h1>
+    </div>
     <nav id="menu-secciones" class="menu-secciones">
       <ul>
         <li><a href="economia.html">Economía</a></li>
