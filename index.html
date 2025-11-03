@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MacroMind News</title>
-  <link rel="stylesheet" href="estilos.css" />
   <script defer>
     function toggleMenu() {
       const menu = document.getElementById("menu-secciones");
@@ -44,16 +43,17 @@
     color: white;
     padding: 1em;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* <-- Mantiene espacio entre logo y nav */
     align-items: center;
-    position: relative;
+    position: relative; /* Sigue siendo relative para el menú móvil */
     flex-direction: row;
   }
 
+  /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
   .menu-toggle {
     font-size: 1.5em;
     cursor: pointer;
-    display: flex;
+    display: none; /* <--- OCULTO POR DEFECTO (ESCRITORIO) */
     align-items: center;
   }
 
@@ -61,26 +61,26 @@
     margin-right: 0.5em;
   }
 
+  /* TÍTULO H1: Logo a la izquierda en escritorio */
   h1 {
-    text-align: center;
+    text-align: left; /* <--- ALINEADO A LA IZQUIERDA (ESCRITORIO) */
     margin: 0;
-    flex-grow: 1;
+    flex-grow: 0; /* <--- NO CRECE (ESCRITORIO) */
   }
 
-  /* Menú de secciones (desplegable) */
+  /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
   #menu-secciones {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    color: #0a0a23;
+    display: block; /* <--- VISIBLE POR DEFECTO (ESCRITORIO) */
+    position: static; /* <--- POSICIÓN NORMAL (ESCRITORIO) */
+    background-color: transparent; /* Fondo del header */
+    color: white; /* Texto blanco */
     width: auto;
-    border: 1px solid #ccc;
-    border-top: none;
+    border: none;
     z-index: 1000;
+    flex-grow: 1; /* <--- HACE QUE OCUPE EL ESPACIO RESTANTE */
   }
 
+  /* Esta clase solo se usará en móvil */
   #menu-secciones.visible {
     display: block;
   }
@@ -89,16 +89,19 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex; /* <--- LISTA HORIZONTAL (ESCRITORIO) */
+    justify-content: center; /* <--- ¡CENTRADO HORIZONTAL! */
   }
 
   #menu-secciones li {
-    padding: 0.5em 1em;
+    padding: 0.5em 1.5em; /* Espacio entre ítems (escritorio) */
   }
 
   #menu-secciones a {
     display: block;
     text-decoration: none;
     color: inherit;
+    font-weight: bold; /* Opcional: ponerlo en negrita */
   }
 
   /* Contenido principal (Grid) */
@@ -291,20 +294,53 @@
     margin-bottom: 0.5em;
   }
 
-  /* Estilos para móvil */
+  /* ================================== */
+  /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
+  /* ================================== */
   @media (max-width: 768px) {
     header {
       flex-direction: row;
       justify-content: space-between;
     }
 
+    /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
     .menu-toggle {
+      display: flex; /* <--- SE MUESTRA EN MÓVIL */
       position: static;
       left: auto;
       top: auto;
       margin-right: 1em;
     }
+    
+    /* CENTRAR EL H1 EN MÓVIL */
+    h1 {
+      text-align: center; /* <--- CENTRADO EN MÓVIL */
+      flex-grow: 1; /* <--- CRECE PARA CENTRARSE EN MÓVIL */
+    }
+    
+    /* OCULTAR Y RE-ESTILIZAR EL MENÚ EN MÓVIL (MODO DROPDOWN) */
+    #menu-secciones {
+      display: none; /* <--- OCULTO EN MÓVIL (hasta click) */
+      position: absolute; /* <--- POSICIÓN ABSOLUTA */
+      top: 100%; /* Abajo del header */
+      left: 0;
+      background-color: white; /* <--- FONDO BLANCO */
+      color: #0a0a23; /* <--- TEXTO OSCURO */
+      width: 100%; /* Ancho completo */
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+    
+    /* LISTA VERTICAL EN MÓVIL */
+    #menu-secciones ul {
+      display: block; /* <--- VUELVE A SER VERTICAL */
+    }
+    
+    #menu-secciones li {
+       padding: 0.5em 1em; /* Padding original para móvil */
+    }
 
+    /* GRID DE NOTICIAS (SE HACE UNA SOLA COLUMNA) */
     main.grid-principal {
       display: flex;
       flex-direction: column;
@@ -344,31 +380,31 @@
     </nav>
   </header>
 
-<main class="grid-principal">
+<main class="grid-principal oculto">
   <div class="noticia grande">
-      <h2><a href="luis-petri-anuncio-que-sera-candidato-a-diputado-nacional-por-mendoza.html">Luis Petri, anunció que será candidato a diputado nacional por Mendoza</a></h2>
+      <h2><a href="noticia.html">Titulo</a></h2>
   <div class="imagen-destacada">
-      <a href="luis-petri-anuncio-que-sera-candidato-a-diputado-nacional-por-mendoza.html">
-        <img src="img/petri.jpg" alt="Ministro de Defensa, Luis Petri | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
+      <a href="noticia.html">
+        <img src="img/IMAGEN.png" alt="Descripción | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
       </a>
   </div>
-      <p>Luis Petri deja Defensa para ser candidato en Mendoza y se suma a la salida de Bullrich.</p>
+      <p>Descripción de la noticia.</p>
   </div>
-          
-  <div class="noticia chica">
-      <h2><a href="ee-uu-permite-a-argentina-apelar-fallo-de-ypf-sin-entregar-acciones.html">EE. UU. permite a Argentina apelar fallo de YPF sin entregar acciones</a></h2>
+        
+  <div class="noticia chica oculto">
+      <h2><a href="noticia.html">Titulo</a></h2>
   <div class="imagen-destacada">
-      <a href="ee-uu-permite-a-argentina-apelar-fallo-de-ypf-sin-entregar-acciones.html">
-      <img src="img/bandera-ypf.jpg" alt="Bandera de Argentina y de YPF | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
+      <a href="noticia.html">
+      <img src="img/IMAGEN.png" alt="Descripción | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
       </a>
   </div>
   </div>
-  
-  <div class="noticia chica">
-      <h2><a href="trump-y-putin-se-reunieron-en-alaska-para-discutir-el-futuro-de-la-guerra-en-ucrania.html">Trump y Putin se reunieron en Alaska para discutir el futuro de la guerra en Ucrania</a></h2>
+ 
+  <div class="noticia chica oculto">
+      <h2><a href="noticia.html">Titulo</a></h2>
   <div class="imagen-destacada">
-      <a href="trump-y-putin-se-reunieron-en-alaska-para-discutir-el-futuro-de-la-guerra-en-ucrania.html">
-      <img src="img/trump-putin.jpg" alt="Presidente de Rusia, Vladimir Putin junto con el Presidente de EE.UU, Donald Trump | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
+      <a href="noticia.html">
+      <img src="img/IMAGEN.png" alt="Descripció | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
       </a>
   </div>
   </div>
@@ -379,28 +415,28 @@
       </a>
       </div>
     
-  <div class="noticia media">
-      <h2><a href="patricia-bullrich-confirmo-su-candidatura-a-senadora.html">Patricia Bullrich confirmó su candidatura a Senadora</a></h2>
+  <div class="noticia media oculto">
+      <h2><a href="noticia.html">Titulo</a></h2>
   <div class="imagen-destacada">
   </div>
-      <p>La Ministra de Seguridad de la Nación, Patricia Bullrich, anunció este viernes que será candidata a Senadora Nacional por la Ciudad de Buenos Aires.</p>
+      <p>Descripción de la noticia</p>
   </div>
-  
-  <div class="noticia media">
-      <h2><a href="espert-encabezara-la-lista-de-diputados-nacionales-de-la-libertad-avanza-en-buenos-aires.html">Espert encabezará la lista de Diputados Nacionales de La Libertad Avanza en Buenos Aires</a></h2>
+ 
+  <div class="noticia media oculto">
+      <h2><a href="noticia.html">Titulo</a></h2>
   <div class="imagen-destacada">
-      <a href="espert-encabezara-la-lista-de-diputados-nacionales-de-la-libertad-avanza-en-buenos-aires.html">
-      <img src="img/espert-milei.jpg" alt="Diputado Nacional, Luis Espert con el Presidente Javier Milei | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
+      <a href="noticia.html">
+      <img src="img/IMAGEN.png" alt="Descripción | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
       </a>
   </div>
-      <p>Espert encabezará la lista de Diputados Nacionales de LLA en Buenos Aires para las elecciones de octubre 2025.</p>
+      <p>Descripción de la notica</p>
   </div>
-  
-  <div class="noticia media">
-      <h2><a href="rafael-nadal-invertira-usd-200-millones-en-argentina-para-abrir-hoteles-de-lujo-junto-a-melia.html">Rafael Nadal invertirá USD 200 millones en Argentina para abrir hoteles de lujo junto a Meliá</a></h2>
+ 
+  <div class="noticia media oculto">
+      <h2><a href="noticia.html">Titulo</a></h2>
   <div class="imagen-destacada">
   </div> 
-      <p>Rafael Nadal y Meliá invertirán USD 200 millones en 5 hoteles de lujo en Argentina.</p>
+      <p>Descripción de la notica</p>
   </div>
 
       <div class="publicidad cuadrada oculto">
@@ -424,20 +460,20 @@
       </a>
       </div>
 
-  <div class="noticia grande">
-      <h2><a href="inflacion-de-julio-el-indice-subio-1-9-segun-el-indec.html">Inflación de julio: el índice subió 1,9% según el INDEC</a></h2>
+  <div class="noticia grande oculto">
+      <h2><a href="noticia.html">Titulo de nocia</a></h2>
   <div class="imagen-destacada">
-      <a href="inflacion-de-julio-el-indice-subio-1-9-segun-el-indec.html">
-      <img src="img/inflacion.jpg" alt="Supermercado | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
+      <a href="noticia.html">
+      <img src="img/" alt="Descripción | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
       </a>
   </div>
   </div>
-  
-  <div class="noticia grande">
-      <h2><a href="el-fmi-aprobo-la-revision-del-acuerdo-y-girara-usd-2000-millones-a-argentina.html">El FMI aprobó la revisión del acuerdo y girará USD 2.000 millones a Argentina</a></h2>
+ 
+  <div class="noticia grande oculto">
+      <h2><a href="noticia.html">Titulo de nocia</a></h2>
   <div class="imagen-destacada">
-      <a href="el-fmi-aprobo-la-revision-del-acuerdo-y-girara-usd-2000-millones-a-argentina.html">
-      <img src="img/caputo-y-kristalina.jpeg" alt="Ministro de Economía, Luis Caputo con la Directora Gerente del FMI, Kristalina Georgieva | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
+      <a href="noticia.html">
+      <img src="img/" alt="Descripción | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
       </a>
   </div>
   </div>
