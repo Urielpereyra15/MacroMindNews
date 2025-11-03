@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Política | MacroMind News</title>
-    <link rel="stylesheet" href="estilos.css" />
     <script defer>
         function toggleMenu() {
             const menu = document.getElementById("menu-secciones");
@@ -27,7 +26,7 @@
         /* Para los títulos de las noticias */
         .noticia h2 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: left; /* Alinea los títulos de las noticias a la izquierda */
+            text-align: left; 
             margin-bottom: 0.5em;
         }
         .noticia h2 a {
@@ -46,32 +45,40 @@
         header {
             background-color: #0a0a23;
             color: white;
-            padding: 1em;
+            padding: 0; 
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column; 
+            align-items: center;  
             position: relative;
-            flex-direction: row;
         }
 
         /* Nuevos estilos para los títulos centrales */
         .titulos-centrales {
-            display: flex; /* Convierte este div en un flex container */
-            flex-direction: column; /* Apila los h1 uno debajo del otro */
-            align-items: center; /* Centra los h1 horizontalmente dentro de este div */
-            flex-grow: 1; /* Permite que este div ocupe el espacio disponible en el header */
+            display: flex; 
+            flex-direction: row;  
+            /* --- ¡¡¡AQUÍ ESTÁ LA CORRECCIÓN!!! --- */
+            align-items: center; /* Centra verticalmente los bloques */
+            /* ------------------------------------ */
+            gap: 20px;            
+            padding: 1em;         
+            flex-grow: 0; 
         }
 
-        /* Ajusta los h1 dentro de titulos-centrales si es necesario */ 
-        .titulos-centrales h1 {
-           text-align: center; /* Asegura que el texto dentro de cada h1 esté centrado */
-           margin: 0; /* Elimina márgenes extra si los hay */
+        /* Estilo para el subtítulo "ECONOMÍA" */
+        .titulos-centrales h3 {
+             font-family: Georgia, serif; 
+             font-weight: normal; 
+             font-size: 1.2rem;
+             color: inherit; /* Hereda el color 'white' del header */
+             margin: 0; 
+             text-transform: uppercase;
         }
-
+        
+        /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
         .menu-toggle {
             font-size: 1.5em;
             cursor: pointer;
-            display: flex;
+            display: none; 
             align-items: center;
         }
 
@@ -82,20 +89,17 @@
         h1 {
             text-align: center;
             margin: 0;
-            flex-grow: 1;
+            flex-grow: 0; 
         }
 
         /* Menú de secciones (desplegable) */
         #menu-secciones {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            color: #0a0a23;
-            width: auto;
-            border: 1px solid #ccc;
-            border-top: none;
+            display: block; 
+            position: static; 
+            background-color: #2c3e50; /* Tu color de barra */
+            width: 100%;               
+            color: white; 
+            border: none;
             z-index: 1000;
         }
 
@@ -107,57 +111,55 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            justify-content: center;
         }
 
         #menu-secciones li {
-            padding: 0.5em 1em;
+            padding: 0.5em 1.5em; 
         }
 
         #menu-secciones a {
             display: block;
             text-decoration: none;
             color: inherit;
+            font-family: Georgia, serif;
+            font-weight: bold;
         }
 
         /* Contenido principal (Grid) */
         main.grid-principal {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr; /* Cuatro columnas */
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
             gap: 1em;
             padding: 2em;
         }
-
-        /* Estilos comunes para todas las noticias y publicidad para el efecto de "cuadro" */
+        
+        /* ... (El resto del CSS de la grilla sigue igual) ... */
+        
         .noticia, .publicidad {
-            background-color: white; /* Fondo blanco */
+            background-color: white; 
             color: black;
             padding: 1em;
             border-radius: 12px;
             font-size: 1.1em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra para el efecto de "cuadro" */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
         }
-
-        /* Noticia grande (primer elemento en el grid) */
-        .grid-principal > .noticia.grande:nth-child(1) { /* Selecciona el primer .noticia.grande */
+        .grid-principal > .noticia.grande:nth-child(1) { 
             grid-column: 1 / span 2;
             grid-row: 1 / span 2;
         }
-
-        /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
         .imagen-destacada img {
-            display: block; /* La imagen debe ser un elemento de bloque para que margin: auto funcione */
-            margin-left: auto; /* Centra horizontalmente */
-            margin-right: auto; /* Centra horizontalmente */
-            max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto; 
+            max-width: 100%; 
+            height: auto; 
             border-radius: 8px;
-            margin-top: 15px; /* Define el margen superior aquí */
-            margin-bottom: 15px; /* Define el margen inferior aquí */
+            margin-top: 15px; 
+            margin-bottom: 15px; 
         }
-        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
-        /* Noticias chicas */
-        .noticia.chica { /* Aplica estilos comunes a todas las noticias chicas */
+        .noticia.chica { 
             background-color: white;
             color: black;
             padding: 1em;
@@ -165,19 +167,15 @@
             font-size: 1.1em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
+        .grid-principal > .noticia.chica:nth-child(2) { 
             grid-row: 1;
             grid-column: 3;
         }
-
-        .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
+        .grid-principal > .noticia.chica:nth-child(3) { 
             grid-row: 2;
             grid-column: 3;
         }
-
-        /* Publicidad vertical */
-        .publicidad.vertical { /* PUBLI */
+        .publicidad.vertical { 
             background-color: black;
             color: white;
             padding: 1em;
@@ -185,11 +183,9 @@
             font-size: 1.2em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             grid-row: 1 / span 2;
-            grid-column: 4; /* Intenta colocar en la cuarta columna */
+            grid-column: 4; 
         }
-
-        /* Noticias medianas */
-        .noticia.media { /* Aplica estilos comunes a todas las noticias medianas */
+        .noticia.media { 
             background-color: white;
             color: black;
             padding: 1em;
@@ -197,23 +193,18 @@
             font-size: 1.1em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
+        .grid-principal > .noticia.media:nth-child(5) { 
             grid-row: 3;
             grid-column: 1;
         }
-
-        .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
+        .grid-principal > .noticia.media:nth-child(6) { 
             grid-row: 3;
             grid-column: 2 / span 2;
         }
-
-        .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
+        .grid-principal > .noticia.media:nth-child(7) { 
             grid-row: 3;
             grid-column: 4;
         }
-
-        /* Publicidad cuadrada */
         .publicidad.cuadrada {
             background-color: black;
             color: white;
@@ -222,62 +213,46 @@
             font-size: 1.2em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(8) {
             grid-row: 4;
             grid-column: 1;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(9) {
             grid-row: 4;
             grid-column: 2;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(10) {
             grid-row: 4;
             grid-column: 3;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(11) { 
             grid-row: 4;
             grid-column: 4;
         }
-
-        /* Noticia grande "NOTICIA 7" (Dr. Martens) */
         .grid-principal > .noticia.grande:nth-child(12) {
             grid-column: 1 / span 2;
             grid-row: 5;
         }
-
-        /* Noticia grande "NOTICIA 8" (ON) */
         .grid-principal > .noticia.grande:nth-child(13) {
             grid-column: 3 / span 2;
             grid-row: 5;
         }
-
-        /* Publicidad horizontal (después de Dr. Martens y ON) */
         .grid-principal > .publicidad.horizontal:nth-child(14) {
-            grid-column: 1 / -1; /* Ocupa todas las columnas */
-            grid-row: 6; /* Coloca esta publicidad en la fila 6 */
+            grid-column: 1 / -1; 
+            grid-row: 6; 
         }
-        
-        /* NOTICIA 9 (media) */
         .grid-principal > .noticia.media:nth-child(15) {
             grid-row: 7;
             grid-column: 1;
         }
-        /* NOTICIA 10 (media) */
         .grid-principal > .noticia.media:nth-child(16) {
             grid-row: 7;
             grid-column: 2 / span 2;
         }
-        /* NOTICIA 11 (media) */
         .grid-principal > .noticia.media:nth-child(17) {
             grid-row: 7;
             grid-column: 4;
         }
-
-        /* Publicidad cuadrada (siguientes) */
         .grid-principal > .publicidad.cuadrada:nth-child(18) {
             grid-row: 8;
             grid-column: 1;
@@ -294,25 +269,18 @@
             grid-row: 8;
             grid-column: 4;
         }
-
-        /* NOTICIA 12 (grande) - "El Gobierno acordó con el FMI..." */
         .grid-principal > .noticia.grande:nth-child(22) {
             grid-column: 1 / span 2;
-            grid-row: 9; /* Ajusta la fila para que esté debajo de la publicidad cuadrada */
+            grid-row: 9; 
         }
-
-        /* NOTICIA 13 (grande) - "La industria metalúrgica crece..." */
         .grid-principal > .noticia.grande:nth-child(23) {
             grid-column: 3 / span 2;
-            grid-row: 9; /* Ajusta la fila para que esté en la misma fila que la anterior */
+            grid-row: 9; 
         }
-
-        /* Segunda Publicidad horizontal (al final) */
         .grid-principal > .publicidad.horizontal:nth-child(24) {
-            grid-column: 1 / -1; /* Ocupa todas las columnas */
-            grid-row: 10; /* Coloca esta publicidad en la fila 10 */
+            grid-column: 1 / -1; 
+            grid-row: 10; 
         }
-
 
         /* Footer */
         footer {
@@ -321,7 +289,6 @@
             text-align: center;
             padding: 2em 1em;
         }
-
         footer h1 {
             margin-bottom: 0.5em;
         }
@@ -334,7 +301,6 @@
             margin-top: 2em;
             border-top: 1px solid #eee;
         }
-
         .pagination .page-link {
             text-decoration: none;
             color: #0a0a23;
@@ -346,13 +312,11 @@
             font-weight: bold;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         .pagination .page-link:hover {
             background-color: #0a0a23;
             color: white;
             border-color: #0a0a23;
         }
-
         .pagination .page-link.active {
             background-color: #0a0a23;
             color: white;
@@ -360,27 +324,66 @@
             cursor: default;
         }
 
-        /* Estilos para móvil */
+        /* ================================== */
+        /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
+        /* ================================== */
         @media (max-width: 768px) {
             header {
                 flex-direction: row;
                 justify-content: space-between;
+                padding: 1em; 
+            }
+
+            .titulos-centrales {
+                flex-grow: 1;
+                padding: 0; 
+                gap: 0;
+                align-items: center; 
+            }
+            
+            .titulos-centrales h3 {
+                display: none;
             }
 
             .menu-toggle {
+                display: flex; 
                 position: static;
                 left: auto;
                 top: auto;
                 margin-right: 1em;
             }
 
+            h1 {
+                flex-grow: 1;
+            }
+            
+            #menu-secciones {
+                display: none; 
+                position: absolute; 
+                top: 100%; 
+                left: 0;
+                background-color: white; 
+                color: #0a0a23; 
+                width: 100%; 
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+            
+            #menu-secciones ul {
+                display: block; 
+            }
+            
+            #menu-secciones li {
+               padding: 0.5em 1em; 
+            }
+            
             main.grid-principal {
                 display: flex;
                 flex-direction: column;
                 gap: 1em;
                 padding: 1em;
-                max-width: none; /* Elimina el ancho máximo para que ocupe todo el ancho disponible */
-                margin: 1em; /* Ajusta el margen en móvil */
+                max-width: none; 
+                margin: 1em; 
             }
 
             .noticia, .publicidad {
@@ -388,7 +391,6 @@
                 border-radius: 12px;
                 font-size: 1.2em;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                /* En móvil, no necesitamos las reglas de grid-column/row */
                 grid-column: auto !important;
                 grid-row: auto !important;
             }
@@ -421,63 +423,63 @@
         </nav>
     </header>
 
-    <main class="grid-principal">
+    <main class="grid-principal oculto">
         <div class="noticia grande">
-            <h2><a href="luis-petri-anuncio-que-sera-candidato-a-diputado-nacional-por-mendoza.html">Luis Petri, anunció que será candidato a diputado nacional por Mendoza</a></h2>
+            <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="luis-petri-anuncio-que-sera-candidato-a-diputado-nacional-por-mendoza.html">
-            <img src="img/petri.jpg" alt="Ministro de Defensa, Luis Petri | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
             </a>
         </div>
-            <p>Luis Petri deja Defensa para ser candidato en Mendoza y se suma a la salida de Bullrich.</p>
+            <p>Descripción</p>
         </div>
 
-        <div class="noticia chica">
-            <h2><a href="patricia-bullrich-confirmo-su-candidatura-a-senadora.html">Patricia Bullrich confirmó su candidatura a senadora</a></h2>
+        <div class="noticia chica oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="patricia-bullrich-confirmo-su-candidatura-a-senadora.html">
-            <img src="img/bullrich.jpg" alt="Ministra de Seguridad, Patricia Bullrich | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-            </a>   
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>    
         </div>
         </div>
 
-        <div class="noticia chica">
-            <h2><a href="espert-encabezara-la-lista-de-diputados-nacionales-de-la-libertad-avanza-en-buenos-aires.html">Espert encabezará la lista de diputados nacionales de La Libertad Avanza en Buenos Aires</a></h2>
+        <div class="noticia chica oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="espert-encabezara-la-lista-de-diputados-nacionales-de-la-libertad-avanza-en-buenos-aires.html">
-            <img src="img/espert-milei.jpg" alt="Diputado Nacional, Luis Espert con el Presidente Javier Milei | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-            </a>   
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>    
         </div>
         </div>
 
-            <div class="publicidad vertical oculto">
-            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-            <img src="img/publicidad.jpg" alt="Publicidad Vertical">
-            </a>
-            </div>
+        <div class="publicidad vertical oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Vertical">
+        </a>
+        </div>
         
-        <div class="noticia media">
-            <h2><a href="gobernadores-no-peronistas-se-reunen-en-caba-para-sellar-un-frente-electoral.html">Gobernadores no peronistas se reúnen en CABA para sellar un frente electoral</a></h2>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
         </div>
-            <p>Cinco gobernadores no peronistas anunciaron la creación de un nuevo frente electoral nacional bautizado “Un grito federal”.</p>
+            <p>Descripción</p>
         </div>
 
-        <div class="noticia media">
-            <h2><a href="la-corte-suprema-confirmo-la-condena-e-inhabilitacion-contra-cristina-fernandez.html">La Corte Suprema confirmó la condena a prisión e inhabilitación contra Cristina Fernández</a></h2>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="la-corte-suprema-confirmo-la-condena-e-inhabilitacion-contra-cristina-fernandez.html">
-            <img src="img/cristina-kirchner.jpg" alt="Cristina Fernandez de Kirchner | MacroMind News">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
             </a>
         </div>
-            <p>La Corte Suprema de Justicia de la Nación rechazó este martes, por unanimidad, el recurso presentado por la expresidenta Cristina Fernández de Kirchner, dejando firme la condena a seis años de prisión. </p>
+            <p>Descripción</p>
         </div>
 
-        <div class="noticia media">
-            <h2><a href="el-papa-leon-xiv-le-confirmo-a-javier-milei-que-visitara-la-argentina.html">El Papa León XIV le confirmó a Javier Milei que visitará la Argentina</a></h2>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
         </div>
-            <p>El Papa León XIV le confirmó al Presidente que planea visitar la Argentina durante su pontificado.</p>
+            <p>Descripción</p>
         </div>
 
             <div class="publicidad cuadrada oculto">
@@ -501,24 +503,24 @@
             </a>
             </div>
 
-        <div class="noticia grande">
-            <h2><a href="ypf-se-asocia-con-la-italiana-eni-para-exportar-gnl.html">YPF se asocia con la italiana Eni para exportar GNL</a></h2>
-        <div class="imagen-destacada"> 
-            <a href="ypf-se-asocia-con-la-italiana-eni-para-exportar-gnl.html">
-            <img src="img/milei-y-meloni.jpg" alt="Presidente de la Argentina junto a la Primera Ministro de Italia | MacroMind News">
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
             </a>
         </div>
-            <p>YPF firmó un acuerdo con la petrolera italiana Eni para llevar adelante un proyecto conjunto de exportación de gas natural licuado (GNL).</p>
+            <p>Descripción</p>
         </div>
 
-        <div class="noticia grande">
-            <h2><a href="la-libertad-avanza-se-impone-en-caba-y-el-pro-cae-al-tercer-lugar.html">La Libertad Avanza se impone en CABA y el PRO cae al tercer lugar</a></h2>
-        <div class="imagen-destacada"> 
-            <a href="la-libertad-avanza-se-impone-en-caba-y-el-pro-cae-al-tercer-lugar.html">
-            <img src="img/elecciones.jpg" alt="Boca de urna | MacroMind News">
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
             </a>
         </div>
-            <p>En una jornada electoral que marcó un punto de inflexión en la Ciudad de Buenos Aires, La Libertad Avanza (LLA) se posicionó como la fuerza más votada en las elecciones legislativas.</p>
+            <p>Descripción</p>
         </div>
 
             <div class="publicidad horizontal oculto">
@@ -527,69 +529,69 @@
             </a>
             </div>
 
-        <div class="noticia media">
-            <h2><a href="eliminan-13-programas-estatales-como-parte-del-plan-de-ajuste.html">El Gobierno elimina 13 programas que tenían fines ideológicos</a></h2>
-            <div class="imagen-destacada">
-        </div>
-            <p>El Ministerio de Justicia, encabezado por Mariano Cúneo Libarona, anunció la eliminación de 13 programas públicos creados en gestiones anteriores.</p>
-        </div>
-
-        <div class="noticia media">
-            <h2><a href="la-libertad-avanza-realizo-su-cierre-de-campaña-en-recoleta-con-una-gran-convocatoria.html">La Libertad Avanza realizó su cierre de campaña en Recoleta con una gran convocatoria</a></h2>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="la-libertad-avanza-realizo-su-cierre-de-campaña-en-recoleta-con-una-gran-convocatoria.html">
-            <img src="img/adorni.jpg" alt="Manuel Adorni | MacroMind News">
-            </a>
         </div>
-            <p>La Libertad Avanza (LLA) llevó a cabo este miércoles su cierre de campaña en el barrio porteño de Recoleta, en la Ciudad Autónoma de Buenos Aires.</p>
+            <p>Descripción</p>
         </div>
 
-        <div class="noticia media">
-            <h2><a href="el-gobierno-endurece-los-requisitos-para-el-ingreso-de-extranjeros-al-pais.html">El Gobierno endurece los requisitos para el ingreso de extranjeros al país</a></h2>        
-            <div class="imagen-destacada">
-        </div>
-            <p>El Gobierno nacional introdujo una reforma migratoria que endurece los criterios de ingreso, permanencia y acceso a servicios públicos.</p>
-        </div>
-
-            <div class="publicidad cuadrada oculto">
-            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-            <img src="img/publicidad.jpg" alt="Publicidad">
-            </a>
-            </div>
-            <div class="publicidad cuadrada oculto">
-            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-            <img src="img/publicidad.jpg" alt="Publicidad">
-            </a>
-            </div>
-            <div class="publicidad cuadrada oculto">
-            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-            <img src="img/publicidad.jpg" alt="Publicidad">
-            </a>
-            </div>
-            <div class="publicidad cuadrada oculto">
-            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-            <img src="img/publicidad.jpg" alt="Publicidad">
-            </a>
-            </div>
-
-        <div class="noticia grande">
-            <h2><a href="milei-en-el-congreso-del-iaef.html">Milei en el Congreso del IAEF: “Los econochantas de Mandrilandia no pegaron una”</a></h2>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="milei-en-el-congreso-del-iaef.html">
-            <img src="img/milei-iaef.jpg" alt="Presidente de la Nación | MacroMind News">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
             </a>
         </div>
-            <p>El presidente Javier Milei fue protagonista del 42° Congreso Anual del Instituto Argentino de Ejecutivos de Finanzas (IAEF), realizado en el Centro de Convenciones de Buenos Aires.</p>
+            <p>Descripción</p>
         </div>
 
-        <div class="noticia grande">
-            <h2><a href="la-libertad-avanza-obtiene-resultados-significativos-en-salta-capital-y-modifica-el-panorama-electoral-local.html">La Libertad Avanza obtiene resultados significativos en Salta Capital y modifica el panorama electoral local</a></h2>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="la-libertad-avanza-obtiene-resultados-significativos-en-salta-capital-y-modifica-el-panorama-electoral-local.html">
-            <img src="img/elecciones.jpg" alt="Boca de urna | MacroMind News">
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
             </a>
         </div>
-            <p>La Libertad Avanza obtuvo un triunfo contundente en la provincia de Salta.</p>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
         </div>
 
             <div class="publicidad horizontal oculto">
@@ -597,19 +599,19 @@
             <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
             </a>
             </div>
-    </main>
+</main>
 
     <div class="pagination">
         <a href="politica.html" class="page-link active">1</a>
-        <a href="politica-1.html" class="page-link">2</a>
     </div>
     
     <footer>
         <h1>MM <br> NEWS</h1>
         <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
-            <img src="img/x-logo.png" alt="X Logo" style="width: 30px; height: auto; filter: invert(100%);">
+        <img src="img/x-logo.png" alt="X Logo" style="width: 30px; height: auto; filter: invert(100%);">
         </a>
         <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+        <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
     </footer>
 </body>
 </html>
