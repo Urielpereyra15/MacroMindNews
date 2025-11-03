@@ -26,7 +26,7 @@
         /* Para los títulos de las noticias */
         .noticia h2 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: left; /* Alinea los títulos de las noticias a la izquierda */
+            text-align: left; 
             margin-bottom: 0.5em;
         }
         .noticia h2 a {
@@ -45,29 +45,33 @@
         header {
             background-color: #0a0a23;
             color: white;
-            padding: 1em;
+            /* --- CAMBIO 1: SE QUITA EL PADDING DEL HEADER --- */
+            padding: 0; 
             display: flex;
-            flex-direction: column; /* Apila el logo y el nav verticalmente */
-            align-items: center;  /* Centra todo horizontalmente */
+            flex-direction: column; 
+            align-items: center;  
             position: relative;
         }
 
         /* Nuevos estilos para los títulos centrales */
         .titulos-centrales {
             display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            flex-grow: 0; /* No necesita crecer en desktop */
+            /* --- CAMBIO 2: HORIZONTAL Y CON PADDING PROPIO --- */
+            flex-direction: row;  /* <--- Logo y Título en fila */
+            align-items: baseline; /* <--- Se alinean por la base del texto */
+            gap: 20px;            /* <--- Espacio entre "MM NEWS" y "ECONOMÍA" */
+            padding: 1em;         /* <--- Se MUEVE el padding aquí */
+            /* ------------------------------------------------ */
+            flex-grow: 0; 
         }
 
         /* Estilo para el subtítulo "ECONOMÍA" */
         .titulos-centrales h3 {
-             font-family: Georgia, serif; /* Misma fuente que el logo */
-             font-weight: normal; /* Menos peso que el logo */
+             font-family: Georgia, serif; 
+             font-weight: normal; 
              font-size: 1.2rem;
-             color: #ccc; /* Un color más suave */
-             margin-top: 5px;
-             margin-bottom: 0;
+             color: #ccc; 
+             margin: 0; /* Se quitan márgenes para alinear mejor */
              text-transform: uppercase;
         }
         
@@ -86,18 +90,18 @@
         h1 {
             text-align: center;
             margin: 0;
-            flex-grow: 0; /* No necesita crecer en desktop */
+            flex-grow: 0; 
         }
 
         /* Menú de secciones (desplegable) */
         #menu-secciones {
             display: block; 
             position: static; 
-            /* --- ¡¡¡AQUÍ ESTÁ TU CAMBIO DE COLOR!!! --- */
-            background-color: #2c3e50; 
+            /* --- CAMBIO 3: FONDO NUEVO Y ANCHO COMPLETO --- */
+            background-color: #2c3e50; /* <--- Tu color elegido */
+            width: 100%;               /* <--- Ocupa todo el ancho (sin padding del padre) */
             /* ------------------------------------------- */
             color: white; 
-            width: 100%; /* Ocupa ancho para centrar el <ul> */
             border: none;
             z-index: 1000;
         }
@@ -115,7 +119,7 @@
         }
 
         #menu-secciones li {
-            padding: 0.5em 1.5em;
+            padding: 0.5em 1.5em; /* Se mantiene el padding de los links */
         }
 
         #menu-secciones a {
@@ -133,24 +137,21 @@
             gap: 1em;
             padding: 2em;
         }
-
-        /* Estilos comunes para todas las noticias y publicidad para el efecto de "cuadro" */
+        
+        /* ... (El resto del CSS de la grilla sigue igual) ... */
+        
         .noticia, .publicidad {
-            background-color: white; /* Fondo blanco */
+            background-color: white; 
             color: black;
             padding: 1em;
             border-radius: 12px;
             font-size: 1.1em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra para el efecto de "cuadro" */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
         }
-
-        /* Noticia grande (primer elemento en el grid) */
-        .grid-principal > .noticia.grande:nth-child(1) { /* Selecciona el primer .noticia.grande */
+        .grid-principal > .noticia.grande:nth-child(1) { 
             grid-column: 1 / span 2;
             grid-row: 1 / span 2;
         }
-
-        /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
         .imagen-destacada img {
             display: block; 
             margin-left: auto; 
@@ -161,9 +162,6 @@
             margin-top: 15px; 
             margin-bottom: 15px; 
         }
-        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
-        /* Noticias chicas */
         .noticia.chica { 
             background-color: white;
             color: black;
@@ -172,19 +170,15 @@
             font-size: 1.1em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
+        .grid-principal > .noticia.chica:nth-child(2) { 
             grid-row: 1;
             grid-column: 3;
         }
-
-        .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
+        .grid-principal > .noticia.chica:nth-child(3) { 
             grid-row: 2;
             grid-column: 3;
         }
-
-        /* Publicidad vertical */
-        .publicidad.vertical { /* PUBLI */
+        .publicidad.vertical { 
             background-color: black;
             color: white;
             padding: 1em;
@@ -194,8 +188,6 @@
             grid-row: 1 / span 2;
             grid-column: 4; 
         }
-
-        /* Noticias medianas */
         .noticia.media { 
             background-color: white;
             color: black;
@@ -204,23 +196,18 @@
             font-size: 1.1em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
+        .grid-principal > .noticia.media:nth-child(5) { 
             grid-row: 3;
             grid-column: 1;
         }
-
-        .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
+        .grid-principal > .noticia.media:nth-child(6) { 
             grid-row: 3;
             grid-column: 2 / span 2;
         }
-
-        .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
+        .grid-principal > .noticia.media:nth-child(7) { 
             grid-row: 3;
             grid-column: 4;
         }
-
-        /* Publicidad cuadrada */
         .publicidad.cuadrada {
             background-color: black;
             color: white;
@@ -229,62 +216,46 @@
             font-size: 1.2em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(8) {
             grid-row: 4;
             grid-column: 1;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(9) {
             grid-row: 4;
             grid-column: 2;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(10) {
             grid-row: 4;
             grid-column: 3;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(11) { 
             grid-row: 4;
             grid-column: 4;
         }
-
-        /* Noticia grande "NOTICIA 7" (Dr. Martens) */
         .grid-principal > .noticia.grande:nth-child(12) {
             grid-column: 1 / span 2;
             grid-row: 5;
         }
-
-        /* Noticia grande "NOTICIA 8" (ON) */
         .grid-principal > .noticia.grande:nth-child(13) {
             grid-column: 3 / span 2;
             grid-row: 5;
         }
-
-        /* Publicidad horizontal (después de Dr. Martens y ON) */
         .grid-principal > .publicidad.horizontal:nth-child(14) {
             grid-column: 1 / -1; 
             grid-row: 6; 
         }
-        
-        /* NOTICIA 9 (media) */
         .grid-principal > .noticia.media:nth-child(15) {
             grid-row: 7;
             grid-column: 1;
         }
-        /* NOTICIA 10 (media) */
         .grid-principal > .noticia.media:nth-child(16) {
             grid-row: 7;
             grid-column: 2 / span 2;
         }
-        /* NOTICIA 11 (media) */
         .grid-principal > .noticia.media:nth-child(17) {
             grid-row: 7;
             grid-column: 4;
         }
-
-        /* Publicidad cuadrada (siguientes) */
         .grid-principal > .publicidad.cuadrada:nth-child(18) {
             grid-row: 8;
             grid-column: 1;
@@ -301,25 +272,18 @@
             grid-row: 8;
             grid-column: 4;
         }
-
-        /* NOTICIA 12 (grande) - "El Gobierno acordó con el FMI..." */
         .grid-principal > .noticia.grande:nth-child(22) {
             grid-column: 1 / span 2;
             grid-row: 9; 
         }
-
-        /* NOTICIA 13 (grande) - "La industria metalúrgica crece..." */
         .grid-principal > .noticia.grande:nth-child(23) {
             grid-column: 3 / span 2;
             grid-row: 9; 
         }
-
-        /* Segunda Publicidad horizontal (al final) */
         .grid-principal > .publicidad.horizontal:nth-child(24) {
             grid-column: 1 / -1; 
             grid-row: 10; 
         }
-
 
         /* Footer */
         footer {
@@ -328,7 +292,6 @@
             text-align: center;
             padding: 2em 1em;
         }
-
         footer h1 {
             margin-bottom: 0.5em;
         }
@@ -341,7 +304,6 @@
             margin-top: 2em;
             border-top: 1px solid #eee;
         }
-
         .pagination .page-link {
             text-decoration: none;
             color: #0a0a23;
@@ -353,13 +315,11 @@
             font-weight: bold;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         .pagination .page-link:hover {
             background-color: #0a0a23;
             color: white;
             border-color: #0a0a23;
         }
-
         .pagination .page-link.active {
             background-color: #0a0a23;
             color: white;
@@ -372,36 +332,36 @@
         /* ================================== */
         @media (max-width: 768px) {
             header {
-                /* VUELVE A SER HORIZONTAL EN MÓVIL */
                 flex-direction: row;
                 justify-content: space-between;
+                /* --- CAMBIO 4: SE DEVUELVE EL PADDING EN MÓVIL --- */
+                padding: 1em; 
             }
 
-            /* HACE CRECER EL TÍTULO PARA CENTRARLO */
             .titulos-centrales {
                 flex-grow: 1;
+                /* --- CAMBIO 5: SE QUITA EL PADDING INTERNO EN MÓVIL --- */
+                padding: 0; 
+                gap: 0;
+                align-items: center; /* Vuelve a centrar el H1 */
             }
             
-            /* OCULTA EL SUBTÍTULO EN MÓVIL PARA MÁS ESPACIO */
             .titulos-centrales h3 {
                 display: none;
             }
 
-            /* MUESTRA EL BOTÓN HAMBURGUESA */
             .menu-toggle {
-                display: flex; /* <-- MUESTRA EL BOTÓN */
+                display: flex; 
                 position: static;
                 left: auto;
                 top: auto;
                 margin-right: 1em;
             }
 
-            /* HACE CRECER EL H1 PARA CENTRARLO */
             h1 {
                 flex-grow: 1;
             }
             
-            /* DEVUELVE EL MENÚ A SU ESTADO OCULTO/DROPDOWN */
             #menu-secciones {
                 display: none; 
                 position: absolute; 
@@ -415,14 +375,13 @@
             }
             
             #menu-secciones ul {
-                display: block; /* Vuelve a ser vertical */
+                display: block; 
             }
             
             #menu-secciones li {
-               padding: 0.5em 1em; /* Padding original de móvil */
+               padding: 0.5em 1em; 
             }
             
-            /* HACE EL GRID DE 1 SOLA COLUMNA */
             main.grid-principal {
                 display: flex;
                 flex-direction: column;
