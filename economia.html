@@ -45,23 +45,20 @@
         header {
             background-color: #0a0a23;
             color: white;
-            /* --- CAMBIO 1: SE QUITA EL PADDING DEL HEADER --- */
             padding: 0; 
             display: flex;
             flex-direction: column; 
-            align-items: center;  
+            align-items: center;  /* <-- ESTO CENTRA EL BLOQUE DE TÍTULOS */
             position: relative;
         }
 
         /* Nuevos estilos para los títulos centrales */
         .titulos-centrales {
             display: flex; 
-            /* --- CAMBIO 2: HORIZONTAL Y CON PADDING PROPIO --- */
-            flex-direction: row;  /* <--- Logo y Título en fila */
-            align-items: baseline; /* <--- Se alinean por la base del texto */
-            gap: 20px;            /* <--- Espacio entre "MM NEWS" y "ECONOMÍA" */
-            padding: 1em;         /* <--- Se MUEVE el padding aquí */
-            /* ------------------------------------------------ */
+            flex-direction: row;  
+            align-items: baseline; 
+            gap: 20px;            
+            padding: 1em;         
             flex-grow: 0; 
         }
 
@@ -70,8 +67,10 @@
              font-family: Georgia, serif; 
              font-weight: normal; 
              font-size: 1.2rem;
-             color: #ccc; 
-             margin: 0; /* Se quitan márgenes para alinear mejor */
+             /* --- ¡¡¡AQUÍ ESTÁ EL CAMBIO DE COLOR!!! --- */
+             color: inherit; /* Hereda el color 'white' del header */
+             /* ------------------------------------------- */
+             margin: 0; 
              text-transform: uppercase;
         }
         
@@ -97,10 +96,8 @@
         #menu-secciones {
             display: block; 
             position: static; 
-            /* --- CAMBIO 3: FONDO NUEVO Y ANCHO COMPLETO --- */
-            background-color: #2c3e50; /* <--- Tu color elegido */
-            width: 100%;               /* <--- Ocupa todo el ancho (sin padding del padre) */
-            /* ------------------------------------------- */
+            background-color: #2c3e50; /* Tu color de barra */
+            width: 100%;               
             color: white; 
             border: none;
             z-index: 1000;
@@ -119,7 +116,7 @@
         }
 
         #menu-secciones li {
-            padding: 0.5em 1.5em; /* Se mantiene el padding de los links */
+            padding: 0.5em 1.5em; 
         }
 
         #menu-secciones a {
@@ -133,7 +130,7 @@
         /* Contenido principal (Grid) */
         main.grid-principal {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr; /* Cuatro columnas */
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
             gap: 1em;
             padding: 2em;
         }
@@ -334,13 +331,11 @@
             header {
                 flex-direction: row;
                 justify-content: space-between;
-                /* --- CAMBIO 4: SE DEVUELVE EL PADDING EN MÓVIL --- */
                 padding: 1em; 
             }
 
             .titulos-centrales {
                 flex-grow: 1;
-                /* --- CAMBIO 5: SE QUITA EL PADDING INTERNO EN MÓVIL --- */
                 padding: 0; 
                 gap: 0;
                 align-items: center; /* Vuelve a centrar el H1 */
