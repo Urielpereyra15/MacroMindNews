@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Política | MacroMind News</title>
+    <script defer>
+        function toggleMenu() {
+            const menu = document.getElementById("menu-secciones");
+            menu.classList.toggle("visible");
+        }
+    </script>
+
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            font-family: Georgia, serif;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        /* Para los títulos de las noticias */
+        .noticia h2 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: left; 
+            margin-bottom: 0.5em;
+        }
+        .noticia h2 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Para los párrafos de las noticias (descripciones) */
+        .noticia p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: left;
+            margin-top: 1em;
+        }    
+
+        /* Header */
+        header {
+            background-color: #0a0a23;
+            color: white;
+            padding: 0; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center;  
+            position: relative;
+        }
+
+        /* Nuevos estilos para los títulos centrales */
+        .titulos-centrales {
+            display: flex; 
+            flex-direction: row;  
+            /* --- ¡¡¡AQUÍ ESTÁ LA CORRECCIÓN!!! --- */
+            align-items: center; /* Centra verticalmente los bloques */
+            /* ------------------------------------ */
+            gap: 20px;            
+            padding: 1em;         
+            flex-grow: 0; 
+        }
+
+        /* Estilo para el subtítulo "ECONOMÍA" */
+        .titulos-centrales h3 {
+             font-family: Georgia, serif; 
+             font-weight: normal; 
+             font-size: 1.2rem;
+             color: inherit; /* Hereda el color 'white' del header */
+             margin: 0; 
+             text-transform: uppercase;
+        }
+        
+        /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
+        .menu-toggle {
+            font-size: 1.5em;
+            cursor: pointer;
+            display: none; 
+            align-items: center;
+        }
+
+        .menu-toggle span {
+            margin-right: 0.5em;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0;
+            flex-grow: 0; 
+        }
+
+        /* Menú de secciones (desplegable) */
+        #menu-secciones {
+            display: block; 
+            position: static; 
+            background-color: #2c3e50; /* Tu color de barra */
+            width: 100%;               
+            color: white; 
+            border: none;
+            z-index: 1000;
+        }
+
+        #menu-secciones.visible {
+            display: block;
+        }
+
+        #menu-secciones ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #menu-secciones li {
+            padding: 0.5em 1.5em; 
+        }
+
+        #menu-secciones a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            font-family: Georgia, serif;
+            font-weight: bold;
+        }
+
+        /* Contenido principal (Grid) */
+        main.grid-principal {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            gap: 1em;
+            padding: 2em;
+        }
+        
+        /* ... (El resto del CSS de la grilla sigue igual) ... */
+        
+        .noticia, .publicidad {
+            background-color: white; 
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+        }
+        .grid-principal > .noticia.grande:nth-child(1) { 
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+        }
+        .imagen-destacada img {
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto; 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 8px;
+            margin-top: 15px; 
+            margin-bottom: 15px; 
+        }
+        .noticia.chica { 
+            background-color: white;
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .grid-principal > .noticia.chica:nth-child(2) { 
+            grid-row: 1;
+            grid-column: 3;
+        }
+        .grid-principal > .noticia.chica:nth-child(3) { 
+            grid-row: 2;
+            grid-column: 3;
+        }
+        .publicidad.vertical { 
+            background-color: black;
+            color: white;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            grid-row: 1 / span 2;
+            grid-column: 4; 
+        }
+        .noticia.media { 
+            background-color: white;
+            color: black;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .grid-principal > .noticia.media:nth-child(5) { 
+            grid-row: 3;
+            grid-column: 1;
+        }
+        .grid-principal > .noticia.media:nth-child(6) { 
+            grid-row: 3;
+            grid-column: 2 / span 2;
+        }
+        .grid-principal > .noticia.media:nth-child(7) { 
+            grid-row: 3;
+            grid-column: 4;
+        }
+        .publicidad.cuadrada {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(8) {
+            grid-row: 4;
+            grid-column: 1;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(9) {
+            grid-row: 4;
+            grid-column: 2;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(10) {
+            grid-row: 4;
+            grid-column: 3;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(11) { 
+            grid-row: 4;
+            grid-column: 4;
+        }
+        .grid-principal > .noticia.grande:nth-child(12) {
+            grid-column: 1 / span 2;
+            grid-row: 5;
+        }
+        .grid-principal > .noticia.grande:nth-child(13) {
+            grid-column: 3 / span 2;
+            grid-row: 5;
+        }
+        .grid-principal > .publicidad.horizontal:nth-child(14) {
+            grid-column: 1 / -1; 
+            grid-row: 6; 
+        }
+        .grid-principal > .noticia.media:nth-child(15) {
+            grid-row: 7;
+            grid-column: 1;
+        }
+        .grid-principal > .noticia.media:nth-child(16) {
+            grid-row: 7;
+            grid-column: 2 / span 2;
+        }
+        .grid-principal > .noticia.media:nth-child(17) {
+            grid-row: 7;
+            grid-column: 4;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(18) {
+            grid-row: 8;
+            grid-column: 1;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(19) {
+            grid-row: 8;
+            grid-column: 2;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(20) {
+            grid-row: 8;
+            grid-column: 3;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(21) {
+            grid-row: 8;
+            grid-column: 4;
+        }
+        .grid-principal > .noticia.grande:nth-child(22) {
+            grid-column: 1 / span 2;
+            grid-row: 9; 
+        }
+        .grid-principal > .noticia.grande:nth-child(23) {
+            grid-column: 3 / span 2;
+            grid-row: 9; 
+        }
+        .grid-principal > .publicidad.horizontal:nth-child(24) {
+            grid-column: 1 / -1; 
+            grid-row: 10; 
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+        }
+        footer h1 {
+            margin-bottom: 0.5em;
+        }
+
+        /* Paginación */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            padding: 2em 0;
+            margin-top: 2em;
+            border-top: 1px solid #eee;
+        }
+        .pagination .page-link {
+            text-decoration: none;
+            color: #0a0a23;
+            padding: 0.8em 1.2em;
+            margin: 0 0.4em;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .pagination .page-link:hover {
+            background-color: #0a0a23;
+            color: white;
+            border-color: #0a0a23;
+        }
+        .pagination .page-link.active {
+            background-color: #0a0a23;
+            color: white;
+            border-color: #0a0a23;
+            cursor: default;
+        }
+
+        /* ================================== */
+        /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
+        /* ================================== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 1em; 
+            }
+
+            .titulos-centrales {
+                flex-grow: 1;
+                padding: 0; 
+                gap: 0;
+                align-items: center; 
+            }
+            
+            .titulos-centrales h3 {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex; 
+                position: static;
+                left: auto;
+                top: auto;
+                margin-right: 1em;
+            }
+
+            h1 {
+                flex-grow: 1;
+            }
+            
+            #menu-secciones {
+                display: none; 
+                position: absolute; 
+                top: 100%; 
+                left: 0;
+                background-color: white; 
+                color: #0a0a23; 
+                width: 100%; 
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+            
+            #menu-secciones ul {
+                display: block; 
+            }
+            
+            #menu-secciones li {
+               padding: 0.5em 1em; 
+            }
+            
+            main.grid-principal {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                padding: 1em;
+                max-width: none; 
+                margin: 1em; 
+            }
+
+            .noticia, .publicidad {
+                padding: 1em;
+                border-radius: 12px;
+                font-size: 1.2em;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                grid-column: auto !important;
+                grid-row: auto !important;
+            }
+            .pagination .page-link {
+                padding: 0.6em 0.8em;
+                margin: 0 0.2em;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰ SECCIONES
+        </div>
+        <div class="titulos-centrales">
+          <h1>MM <br> NEWS</h1>
+          <h3>POLÍTICA</h3>
+        </div>
+        <nav id="menu-secciones" class="menu-secciones">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="economia.html">Economía</a></li>
+                <li><a href="politica.html">Política</a></li>
+                <li><a href="finanzas.html">Finanzas</a></li>
+                <li><a href="internacional.html">Internacional</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="grid-principal oculto">
+        <div class="noticia grande">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia chica oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>    
+        </div>
+        </div>
+
+        <div class="noticia chica oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>    
+        </div>
+        </div>
+
+        <div class="publicidad vertical oculto">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Vertical">
+        </a>
+        </div>
+        
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad horizontal oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
+            </a>
+            </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad horizontal oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
+            </a>
+            </div>
+</main>
+
+    <div class="pagination">
+        <a href="politica.html" class="page-link">1</a>
+        <a href="politica-2.html" class="page-link">2</a>
+        <a href="politica-3.html" class="page-link">3</a>
+        <a href="politica-4.html" class="page-link">4</a>
+        <a href="politica-5.html" class="page-link active">5</a>
+    </div>
+    
+    <footer>
+        <h1>MM <br> NEWS</h1>
+        <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
+        <img src="img/x-logo.png" alt="X Logo" style="width: 30px; height: auto; filter: invert(100%);">
+        </a>
+        <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+        <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
+    </footer>
+</body>
+</html>
