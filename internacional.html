@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Internacional | MacroMind News</title>
-    <link rel="stylesheet" href="estilos.css" />
     <script defer>
         function toggleMenu() {
             const menu = document.getElementById("menu-secciones");
@@ -27,7 +26,7 @@
         /* Para los títulos de las noticias */
         .noticia h2 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: left; /* Alinea los títulos de las noticias a la izquierda */
+            text-align: left; 
             margin-bottom: 0.5em;
         }
         .noticia h2 a {
@@ -46,32 +45,40 @@
         header {
             background-color: #0a0a23;
             color: white;
-            padding: 1em;
+            padding: 0; 
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column; 
+            align-items: center;  
             position: relative;
-            flex-direction: row;
         }
 
         /* Nuevos estilos para los títulos centrales */
         .titulos-centrales {
-            display: flex; /* Convierte este div en un flex container */
-            flex-direction: column; /* Apila los h1 uno debajo del otro */
-            align-items: center; /* Centra los h1 horizontalmente dentro de este div */
-            flex-grow: 1; /* Permite que este div ocupe el espacio disponible en el header */
+            display: flex; 
+            flex-direction: row;  
+            /* --- ¡¡¡AQUÍ ESTÁ LA CORRECCIÓN!!! --- */
+            align-items: center; /* Centra verticalmente los bloques */
+            /* ------------------------------------ */
+            gap: 20px;            
+            padding: 1em;         
+            flex-grow: 0; 
         }
 
-        /* Ajusta los h1 dentro de titulos-centrales si es necesario */ 
-        .titulos-centrales h1 {
-           text-align: center; /* Asegura que el texto dentro de cada h1 esté centrado */
-           margin: 0; /* Elimina márgenes extra si los hay */
+        /* Estilo para el subtítulo "ECONOMÍA" */
+        .titulos-centrales h3 {
+             font-family: Georgia, serif; 
+             font-weight: normal; 
+             font-size: 1.2rem;
+             color: inherit; /* Hereda el color 'white' del header */
+             margin: 0; 
+             text-transform: uppercase;
         }
-
+        
+        /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
         .menu-toggle {
             font-size: 1.5em;
             cursor: pointer;
-            display: flex;
+            display: none; 
             align-items: center;
         }
 
@@ -82,20 +89,17 @@
         h1 {
             text-align: center;
             margin: 0;
-            flex-grow: 1;
+            flex-grow: 0; 
         }
 
         /* Menú de secciones (desplegable) */
         #menu-secciones {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            color: #0a0a23;
-            width: auto;
-            border: 1px solid #ccc;
-            border-top: none;
+            display: block; 
+            position: static; 
+            background-color: #2c3e50; /* Tu color de barra */
+            width: 100%;               
+            color: white; 
+            border: none;
             z-index: 1000;
         }
 
@@ -107,57 +111,55 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            justify-content: center;
         }
 
         #menu-secciones li {
-            padding: 0.5em 1em;
+            padding: 0.5em 1.5em; 
         }
 
         #menu-secciones a {
             display: block;
             text-decoration: none;
             color: inherit;
+            font-family: Georgia, serif;
+            font-weight: bold;
         }
 
         /* Contenido principal (Grid) */
         main.grid-principal {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr; /* Cuatro columnas */
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
             gap: 1em;
             padding: 2em;
         }
-
-        /* Estilos comunes para todas las noticias y publicidad para el efecto de "cuadro" */
+        
+        /* ... (El resto del CSS de la grilla sigue igual) ... */
+        
         .noticia, .publicidad {
-            background-color: white; /* Fondo blanco */
+            background-color: white; 
             color: black;
             padding: 1em;
             border-radius: 12px;
             font-size: 1.1em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra para el efecto de "cuadro" */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
         }
-
-        /* Noticia grande (primer elemento en el grid) */
-        .grid-principal > .noticia.grande:nth-child(1) { /* Selecciona el primer .noticia.grande */
+        .grid-principal > .noticia.grande:nth-child(1) { 
             grid-column: 1 / span 2;
             grid-row: 1 / span 2;
         }
-
-        /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
         .imagen-destacada img {
-            display: block; /* La imagen debe ser un elemento de bloque para que margin: auto funcione */
-            margin-left: auto; /* Centra horizontalmente */
-            margin-right: auto; /* Centra horizontalmente */
-            max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto; 
+            max-width: 100%; 
+            height: auto; 
             border-radius: 8px;
-            margin-top: 15px; /* Define el margen superior aquí */
-            margin-bottom: 15px; /* Define el margen inferior aquí */
+            margin-top: 15px; 
+            margin-bottom: 15px; 
         }
-        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
-        /* Noticias chicas */
-        .noticia.chica { /* Aplica estilos comunes a todas las noticias chicas */
+        .noticia.chica { 
             background-color: white;
             color: black;
             padding: 1em;
@@ -165,19 +167,15 @@
             font-size: 1.1em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
+        .grid-principal > .noticia.chica:nth-child(2) { 
             grid-row: 1;
             grid-column: 3;
         }
-
-        .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
+        .grid-principal > .noticia.chica:nth-child(3) { 
             grid-row: 2;
             grid-column: 3;
         }
-
-        /* Publicidad vertical */
-        .publicidad.vertical { /* PUBLI */
+        .publicidad.vertical { 
             background-color: black;
             color: white;
             padding: 1em;
@@ -185,11 +183,9 @@
             font-size: 1.2em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             grid-row: 1 / span 2;
-            grid-column: 4; /* Intenta colocar en la cuarta columna */
+            grid-column: 4; 
         }
-
-        /* Noticias medianas */
-        .noticia.media { /* Aplica estilos comunes a todas las noticias medianas */
+        .noticia.media { 
             background-color: white;
             color: black;
             padding: 1em;
@@ -197,23 +193,18 @@
             font-size: 1.1em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
+        .grid-principal > .noticia.media:nth-child(5) { 
             grid-row: 3;
             grid-column: 1;
         }
-
-        .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
+        .grid-principal > .noticia.media:nth-child(6) { 
             grid-row: 3;
             grid-column: 2 / span 2;
         }
-
-        .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
+        .grid-principal > .noticia.media:nth-child(7) { 
             grid-row: 3;
             grid-column: 4;
         }
-
-        /* Publicidad cuadrada */
         .publicidad.cuadrada {
             background-color: black;
             color: white;
@@ -222,62 +213,46 @@
             font-size: 1.2em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(8) {
             grid-row: 4;
             grid-column: 1;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(9) {
             grid-row: 4;
             grid-column: 2;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(10) {
             grid-row: 4;
             grid-column: 3;
         }
-
         .grid-principal > .publicidad.cuadrada:nth-child(11) { 
             grid-row: 4;
             grid-column: 4;
         }
-
-        /* Noticia grande "NOTICIA 7" (Dr. Martens) */
         .grid-principal > .noticia.grande:nth-child(12) {
             grid-column: 1 / span 2;
             grid-row: 5;
         }
-
-        /* Noticia grande "NOTICIA 8" (ON) */
         .grid-principal > .noticia.grande:nth-child(13) {
             grid-column: 3 / span 2;
             grid-row: 5;
         }
-
-        /* Publicidad horizontal (después de Dr. Martens y ON) */
         .grid-principal > .publicidad.horizontal:nth-child(14) {
-            grid-column: 1 / -1; /* Ocupa todas las columnas */
-            grid-row: 6; /* Coloca esta publicidad en la fila 6 */
+            grid-column: 1 / -1; 
+            grid-row: 6; 
         }
-        
-        /* NOTICIA 9 (media) */
         .grid-principal > .noticia.media:nth-child(15) {
             grid-row: 7;
             grid-column: 1;
         }
-        /* NOTICIA 10 (media) */
         .grid-principal > .noticia.media:nth-child(16) {
             grid-row: 7;
             grid-column: 2 / span 2;
         }
-        /* NOTICIA 11 (media) */
         .grid-principal > .noticia.media:nth-child(17) {
             grid-row: 7;
             grid-column: 4;
         }
-
-        /* Publicidad cuadrada (siguientes) */
         .grid-principal > .publicidad.cuadrada:nth-child(18) {
             grid-row: 8;
             grid-column: 1;
@@ -294,25 +269,18 @@
             grid-row: 8;
             grid-column: 4;
         }
-
-        /* NOTICIA 12 (grande) - "El Gobierno acordó con el FMI..." */
         .grid-principal > .noticia.grande:nth-child(22) {
             grid-column: 1 / span 2;
-            grid-row: 9; /* Ajusta la fila para que esté debajo de la publicidad cuadrada */
+            grid-row: 9; 
         }
-
-        /* NOTICIA 13 (grande) - "La industria metalúrgica crece..." */
         .grid-principal > .noticia.grande:nth-child(23) {
             grid-column: 3 / span 2;
-            grid-row: 9; /* Ajusta la fila para que esté en la misma fila que la anterior */
+            grid-row: 9; 
         }
-
-        /* Segunda Publicidad horizontal (al final) */
         .grid-principal > .publicidad.horizontal:nth-child(24) {
-            grid-column: 1 / -1; /* Ocupa todas las columnas */
-            grid-row: 10; /* Coloca esta publicidad en la fila 10 */
+            grid-column: 1 / -1; 
+            grid-row: 10; 
         }
-
 
         /* Footer */
         footer {
@@ -321,7 +289,6 @@
             text-align: center;
             padding: 2em 1em;
         }
-
         footer h1 {
             margin-bottom: 0.5em;
         }
@@ -334,7 +301,6 @@
             margin-top: 2em;
             border-top: 1px solid #eee;
         }
-
         .pagination .page-link {
             text-decoration: none;
             color: #0a0a23;
@@ -346,13 +312,11 @@
             font-weight: bold;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         .pagination .page-link:hover {
             background-color: #0a0a23;
             color: white;
             border-color: #0a0a23;
         }
-
         .pagination .page-link.active {
             background-color: #0a0a23;
             color: white;
@@ -360,27 +324,66 @@
             cursor: default;
         }
 
-        /* Estilos para móvil */
+        /* ================================== */
+        /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
+        /* ================================== */
         @media (max-width: 768px) {
             header {
                 flex-direction: row;
                 justify-content: space-between;
+                padding: 1em; 
+            }
+
+            .titulos-centrales {
+                flex-grow: 1;
+                padding: 0; 
+                gap: 0;
+                align-items: center; 
+            }
+            
+            .titulos-centrales h3 {
+                display: none;
             }
 
             .menu-toggle {
+                display: flex; 
                 position: static;
                 left: auto;
                 top: auto;
                 margin-right: 1em;
             }
 
+            h1 {
+                flex-grow: 1;
+            }
+            
+            #menu-secciones {
+                display: none; 
+                position: absolute; 
+                top: 100%; 
+                left: 0;
+                background-color: white; 
+                color: #0a0a23; 
+                width: 100%; 
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+            
+            #menu-secciones ul {
+                display: block; 
+            }
+            
+            #menu-secciones li {
+               padding: 0.5em 1em; 
+            }
+            
             main.grid-principal {
                 display: flex;
                 flex-direction: column;
                 gap: 1em;
                 padding: 1em;
-                max-width: none; /* Elimina el ancho máximo para que ocupe todo el ancho disponible */
-                margin: 1em; /* Ajusta el margen en móvil */
+                max-width: none; 
+                margin: 1em; 
             }
 
             .noticia, .publicidad {
@@ -388,7 +391,6 @@
                 border-radius: 12px;
                 font-size: 1.2em;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                /* En móvil, no necesitamos las reglas de grid-column/row */
                 grid-column: auto !important;
                 grid-row: auto !important;
             }
@@ -421,34 +423,34 @@
         </nav>
     </header>
 
-    <main class="grid-principal">
-    <div class="noticia grande">
-        <h2><a href="trump-y-putin-se-reunieron-en-alaska-para-discutir-el-futuro-de-la-guerra-en-ucrania.html">Trump y Putin se reunieron en Alaska para discutir el futuro de la guerra en Ucrania</a></h2>
-    <div class="imagen-destacada">
-        <a href="trump-y-putin-se-reunieron-en-alaska-para-discutir-el-futuro-de-la-guerra-en-ucrania.html">
-        <img src="img/trump-putin.jpg" alt="Presidente de Rusia, Vladimir Putin junto con el Presidente de EE.UU, Donald Trump | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-        </a>
-    </div>
-        <p>Trump y Putin se reúnen en Alaska sin acuerdo sobre Ucrania</p>
-    </div>
+    <main class="grid-principal oculto">
+        <div class="noticia grande">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
 
-    <div class="noticia chica">
-        <h2><a href="ee-uu-entra-en-guerra-bambardea-instalaciones-nucleares-en-iran.html">EE.UU. entra en guerra: bombardea instalaciones nucleares en Irán</a></h2>
-    <div class="imagen-destacada">
-        <a href="ee-uu-entra-en-guerra-bambardea-instalaciones-nucleares-en-iran.html">
-        <img src="img/trump-iran.jpg" alt="MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-        </a>
-    </div>
-    </div>
+        <div class="noticia chica oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>    
+        </div>
+        </div>
 
-    <div class="noticia chica">
-        <h2><a href="escalada-en-medio-oriente-israel-bombardea-objetivos-en-iran.html">Escalada en Medio Oriente: Israel bombardea objetivos en Irán</a></h2>
-    <div class="imagen-destacada">
-        <a href="escalada-en-medio-oriente-israel-bombardea-objetivos-en-iran.html">
-        <img src="img/benjamin-netanyahu.jpg" alt="Benjamín Netanyahu, Primer Ministro de Israel | MacroMind News">
-        </a>
-    </div>
-    </div>
+        <div class="noticia chica oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>    
+        </div>
+        </div>
 
         <div class="publicidad vertical oculto">
         <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
@@ -456,151 +458,151 @@
         </a>
         </div>
         
-    <div class="noticia media">
-        <h2><a href="nuevo-dialogo-entre-trump-y-putin-en-el-marco-de-la-guerra-en-ucrania.html">Nuevo diálogo entre Trump y Putin en el marco de la guerra en Ucrania</a></h2>
-    <div class="imagen-destacada">
-    </div>
-        <p>En una nueva muestra de acercamiento diplomático, el presidente, Donald Trump y Vladimir Putin, mantuvieron una conversación telefónica.</p>
-    </div>
-
-    <div class="noticia media">
-        <h2><a href="la-inflacion-de-eeuu-cayo-al-2-interanual.html">La inflación en EE.UU. cayó al 2,3% interanual: el nivel más bajo desde febrero de 2021</a></h2>
-    <div class="imagen-destacada">
-        <a href="la-inflacion-de-eeuu-cayo-al-2-interanual.html">
-        <img src="img/trump.jpg" alt="Presidente de los Estados Unidos, Donald Trump | MacroMind News">
-        </a>
-    </div>
-        <p>La inflación en Estados Unidos registró una nueva desaceleración durante abril, alcanzando un 2,3% interanual, su nivel más bajo desde febrero de 2021.</p>
-    </div>
-
-    <div class="noticia media">
-        <h2><a href="estados-unidos-y-china-logran-un-acuerdo.html">Estados Unidos y China alcanzan un principio de acuerdo para reducir los aranceles</a></h2>
-    <div class="imagen-destacada">
-    </div>
-        <p>En un giro significativo en las relaciones comerciales entre Estados Unidos y China, ambas naciones han alcanzado un acuerdo preliminar tras intensas negociaciones en Ginebra.</p>
-    </div>
-
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
         </div>
-        <div class="publicidad oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
-        </div>
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
-        </div>
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
+            <p>Descripción</p>
         </div>
 
-    <div class="noticia grande">
-        <h2><a href="china-advierte-a-corea-del-sur.html">China advierte a Corea del Sur sobre la exportación de minerales de tierras raras</a></h2>        
-    <div class="imagen-destacada">
-        <a href="china-advierte-a-corea-del-sur.html">
-        <img src="img/xi-jinping.jpg" alt="Presidente de China, Xi Jinping | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-        </a>
-    </div>
-        <p>China ha emitido una advertencia formal a Corea del Sur, instando a sus empresas a cesar la exportación de productos que contengan minerales de tierras raras de origen chino a contratistas de defensa de Estados Unidos.</p>
-    </div>
-
-    <div class="noticia grande">
-        <h2><a href="murio-el-papa.html">Falleció el Papa Francisco a los 88 años</a></h2>
-    <div class="imagen-destacada">
-        <a href="murio-el-papa.html">
-        <img src="img/papa.jpg" alt="Papa Francisco | MacroMind News">
-        </a>
-    </div>
-        <p>El Papa Francisco falleció este lunes 21 de abril de 2025 a los 88 años en la residencia Casa Santa Marta, en el Vaticano.</p>
-    </div>
-
-        <div class="publicidad horizontal oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
-        </a>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
         </div>
 
-    <div class="noticia media">
-        <h2><a href="trump-redobla-la-presion-sobre-china.html">Trump redobla la presión sobre China con aranceles acumulativos de hasta 245%</a></h2>
-    <div class="imagen-destacada">
-    </div>
-        <p>La administración de Donald Trump ha intensificado su ofensiva comercial contra China con la imposición de una nueva batería de aranceles.</p>
-    </div>
-
-    <div class="noticia media">
-        <h2><a href="china-intensifica-la-guerra-comercial-con-ee-uu.html">China intensifica la guerra comercial con EE.UU. y bloquea nuevas entregas de Boeing</a></h2>
-    <div class="imagen-destacada">
-        <a href="china-intensifica-la-guerra-comercial-con-ee-uu.html">
-        <img src="img/xi-jinping.jpg" alt="Presidente de China, Xi Jinping | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-        </a>
-    </div>
-        <p>En un nuevo capítulo de la creciente tensión comercial entre China y Estados Unidos, el gobierno chino ordenó a sus aerolíneas suspender la recepción de nuevos aviones Boeing.</p>
-    </div>
-
-    <div class="noticia media">
-        <h2><a href="trump-y-bukele-mantuvieron-una-reunion-clave-en-la-casa-blanca.html">Trump y Bukele mantuvieron una reunión clave en la Casa Blanca</a></h2>
-    <div class="imagen-destacada">
-    </div>
-        <p>El presidente de Estados Unidos, Donald Trump, recibió este lunes al mandatario salvadoreño Nayib Bukele en la Casa Blanca.</p>
-    </div>
-
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
         </div>
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
-        </div>
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
-        </div>
-        <div class="publicidad cuadrada oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad">
-        </a>
+            <p>Descripción</p>
         </div>
 
-    <div class="noticia grande">
-        <h2><a href="ecuador-reelige-a-daniel-noboa-en-una-votacion-marcada-por-la-tension-politica.html">Ecuador reelige a Daniel Noboa en una votación marcada por la tensión política</a></h2>       
-    <div class="imagen-destacada">
-        <a href="ecuador-reelige-a-daniel-noboa-en-una-votacion-marcada-por-la-tension-politica.html">
-        <img src="img/noboa.jpeg" alt="Presidente de Ecuador, Daniel Noboa | MacroMind News">
-        </a>
-    </div>
-        <p>En una jornada electoral clave para el futuro político del país, Daniel Noboa fue reelegido presidente de Ecuador con el 55,7% de los votos.</p>
-    </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
 
-    <div class="noticia grande oculto">
-        <h2><a href="pagina.html"> </a></h2>
-    <div class="imagen-destacada">
-        <a href="pagina.html">
-        <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
-        </a>
-    </div>
-        <p>Descripción.</p>
-    </div>
-
-        <div class="publicidad horizontal oculto">
-        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
-        <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
-        </a>
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
         </div>
-    </main>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad horizontal oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
+            </a>
+            </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia media oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+            <div class="publicidad cuadrada oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad">
+            </a>
+            </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+        <div class="noticia grande oculto">
+            <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada">
+            <a href="noticia.html">
+            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
+            </a>
+        </div>
+            <p>Descripción</p>
+        </div>
+
+            <div class="publicidad horizontal oculto">
+            <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE" target="_blank">
+            <img src="img/publicidad.jpg" alt="Publicidad Horizontal">
+            </a>
+            </div>
+</main>
 
     <div class="pagination">
-        <a href="internaciona.html" class="page-link">1</a>
+        <a href="internacional.html" class="page-link active">1</a>
     </div>
     
     <footer>
@@ -609,6 +611,7 @@
         <img src="img/x-logo.png" alt="X Logo" style="width: 30px; height: auto; filter: invert(100%);">
         </a>
         <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+        <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
     </footer>
 </body>
 </html>
