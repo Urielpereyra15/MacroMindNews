@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Título de la Noticia</title>
-    <link rel="stylesheet" href="estilos.css" />
     <script defer>
         function toggleMenu() {
             const menu = document.getElementById("menu-secciones");
@@ -72,22 +71,38 @@
             visibility: hidden;
         }
 
+        /* * ======================================
+         * INICIO DEL NUEVO CSS DEL HEADER
+         * ======================================
+        */
+
         /* Header */
         header {
             background-color: #0a0a23;
             color: white;
-            padding: 1em;
+            padding: 0; /* Sin padding principal */
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            flex-direction: row;
+            flex-direction: column; 
+            align-items: center;  
+            position: relative; 
         }
 
+        /* Div que envuelve el logo para centrarlo y darle padding */
+        .titulos-centrales {
+            display: flex; 
+            flex-direction: row;  
+            align-items: center; 
+            justify-content: center; /* Centra el logo */
+            gap: 20px;            
+            padding: 1em;         /* El padding se aplica aquí */
+            flex-grow: 0; 
+        }
+        
+        /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
         .menu-toggle {
             font-size: 1.5em;
             cursor: pointer;
-            display: flex;
+            display: none; 
             align-items: center;
         }
 
@@ -95,23 +110,21 @@
             margin-right: 0.5em;
         }
 
+        /* TÍTULO H1: Logo centrado */
         h1 {
-            text-align: center;
+            text-align: center; 
+            flex-grow: 0;       
             margin: 0;
-            flex-grow: 1;
         }
 
-        /* Menú de secciones (desplegable) */
+        /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
         #menu-secciones {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            color: #0a0a23;
-            width: auto;
-            border: 1px solid #ccc;
-            border-top: none;
+            display: block; 
+            position: static; 
+            background-color: #2c3e50; /* Tu color de barra */
+            width: 100%;               /* Ancho completo */
+            color: white; 
+            border: none;
             z-index: 1000;
         }
 
@@ -123,17 +136,26 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex; 
+            justify-content: center; 
         }
 
         #menu-secciones li {
-            padding: 0.5em 1em;
+            padding: 0.5em 1.5em; 
         }
 
         #menu-secciones a {
             display: block;
             text-decoration: none;
             color: inherit;
+            font-family: Georgia, serif; 
+            font-weight: bold;           
         }
+
+        /* * ======================================
+         * FIN DEL NUEVO CSS DEL HEADER
+         * ======================================
+        */
 
         /* Contenido principal de la NOTICIA INDIVIDUAL (Grid) */
         .contenido-noticia-individual {
@@ -258,58 +280,101 @@
       margin-bottom: 0.5em;
         }
 
-  /* Estilos para móvil */
-  @media (max-width: 768px) {
-    header {
-      flex-direction: row;
-      justify-content: space-between;
-    }
+    /* ================================== */
+    /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
+    /* ================================== */
+    @media (max-width: 768px) {
+        header {
+            /* EN MÓVIL, VUELVE A SER HORIZONTAL */
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1em; /* Vuelve el padding */
+        }
 
-    .menu-toggle {
-      position: static;
-      left: auto;
-      top: auto;
-      margin-right: 1em;
-    }
+        /* Se añade esta regla para móvil */
+        .titulos-centrales {
+            flex-grow: 1;
+            padding: 0; 
+            gap: 0;
+            align-items: center; 
+        }
 
-    .contenido-noticia-individual {
-      grid-template-columns: 1fr; /* Una sola columna en móvil */
-      padding: 1em;
-      display: flex; /* Cambiamos a flexbox para usar 'order' */
-      flex-direction: column; /* Apilamos los elementos verticalmente */
-    }
+        /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
+        .menu-toggle {
+            display: flex; /* <-- SE MUESTRA EN MÓVIL */
+            position: static;
+            left: auto;
+            top: auto;
+            margin-right: 1em;
+        }
+        
+        /* CENTRAR EL H1 EN MÓVIL */
+        h1 {
+            text-align: center; 
+            flex-grow: 1; 
+        }
+        
+        /* OCULTAR Y RE-ESTILIZAR EL MENÚ EN MÓVIL (MODO DROPDOWN) */
+        #menu-secciones {
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0;
+            background-color: white; 
+            color: #0a0a23; 
+            width: 100%; 
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        
+        #menu-secciones ul {
+            display: block; /* Vuelve a ser vertical */
+        }
+        
+        #menu-secciones li {
+           padding: 0.5em 1em; /* Padding original para móvil */
+        }
 
-    .columna-publicidad-lateral {
-      order: 2; /* <<-- CAMBIO CLAVE: Hace que la publicidad aparezca DESPUÉS del contenido principal */
-      padding: 1em; /* Añade padding para que no se pegue */
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin-top: 1.5em; /* Un poco de margen arriba para separarlo del contenido */
-    }
+        /* --- FIN DE REGLAS DE HEADER MÓVIL --- */
 
-    .columna-principal-noticia {
-      order: 1; /* <<-- CAMBIO CLAVE: Hace que la noticia principal aparezca PRIMERO */
-      padding: 1.5em; /* Ajusta padding */
-    }
+        .contenido-noticia-individual {
+            grid-template-columns: 1fr; /* Una sola columna en móvil */
+            padding: 1em;
+            display: flex; /* Cambiamos a flexbox para usar 'order' */
+            flex-direction: column; /* Apilamos los elementos verticalmente */
+        }
 
-    .columna-principal-noticia h2 {
-      font-size: 1.8em; /* Ajusta tamaño de título para móvil */
-    }
+        .columna-publicidad-lateral {
+            order: 2; /* <<-- CAMBIO CLAVE: Hace que la publicidad aparezca DESPUÉS del contenido principal */
+            padding: 1em; /* Añade padding para que no se pegue */
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-top: 1.5em; /* Un poco de margen arriba para separarlo del contenido */
+        }
 
-    .columna-principal-noticia p {
-      font-size: 1em; /* Ajusta tamaño de párrafo para móvil */
-    }
+        .columna-principal-noticia {
+            order: 1; /* <<-- CAMBIO CLAVE: Hace que la noticia principal aparezca PRIMERO */
+            padding: 1.5em; /* Ajusta padding */
+        }
 
-    .social-share {
-      gap: 1em;
+        .columna-principal-noticia h2 {
+            font-size: 1.8em; /* Ajusta tamaño de título para móvil */
+        }
+
+        .columna-principal-noticia p {
+            font-size: 1em; /* Ajusta tamaño de párrafo para móvil */
+        }
+
+        .social-share {
+            gap: 1em;
+        }
     }
-  }
 
     /* Para los títulos de las noticias (ya lo tenías) */
     .noticia h2 a {
       text-decoration: none;
       color: inherit;
-  }
+    }
 
 </style>
 </head>
@@ -318,15 +383,17 @@
     <div class="menu-toggle" onclick="toggleMenu()">
         ☰ SECCIONES
     </div>
+    <div class="titulos-centrales">
         <h1>MM <br> NEWS</h1>
-        <nav id="menu-secciones" class="menu-secciones">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="economia.html">Economía</a></li>
-            <li><a href="politica.html">Política</a></li>
-            <li><a href="finanzas.html">Finanzas</a></li>
-            <li><a href="internacional.html">Internacional</a></li>
-        </ul>
+    </div>
+    <nav id="menu-secciones" class="menu-secciones">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="economia.html">Economía</a></li>
+        <li><a href="politica.html">Política</a></li>
+        <li><a href="finanzas.html">Finanzas</a></li>
+        <li><a href="internacional.html">Internacional</a></li>
+      </ul>
     </nav>
     </header>
 
@@ -346,19 +413,19 @@
     <div class="social-share">
         <a href="#" id="share-facebook" target="_blank" title="Compartir en Facebook"><i class="fa-brands fa-facebook"></i>
         <img src="img/facebook-logo.png" class="social-icon">
-     </a>
+       </a>
         <a href="#" id="share-twitter" target="_blank" title="Compartir en X (Twitter)"><i class="fa-brands fa-square-x-twitter"></i>
         <img src="img/x-logo.png" class="social-icon">
-     </a>
+       </a>
         <a href="#" id="share-whatsapp" target="_blank" title="Compartir por WhatsApp"><i class="fa-brands fa-square-whatsapp"></i>
         <img src="img/whatsapp-logo.png" class="social-icon">
-     </a>
+       </a>
         <a href="#" id="share-telegram" target="_blank" title="Compartir por Telegram"><i class="fa-brands fa-telegram"></i>
         <img src="img/telegram-logo.png" class="social-icon">
-     </a>
+       </a>
         <a href="#" id="copy-link" title="Copiar enlace"><i class="fa-solid fa-link"></i>
         <img src="img/link-logo.png" class="social-icon">
-     </a>
+       </a>
     </div>
         <p><strong>Seccion | Fecha</strong> — Texto...<p>
         <p></p>
