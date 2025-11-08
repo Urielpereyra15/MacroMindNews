@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Santilli renunció a su banca de diputado para asumir como ministro del Interior</title>
+
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diego Santilli renunció a su banca de diputado para asumir como ministro del Interior</title>
+    <meta property="og:title" content="Diego Santilli renunció a su banca de diputado para asumir como ministro del Interior">
+    <meta property="og:description" content="Santilli dejó su banca en Diputados para asumir como ministro del Interior y reforzar el vínculo del Gobierno con las provincias.">
+    <meta property="og:image" content="https://www.macromindnews.com.ar/img/santilli.png">
+    <meta property="og:url" content="https://www.macromindnews.com.ar/santilli-renuncio-a-su-banca-de-diputado-para-asumir-como-ministro-del-interior.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MacroMind News">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Diego Santilli renunció a su banca de diputado para asumir como ministro del Interior">
+    <meta name="twitter:description" content="Santilli dejó su banca en Diputados para asumir como ministro del Interior y reforzar el vínculo del Gobierno con las provincias.">
+    <meta name="twitter:image" content="https://www.macromindnews.com.ar/img/santilli.png">
+    
+    <script defer>
+        function toggleMenu() {
+            const menu = document.getElementById("menu-secciones");
+            menu.classList.toggle("visible");
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener la URL y el título de la noticia actual
+            const currentUrl = encodeURIComponent(window.location.href);
+            const newsTitle = encodeURIComponent(document.querySelector('.columna-principal-noticia h2').innerText); // Obtiene el texto del título principal
+
+            // Función para copiar el enlace
+            const copyLinkButton = document.getElementById('copy-link');
+            if (copyLinkButton) {
+                copyLinkButton.addEventListener('click', function(e) {
+                    e.preventDefault(); // Previene la navegación
+                    navigator.clipboard.writeText(decodeURIComponent(currentUrl))
+                        .then(() => {
+                            alert('Enlace copiado al portapapeles!');
+                        })
+                        .catch(err => {
+                            console.error('Error al copiar el enlace:', err);
+                            alert('No se pudo copiar el enlace. Intenta manualmente.');
+                        });
+                });
+            }
+
+            // Configurar enlaces para compartir en redes sociales
+            const shareFacebook = document.getElementById('share-facebook');
+            if (shareFacebook) {
+                shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${newsTitle}`;
+            }
+
+            const shareTwitter = document.getElementById('share-twitter');
+            if (shareTwitter) {
+                // Nuevo formato para Twitter/X
+                shareTwitter.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
+            }
+
+            const shareWhatsapp = document.getElementById('share-whatsapp');
+            if (shareWhatsapp) {
+                // Asegúrate de usar el prefijo 'wa.me/' para móviles y 'web.whatsapp.com/send' para escritorio si lo necesitas.
+                // Generalmente, solo el enlace de wa.me funciona bien.
+                shareWhatsapp.href = `https://wa.me/?text=${newsTitle}%0A${currentUrl}`; // %0A es un salto de línea
+            }
+
+            const shareTelegram = document.getElementById('share-telegram');
+            if (shareTelegram) {
+                shareTelegram.href = `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
+            }
+        });
+    </script>
+
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            font-family: Georgia, serif;
+        }
+
+        .invisible-espacio {
+            visibility: hidden;
+        }
+
+        /* * ======================================
+         * INICIO DEL NUEVO CSS DEL HEADER
+         * ======================================
+        */
+
+        /* Header */
+        header {
+            background-color: #0a0a23;
+            color: white;
+            padding: 0; /* Sin padding principal */
+            display: flex;
+            flex-direction: column; 
+            align-items: center;  
+            position: relative; 
+        }
+
+        /* Div que envuelve el logo para centrarlo y darle padding */
+        .titulos-centrales {
+            display: flex; 
+            flex-direction: row;  
+            align-items: center; 
+            justify-content: center; /* Centra el logo */
+            gap: 20px;            
+            padding: 1em;         /* El padding se aplica aquí */
+            flex-grow: 0; 
+        }
+        
+        /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
+        .menu-toggle {
+            font-size: 1.5em;
+            cursor: pointer;
+            display: none; 
+            align-items: center;
+        }
+
+        .menu-toggle span {
+            margin-right: 0.5em;
+        }
+
+        /* TÍTULO H1: Logo centrado */
+        h1 {
+            text-align: center; 
+            flex-grow: 0;       
+            margin: 0;
+        }
+
+        /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
+        #menu-secciones {
+            display: block; 
+            position: static; 
+            background-color: #2c3e50; /* Tu color de barra */
+            width: 100%;               /* Ancho completo */
+            color: white; 
+            border: none;
+            z-index: 1000;
+        }
+
+        #menu-secciones.visible {
+            display: block;
+        }
+
+        #menu-secciones ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; 
+            justify-content: center; 
+        }
+
+        #menu-secciones li {
+            padding: 0.5em 1.5em; 
+        }
+
+        #menu-secciones a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            font-family: Georgia, serif; 
+            font-weight: bold;           
+        }
+
+        /* * ======================================
+         * FIN DEL NUEVO CSS DEL HEADER
+         * ======================================
+        */
+
+        /* Contenido principal de la NOTICIA INDIVIDUAL (Grid) */
+        .contenido-noticia-individual {
+            display: grid;
+            grid-template-columns: 1fr 250px; /* Columna principal para la noticia, y una fija para publicidad */
+            gap: 2em;
+            padding: 2em;
+            max-width: 1200px; /* Ancho máximo para la página de noticia */
+            margin: 0 auto; /* Centra el contenido en pantallas grandes */
+        }
+
+        .columna-principal-noticia {
+            background-color: white;
+            padding: 2em;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .columna-publicidad-lateral {
+            /* Estilos para la barra lateral de publicidad */
+            display: flex;
+            flex-direction: column;
+            gap: 1em; /* Espacio entre publicidades si hay varias */
+        }
+
+        /* Título de la noticia principal */
+        .columna-principal-noticia h2 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2.2em; /* Título más grande para una noticia individual */
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+            color: #0a0a23; /* O el color que desees para los títulos */
+        }
+
+        /* Imagen destacada de la noticia individual */
+        .imagen-destacada-noticia img {
+            display: block;
+            margin: 0 auto 1.5em auto; /* Centra la imagen y añade margen inferior */
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para la imagen */
+        }
+
+        /* Párrafos del contenido de la noticia */
+        .columna-principal-noticia p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 1em;
+            text-align: justify; /* Justificado para el cuerpo del texto */
+            color: #333;
+        }
+
+        /* Estilos para la sección de compartir */
+        .social-share {
+            display: flex;
+            gap: 1.5em; /* Espacio entre los íconos */
+            margin-top: 2em;
+            margin-bottom: 2em;
+            justify-content: flex-start; /* Centra los íconos */
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 1em 0;
+        }
+
+        .social-share a {
+            font-size: 1.8em;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-share a:hover {
+            color: #0a0a23; /* Color al pasar el ratón */
+        }
+
+
+        /* Publicidad horizontal en la parte superior */
+        .publicidad.horizontal-top {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 2em; /* Espacio debajo de la publicidad */
+        }
+        .publicidad.horizontal-top img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Publicidad vertical (para la barra lateral) */
+        .publicidad.vertical {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            border-radius: 8px; /* Un poco más pequeño para publicidad vertical */
+            font-size: 1em;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .publicidad.vertical img {
+             max-width: 100%;
+             height: auto;
+             display: block;
+             margin: 0 auto;
+        }
+
+        /* Footer (ajustes para la página individual) */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+            margin-top: 3em; /* Espacio superior antes del footer */
+        }
+
+    footer h1 {
+      margin-bottom: 0.5em;
+        }
+
+    /* ================================== */
+    /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
+    /* ================================== */
+    @media (max-width: 768px) {
+        header {
+            /* EN MÓVIL, VUELVE A SER HORIZONTAL */
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1em; /* Vuelve el padding */
+        }
+
+        /* Se añade esta regla para móvil */
+        .titulos-centrales {
+            flex-grow: 1;
+            padding: 0; 
+            gap: 0;
+            align-items: center; 
+        }
+
+        /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
+        .menu-toggle {
+            display: flex; /* <-- SE MUESTRA EN MÓVIL */
+            position: static;
+            left: auto;
+            top: auto;
+            margin-right: 1em;
+        }
+        
+        /* CENTRAR EL H1 EN MÓVIL */
+        h1 {
+            text-align: center; 
+            flex-grow: 1; 
+        }
+        
+        /* OCULTAR Y RE-ESTILIZAR EL MENÚ EN MÓVIL (MODO DROPDOWN) */
+        #menu-secciones {
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0;
+            background-color: white; 
+            color: #0a0a23; 
+            width: 100%; 
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        
+        #menu-secciones ul {
+            display: block; /* Vuelve a ser vertical */
+        }
+        
+        #menu-secciones li {
+           padding: 0.5em 1em; /* Padding original para móvil */
+        }
+
+        /* --- FIN DE REGLAS DE HEADER MÓVIL --- */
+
+        .contenido-noticia-individual {
+            grid-template-columns: 1fr; /* Una sola columna en móvil */
+            padding: 1em;
+            display: flex; /* Cambiamos a flexbox para usar 'order' */
+            flex-direction: column; /* Apilamos los elementos verticalmente */
+        }
+
+        .columna-publicidad-lateral {
+            order: 2; /* <<-- CAMBIO CLAVE: Hace que la publicidad aparezca DESPUÉS del contenido principal */
+            padding: 1em; /* Añade padding para que no se pegue */
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-top: 1.5em; /* Un poco de margen arriba para separarlo del contenido */
+        }
+
+        .columna-principal-noticia {
+            order: 1; /* <<-- CAMBIO CLAVE: Hace que la noticia principal aparezca PRIMERO */
+            padding: 1.5em; /* Ajusta padding */
+        }
+
+        .columna-principal-noticia h2 {
+            font-size: 1.8em; /* Ajusta tamaño de título para móvil */
+        }
+
+        .columna-principal-noticia p {
+            font-size: 1em; /* Ajusta tamaño de párrafo para móvil */
+        }
+
+        .social-share {
+            gap: 1em;
+        }
+    }
+
+    /* Para los títulos de las noticias (ya lo tenías) */
+    .noticia h2 a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+</style>
+</head>
+<body>
+    <header>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        ☰ SECCIONES
+    </div>
+    <div class="titulos-centrales">
+        <h1>MM <br> NEWS</h1>
+    </div>
+    <nav id="menu-secciones" class="menu-secciones">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="economia.html">Economía</a></li>
+        <li><a href="politica.html">Política</a></li>
+        <li><a href="finanzas.html">Finanzas</a></li>
+        <li><a href="internacional.html">Internacional</a></li>
+      </ul>
+    </nav>
+    </header>
+
+    <div class="publicidad horizontal-top invisible-espacio">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE_HORIZONTAL" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Superior" width="728" height="90">
+        </a>
+    </div>
+
+    <main class="contenido-noticia-individual">
+    <section class="columna-principal-noticia">
+        <h2>Santilli renunció a su banca de diputado para asumir como ministro del Interior</h2>
+    <div class="imagen-destacada-noticia">
+        <img src="img/santilli.png" alt="Diego Santilli, Ministro del Interior | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
+    </div>
+
+    <div class="social-share">
+        <a href="#" id="share-facebook" target="_blank" title="Compartir en Facebook"><i class="fa-brands fa-facebook"></i>
+        <img src="img/facebook-logo.png" class="social-icon">
+       </a>
+        <a href="#" id="share-twitter" target="_blank" title="Compartir en X (Twitter)"><i class="fa-brands fa-square-x-twitter"></i>
+        <img src="img/logo-x.png" class="social-icon">
+       </a>
+        <a href="#" id="share-whatsapp" target="_blank" title="Compartir por WhatsApp"><i class="fa-brands fa-square-whatsapp"></i>
+        <img src="img/whatsapp-logo.png" class="social-icon">
+       </a>
+        <a href="#" id="share-telegram" target="_blank" title="Compartir por Telegram"><i class="fa-brands fa-telegram"></i>
+        <img src="img/telegram-logo.png" class="social-icon">
+       </a>
+        <a href="#" id="copy-link" title="Copiar enlace"><i class="fa-solid fa-link"></i>
+        <img src="img/link-logo.png" class="social-icon">
+       </a>
+    </div>
+        <p><strong>Política | 07/11/2025</strong> — Diego Santilli oficializó este viernes su renuncia a la Cámara de Diputados de la Nación para sumarse al gabinete del presidente Javier Milei. El dirigente presentó una carta formal al titular del cuerpo, Martín Menem, en la que comunicó su decisión de dejar el cargo con efecto inmediato.<p>
+        <p>Con esta salida, Santilli se prepara para ocupar el Ministerio del Interior, un área clave del gobierno nacional encargada de coordinar el vínculo político con las provincias y los distintos sectores institucionales del país. Su llegada busca aportar experiencia en gestión y tender puentes en un contexto de negociaciones complejas entre Nación y los gobiernos locales.</p>
+      <p>Fuentes cercanas al entorno presidencial aseguran que su designación forma parte de una estrategia más amplia de reorganización del gabinete, orientada a fortalecer el diálogo político y acelerar la implementación de las reformas previstas para 2026.</p>
+      <p>En este nuevo rol, Santilli tendrá como principales objetivos avanzar en los acuerdos con los gobernadores, impulsar el tratamiento del Presupuesto 2026 y colaborar en la agenda legislativa que el Ejecutivo busca consensuar con el Congreso.</p>
+      <p>La jura formal en el cargo se realizará en los próximos días, una vez cumplidos los pasos administrativos. En paralelo, la Cámara de Diputados ya inició el proceso para que asuma su reemplazo, correspondiente a la lista con la que Santilli había sido electo.</p>
+      <p>Con este movimiento, el gobierno nacional busca reforzar su estructura política y mejorar la articulación institucional en un momento clave de gestión. La llegada de Santilli al Ministerio del Interior representa, además, un gesto de apertura hacia los sectores del PRO y un intento de consolidar alianzas en el Congreso y las provincias.</p>
+        
+    </section>
+    <aside class="columna-publicidad-lateral invisible-espacio">
+    <div class="publicidad vertical">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE_VERTICAL_1" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Lateral 1" width="200" height="400">
+    </a>
+    </div>
+    <div class="publicidad vertical invisible-espacio">
+        <a href="URL_DE_LA_PAGINA_DEL_ANUNCIANTE_VERTICAL_2" target="_blank">
+        <img src="img/publicidad.jpg" alt="Publicidad Lateral 2" width="200" height="400">
+        </a>
+    </div>
+    </aside>
+    </main>
+
+    <footer>
+        <h1>MM <br> NEWS</h1>
+        <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
+        <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
+        </a>
+        <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+        <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
+    </footer>
+</body>
+</html>
