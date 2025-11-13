@@ -1,499 +1,501 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MacroMind News</title>
-  
-  <script defer>
-    function toggleMenu() {
-      const menu = document.getElementById("menu-secciones");
-      menu.classList.toggle("visible");
-    }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MacroMind News</title>
+  
+  <script defer>
+    function toggleMenu() {
+      const menu = document.getElementById("menu-secciones");
+      menu.classList.toggle("visible");
+    }
+  </script>
 
-  <style>
-  /* Estilos generales */
-  body {
-    margin: 0;
-    background: #f4f4f4;
-    font-family: Georgia, serif;
-  }
+  <style>
+  /* Estilos generales */
+  body {
+    margin: 0;
+    background: #f4f4f4;
+    font-family: Georgia, serif;
+  }
 
-  .oculto {
-    display: none;
-  }
+  .oculto {
+    display: none;
+  }
 
-  /* Para los títulos de las noticias */
-  .noticia h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-  }
-  .noticia h2 a {
-    text-decoration: none;
-    color: inherit;
-  }
+  /* Para los títulos de las noticias */
+  .noticia h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  }
+  .noticia h2 a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-  /* Para los párrafos de las noticias (descripciones) */
-  .noticia p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-  } 
+  /* Para los párrafos de las noticias (descripciones) */
+  .noticia p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  } 
 
-  /* Header */
-  header {
-    background-color: #0a0a23;
-    color: white;
-    /* --- CAMBIO 1: SE QUITA EL PADDING DEL HEADER --- */
-    padding: 0; 
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    position: relative; 
-  }
+  /* Header */
+  header {
+    background-color: #0a0a23;
+    color: white;
+    /* --- CAMBIO 1: SE QUITA EL PADDING DEL HEADER --- */
+    padding: 0; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    position: relative; 
+  }
 
-  /* --- SE AÑADE ESTA REGLA (COMO EN ECONOMIA.HTML) --- */
-  .titulos-centrales {
-    display: flex; 
-    flex-direction: row; 
-    align-items: center; 
-    justify-content: center; /* Centra el logo */
-    gap: 20px; 
-    padding: 1em; /* <--- El padding se mueve aquí */
-    flex-grow: 0; 
-  }
-  
-  /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
-  .menu-toggle {
-    font-size: 1.5em;
-    cursor: pointer;
-    display: none; 
-    align-items: center;
-  }
+  /* --- SE AÑADE ESTA REGLA (COMO EN ECONOMIA.HTML) --- */
+  .titulos-centrales {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: center; /* Centra el logo */
+    gap: 20px; 
+    padding: 1em; /* <--- El padding se mueve aquí */
+    flex-grow: 0; 
+  }
+  
+  /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
+  .menu-toggle {
+    font-size: 1.5em;
+    cursor: pointer;
+    display: none; 
+    align-items: center;
+  }
 
-  .menu-toggle span {
-    margin-right: 0.5em;
-  }
+  .menu-toggle span {
+    margin-right: 0.5em;
+  }
 
-  /* TÍTULO H1: Logo centrado */
-  h1 {
-    text-align: center; 
-    flex-grow: 0; 
-    margin: 0;
-  }
+  /* TÍTULO H1: Logo centrado */
+  h1 {
+    text-align: center; 
+    flex-grow: 0; 
+    margin: 0;
+  }
 
-  /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
-  #menu-secciones {
-    display: block; 
-    position: static; 
-    /* --- CAMBIO 2: FONDO NUEVO Y ANCHO COMPLETO --- */
-    background-color: #2c3e50; /* <--- Tu color elegido */
-    width: 100%; /* <--- Ocupa todo el ancho */
-    /* ------------------------------------------- */
-    color: white; 
-    border: none;
-    z-index: 1000;
-  }
+  /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
+  #menu-secciones {
+    display: block; 
+    position: static; 
+    /* --- CAMBIO 2: FONDO NUEVO Y ANCHO COMPLETO --- */
+    background-color: #2c3e50; /* <--- Tu color elegido */
+    width: 100%; /* <--- Ocupa todo el ancho */
+    /* ------------------------------------------- */
+    color: white; 
+    border: none;
+    z-index: 1000;
+  }
 
-  /* Esta clase solo se usará en móvil */
-  #menu-secciones.visible {
-    display: block;
-  }
+  /* Esta clase solo se usará en móvil */
+  #menu-secciones.visible {
+    display: block;
+  }
 
-  #menu-secciones ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; 
-    justify-content: center; 
-  }
+  #menu-secciones ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    justify-content: center; 
+  }
 
-  #menu-secciones li {
-    padding: 0.5em 1.5em; 
-  }
+  #menu-secciones li {
+    padding: 0.5em 1.5em; 
+  }
 
-  #menu-secciones a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    font-family: Georgia, serif; 
-    font-weight: bold; 
-  }
+  #menu-secciones a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-family: Georgia, serif; 
+    font-weight: bold; 
+  }
 
-  /* Contenido principal (Grid) */
-  main.grid-principal {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
-    gap: 1em;
-    padding: 2em;
-  }
+  /* Contenido principal (Grid) */
+  main.grid-principal {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    gap: 1em;
+    padding: 2em;
+_ }
 
-  /* Noticia grande (primer elemento) */
-  .grid-principal > .noticia.grande:nth-child(1) { 
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 2;
-  }
+  /* Noticia grande (primer elemento) */
+  .grid-principal > .noticia.grande:nth-child(1) { 
+    background-color: white;
+    color: black;
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+  }
 
-  /* Estilos comunes para el contenedor de imagen-destacada en noticias grandes */
-  .noticia.grande .imagen-destacada {
-    margin-bottom: 1em;
-  }
+  /* Estilos comunes para el contenedor de imagen-destacada en noticias grandes */
+  .noticia.grande .imagen-destacada {
+    margin-bottom: 1em;
+  }
 
-  /* Estilos específicos para el título de la PRIMERA noticia grande (alineado a la izquierda) */
-  .grid-principal > .noticia.grande:nth-child(1) .imagen-destacada h2 {
-    text-align: left;
-    margin-bottom: 0.5em;
-  }
+  /* Estilos específicos para el título de la PRIMERA noticia grande (alineado a la izquierda) */
+  .grid-principal > .noticia.grande:nth-child(1) .imagen-destacada h2 {
+    text-align: left;
+    margin-bottom: 0.5em;
+  }
 
-  /* Estilos para el párrafo de la PRIMERA noticia grande */
-  .grid-principal > .noticia.grande:nth-child(1) p {
-    text-align: left;
-    margin-top: 1em;
-  }
+  /* Estilos para el párrafo de la PRIMERA noticia grande */
+  .grid-principal > .noticia.grande:nth-child(1) p {
+    text-align: left;
+    margin-top: 1em;
+  }
 
-  /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
-  .imagen-destacada img {
-    display: block; 
-    margin-left: auto; 
-    margin-right: auto; 
-    max-width: 100%; 
-    height: auto; 
-    border-radius: 8px;
-    margin-top: 15px; 
-    margin-bottom: 15px; 
-  }
-  /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+  /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
+  .imagen-destacada img {
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 8px;
+    margin-top: 15px; 
+    margin-bottom: 15px; 
+  }
+  /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
 
-  /* Noticias chicas */
-  .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-row: 1;
-    grid-column: 3;
-  }
+  /* Noticias chicas */
+  .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
+    background-color: white;
+    color: black;
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    grid-row: 1;
+    grid-column: 3;
+  }
 
-  .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-row: 2;
-    grid-column: 3;
-  }
+  .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
+    background-color: white;
+    color: black;
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    grid-row: 2;
+    grid-column: 3;
+  }
 
-  /* Publicidad vertical */
-  .grid-principal > .publicidad.vertical:nth-child(4) { /* PUBLI */
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    grid-row: 1 / span 2;
-    grid-column: 4; 
-  }
+  /* Publicidad vertical */
+  .grid-principal > .publicidad.vertical:nth-child(4) { /* PUBLI */
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    grid-row: 1 / span 2;
+    grid-column: 4; 
+  }
 
-  /* Noticias medianas */
-  .grid-principal > .noticia.media { 
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
+  /* Noticias medianas */
+  .grid-principal > .noticia.media { 
+    background-color: white;
+    color: black;
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
 
-  .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
-    grid-row: 3;
-    grid-column: 1;
-  }
+  .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
+    grid-row: 3;
+    grid-column: 1;
+  }
 
-  .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
-    grid-row: 3;
-    grid-column: 2 / span 2;
-  }
+  .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
+    grid-row: 3;
+    grid-column: 2 / span 2;
+  }
 
-  .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
-    grid-row: 3;
-    grid-column: 4;
-  }
+  .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
+    grid-row: 3;
+    grid-column: 4;
+  }
 
-  /* Publicidad cuadrada */
-  .grid-principal > .publicidad.cuadrada {
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
+  /* Publicidad cuadrada */
+  .grid-principal > .publicidad.cuadrada {
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
 
-  .grid-principal > .publicidad.cuadrada:nth-child(8) {
-    grid-row: 4;
-    grid-column: 1;
-  }
+  .grid-principal > .publicidad.cuadrada:nth-child(8) {
+    grid-row: 4;
+    grid-column: 1;
+  }
 
-  .grid-principal > .publicidad.cuadrada:nth-child(9) {
-    grid-row: 4;
-    grid-column: 2;
-  }
+  .grid-principal > .publicidad.cuadrada:nth-child(9) {
+    grid-row: 4;
+    grid-column: 2;
+  }
 
-  .grid-principal > .publicidad.cuadrada:nth-child(10) {
-    grid-row: 4;
-    grid-column: 3;
-  }
+  .grid-principal > .publicidad.cuadrada:nth-child(10) {
+    grid-row: 4;
+    grid-column: 3;
+  }
 
-  .grid-principal > .publicidad.cuadrada:nth-child(11) { 
-    grid-row: 4;
-    grid-column: 4;
-  }
+  .grid-principal > .publicidad.cuadrada:nth-child(11) { 
+    grid-row: 4;
+    grid-column: 4;
+  }
 
-  
-  /* Noticia grande "NOTICIA 7" */
-  .grid-principal > .noticia.grande:nth-child(12) {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 1 / span 2;
-    grid-row: 5;
-  }
+  
+  /* Noticia grande "NOTICIA 7" */
+  .grid-principal > .noticia.grande:nth-child(12) {
+    background-color: white;
+    color: black;
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    grid-column: 1 / span 2;
+    grid-row: 5;
+  }
 
-  /* Noticia grande "NOTICIA 8" */
-  .grid-principal > .noticia.grande:nth-child(13) {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 3 / span 2;
-    grid-row: 5;
-  }
+  /* Noticia grande "NOTICIA 8" */
+  .grid-principal > .noticia.grande:nth-child(13) {
+    background-color: white;
+    color: black;
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    grid-column: 3 / span 2;
+    grid-row: 5;
+  }
 
-  /* Publicidad horizontal */
-  .grid-principal > .publicidad.horizontal:nth-child(14) {
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    grid-column: 1 / -1;
-    grid-row: 6;
-  }
+  /* Publicidad horizontal */
+  .grid-principal > .publicidad.horizontal:nth-child(14) {
+    padding: 1em;
+    border-radius: 12px;
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    grid-column: 1 / -1;
+    grid-row: 6;
+  }
 
-  /* Footer */
-  footer {
-    background: #0a0a23;
-    color: white;
-    text-align: center;
-    padding: 2em 1em;
-  }
+  /* Footer */
+  footer {
+    background: #0a0a23;
+    color: white;
+    text-align: center;
+    padding: 2em 1em;
+  }
 
-  footer h1 {
-    margin-bottom: 0.5em;
-  }
+  footer h1 {
+    margin-bottom: 0.5em;
+  }
 
-  /* ================================== */
-  /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
-  /* ================================== */
-  @media (max-width: 768px) {
-    header {
-      /* EN MÓVIL, VUELVE A SER HORIZONTAL */
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 1em; /* <--- Vuelve el padding */
-    }
+  /* ================================== */
+  /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
+  /* ================================== */
+  @media (max-width: 768px) {
+    header {
+      /* EN MÓVIL, VUELVE A SER HORIZONTAL */
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1em; /* <--- Vuelve el padding */
+    }
 
-    /* --- SE AÑADE ESTA REGLA MÓVIL --- */
-    .titulos-centrales {
-        flex-grow: 1;
-        padding: 0; 
-        gap: 0;
-        align-items: center; 
-    }
+    /* --- SE AÑADE ESTA REGLA MÓVIL --- */
+    .titulos-centrales {
+        flex-grow: 1;
+        padding: 0; 
+        gap: 0;
+        align-items: center; 
+    }
 
-    /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
-    .menu-toggle {
-      display: flex; /* <--- SE MUESTRA EN MÓVIL */
-      position: static;
-      left: auto;
-      top: auto;
-      margin-right: 1em;
-    }
-    
-    /* CENTRAR EL H1 EN MÓVIL */
-    h1 {
-      text-align: center; /* <--- CENTRADO EN MÓVIL */
-      flex-grow: 1; /* <--- CRECE PARA CENTRARSE EN MÓVIL */
-    }
-    
-    /* OCULTAR Y RE-ESTILIZAR EL MENÚ EN MÓVIL (MODO DROPDOWN) */
-    #menu-secciones {
-      display: none; /* <--- OCULTO EN MÓVIL (hasta click) */
-      position: absolute; /* <--- POSICIÓN ABSOLUTA */
-      top: 100%; /* Abajo del header */
-      left: 0;
-      background-color: white; /* <--- FONDO BLANCO */
-      color: #0a0a23; /* <--- TEXTO OSCURO */
-      width: 100%; /* Ancho completo */
-      border: 1px solid #ccc;
-      border-top: none;
-    }
-    
-    /* LISTA VERTICAL EN MÓVIL */
-    #menu-secciones ul {
-      display: block; /* <--- VUELVE A SER VERTICAL */
-    }
-    
-    #menu-secciones li {
-       padding: 0.5em 1em; /* Padding original para móvil */
-    }
+    /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
+    .menu-toggle {
+      display: flex; /* <--- SE MUESTRA EN MÓVIL */
+      position: static;
+      left: auto;
+      top: auto;
+      margin-right: 1em;
+    }
+    
+    /* CENTRAR EL H1 EN MÓVIL */
+    h1 {
+      text-align: center; /* <--- CENTRADO EN MÓVIL */
+      flex-grow: 1; /* <--- CRECE PARA CENTRARSE EN MÓVIL */
+    }
+    
+    /* OCULTAR Y RE-ESTILIZAR EL MENÚ EN MÓVIL (MODO DROPDOWN) */
+    #menu-secciones {
+      display: none; /* <--- OCULTO EN MÓVIL (hasta click) */
+      position: absolute; /* <--- POSICIÓN ABSOLUTA */
+      top: 100%; /* Abajo del header */
+      left: 0;
+      background-color: white; /* <--- FONDO BLANCO */
+      color: #0a0a23; /* <--- TEXTO OSCURO */
+      width: 100%; /* Ancho completo */
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+    
+    /* LISTA VERTICAL EN MÓVIL */
+    #menu-secciones ul {
+      display: block; /* <--- VUELVE A SER VERTICAL */
+    }
+    
+    #menu-secciones li {
+       padding: 0.5em 1em; /* Padding original para móvil */
+    }
 
-    /* GRID DE NOTICIAS (SE HACE UNA SOLA COLUMNA) */
-    main.grid-principal {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      padding: 1em;
-    }
+    /* GRID DE NOTICIAS (SE HACE UNA SOLA COLUMNA) */
+    main.grid-principal {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      padding: 1em;
+  G }
 
-    .noticia, .publicidad {
-      padding: 1em;
-      border-radius: 12px;
-      font-size: 1.2em;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-  }
+    .noticia, .publicidad {
+      padding: 1em;
+      border-radius: 12px;
+      font-size: 1.2em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  }
 
-  /* Para los títulos de las noticias */
-    .noticia h2 a {
-      text-decoration: none; /* Elimina el subrayado */
-      color: inherit; /* Hereda el color del texto de su padre (el h2), que por defecto es negro */
-  }
+  /* Para los títulos de las noticias */
+    .noticia h2 a {
+      text-decoration: none; /* Elimina el subrayado */
+      color: inherit; /* Hereda el color del texto de su padre (el h2), que por defecto es negro */
+C }
 </style>
+
+<script src="https://fpyf8.com/88/tag.min.js" data-zone="185191" async data-cfasync="false"></script>
 
 </head>
 <body>
-  <header>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      ☰ SECCIONES
-    </div>
-    <div class="titulos-centrales">
-        <h1>MM <br> NEWS</h1>
-    </div>
-    <nav id="menu-secciones" class="menu-secciones">
-      <ul>
-        <li><a href="economia.html">Economía</a></li>
-        <li><a href="politica.html">Política</a></li>
-        <li><a href="finanzas.html">Finanzas</a></li>
-        <li><a href="internacional.html">Internacional</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      ☰ SECCIONES
+    </div>
+    <div class="titulos-centrales">
+        <h1>MM <br> NEWS</h1>
+    </div>
+    <nav id="menu-secciones" class="menu-secciones">
+      <ul>
+        <li><a href="economia.html">Economía</a></li>
+        <li><a href="politica.html">Política</a></li>
+        <li><a href="finanzas.html">Finanzas</a></li>
+        <li><a href="internacional.html">Internacional</a></li>
+      </ul>
+    </nav>
+  </header>
 
 <main class="grid-principal">
-  <div class="noticia grande">
-      <h2><a href="argentina-y-estados-unidos-avanzan-en-un-acuerdo-de-comercio-e-inversion.html">Argentina y Estados Unidos avanzan en un acuerdo de comercio e inversión</a></h2>
-  <div class="imagen-destacada">
-      <a href="argentina-y-estados-unidos-avanzan-en-un-acuerdo-de-comercio-e-inversion.html">
-      <img src="img/milei-trump.jpg" alt="Presidente de la Argentina junto al Presidente de EE.UU. | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-      </a>
-  </div>
-      <p>Argentina y EE.UU. avanzan en un acuerdo para impulsar el comercio y las inversiones entre ambos países.</p>
-  </div>
-      
-  <div class="noticia chica">
-      <h2><a href="la-inflacion-de-octubre-se-acelero-al-2-3-segun-el-indec.html">La inflación de octubre se aceleró al 2,3% según el INDEC</a></h2>
-  <div class="imagen-destacada">
-      <a href="la-inflacion-de-octubre-se-acelero-al-2-3-segun-el-indec.html">
-      <img src="img/inflacion.jpg" alt="MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
- 
-  <div class="noticia chica">
-      <h2><a href="pampa-energia-emitio-un-bono-por-usd-450-millones-a-12-años-y-logra-financiamiento-record.html">Pampa Energía emitió un bono por USD 450 millones a 12 años y logra financiamiento récord</a></h2>
-  <div class="imagen-destacada">
-      <a href="pampa-energia-emitio-un-bono-por-usd-450-millones-a-12-años-y-logra-financiamiento-record.html">
-      <img src="img/pampa-energia.jpg" alt="MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
-    
-      <div class="publicidad vertical">
-        </div>
-    
-  <div class="noticia media">
-      <h2><a href="el-gobierno-desregula-las-cuotas-de-los-colegios-privados-y-elimina-el-control-estatal.html">El Gobierno desregula las cuotas de los colegios privados y elimina el control estatal</a></h2>
-  <div class="imagen-destacada">
-  </div>
-      <p>A través de un decreto, se derogó una normativa vigente por más de 30 años que obligaba a las instituciones a informar y consensuar los aumentos de aranceles.</p>
-  </div>
- 
-  <div class="noticia media">
-      <h2><a href="el-riesgo-pais-cae-al-nivel-mas-bajo-del-año-y-mejora-la-percepcion-del-mercado.html">El riesgo país cae al nivel más bajo del año y mejora la percepción del mercado</a></h2>
-  <div class="imagen-destacada">
-      <a href="el-riesgo-pais-cae-al-nivel-mas-bajo-del-año-y-mejora-la-percepcion-del-mercado.html">
-      <img src="img/riesgo-pais.jpg" alt="MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      </a>
-  </div>
-      <p>El riesgo país cayó a 596 puntos, su nivel más bajo en lo que va del año. El mercado celebró con subas en bonos y acciones, aunque economistas advierten que Argentina sigue por encima del promedio regional.</p>
-  </div>
- 
-  <div class="noticia media">
-      <h2><a href="santilli-renuncio-a-su-banca-de-diputado-para-asumir-como-ministro-del-interior.html">Santilli renunció a su banca de diputado para asumir como ministro del Interior</a></h2>
-  <div class="imagen-destacada">
-  </div> 
-      <p>Santilli dejó su banca en Diputados para asumir como ministro del Interior y reforzar el vínculo del Gobierno con las provincias.</p>
-  </div>
+  <div class="noticia grande">
+      <h2><a href="argentina-y-estados-unidos-avanzan-en-un-acuerdo-de-comercio-e-inversion.html">Argentina y Estados Unidos avanzan en un acuerdo de comercio e inversión</a></h2>
+  <div class="imagen-destacada">
+      <a href="argentina-y-estados-unidos-avanzan-en-un-acuerdo-de-comercio-e-inversion.html">
+      <img src="img/milei-trump.jpg" alt="Presidente de la Argentina junto al Presidente de EE.UU. | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
+      </a>
+  </div>
+      <p>Argentina y EE.UU. avanzan en un acuerdo para impulsar el comercio y las inversiones entre ambos países.</p>
+  </div>
+      
+  <div class="noticia chica">
+      <h2><a href="la-inflacion-de-octubre-se-acelero-al-2-3-segun-el-indec.html">La inflación de octubre se aceleró al 2,3% según el INDEC</a></h2>
+  <div class="imagen-destacada">
+      <a href="la-inflacion-de-octubre-se-acelero-al-2-3-segun-el-indec.html">
+      <img src="img/inflacion.jpg" alt="MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
+      </a>
+  </div>
+  </div>
+ 
+  <div class="noticia chica">
+      <h2><a href="pampa-energia-emitio-un-bono-por-usd-450-millones-a-12-años-y-logra-financiamiento-record.html">Pampa Energía emitió un bono por USD 450 millones a 12 años y logra financiamiento récord</a></h2>
+IA <div class="imagen-destacada">
+      <a href="pampa-energia-emitio-un-bono-por-usd-450-millones-a-12-años-y-logra-financiamiento-record.html">
+      <img src="img/pampa-energia.jpg" alt="MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
+      </a>
+  </div>
+  </div>
+    
+      <div class="publicidad vertical">
+        </div>
+    
+  <div class="noticia media">
+      <h2><a href="el-gobierno-desregula-las-cuotas-de-los-colegios-privados-y-elimina-el-control-estatal.html">El Gobierno desregula las cuotas de los colegios privados y elimina el control estatal</a></h2>
+  <div class="imagen-destacada">
+  </div>
+      <p>A través de un decreto, se derogó una normativa vigente por más de 30 años que obligaba a las instituciones a informar y consensuar los aumentos de aranceles.</p>
+  </div>
+ 
+  <div class="noticia media">
+      <h2><a href="el-riesgo-pais-cae-al-nivel-mas-bajo-del-año-y-mejora-la-percepcion-del-mercado.html">El riesgo país cae al nivel más bajo del año y mejora la percepción del mercado</a></h2>
+  <div class="imagen-destacada">
+      <a href="el-riesgo-pais-cae-al-nivel-mas-bajo-del-año-y-mejora-la-percepcion-del-mercado.html">
+      <img src="img/riesgo-pais.jpg" alt="MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
+      </a>
+  </div>
+      <p>El riesgo país cayó a 596 puntos, su nivel más bajo en lo que va del año. El mercado celebró con subas en bonos y acciones, aunque economistas advierten que Argentina sigue por encima del promedio regional.</p>
+  </div>
+ 
+  <div class="noticia media">
+      <h2><a href="santilli-renuncio-a-su-banca-de-diputado-para-asumir-como-ministro-del-interior.html">Santilli renunció a su banca de diputado para asumir como ministro del Interior</a></h2>
+  <div class="imagen-destacada">
+  </div> 
+      <p>Santilli dejó su banca en Diputados para asumir como ministro del Interior y reforzar el vínculo del Gobierno con las provincias.</p>
+  </div>
 
-      <div class="publicidad cuadrada">
-        </div>
-      <div class="publicidad cuadrada">
-        </div>
-      <div class="publicidad cuadrada">
-        </div>
-      <div class="publicidad cuadrada">
-        </div>
+  m <div class="publicidad cuadrada">
+        </div>
+      <div class="publicidad cuadrada">
+        </div>
+      <div class="publicidad cuadrada">
+        </div>
+      <div class="publicidad cuadrada">
+        </div>
 
-  <div class="noticia grande">
-      <h2><a href="noche-azul-en-estados-unidos-los-democratas-arrasan-en-las-elecciones-locales.html">“Noche azul” en Estados Unidos — los demócratas arrasan en las elecciones locales</a></h2>
-  <div class="imagen-destacada">
-      <a href="noche-azul-en-estados-unidos-los-democratas-arrasan-en-las-elecciones-locales.html">
-      <img src="img/new-york.jpg" alt="Zohran Mamdani | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
- 
-  <div class="noticia grande">
-      <h2><a href="se-frena-el-rally-de-bonos-y-acciones-argentinas.html">Se frena el "rally" de bonos y acciones argentinas</a></h2>
-  <div class="imagen-destacada">
-      <a href="se-frena-el-rally-de-bonos-y-acciones-argentinas.html">
-      <img src="img/merval.jpg" alt="Operador de bolsa | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
+  <div class="noticia grande">
+S     <h2><a href="noche-azul-en-estados-unidos-los-democratas-arrasan-en-las-elecciones-locales.html">“Noche azul” en Estados Unidos — los demócratas arrasan en las elecciones locales</a></h2>
+  <div class="imagen-destacada">
+      <a href="noche-azul-en-estados-unidos-los-democratas-arrasan-en-las-elecciones-locales.html">
+IA     <img src="img/new-york.jpg" alt="Zohran Mamdani | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
+      </a>
+  </div>
+  </div>
+ 
+  <div class="noticia grande">
+      <h2><a href="se-frena-el-rally-de-bonos-y-acciones-argentinas.html">Se frena el "rally" de bonos y acciones argentinas</a></h2>
+  <div class="imagen-destacada">
+      <a href="se-frena-el-rally-de-bonos-y-acciones-argentinas.html">
+      <img src="img/merval.jpg" alt="Operador de bolsa | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
+      </a>
+  </div>
+  </div>
 
-      <div class="publicidad horizontal">
-        </div>
-      </main>
+      <div class="publicidad horizontal">
+        </div>
+      </main>
 
-  <footer>
-    <h1>MM <br> NEWS</h1>
-    <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
-      <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-    </a>
-    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-    <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
-  </footer>
+  <footer>
+    <h1>MM <br> NEWS</h1>
+    <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
+      <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
+    </a>
+    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+    <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
+  </footer>
 </body>
 </html>
