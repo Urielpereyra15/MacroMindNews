@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Políticas de Privacidad | MacroMind News</title>
+    <link rel="stylesheet" href="estilos.css"> 
+    <style>
+      
+        body {
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            background-color: #f4f4f4; 
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos para el encabezado de la página de Términos y Condiciones */
+        .header-tyc {
+            background-color: #0a0a23; /* Color de fondo oscuro */
+            color: white; /* Texto blanco */
+            padding: 1.5em 1em; /* Relleno */
+            text-align: center; /* Centrar el texto */
+            margin-bottom: 2em; /* Margen inferior */
+        }
+
+        .header-tyc h1 {
+            margin: 0; /* Eliminar margen predeterminado del h1 */
+            font-size: 2.5em; /* Tamaño de fuente para el título principal */
+        }
+        .header-tyc h2 {
+            margin: 0; /* Eliminar margen predeterminado del h2 */
+            font-size: 1.5em; /* Tamaño de fuente para el subtítulo */
+            font-weight: normal; /* Grosor de fuente normal */
+        }
+
+        /* Estilos para el contenedor principal del contenido de los términos */
+        main.tyc-contenido {
+            max-width: 950px; /* Ancho máximo para el contenido principal */
+            margin: 2em auto; /* Centrar el contenido y darle margen superior/inferior */
+            padding: 2em 3em; /* Espacio interno dentro del cuadro blanco */
+            background-color: white; /* Fondo blanco para el contenido */
+            border-radius: 12px; /* Bordes redondeados */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente consistente con tus noticias */
+            
+            /* MUY IMPORTANTE: Asegurarse de que no haya propiedades de grid o flex que fuercen columnas */
+            display: block; /* Asegura que el main se comporte como un bloque normal */
+            /* Quita cualquier grid-template-columns, grid-row, display: flex, flex-direction si las tuvieras aquí */
+        }
+
+        /* Estilos para la fecha de última actualización */
+        .tyc-contenido .ultima-actualizacion {
+            text-align: right; /* Alinear a la derecha */
+            font-size: 0.9em; /* Tamaño de fuente más pequeño */
+            color: #777; /* Color de texto gris */
+            margin-bottom: 2em; /* Margen inferior */
+        }
+
+        /* Estilos para cada sección individual de los términos (ej. 1. Aceptación) */
+        .termino-seccion {
+            margin-bottom: 2em; /* Espacio entre cada sección */
+            padding-bottom: 1.5em; /* Espacio inferior dentro de cada sección */
+            border-bottom: 1px solid #eee; /* Línea separadora suave */
+            /* Asegúrate de que las secciones individuales no sean flex o grid contenedores inesperadamente */
+            display: block; /* Cada sección ocupará su propia línea */
+        }
+
+        /* Quitar la línea inferior de la última sección */
+        .termino-seccion:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Estilos para los títulos de cada sección (ej. 1. Aceptación de los Términos) */
+        .termino-seccion h3 {
+            font-size: 1.4em; /* Tamaño del título de sección */
+            color: #0a0a23; /* Color oscuro para el título */
+            margin-top: 0; /* Eliminar margen superior predeterminado */
+            margin-bottom: 0.8em; /* Espacio entre título y párrafo */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* O la fuente que uses para títulos de noticias si quieres */
+            text-align: left; /* Títulos alineados a la izquierda (cambiar a 'center' si lo prefieres) */
+        }
+
+        /* Estilos para los párrafos de texto dentro de cada sección */
+        .termino-seccion p {
+            margin-bottom: 1em; /* Espacio entre párrafos */
+            text-align: justify; /* Justificar el texto para que se estire horizontalmente */
+            color: #555; /* Un gris oscuro para el texto */
+        }
+
+        /* Estilos para el botón "Volver al Inicio" */
+        .link-volver {
+            display: block; /* Para que el enlace ocupe su propia línea */
+            text-align: center; /* Centrar el enlace */
+            margin-top: 3em; /* Espacio arriba del enlace */
+        }
+
+        .link-volver a {
+            background-color: #0a0a23; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            padding: 0.8em 1.5em; /* Relleno del botón */
+            border-radius: 6px; /* Bordes redondeados */
+            text-decoration: none; /* Quitar subrayado del enlace */
+            transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        .link-volver a:hover {
+            background-color: #333; /* Color al pasar el ratón */
+        }
+
+        /* Footer - Asegúrate de que los estilos del footer de tu economia.html también estén aquí o en estilos.css */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+            margin-top: 3em; /* Espacio entre el contenido principal y el footer */
+        }
+
+        footer h1 {
+            margin-bottom: 0.5em;
+            font-size: 2em; /* Asegurar el tamaño del título del footer */
+        }
+
+        footer a {
+            display: block;
+            margin-top: 10px;
+            color: white; /* Asegurar que los enlaces en el footer sean blancos */
+            text-decoration: none;
+        }
+
+        footer img {
+            width: 30px;
+            height: auto;
+            filter: invert(100%);
+        }
+    </style>
+</head>
+<body>
+    <header class="header-tyc">
+        <h1>MacroMind News</h1>
+        <h2>Políticas de Privacidad</h2>
+    </header>
+
+    <main class="tyc-contenido">
+        <p class="ultima-actualizacion">Última actualización: 16/12/2025</p>
+
+        <div class="termino-seccion">
+            <p>En MacroMind News (en adelante, "el Sitio"), respetamos y protegemos la privacidad de los usuarios que acceden y utilizan nuestros servicios. La presente Política de Privacidad describe cómo se recopila, utiliza y protege la información personal, de conformidad con la Ley N.º 25.326 de Protección de los Datos Personales de la República Argentina.</p>
+        </div>
+
+        <div class="termino-seccion">
+            <h3>1. Información que recopilamos</h3>
+            <p>El Sitio puede recopilar los siguientes tipos de información:</p>
+          <ul>
+             <li><strong>Datos proporcionados voluntariamente:</strong> nombre y correo electrónico cuando el usuario se contacta o se suscribe.</li>
+             <li><strong>Datos de navegación:</strong> dirección IP, tipo de navegador, dispositivo, páginas visitadas y tiempo de permanencia, con fines estadísticos.</li>
+          </ul>
+        </div>
+
+        <div class="termino-seccion">
+            <h3>2. Uso de la información</h3>
+            <p>La información recopilada se utiliza para:</p>
+            <ul>
+              <li>Mejorar los contenidos y servicios del Sitio.</li>
+              <li>Responder consultas y comunicaciones de los usuarios.</li>
+              <li>Enviar novedades o newsletters, cuando exista consentimiento.</li>
+              <li>Realizar análisis estadísticos de navegación.</li>
+            </ul>
+        </div>
+
+        <div class="termino-seccion">
+            <h3>3. Cookies</h3>
+            <p>El Sitio puede utilizar cookies y tecnologías similares para mejorar la experiencia del usuario. Las cookies permiten reconocer al navegador del usuario y recopilar información sobre el uso del Sitio.</p>
+            <p>El usuario puede configurar su navegador para rechazar o eliminar las cookies, aunque esto podría afectar el correcto funcionamiento de algunas secciones del Sitio.</p>
+        </div>
+
+        <div class="termino-seccion">
+            <h3>4. Compartición de datos con terceros</h3>
+            <p>El Sitio no vende, alquila ni cede datos personales a terceros, salvo en los siguientes casos:</p>
+            <ul>
+              <li>Cuando sea necesario para cumplir con una obligación legal.</li>
+              <li>Cuando exista una autorización expresa del titular de los datos.</li>
+              <li>Cuando se utilicen servicios de terceros (por ejemplo, herramientas de análisis o publicidad), los cuales pueden recopilar información de forma anónima conforme a sus propias políticas de privacidad.</li>
+            </ul>
+        </div>
+
+        <div class="termino-seccion">
+            <h3>5. Seguridad de la información</h3>
+            <p>Adoptamos medidas técnicas y organizativas razonables para proteger los datos personales contra el acceso no autorizado, pérdida, uso indebido o divulgación.</p>
+            <p>No obstante, el usuario reconoce que ningún sistema es completamente seguro en Internet.</p>
+        </div>
+
+        <div class="termino-seccion">
+            <h3>6. Derechos del titular de los datos</h3>
+            <p>De acuerdo con la Ley 25.326, el usuario tiene derecho a:.</p>
+            <ul>
+              <li>Acceder a sus datos personales.</li>
+              <li>Solicitar la rectificación, actualización o supresión de los datos.</li>
+              <li>Retirar su consentimiento en cualquier momento.</li>
+            </ul>
+            <p>Para ejercer estos derechos, el usuario puede comunicarse a través del correo electrónico: newsmacromind@gmail.com</p>
+            <p>La Agencia de Acceso a la Información Pública, en su carácter de órgano de control de la Ley 25.326, tiene la facultad de atender las denuncias y reclamos que se interpongan con relación al incumplimiento de las normas sobre protección de datos personales.</p>
+        </div>
+
+        <div class="termino-seccion">
+            <h3>7. Enlaces a sitios externos</h3>
+            <p>El Sitio puede contener enlaces a sitios web de terceros. No somos responsables de las prácticas de privacidad ni del contenido de dichos sitios, por lo que se recomienda revisar sus respectivas políticas de privacidad.</p>
+        </div>
+
+        <div class="termino-seccion">
+            <h3>8. Cambios en la Política de Privacidad</h3>
+            <p>Nos reservamos el derecho de modificar la presente Política de Privacidad en cualquier momento. Las modificaciones entrarán en vigencia desde su publicación en el Sitio.</p>
+        </div>
+
+        <div class="termino-seccion">
+            <h3>9. Contacto</h3>
+            <p>Si tenés dudas o consultas sobre esta Política de Privacidad, podés contactarnos a través de:</p>
+            <ul>
+              <li>Correo electrónico: newsmacromind@gmail.com</li>
+            </ul>
+        </div>
+
+        <div class="link-volver">
+            <a href="index.html">Volver al Inicio</a>
+        </div>
+    </main>
+
+    <footer>
+        <h1>MM <br> NEWS</h1>
+        <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
+        <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
+        </a>
+        <a href="https://www.tiktok.com/@macromindnews" target="_blank" style="display: block; margin-top: 10px;">
+        <img src="img/tik-tok-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
+        </a>
+        <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+        <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
+</html>
