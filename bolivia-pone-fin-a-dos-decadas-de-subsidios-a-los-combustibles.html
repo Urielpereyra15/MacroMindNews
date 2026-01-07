@@ -1,472 +1,263 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bolivia pone fin a dos décadas de subsidios a los combustibles</title>
-    <meta property="og:title" content="Bolivia pone fin a dos décadas de subsidios a los combustibles">
-    <meta property="og:description" content="El presidente de Bolivia, Rodrigo Paz, anunció el fin de los subsidios a los combustibles tras más de dos décadas de vigencia, en el marco de un paquete de reformas para enfrentar la crisis fiscal y energética del país.">
-    <meta property="og:image" content="https://www.macromindnews.com.ar/img/rodrigo-paz.jpg">
-    <meta property="og:url" content="https://www.macromindnews.com.ar/bolivia-pone-fin-a-dos-decadas-de-subsidios-a-los-combustibles.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="MacroMind News">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bolivia pone fin a dos décadas de subsidios a los combustibles">
-    <meta name="twitter:description" content="El presidente de Bolivia, Rodrigo Paz, anunció el fin de los subsidios a los combustibles tras más de dos décadas de vigencia, en el marco de un paquete de reformas para enfrentar la crisis fiscal y energética del país.">
-    <meta name="twitter:image" content="https://www.macromindnews.com.ar/img/rodrigo-paz.jpg">
-    
-    <script defer>
-        function toggleMenu() {
-            const menu = document.getElementById("menu-secciones");
-            menu.classList.toggle("visible");
-        }
-    </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Obtener la URL y el título de la noticia actual
-            const currentUrl = encodeURIComponent(window.location.href);
-            const newsTitle = encodeURIComponent(document.querySelector('.columna-principal-noticia h2').innerText); // Obtiene el texto del título principal
+<title>Bolivia pone fin a dos décadas de subsidios a los combustibles</title>
 
-            // Función para copiar el enlace
-            const copyLinkButton = document.getElementById('copy-link');
-            if (copyLinkButton) {
-                copyLinkButton.addEventListener('click', function(e) {
-                    e.preventDefault(); // Previene la navegación
-                    navigator.clipboard.writeText(decodeURIComponent(currentUrl))
-                        .then(() => {
-                            alert('Enlace copiado al portapapeles!');
-                        })
-                        .catch(err => {
-                            console.error('Error al copiar el enlace:', err);
-                            alert('No se pudo copiar el enlace. Intenta manualmente.');
-                        });
-                });
-            }
+<meta property="og:title" content="Bolivia pone fin a dos décadas de subsidios a los combustibles">
+<meta property="og:description" content="El presidente de Bolivia, Rodrigo Paz, anunció el fin de los subsidios a los combustibles tras más de dos décadas de vigencia.">
+<meta property="og:image" content="https://www.macromindnews.com.ar/img/rodrigo-paz.jpg">
+<meta property="og:url" content="https://www.macromindnews.com.ar/bolivia-pone-fin-a-dos-decadas-de-subsidios-a-los-combustibles.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MacroMind News">
 
-            // Configurar enlaces para compartir en redes sociales
-            const shareFacebook = document.getElementById('share-facebook');
-            if (shareFacebook) {
-                shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${newsTitle}`;
-            }
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bolivia pone fin a dos décadas de subsidios a los combustibles">
+<meta name="twitter:description" content="El presidente de Bolivia, Rodrigo Paz, anunció el fin de los subsidios a los combustibles.">
+<meta name="twitter:image" content="https://www.macromindnews.com.ar/img/rodrigo-paz.jpg">
 
-            const shareTwitter = document.getElementById('share-twitter');
-            if (shareTwitter) {
-                // Nuevo formato para Twitter/X
-                shareTwitter.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
-            }
+<script>
+function toggleMenu() {
+  document.getElementById("menu-secciones").classList.toggle("visible");
+}
 
-            const shareWhatsapp = document.getElementById('share-whatsapp');
-            if (shareWhatsapp) {
-                // Asegúrate de usar el prefijo 'wa.me/' para móviles y 'web.whatsapp.com/send' para escritorio si lo necesitas.
-                // Generalmente, solo el enlace de wa.me funciona bien.
-                shareWhatsapp.href = `https://wa.me/?text=${newsTitle}%0A${currentUrl}`; // %0A es un salto de línea
-            }
+document.addEventListener("DOMContentLoaded", function () {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.querySelector("h2").innerText);
 
-            const shareTelegram = document.getElementById('share-telegram');
-            if (shareTelegram) {
-                shareTelegram.href = `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
-            }
-        });
-    </script>
+  document.getElementById("share-facebook").href =
+    `https://www.facebook.com/sharer/sharer.php?u=${url}`;
 
-    <style>
-        /* Estilos generales */
-        body {
-            margin: 0;
-            background: #f4f4f4;
-            font-family: Georgia, serif;
-        }
+  document.getElementById("share-twitter").href =
+    `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
 
-        .invisible-espacio {
-            visibility: hidden;
-        }
+  document.getElementById("share-whatsapp").href =
+    `https://wa.me/?text=${title}%0A${url}`;
 
-        /* * ======================================
-         * INICIO DEL NUEVO CSS DEL HEADER
-         * ======================================
-         */
+  document.getElementById("share-telegram").href =
+    `https://t.me/share/url?url=${url}&text=${title}`;
 
-        /* Header */
-        header {
-            background-color: #0a0a23;
-            color: white;
-            padding: 0; /* Sin padding principal */
-            display: flex;
-            flex-direction: column; 
-            align-items: center; 
-            position: relative; 
-        }
+  document.getElementById("copy-link").onclick = function (e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(decodeURIComponent(url));
+    alert("Enlace copiado");
+  };
+});
+</script>
 
-        /* Div que envuelve el logo para centrarlo y darle padding */
-        .titulos-centrales {
-            display: flex; 
-            flex-direction: row; 
-            align-items: center; 
-            justify-content: center; /* Centra el logo */
-            gap: 20px; 
-            padding: 1em; /* El padding se aplica aquí */
-            flex-grow: 0; 
-        }
-        
-        /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
-        .menu-toggle {
-            font-size: 1.5em;
-            cursor: pointer;
-            display: none; 
-            align-items: center;
-        }
+<style>
+body {
+  margin: 0;
+  background: #f4f4f4;
+  font-family: Georgia, serif;
+}
 
-        .menu-toggle span {
-            margin-right: 0.5em;
-        }
+/* HEADER */
+header {
+  background-color: #0a0a23;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-        /* TÍTULO H1: Logo centrado */
-        h1 {
-            text-align: center; 
-            flex-grow: 0; 
-            margin: 0;
-        }
+.menu-toggle {
+  display: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 1em;
+}
 
-        /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
-        #menu-secciones {
-            display: block; 
-            position: static; 
-            background-color: #2c3e50; /* Tu color de barra */
-            width: 100%; /* Ancho completo */
-            color: white; 
-            border: none;
-            z-index: 1000;
-        }
+.titulos-centrales {
+  padding: 1em;
+}
 
-        #menu-secciones.visible {
-            display: block;
-        }
+h1 {
+  margin: 0;
+  text-align: center;
+}
 
-        #menu-secciones ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex; 
-            justify-content: center; 
-        }
+/* MENÚ */
+#menu-secciones {
+  width: 100%;
+  background: #2c3e50;
+}
 
-        #menu-secciones li {
-            padding: 0.5em 1.5em; 
-        }
+#menu-secciones ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
 
-        #menu-secciones a {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            font-family: Georgia, serif; 
-            font-weight: bold; 
-        }
+#menu-secciones li {
+  padding: 0.6em 1.5em;
+}
 
-        /* * ======================================
-         * FIN DEL NUEVO CSS DEL HEADER
-         * ======================================
-         */
+#menu-secciones a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-        /* Contenido principal de la NOTICIA INDIVIDUAL (Grid) */
-        .contenido-noticia-individual {
-            display: grid;
-            grid-template-columns: 1fr 250px; /* Columna principal para la noticia, y una fija para publicidad */
-            gap: 2em;
-            padding: 2em;
-            max-width: 1200px; /* Ancho máximo para la página de noticia */
-            margin: 0 auto; /* Centra el contenido en pantallas grandes */
-        }
+/* CONTENIDO PRINCIPAL (UNA SOLA COLUMNA) */
+.contenido-noticia-individual {
+  max-width: 900px;
+  margin: 2em auto;
+  background: white;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-        .columna-principal-noticia {
-            background-color: white;
-            padding: 2em;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+h2 {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 2.2em;
+  margin-bottom: 0.8em;
+  color: #0a0a23;
+}
 
-        .columna-publicidad-lateral {
-            /* Estilos para la barra lateral de publicidad */
-            display: flex;
-            flex-direction: column;
-            gap: 1em; /* Espacio entre publicidades si hay varias */
-        }
+.imagen-destacada-noticia img {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto 1.5em auto;
+  border-radius: 8px;
+}
 
-        /* Título de la noticia principal */
-        .columna-principal-noticia h2 {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 2.2em; /* Título más grande para una noticia individual */
-            margin-bottom: 0.8em;
-            line-height: 1.2;
-            color: #0a0a23; /* O el color que desees para los títulos */
-        }
+p {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.1em;
+  line-height: 1.6;
+  text-align: justify;
+}
 
-        /* Imagen destacada de la noticia individual */
-        .imagen-destacada-noticia img {
-            display: block;
-            margin: 0 auto 1.5em auto; /* Centra la imagen y añade margen inferior */
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para la imagen */
-        }
+/* SHARE */
+.social-share {
+  display: flex;
+  gap: 1.5em;
+  margin: 2em 0;
+  padding: 1em 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
 
-        /* Párrafos del contenido de la noticia */
-        .columna-principal-noticia p {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 1em;
-            text-align: justify; /* Justificado para el cuerpo del texto */
-            color: #333;
-        }
+.social-share img {
+  width: 28px;
+  cursor: pointer;
+}
 
-        /* Estilos para la sección de compartir */
-        .social-share {
-            display: flex;
-            gap: 1.5em; /* Espacio entre los íconos */
-            margin-top: 2em;
-            margin-bottom: 2em;
-            justify-content: flex-start; /* Centra los íconos */
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 1em 0;
-        }
+/* FOOTER */
+footer {
+  background: #0a0a23;
+  color: white;
+  text-align: center;
+  padding: 2em 1em;
+  margin-top: 3em;
+}
 
-        .social-share a {
-            font-size: 1.8em;
-            color: #555;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+/* MOBILE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-        .social-share a:hover {
-            color: #0a0a23; /* Color al pasar el ratón */
-        }
+  .menu-toggle {
+    display: block;
+  }
 
+  #menu-secciones {
+    display: none;
+    position: absolute;
+    top: 60px;
+    background: white;
+  }
 
-        /* Publicidad horizontal en la parte superior */
-        .publicidad.horizontal-top {
-            padding: 1em;
-            text-align: center;
-            font-size: 1.2em;
-            margin-bottom: 2em; /* Espacio debajo de la publicidad */
-        }
-        .publicidad.horizontal-top img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
+  #menu-secciones.visible {
+    display: block;
+  }
 
-        /* Publicidad vertical (para la barra lateral) */
-        .publicidad.vertical {
-            padding: 1em;
-            border-radius: 8px; /* Un poco más pequeño para publicidad vertical */
-            font-size: 1em;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .publicidad.vertical img {
-             max-width: 100%;
-             height: auto;
-             display: block;
-             margin: 0 auto;
-        }
+  #menu-secciones ul {
+    flex-direction: column;
+  }
 
-        /* Footer (ajustes para la página individual) */
-        footer {
-            background: #0a0a23;
-            color: white;
-            text-align: center;
-            padding: 2em 1em;
-            margin-top: 3em; /* Espacio superior antes del footer */
-        }
+  #menu-secciones a {
+    color: #0a0a23;
+  }
 
-    footer h1 {
-      margin-bottom: 0.5em;
-        }
+  .contenido-noticia-individual {
+    margin: 1em;
+    padding: 1.5em;
+  }
 
-    /* ================================== */
-    /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
-    /* ================================== */
-    @media (max-width: 768px) {
-        header {
-            /* EN MÓVIL, VUELVE A SER HORIZONTAL */
-            flex-direction: row;
-            justify-content: space-between;
-            padding: 1em; /* Vuelve el padding */
-        }
-
-        /* Se añade esta regla para móvil */
-        .titulos-centrales {
-            flex-grow: 1;
-            padding: 0; 
-            gap: 0;
-            align-items: center; 
-        }
-
-        /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
-        .menu-toggle {
-            display: flex; /* <-- SE MUESTRA EN MÓVIL */
-            position: static;
-            left: auto;
-            top: auto;
-            margin-right: 1em;
-        }
-        
-        /* CENTRAR EL H1 EN MÓVIL */
-        h1 {
-            text-align: center; 
-            flex-grow: 1; 
-        }
-        
-        /* OCULTAR Y RE-ESTILIZAR EL MENÚ EN MÓVIL (MODO DROPDOWN) */
-        #menu-secciones {
-            display: none; 
-            position: absolute; 
-            top: 100%; 
-            left: 0;
-            background-color: white; 
-            color: #0a0a23; 
-            width: 100%; 
-            border: 1px solid #ccc;
-            border-top: none;
-        }
-        
-        #menu-secciones ul {
-            display: block; /* Vuelve a ser vertical */
-        }
-        
-        #menu-secciones li {
-           padding: 0.5em 1em; /* Padding original para móvil */
-        }
-
-        /* --- FIN DE REGLAS DE HEADER MÓVIL --- */
-
-        .contenido-noticia-individual {
-            grid-template-columns: 1fr; /* Una sola columna en móvil */
-            padding: 1em;
-            display: flex; /* Cambiamos a flexbox para usar 'order' */
-            flex-direction: column; /* Apilamos los elementos verticalmente */
-        }
-
-        .columna-publicidad-lateral {
-            order: 2; /* <<-- CAMBIO CLAVE: Hace que la publicidad aparezca DESPUÉS del contenido principal */
-            padding: 1em; /* Añade padding para que no se pegue */
-            border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-top: 1.5em; /* Un poco de margen arriba para separarlo del contenido */
-        }
-
-        .columna-principal-noticia {
-            order: 1; /* <<-- CAMBIO CLAVE: Hace que la noticia principal aparezca PRIMERO */
-            padding: 1.5em; /* Ajusta padding */
-        }
-
-        .columna-principal-noticia h2 {
-            font-size: 1.8em; /* Ajusta tamaño de título para móvil */
-        }
-
-        .columna-principal-noticia p {
-            font-size: 1em; /* Ajusta tamaño de párrafo para móvil */
-        }
-
-        .social-share {
-            gap: 1em;
-        }
-    }
-
-    /* Para los títulos de las noticias (ya lo tenías) */
-    .noticia h2 a {
-      text-decoration: none;
-      color: inherit;
-    }
-
+  h2 {
+    font-size: 1.8em;
+  }
+}
 </style>
 </head>
+
 <body>
-    <header>
-    <div class="menu-toggle" onclick="toggleMenu()">
-        ☰ SECCIONES
-    </div>
-    <div class="titulos-centrales">
-        <h1>MM <br> NEWS</h1>
-    </div>
-    <nav id="menu-secciones" class="menu-secciones">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="economia.html">Economía</a></li>
-        <li><a href="politica.html">Política</a></li>
-        <li><a href="finanzas.html">Finanzas</a></li>
-        <li><a href="internacional.html">Internacional</a></li>
-      </ul>
-    </nav>
-    </header>
 
-    <div class="publicidad horizontal-top">
-        </div>
+<header>
+  <div class="menu-toggle" onclick="toggleMenu()">☰ SECCIONES</div>
+  <div class="titulos-centrales">
+    <h1>MM<br>NEWS</h1>
+  </div>
+  <nav id="menu-secciones">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="economia.html">Economía</a></li>
+      <li><a href="politica.html">Política</a></li>
+      <li><a href="finanzas.html">Finanzas</a></li>
+      <li><a href="internacional.html">Internacional</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <main class="contenido-noticia-individual">
-    <section class="columna-principal-noticia">
-        <h2>Bolivia pone fin a dos décadas de subsidios a los combustibles</h2>
-    <div class="imagen-destacada-noticia">
-        <img src="img/rodrigo-paz.jpg" alt="Rodrigo Paz, Presidente de Bolivia | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-    </div>
+<main class="contenido-noticia-individual">
+<h2>Bolivia pone fin a dos décadas de subsidios a los combustibles</h2>
 
-    <div class="social-share">
-        <a href="#" id="share-facebook" target="_blank" title="Compartir en Facebook"><i class="fa-brands fa-facebook"></i>
-        <img src="img/facebook-logo.png" class="social-icon">
-       </a>
-        <a href="#" id="share-twitter" target="_blank" title="Compartir en X (Twitter)"><i class="fa-brands fa-square-x-twitter"></i>
-        <img src="img/logo-x.png" class="social-icon">
-       </a>
-        <a href="#" id="share-whatsapp" target="_blank" title="Compartir por WhatsApp"><i class="fa-brands fa-square-whatsapp"></i>
-        <img src="img/whatsapp-logo.png" class="social-icon">
-       </a>
-        <a href="#" id="share-telegram" target="_blank" title="Compartir por Telegram"><i class="fa-brands fa-telegram"></i>
-        <img src="img/telegram-logo.png" class="social-icon">
-       </a>
-        <a href="#" id="copy-link" title="Copiar enlace"><i class="fa-solid fa-link"></i>
-        <img src="img/link-logo.png" class="social-icon">
-       </a>
-    </div>
-        <p><strong>Internacional | 18 de diciembre del 2025</strong> — El presidente de Bolivia, Rodrigo Paz, anunció este miércoles el fin de los subsidios a los combustibles, una medida histórica que marca el cierre de más de 20 años de precios congelados y políticas de subsidios que, según el gobierno, contribuyeron a una profunda crisis económica.<p>
-        <p>En un mensaje televisado a la nación, Paz explicó que la eliminación de los subsidios busca ordenar las cuentas públicas, combatir el contrabando de combustibles y estabilizar la economía, que enfrenta escasez de dólares, desabastecimiento crónico y una de las peores crisis financieras de las últimas décadas.</p>
-        <h3>Alzas inmediatas en los precios del combustible</h3>
-      <p>Tras la entrada en vigor del decreto presidencial, los precios de los hidrocarburos sufrieron aumentos significativos:</p>
-      <ul>
-          <li>Gasolina especial: de 3,79 a 6,96 bolivianos por litro.</li>
-          <li>Diésel: de 3,74 a 9,80 bolivianos por litro.</li>
-      </ul>
-      <p>El ministro de Hidrocarburos, Mauricio Medinaceli, indicó que los nuevos precios se mantendrán por al menos seis meses, aunque no descartó ajustes adicionales en el futuro cercano.</p>
-      <p>Además, el gobierno decidió retirar el diésel de la lista de sustancias controladas, lo que permitirá la importación privada del combustible en un intento por mejorar el abastecimiento y reducir las pérdidas del Estado.</p>
-      <h3>Medidas económicas complementarias</h3>
-      <p>Para amortiguar el impacto de la eliminación de los subsidios en el bolsillo de los ciudadanos, Paz anunció un aumento del salario mínimo nacional del 20 %, que pasará de 2.750 a 3.300 bolivianos mensuales (de aproximadamente 395 a 474 dólares), a partir del 2 de enero de 2026.</p>
-      <p>El mandatario también declaró una emergencia económica, financiera, energética y social, para dar mayor marco jurídico a las reformas y garantizar la implementación de medidas que, según él, apuntan a “proteger a quienes más lo necesitan”.</p>
-      <h3>Reacciones y contexto</h3>
-      <p>La decisión ha generado reacciones mixtas dentro del país. En varias ciudades se registraron largas filas en estaciones de servicio mientras conductores intentaban abastecerse antes de la entrada en vigor de los nuevos precios.</p>
-      <p>El fin de los subsidios también ha sido observado por actores internacionales; por ejemplo, Estados Unidos expresó su respaldo a las reformas económicas, destacando que podrían favorecer la inversión extranjera y la apertura económica de Bolivia.</p>
-      <p>El anuncio de Paz representa uno de los cambios más profundos en la política energética y económica del país en décadas, en un contexto marcado por la transición política tras décadas de gobiernos de izquierda y una situación fiscal compleja.</p>
-        
-      </ul>
-         
-    </section>
-    <aside class="columna-publicidad-lateral">
-        </aside>
-    </main>
+<div class="imagen-destacada-noticia">
+  <img src="img/rodrigo-paz.jpg" alt="Rodrigo Paz, presidente de Bolivia">
+</div>
 
-    <footer>
-        <h1>MM <br> NEWS</h1>
-        <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
-        <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-        </a>
-        <a href="https://www.tiktok.com/@macromindnews" target="_blank" style="display: block; margin-top: 10px;">
-        <img src="img/tik-tok-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-        </a>
-        <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-        <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
-        <p><a href="politicas-de-privacidad.html" style="color: white; text-decoration: none; font-size: 0.9em;">Políticas de Privacidad</a></p>
-    </footer>
+<div class="social-share">
+  <a id="share-facebook"><img src="img/facebook-logo.png"></a>
+  <a id="share-twitter"><img src="img/logo-x.png"></a>
+  <a id="share-whatsapp"><img src="img/whatsapp-logo.png"></a>
+  <a id="share-telegram"><img src="img/telegram-logo.png"></a>
+  <a id="copy-link"><img src="img/link-logo.png"></a>
+</div>
+
+<p><strong>Internacional | 18 de diciembre del 2025</strong> — El presidente de Bolivia, Rodrigo Paz, anunció este miércoles el fin de los subsidios a los combustibles.</p>
+<p>En un mensaje televisado, explicó que la medida busca ordenar las cuentas públicas, combatir el contrabando y estabilizar la economía.</p>
+    
+<h3>Alzas inmediatas en los precios</h3>
+<p>Tras la entrada en vigor del decreto, los precios aumentaron de forma significativa.</p>
+<ul>
+  <li>Gasolina: de 3,79 a 6,96 bolivianos por litro.</li>
+  <li>Diésel: de 3,74 a 9,80 bolivianos por litro.</li>
+</ul>
+
+<p>El gobierno también anunció un aumento del salario mínimo del 20 % y declaró la emergencia económica.</p>
+<p>La decisión marca uno de los cambios más profundos en la política energética boliviana en décadas.</p>
+</main>
+
+<footer>
+  <h1>MM<br>NEWS</h1>
+  <a href="https://x.com/MacroMindNews" target="_blank">
+    <img src="img/x-logo.png" style="width:30px;filter:invert(100%)">
+  </a>
+  <a href="https://www.tiktok.com/@macromindnews" target="_blank">
+    <img src="img/tik-tok-logo.png" style="width:30px;filter:invert(100%)">
+  </a>
+  <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+</footer>
+
 </body>
 </html>
