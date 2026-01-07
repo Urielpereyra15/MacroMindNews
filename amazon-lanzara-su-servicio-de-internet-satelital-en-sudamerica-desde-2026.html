@@ -3,456 +3,252 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Amazon lanzará su servicio de internet satelital en Sudamérica desde 2026</title>
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Amazon lanzará su servicio de internet satelital en Sudamérica desde 2026">
-    <meta property="og:description" content="Amazon ofrecerá internet satelital en Sudamérica desde 2026. SKY lo venderá en Brasil y DIRECTV en Argentina y otros países. Será un servicio de alta velocidad con satélites de órbita baja.">
+    <meta property="og:description" content="Amazon ofrecerá internet satelital en Sudamérica desde 2026. SKY lo venderá en Brasil y DIRECTV en Argentina y otros países.">
     <meta property="og:image" content="https://www.macromindnews.com.ar/img/leo-amazon.jpg">
     <meta property="og:url" content="https://www.macromindnews.com.ar/amazon-lanzara-su-servicio-de-internet-satelital-en-sudamerica-desde-2026.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="MacroMind News">
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Amazon lanzará su servicio de internet satelital en Sudamérica desde 2026">
-    <meta name="twitter:description" content="Amazon ofrecerá internet satelital en Sudamérica desde 2026. SKY lo venderá en Brasil y DIRECTV en Argentina y otros países. Será un servicio de alta velocidad con satélites de órbita baja.">
+    <meta name="twitter:description" content="Amazon ofrecerá internet satelital en Sudamérica desde 2026.">
     <meta name="twitter:image" content="https://www.macromindnews.com.ar/img/leo-amazon.jpg">
-    
-    <script defer>
-        function toggleMenu() {
-            const menu = document.getElementById("menu-secciones");
-            menu.classList.toggle("visible");
-        }
-    </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Obtener la URL y el título de la noticia actual
-            const currentUrl = encodeURIComponent(window.location.href);
-            const newsTitle = encodeURIComponent(document.querySelector('.columna-principal-noticia h2').innerText); // Obtiene el texto del título principal
+        function toggleMenu() {
+            document.getElementById("menu-secciones").classList.toggle("visible");
+        }
 
-            // Función para copiar el enlace
-            const copyLinkButton = document.getElementById('copy-link');
-            if (copyLinkButton) {
-                copyLinkButton.addEventListener('click', function(e) {
-                    e.preventDefault(); // Previene la navegación
-                    navigator.clipboard.writeText(decodeURIComponent(currentUrl))
-                        .then(() => {
-                            alert('Enlace copiado al portapapeles!');
-                        })
-                        .catch(err => {
-                            console.error('Error al copiar el enlace:', err);
-                            alert('No se pudo copiar el enlace. Intenta manualmente.');
-                        });
-                });
-            }
+        document.addEventListener("DOMContentLoaded", function () {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.querySelector("h2").innerText);
 
-            // Configurar enlaces para compartir en redes sociales
-            const shareFacebook = document.getElementById('share-facebook');
-            if (shareFacebook) {
-                shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${newsTitle}`;
-            }
+            document.getElementById("share-facebook").href =
+                `https://www.facebook.com/sharer/sharer.php?u=${url}`;
 
-            const shareTwitter = document.getElementById('share-twitter');
-            if (shareTwitter) {
-                // Nuevo formato para Twitter/X
-                shareTwitter.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
-            }
+            document.getElementById("share-twitter").href =
+                `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
 
-            const shareWhatsapp = document.getElementById('share-whatsapp');
-            if (shareWhatsapp) {
-                // Asegúrate de usar el prefijo 'wa.me/' para móviles y 'web.whatsapp.com/send' para escritorio si lo necesitas.
-                // Generalmente, solo el enlace de wa.me funciona bien.
-                shareWhatsapp.href = `https://wa.me/?text=${newsTitle}%0A${currentUrl}`; // %0A es un salto de línea
-            }
+            document.getElementById("share-whatsapp").href =
+                `https://wa.me/?text=${title}%0A${url}`;
 
-            const shareTelegram = document.getElementById('share-telegram');
-            if (shareTelegram) {
-                shareTelegram.href = `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
-            }
+            document.getElementById("share-telegram").href =
+                `https://t.me/share/url?url=${url}&text=${title}`;
+
+            document.getElementById("copy-link").onclick = function (e) {
+                e.preventDefault();
+                navigator.clipboard.writeText(decodeURIComponent(url));
+                alert("Enlace copiado");
+            };
         });
     </script>
 
     <style>
-        /* Estilos generales */
         body {
             margin: 0;
             background: #f4f4f4;
             font-family: Georgia, serif;
         }
 
-        .invisible-espacio {
-            visibility: hidden;
-        }
-
-        /* * ======================================
-         * INICIO DEL NUEVO CSS DEL HEADER
-         * ======================================
-         */
-
-        /* Header */
+        /* HEADER */
         header {
-            background-color: #0a0a23;
+            background: #0a0a23;
             color: white;
-            padding: 0; /* Sin padding principal */
             display: flex;
-            flex-direction: column; 
-            align-items: center; 
-            position: relative; 
-        }
-
-        /* Div que envuelve el logo para centrarlo y darle padding */
-        .titulos-centrales {
-            display: flex; 
-            flex-direction: row; 
-            align-items: center; 
-            justify-content: center; /* Centra el logo */
-            gap: 20px; 
-            padding: 1em; /* El padding se aplica aquí */
-            flex-grow: 0; 
-        }
-        
-        /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
-        .menu-toggle {
-            font-size: 1.5em;
-            cursor: pointer;
-            display: none; 
+            flex-direction: column;
             align-items: center;
         }
 
-        .menu-toggle span {
-            margin-right: 0.5em;
+        .menu-toggle {
+            display: none;
+            padding: 1em;
+            cursor: pointer;
+            font-size: 1.4em;
         }
 
-        /* TÍTULO H1: Logo centrado */
-        h1 {
-            text-align: center; 
-            flex-grow: 0; 
-            margin: 0;
+        .titulos-centrales h1 {
+            margin: 1em 0;
+            text-align: center;
         }
 
-        /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
         #menu-secciones {
-            display: block; 
-            position: static; 
-            background-color: #2c3e50; /* Tu color de barra */
-            width: 100%; /* Ancho completo */
-            color: white; 
-            border: none;
-            z-index: 1000;
-        }
-
-        #menu-secciones.visible {
-            display: block;
+            width: 100%;
+            background: #2c3e50;
         }
 
         #menu-secciones ul {
             list-style: none;
+            display: flex;
+            justify-content: center;
             padding: 0;
             margin: 0;
-            display: flex; 
-            justify-content: center; 
         }
 
         #menu-secciones li {
-            padding: 0.5em 1.5em; 
+            padding: 0.6em 1.5em;
         }
 
         #menu-secciones a {
-            display: block;
+            color: white;
             text-decoration: none;
-            color: inherit;
-            font-family: Georgia, serif; 
-            font-weight: bold; 
+            font-weight: bold;
         }
 
-        /* * ======================================
-         * FIN DEL NUEVO CSS DEL HEADER
-         * ======================================
-         */
-
-        /* Contenido principal de la NOTICIA INDIVIDUAL (Grid) */
+        /* CONTENIDO */
         .contenido-noticia-individual {
-            display: grid;
-            grid-template-columns: 1fr 250px; /* Columna principal para la noticia, y una fija para publicidad */
-            gap: 2em;
-            padding: 2em;
-            max-width: 1200px; /* Ancho máximo para la página de noticia */
-            margin: 0 auto; /* Centra el contenido en pantallas grandes */
-        }
-
-        .columna-principal-noticia {
-            background-color: white;
+            max-width: 800px;
+            margin: 2em auto;
+            background: white;
             padding: 2em;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .columna-publicidad-lateral {
-            /* Estilos para la barra lateral de publicidad */
-            display: flex;
-            flex-direction: column;
-            gap: 1em; /* Espacio entre publicidades si hay varias */
+        h2 {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 2.2em;
+            margin-bottom: 1em;
+            color: #0a0a23;
         }
 
-        /* Título de la noticia principal */
-        .columna-principal-noticia h2 {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 2.2em; /* Título más grande para una noticia individual */
-            margin-bottom: 0.8em;
-            line-height: 1.2;
-            color: #0a0a23; /* O el color que desees para los títulos */
-        }
-
-        /* Imagen destacada de la noticia individual */
         .imagen-destacada-noticia img {
-            display: block;
-            margin: 0 auto 1.5em auto; /* Centra la imagen y añade margen inferior */
-            max-width: 100%;
-            height: auto;
+            width: 100%;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para la imagen */
+            margin-bottom: 1.5em;
         }
 
-        /* Párrafos del contenido de la noticia */
-        .columna-principal-noticia p {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        p {
+            font-family: 'Segoe UI', sans-serif;
             font-size: 1.1em;
             line-height: 1.6;
-            margin-bottom: 1em;
-            text-align: justify; /* Justificado para el cuerpo del texto */
-            color: #333;
+            text-align: justify;
         }
 
-        /* Estilos para la sección de compartir */
+        /* SHARE */
         .social-share {
             display: flex;
-            gap: 1.5em; /* Espacio entre los íconos */
-            margin-top: 2em;
-            margin-bottom: 2em;
-            justify-content: flex-start; /* Centra los íconos */
+            gap: 1em;
+            padding: 1em 0;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
-            padding: 1em 0;
+            margin-bottom: 1.5em;
         }
 
-        .social-share a {
-            font-size: 1.8em;
-            color: #555;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .social-share img {
+            width: 28px;
+            cursor: pointer;
         }
 
-        .social-share a:hover {
-            color: #0a0a23; /* Color al pasar el ratón */
-        }
-
-
-        /* Publicidad horizontal en la parte superior */
-        .publicidad.horizontal-top {
-            padding: 1em;
-            text-align: center;
-            font-size: 1.2em;
-            margin-bottom: 2em; /* Espacio debajo de la publicidad */
-        }
-        .publicidad.horizontal-top img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* Publicidad vertical (para la barra lateral) */
-        .publicidad.vertical {
-            padding: 1em;
-            border-radius: 8px; /* Un poco más pequeño para publicidad vertical */
-            font-size: 1em;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .publicidad.vertical img {
-             max-width: 100%;
-             height: auto;
-             display: block;
-             margin: 0 auto;
-        }
-
-        /* Footer (ajustes para la página individual) */
+        /* FOOTER */
         footer {
             background: #0a0a23;
             color: white;
             text-align: center;
             padding: 2em 1em;
-            margin-top: 3em; /* Espacio superior antes del footer */
+            margin-top: 3em;
         }
 
-    footer h1 {
-      margin-bottom: 0.5em;
+        footer img {
+            width: 28px;
+            filter: invert(100%);
+            margin-top: 10px;
         }
 
-    /* ================================== */
-    /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
-    /* ================================== */
-    @media (max-width: 768px) {
-        header {
-            /* EN MÓVIL, VUELVE A SER HORIZONTAL */
-            flex-direction: row;
-            justify-content: space-between;
-            padding: 1em; /* Vuelve el padding */
-        }
+        /* MOBILE */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
 
-        /* Se añade esta regla para móvil */
-        .titulos-centrales {
-            flex-grow: 1;
-            padding: 0; 
-            gap: 0;
-            align-items: center; 
-        }
+            .menu-toggle {
+                display: block;
+            }
 
-        /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
-        .menu-toggle {
-            display: flex; /* <-- SE MUESTRA EN MÓVIL */
-            position: static;
-            left: auto;
-            top: auto;
-            margin-right: 1em;
-        }
-        
-        /* CENTRAR EL H1 EN MÓVIL */
-        h1 {
-            text-align: center; 
-            flex-grow: 1; 
-        }
-        
-        /* OCULTAR Y RE-ESTILIZAR EL MENÚ EN MÓVIL (MODO DROPDOWN) */
-        #menu-secciones {
-            display: none; 
-            position: absolute; 
-            top: 100%; 
-            left: 0;
-            background-color: white; 
-            color: #0a0a23; 
-            width: 100%; 
-            border: 1px solid #ccc;
-            border-top: none;
-        }
-        
-        #menu-secciones ul {
-            display: block; /* Vuelve a ser vertical */
-        }
-        
-        #menu-secciones li {
-           padding: 0.5em 1em; /* Padding original para móvil */
-        }
+            #menu-secciones {
+                display: none;
+                position: absolute;
+                top: 60px;
+                background: white;
+            }
 
-        /* --- FIN DE REGLAS DE HEADER MÓVIL --- */
+            #menu-secciones.visible {
+                display: block;
+            }
 
-        .contenido-noticia-individual {
-            grid-template-columns: 1fr; /* Una sola columna en móvil */
-            padding: 1em;
-            display: flex; /* Cambiamos a flexbox para usar 'order' */
-            flex-direction: column; /* Apilamos los elementos verticalmente */
+            #menu-secciones ul {
+                flex-direction: column;
+            }
+
+            #menu-secciones a {
+                color: #0a0a23;
+            }
+
+            .contenido-noticia-individual {
+                margin: 1em;
+                padding: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
         }
-
-        .columna-publicidad-lateral {
-            order: 2; /* <<-- CAMBIO CLAVE: Hace que la publicidad aparezca DESPUÉS del contenido principal */
-            padding: 1em; /* Añade padding para que no se pegue */
-            border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-top: 1.5em; /* Un poco de margen arriba para separarlo del contenido */
-        }
-
-        .columna-principal-noticia {
-            order: 1; /* <<-- CAMBIO CLAVE: Hace que la noticia principal aparezca PRIMERO */
-            padding: 1.5em; /* Ajusta padding */
-        }
-
-        .columna-principal-noticia h2 {
-            font-size: 1.8em; /* Ajusta tamaño de título para móvil */
-        }
-
-        .columna-principal-noticia p {
-            font-size: 1em; /* Ajusta tamaño de párrafo para móvil */
-        }
-
-        .social-share {
-            gap: 1em;
-        }
-    }
-
-    /* Para los títulos de las noticias (ya lo tenías) */
-    .noticia h2 a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-</style>
+    </style>
 </head>
+
 <body>
-    <header>
-    <div class="menu-toggle" onclick="toggleMenu()">
-        ☰ SECCIONES
-    </div>
+
+<header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰ SECCIONES</div>
     <div class="titulos-centrales">
-        <h1>MM <br> NEWS</h1>
+        <h1>MM<br>NEWS</h1>
     </div>
-    <nav id="menu-secciones" class="menu-secciones">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="economia.html">Economía</a></li>
-        <li><a href="politica.html">Política</a></li>
-        <li><a href="finanzas.html">Finanzas</a></li>
-        <li><a href="internacional.html">Internacional</a></li>
-      </ul>
+    <nav id="menu-secciones">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="economia.html">Economía</a></li>
+            <li><a href="politica.html">Política</a></li>
+            <li><a href="finanzas.html">Finanzas</a></li>
+            <li><a href="internacional.html">Internacional</a></li>
+        </ul>
     </nav>
-    </header>
+</header>
 
-    <div class="publicidad horizontal-top">
-        </div>
+<main class="contenido-noticia-individual">
+    <h2>Amazon lanzará su servicio de internet satelital en Sudamérica desde 2026</h2>
 
-    <main class="contenido-noticia-individual">
-    <section class="columna-principal-noticia">
-        <h2>Amazon lanzará su servicio de internet satelital en Sudamérica desde 2026</h2>
     <div class="imagen-destacada-noticia">
-        <img src="img/leo-amazon.jpg" alt="Internet satelital de Amazon | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
+        <img src="img/leo-amazon.jpg" alt="Internet satelital de Amazon">
     </div>
 
     <div class="social-share">
-        <a href="#" id="share-facebook" target="_blank" title="Compartir en Facebook"><i class="fa-brands fa-facebook"></i>
-        <img src="img/facebook-logo.png" class="social-icon">
-       </a>
-        <a href="#" id="share-twitter" target="_blank" title="Compartir en X (Twitter)"><i class="fa-brands fa-square-x-twitter"></i>
-        <img src="img/logo-x.png" class="social-icon">
-       </a>
-        <a href="#" id="share-whatsapp" target="_blank" title="Compartir por WhatsApp"><i class="fa-brands fa-square-whatsapp"></i>
-        <img src="img/whatsapp-logo.png" class="social-icon">
-       </a>
-        <a href="#" id="share-telegram" target="_blank" title="Compartir por Telegram"><i class="fa-brands fa-telegram"></i>
-        <img src="img/telegram-logo.png" class="social-icon">
-       </a>
-        <a href="#" id="copy-link" title="Copiar enlace"><i class="fa-solid fa-link"></i>
-        <img src="img/link-logo.png" class="social-icon">
-       </a>
+        <a id="share-facebook" target="_blank"><img src="img/facebook-logo.png"></a>
+        <a id="share-twitter" target="_blank"><img src="img/logo-x.png"></a>
+        <a id="share-whatsapp" target="_blank"><img src="img/whatsapp-logo.png"></a>
+        <a id="share-telegram" target="_blank"><img src="img/telegram-logo.png"></a>
+        <a id="copy-link"><img src="img/link-logo.png"></a>
     </div>
-        <p><strong>Internacional | 14 de noviembre del 2025</strong> — Amazon confirmó que iniciará la operación de su servicio de internet satelital de órbita baja (LEO) en Sudamérica a partir de 2026, en el marco de la expansión global de su proyecto Kuiper. La compañía busca competir directamente con otros proveedores de conectividad satelital de alta velocidad, ofreciendo mayores alternativas en la región.<p>
-        <p>Según adelantaron fuentes del sector, la comercialización del servicio estará a cargo de empresas ya instaladas en el mercado latinoamericano. En Brasil, la distribución y atención al cliente será gestionada por SKY, mientras que en Argentina, Colombia, Chile, Ecuador y Uruguay la responsabilidad quedará en manos de DIRECTV, aprovechando su infraestructura y presencia en toda la región.</p>
-  <p>El servicio utilizará tecnología satelital de última generación para brindar internet de alta velocidad en áreas urbanas, rurales y remotas, con el objetivo de reducir la brecha digital y mejorar el acceso a conexiones estables. Amazon destacó que su red de satélites en órbita baja permitirá ofrecer menor latencia y mejor rendimiento respecto a sistemas tradicionales.</p>
-  <p>La compañía ya inició el despliegue de la constelación satelital y prevé acelerar su crecimiento durante 2025, en preparación para el lanzamiento comercial del año siguiente. Tanto SKY como DIRECTV esperan que la llegada del servicio genere una nueva etapa de competencia en el mercado de telecomunicaciones.</p>
-  <p>Con este anuncio, Sudamérica se convierte en una de las primeras regiones del mundo en recibir la expansión del proyecto Kuiper, reforzando el avance de los servicios satelitales como una alternativa creciente a los proveedores de internet convencionales.</p>
-        
-    </section>
-    <aside class="columna-publicidad-lateral">
-        </aside>
-    </main>
 
-    <footer>
-        <h1>MM <br> NEWS</h1>
-        <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
-        <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-        </a>
-        <a href="https://www.tiktok.com/@macromindnews" target="_blank" style="display: block; margin-top: 10px;">
-        <img src="img/tik-tok-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-        </a>
-        <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-        <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
-        <p><a href="politicas-de-privacidad.html" style="color: white; text-decoration: none; font-size: 0.9em;">Políticas de Privacidad</a></p>
-    </footer>
+    <p><strong>Internacional | 14 de noviembre del 2025</strong> — Amazon confirmó que iniciará la operación de su servicio de internet satelital de órbita baja (LEO) en Sudamérica a partir de 2026.</p>
+    <p>La comercialización del servicio estará a cargo de SKY en Brasil y DIRECTV en Argentina y otros países de la región.</p>
+    <p>La red de satélites permitirá ofrecer menor latencia y mejor rendimiento, incluso en zonas rurales y remotas.</p>
+    <p>Con este anuncio, Sudamérica se posiciona entre las primeras regiones en recibir la expansión del proyecto Kuiper.</p>
+</main>
+
+<footer>
+    <h1>MM<br>NEWS</h1>
+    <a href="https://x.com/MacroMindNews" target="_blank"><img src="img/x-logo.png"></a>
+    <a href="https://www.tiktok.com/@macromindnews" target="_blank"><img src="img/tik-tok-logo.png"></a>
+    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+    <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
+    <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
+</footer>
+
 </body>
 </html>
