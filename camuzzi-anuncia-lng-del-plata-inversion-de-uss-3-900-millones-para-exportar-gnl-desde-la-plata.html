@@ -1,457 +1,257 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Camuzzi anuncia “LNG del Plata”: inversión de US$ 3.900 millones para exportar GNL desde La Plata</title>
-    <meta property="og:title" content="Camuzzi anuncia “LNG del Plata”: inversión de US$ 3.900 millones para exportar GNL desde La Plata">
-    <meta property="og:description" content="Camuzzi invertirá US$ 3.900 millones en “LNG del Plata” para exportar GNL desde La Plata, con 2,4 M t/año, US$ 14.500 millones proyectados y 500 empleos directos.">
-    <meta property="og:image" content="https://www.macromindnews.com.ar/img/camuzzi-lng.jpg">
-    <meta property="og:url" content="https://www.macromindnews.com.ar/camuzzi-anuncia-lng-del-plata-inversion-de-uss-3-900-millones-para-exportar-gnl-desde-la-plata.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="MacroMind News">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Camuzzi anuncia “LNG del Plata”: inversión de US$ 3.900 millones para exportar GNL desde La Plata">
-    <meta name="twitter:description" content="Camuzzi invertirá US$ 3.900 millones en “LNG del Plata” para exportar GNL desde La Plata, con 2,4 M t/año, US$ 14.500 millones proyectados y 500 empleos directos.">
-    <meta name="twitter:image" content="https://www.macromindnews.com.ar/img/camuzzi-lng.jpg">
-    
-    <script defer>
-        function toggleMenu() {
-            const menu = document.getElementById("menu-secciones");
-            menu.classList.toggle("visible");
-        }
-    </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Obtener la URL y el título de la noticia actual
-            const currentUrl = encodeURIComponent(window.location.href);
-            const newsTitle = encodeURIComponent(document.querySelector('.columna-principal-noticia h2').innerText); // Obtiene el texto del título principal
+<title>Camuzzi anuncia “LNG del Plata”: inversión de US$ 3.900 millones para exportar GNL desde La Plata</title>
 
-            // Función para copiar el enlace
-            const copyLinkButton = document.getElementById('copy-link');
-            if (copyLinkButton) {
-                copyLinkButton.addEventListener('click', function(e) {
-                    e.preventDefault(); // Previene la navegación
-                    navigator.clipboard.writeText(decodeURIComponent(currentUrl))
-                        .then(() => {
-                            alert('Enlace copiado al portapapeles!');
-                        })
-                        .catch(err => {
-                            console.error('Error al copiar el enlace:', err);
-                            alert('No se pudo copiar el enlace. Intenta manualmente.');
-                        });
-                });
-            }
+<meta property="og:title" content="Camuzzi anuncia “LNG del Plata”: inversión de US$ 3.900 millones para exportar GNL desde La Plata">
+<meta property="og:description" content="Camuzzi invertirá US$ 3.900 millones en “LNG del Plata” para exportar GNL desde La Plata.">
+<meta property="og:image" content="https://www.macromindnews.com.ar/img/camuzzi-lng.jpg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MacroMind News">
 
-            // Configurar enlaces para compartir en redes sociales
-            const shareFacebook = document.getElementById('share-facebook');
-            if (shareFacebook) {
-                shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${newsTitle}`;
-            }
+<meta name="twitter:card" content="summary_large_image">
 
-            const shareTwitter = document.getElementById('share-twitter');
-            if (shareTwitter) {
-                // Nuevo formato para Twitter/X
-                shareTwitter.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
-            }
+<script defer>
+function toggleMenu() {
+  document.getElementById("menu-secciones").classList.toggle("visible");
+}
+</script>
 
-            const shareWhatsapp = document.getElementById('share-whatsapp');
-            if (shareWhatsapp) {
-                // Asegúrate de usar el prefijo 'wa.me/' para móviles y 'web.whatsapp.com/send' para escritorio si lo necesitas.
-                // Generalmente, solo el enlace de wa.me funciona bien.
-                shareWhatsapp.href = `https://wa.me/?text=${newsTitle}%0A${currentUrl}`; // %0A es un salto de línea
-            }
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const currentUrl = encodeURIComponent(window.location.href);
+  const newsTitle = encodeURIComponent(document.querySelector('.columna-principal-noticia h2').innerText);
 
-            const shareTelegram = document.getElementById('share-telegram');
-            if (shareTelegram) {
-                shareTelegram.href = `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
-            }
-        });
-    </script>
+  document.getElementById('copy-link').onclick = function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(decodeURIComponent(currentUrl));
+    alert("Enlace copiado");
+  };
 
-    <style>
-        /* Estilos generales */
-        body {
-            margin: 0;
-            background: #f4f4f4;
-            font-family: Georgia, serif;
-        }
+  document.getElementById('share-facebook').href =
+    `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${newsTitle}`;
+  document.getElementById('share-twitter').href =
+    `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
+  document.getElementById('share-whatsapp').href =
+    `https://wa.me/?text=${newsTitle}%0A${currentUrl}`;
+  document.getElementById('share-telegram').href =
+    `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
+});
+</script>
 
-        .invisible-espacio {
-            visibility: hidden;
-        }
+<style>
+body {
+  margin: 0;
+  background: #f4f4f4;
+  font-family: Georgia, serif;
+}
 
-        /* * ======================================
-         * INICIO DEL NUEVO CSS DEL HEADER
-         * ======================================
-         */
+/* HEADER */
+header {
+  background-color: #0a0a23;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-        /* Header */
-        header {
-            background-color: #0a0a23;
-            color: white;
-            padding: 0; /* Sin padding principal */
-            display: flex;
-            flex-direction: column; 
-            align-items: center; 
-            position: relative; 
-        }
+.menu-toggle {
+  display: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
 
-        /* Div que envuelve el logo para centrarlo y darle padding */
-        .titulos-centrales {
-            display: flex; 
-            flex-direction: row; 
-            align-items: center; 
-            justify-content: center; /* Centra el logo */
-            gap: 20px; 
-            padding: 1em; /* El padding se aplica aquí */
-            flex-grow: 0; 
-        }
-        
-        /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
-        .menu-toggle {
-            font-size: 1.5em;
-            cursor: pointer;
-            display: none; 
-            align-items: center;
-        }
+.titulos-centrales {
+  padding: 1em;
+}
 
-        .menu-toggle span {
-            margin-right: 0.5em;
-        }
+h1 {
+  margin: 0;
+  text-align: center;
+}
 
-        /* TÍTULO H1: Logo centrado */
-        h1 {
-            text-align: center; 
-            flex-grow: 0; 
-            margin: 0;
-        }
+/* MENÚ */
+#menu-secciones {
+  width: 100%;
+  background: #2c3e50;
+}
 
-        /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
-        #menu-secciones {
-            display: block; 
-            position: static; 
-            background-color: #2c3e50; /* Tu color de barra */
-            width: 100%; /* Ancho completo */
-            color: white; 
-            border: none;
-            z-index: 1000;
-        }
+#menu-secciones ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
 
-        #menu-secciones.visible {
-            display: block;
-        }
+#menu-secciones li {
+  padding: 0.6em 1.5em;
+}
 
-        #menu-secciones ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex; 
-            justify-content: center; 
-        }
+#menu-secciones a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-        #menu-secciones li {
-            padding: 0.5em 1.5em; 
-        }
+/* CONTENIDO */
+.contenido-noticia-individual {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 2em;
+}
 
-        #menu-secciones a {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            font-family: Georgia, serif; 
-            font-weight: bold; 
-        }
+.columna-principal-noticia {
+  background: white;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-        /* * ======================================
-         * FIN DEL NUEVO CSS DEL HEADER
-         * ======================================
-         */
+.columna-principal-noticia h2 {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 2.2em;
+  margin-bottom: 1em;
+  color: #0a0a23;
+}
 
-        /* Contenido principal de la NOTICIA INDIVIDUAL (Grid) */
-        .contenido-noticia-individual {
-            display: grid;
-            grid-template-columns: 1fr 250px; /* Columna principal para la noticia, y una fija para publicidad */
-            gap: 2em;
-            padding: 2em;
-            max-width: 1200px; /* Ancho máximo para la página de noticia */
-            margin: 0 auto; /* Centra el contenido en pantallas grandes */
-        }
+.imagen-destacada-noticia img {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto 1.5em auto;
+  border-radius: 8px;
+}
 
-        .columna-principal-noticia {
-            background-color: white;
-            padding: 2em;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+.columna-principal-noticia p {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 1em;
+  text-align: justify;
+  color: #333;
+}
 
-        .columna-publicidad-lateral {
-            /* Estilos para la barra lateral de publicidad */
-            display: flex;
-            flex-direction: column;
-            gap: 1em; /* Espacio entre publicidades si hay varias */
-        }
+/* SHARE */
+.social-share {
+  display: flex;
+  gap: 1.5em;
+  margin: 2em 0;
+  padding: 1em 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
 
-        /* Título de la noticia principal */
-        .columna-principal-noticia h2 {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 2.2em; /* Título más grande para una noticia individual */
-            margin-bottom: 0.8em;
-            line-height: 1.2;
-            color: #0a0a23; /* O el color que desees para los títulos */
-        }
+.social-icon {
+  width: 28px;
+}
 
-        /* Imagen destacada de la noticia individual */
-        .imagen-destacada-noticia img {
-            display: block;
-            margin: 0 auto 1.5em auto; /* Centra la imagen y añade margen inferior */
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para la imagen */
-        }
+/* FOOTER */
+footer {
+  background: #0a0a23;
+  color: white;
+  text-align: center;
+  padding: 2em 1em;
+  margin-top: 3em;
+}
 
-        /* Párrafos del contenido de la noticia */
-        .columna-principal-noticia p {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 1em;
-            text-align: justify; /* Justificado para el cuerpo del texto */
-            color: #333;
-        }
+/* MOBILE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+  }
 
-        /* Estilos para la sección de compartir */
-        .social-share {
-            display: flex;
-            gap: 1.5em; /* Espacio entre los íconos */
-            margin-top: 2em;
-            margin-bottom: 2em;
-            justify-content: flex-start; /* Centra los íconos */
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 1em 0;
-        }
+  .menu-toggle {
+    display: block;
+  }
 
-        .social-share a {
-            font-size: 1.8em;
-            color: #555;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+  #menu-secciones {
+    display: none;
+    position: absolute;
+    top: 60px;
+    background: white;
+  }
 
-        .social-share a:hover {
-            color: #0a0a23; /* Color al pasar el ratón */
-        }
+  #menu-secciones.visible {
+    display: block;
+  }
 
+  #menu-secciones ul {
+    flex-direction: column;
+  }
 
-        /* Publicidad horizontal en la parte superior */
-        .publicidad.horizontal-top {
-            padding: 1em;
-            text-align: center;
-            font-size: 1.2em;
-            margin-bottom: 2em; /* Espacio debajo de la publicidad */
-        }
-        .publicidad.horizontal-top img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
+  #menu-secciones a {
+    color: #0a0a23;
+  }
 
-        /* Publicidad vertical (para la barra lateral) */
-        .publicidad.vertical {
-            padding: 1em;
-            border-radius: 8px; /* Un poco más pequeño para publicidad vertical */
-            font-size: 1em;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .publicidad.vertical img {
-             max-width: 100%;
-             height: auto;
-             display: block;
-             margin: 0 auto;
-        }
+  .contenido-noticia-individual {
+    margin: 1em;
+    padding: 1em;
+  }
 
-        /* Footer (ajustes para la página individual) */
-        footer {
-            background: #0a0a23;
-            color: white;
-            text-align: center;
-            padding: 2em 1em;
-            margin-top: 3em; /* Espacio superior antes del footer */
-        }
-
-    footer h1 {
-      margin-bottom: 0.5em;
-        }
-
-    /* ================================== */
-    /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
-    /* ================================== */
-    @media (max-width: 768px) {
-        header {
-            /* EN MÓVIL, VUELVE A SER HORIZONTAL */
-            flex-direction: row;
-            justify-content: space-between;
-            padding: 1em; /* Vuelve el padding */
-        }
-
-        /* Se añade esta regla para móvil */
-        .titulos-centrales {
-            flex-grow: 1;
-            padding: 0; 
-            gap: 0;
-            align-items: center; 
-        }
-
-        /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
-        .menu-toggle {
-            display: flex; /* <-- SE MUESTRA EN MÓVIL */
-            position: static;
-            left: auto;
-            top: auto;
-            margin-right: 1em;
-        }
-        
-        /* CENTRAR EL H1 EN MÓVIL */
-        h1 {
-            text-align: center; 
-            flex-grow: 1; 
-        }
-        
-        /* OCULTAR Y RE-ESTILIZAR EL MENÚ EN MÓVIL (MODO DROPDOWN) */
-        #menu-secciones {
-            display: none; 
-            position: absolute; 
-            top: 100%; 
-            left: 0;
-            background-color: white; 
-            color: #0a0a23; 
-            width: 100%; 
-            border: 1px solid #ccc;
-            border-top: none;
-        }
-        
-        #menu-secciones ul {
-            display: block; /* Vuelve a ser vertical */
-        }
-        
-        #menu-secciones li {
-           padding: 0.5em 1em; /* Padding original para móvil */
-        }
-
-        /* --- FIN DE REGLAS DE HEADER MÓVIL --- */
-
-        .contenido-noticia-individual {
-            grid-template-columns: 1fr; /* Una sola columna en móvil */
-            padding: 1em;
-            display: flex; /* Cambiamos a flexbox para usar 'order' */
-            flex-direction: column; /* Apilamos los elementos verticalmente */
-        }
-
-        .columna-publicidad-lateral {
-            order: 2; /* <<-- CAMBIO CLAVE: Hace que la publicidad aparezca DESPUÉS del contenido principal */
-            padding: 1em; /* Añade padding para que no se pegue */
-            border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-top: 1.5em; /* Un poco de margen arriba para separarlo del contenido */
-        }
-
-        .columna-principal-noticia {
-            order: 1; /* <<-- CAMBIO CLAVE: Hace que la noticia principal aparezca PRIMERO */
-            padding: 1.5em; /* Ajusta padding */
-        }
-
-        .columna-principal-noticia h2 {
-            font-size: 1.8em; /* Ajusta tamaño de título para móvil */
-        }
-
-        .columna-principal-noticia p {
-            font-size: 1em; /* Ajusta tamaño de párrafo para móvil */
-        }
-
-        .social-share {
-            gap: 1em;
-        }
-    }
-
-    /* Para los títulos de las noticias (ya lo tenías) */
-    .noticia h2 a {
-      text-decoration: none;
-      color: inherit;
-    }
-
+  .columna-principal-noticia h2 {
+    font-size: 1.8em;
+  }
+}
 </style>
 </head>
+
 <body>
-    <header>
-    <div class="menu-toggle" onclick="toggleMenu()">
-        ☰ SECCIONES
-    </div>
-    <div class="titulos-centrales">
-        <h1>MM <br> NEWS</h1>
-    </div>
-    <nav id="menu-secciones" class="menu-secciones">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="economia.html">Economía</a></li>
-        <li><a href="politica.html">Política</a></li>
-        <li><a href="finanzas.html">Finanzas</a></li>
-        <li><a href="internacional.html">Internacional</a></li>
-      </ul>
-    </nav>
-    </header>
 
-    <div class="publicidad horizontal-top">
-        </div>
+<header>
+  <div class="menu-toggle" onclick="toggleMenu()">☰ SECCIONES</div>
+  <div class="titulos-centrales">
+    <h1>MM<br>NEWS</h1>
+  </div>
+  <nav id="menu-secciones">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="economia.html">Economía</a></li>
+      <li><a href="politica.html">Política</a></li>
+      <li><a href="finanzas.html">Finanzas</a></li>
+      <li><a href="internacional.html">Internacional</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <main class="contenido-noticia-individual">
-    <section class="columna-principal-noticia">
-        <h2>Camuzzi anuncia “LNG del Plata”: inversión de US$ 3.900 millones para exportar GNL desde La Plata</h2>
-    <div class="imagen-destacada-noticia">
-        <img src="img/camuzzi-lng.jpg" alt="Proyecto "LNG del Plata" | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-    </div>
+<main class="contenido-noticia-individual">
+<section class="columna-principal-noticia">
 
-    <div class="social-share">
-        <a href="#" id="share-facebook" target="_blank" title="Compartir en Facebook"><i class="fa-brands fa-facebook"></i>
-        <img src="img/facebook-logo.png" class="social-icon">
-       </a>
-        <a href="#" id="share-twitter" target="_blank" title="Compartir en X (Twitter)"><i class="fa-brands fa-square-x-twitter"></i>
-        <img src="img/logo-x.png" class="social-icon">
-       </a>
-        <a href="#" id="share-whatsapp" target="_blank" title="Compartir por WhatsApp"><i class="fa-brands fa-square-whatsapp"></i>
-        <img src="img/whatsapp-logo.png" class="social-icon">
-       </a>
-        <a href="#" id="share-telegram" target="_blank" title="Compartir por Telegram"><i class="fa-brands fa-telegram"></i>
-        <img src="img/telegram-logo.png" class="social-icon">
-       </a>
-        <a href="#" id="copy-link" title="Copiar enlace"><i class="fa-solid fa-link"></i>
-        <img src="img/link-logo.png" class="social-icon">
-       </a>
-    </div>
-        <p><strong>Finanzas 02 de diceimbre del 2025| </strong> — La empresa Camuzzi confirmó el lanzamiento de “LNG del Plata”, un ambicioso proyecto que permitirá exportar gas natural licuado (GNL) directamente desde un buque instalado en el Puerto de La Plata. La iniciativa demandará una inversión estimada de US$ 3.900 millones y apunta a convertir a la Argentina en un jugador relevante en el mercado global del gas.<p>
-        <p>El plan contempla una capacidad de producción superior a 2,4 millones de toneladas anuales de GNL, lo que generaría exportaciones por aproximadamente US$ 14.500 millones a lo largo del ciclo del proyecto. La operación se apoyará principalmente en el creciente desarrollo de Vaca Muerta, que continúa consolidándose como la principal fuente energética del país.</p>
-      <p>Además de su impacto económico, “LNG del Plata” prevé la creación de 500 empleos directos, junto con cientos de puestos adicionales vinculados a servicios y logística. Según Camuzzi, este proyecto representa un paso estratégico para posicionar a la Argentina en el mercado internacional del gas y diversificar su matriz exportadora.</p>
-      <p>Con el lanzamiento de esta iniciativa, el Puerto de La Plata se encamina a transformarse en un nuevo polo energético, mientras que la industria del gas suma una apuesta clave para potenciar la producción nacional y abrir nuevos flujos de divisas.</p>
-        
-    </section>
-    <aside class="columna-publicidad-lateral">
-        </aside>
-    </main>
+<h2>Camuzzi anuncia “LNG del Plata”: inversión de US$ 3.900 millones para exportar GNL desde La Plata</h2>
 
-    <footer>
-        <h1>MM <br> NEWS</h1>
-        <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
-        <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-        </a>
-        <a href="https://www.tiktok.com/@macromindnews" target="_blank" style="display: block; margin-top: 10px;">
-        <img src="img/tik-tok-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-        </a>
-        <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-        <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
-        <p><a href="politicas-de-privacidad.html" style="color: white; text-decoration: none; font-size: 0.9em;">Políticas de Privacidad</a></p>
-    </footer>
+<div class="imagen-destacada-noticia">
+  <img src="img/camuzzi-lng.jpg" alt="LNG del Plata">
+</div>
+
+<div class="social-share">
+  <a href="#" id="share-facebook"><img src="img/facebook-logo.png" class="social-icon"></a>
+  <a href="#" id="share-twitter"><img src="img/logo-x.png" class="social-icon"></a>
+  <a href="#" id="share-whatsapp"><img src="img/whatsapp-logo.png" class="social-icon"></a>
+  <a href="#" id="share-telegram"><img src="img/telegram-logo.png" class="social-icon"></a>
+  <a href="#" id="copy-link"><img src="img/link-logo.png" class="social-icon"></a>
+</div>
+
+<p><strong>Finanzas | 2 de diciembre de 2025</strong> — Camuzzi confirmó el lanzamiento de “LNG del Plata”, un proyecto que permitirá exportar GNL desde el Puerto de La Plata.</p>
+<p>El plan contempla una capacidad de producción de 2,4 millones de toneladas anuales, con exportaciones proyectadas por US$ 14.500 millones.</p>
+<p>Además, el proyecto prevé la creación de 500 empleos directos y un fuerte impacto en la cadena energética.</p>
+<p>La iniciativa se apoya en el desarrollo de Vaca Muerta y busca posicionar a la Argentina en el mercado global del gas.</p>
+
+</section>
+</main>
+
+<footer>
+    <h1>MM<br>NEWS</h1>
+    <a href="https://x.com/MacroMindNews" target="_blank"><img src="img/x-logo.png"></a>
+    <a href="https://www.tiktok.com/@macromindnews" target="_blank"><img src="img/tik-tok-logo.png"></a>
+    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+    <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
+    <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
+</footer>
+
 </body>
 </html>
