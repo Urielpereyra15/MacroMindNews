@@ -99,7 +99,7 @@
         /* GRID SIN PUBLICIDAD */
         main.grid-principal {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1em;
             padding: 2em;
         }
@@ -123,19 +123,35 @@
             display: block;
         }
 
-        /* FOOTER */
         footer {
             background: #0a0a23;
             color: white;
-            text-align: center;
-            padding: 2em 1em;
+            padding: 2.5em 1em;
             margin-top: 3em;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        footer h1 {
+            margin-bottom: 0.5em;
+        }
+
+        footer a {
+            display: inline-block;
+            margin: 0 0.6em;
         }
 
         footer img {
             width: 28px;
             filter: invert(100%);
-            margin: 0.5em 0;
+            vertical-align: middle;
+        }
+
+        footer p {
+            margin: 0.4em 0;
         }
 
         .pagination {
@@ -331,28 +347,24 @@
     </main>
 
 <div class="pagination">
-    <a href="#" class="page-link">1</a>
-    <a href="#" class="page-link">2</a>
-    <a href="#" class="page-link">3</a>
-    <a href="#" class="page-link active">4</a>
-    <a href="#" class="page-link">5</a>
-
+    <a href="economia.html" class="page-link">1</a>
+    <a href="economia-2.html" class="page-link active">2</a>
+    <a href="economia-3.html" class="page-link">3</a>
+    <a href="economia-4.html" class="page-link">4</a>
+    <a href="economia-5.html" class="page-link">5</a>
 </div>
 
 <footer>
-    <h1>MM <br> NEWS</h1>
-
+    <h1>MM<br>NEWS</h1>
     <a href="https://x.com/MacroMindNews" target="_blank">
-        <img src="img/x-logo.png" style="width:30px; filter:invert(100%)">
+        <img src="/img/x-logo.png">
     </a>
-
     <a href="https://www.tiktok.com/@macromindnews" target="_blank">
-        <img src="img/tik-tok-logo.png" style="width:30px; filter:invert(100%)">
+        <img src="/img/tik-tok-logo.png">
     </a>
-
     <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-    <p><a href="terminos-y-condiciones.html" style="color:white">Términos y Condiciones</a></p>
-    <p><a href="politicas-de-privacidad.html" style="color:white">Políticas de Privacidad</a></p>
+    <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
+    <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
 </footer>
 
 </body>
