@@ -26,26 +26,28 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.querySelector("h2").innerText);
+            const currentUrl = encodeURIComponent(window.location.href);
+            const newsTitle = encodeURIComponent(
+                document.querySelector(".columna-principal-noticia h2").innerText
+            );
+
+            document.getElementById("copy-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                navigator.clipboard.writeText(decodeURIComponent(currentUrl));
+                alert("Enlace copiado al portapapeles");
+            });
 
             document.getElementById("share-facebook").href =
-                `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
 
             document.getElementById("share-twitter").href =
-                `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
 
             document.getElementById("share-whatsapp").href =
-                `https://wa.me/?text=${title}%0A${url}`;
+                `https://wa.me/?text=${newsTitle}%0A${currentUrl}`;
 
             document.getElementById("share-telegram").href =
-                `https://t.me/share/url?url=${url}&text=${title}`;
-
-            document.getElementById("copy-link").onclick = function (e) {
-                e.preventDefault();
-                navigator.clipboard.writeText(decodeURIComponent(url));
-                alert("Enlace copiado");
-            };
+                `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
         });
     </script>
 
@@ -67,9 +69,9 @@
 
         .menu-toggle {
             display: none;
-            padding: 1em;
             cursor: pointer;
             font-size: 1.4em;
+            padding: 1em;
         }
 
         .titulos-centrales h1 {
@@ -84,14 +86,14 @@
 
         #menu-secciones ul {
             list-style: none;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
-            padding: 0;
-            margin: 0;
         }
 
         #menu-secciones li {
-            padding: 0.6em 1.5em;
+            padding: 0.7em 1.5em;
         }
 
         #menu-secciones a {
@@ -104,13 +106,13 @@
         .contenido-noticia-individual {
             max-width: 800px;
             margin: 2em auto;
-            background: white;
             padding: 2em;
+            background: white;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        h2 {
+        .columna-principal-noticia h2 {
             font-family: 'Segoe UI', sans-serif;
             font-size: 2.2em;
             margin-bottom: 1em;
@@ -119,25 +121,28 @@
 
         .imagen-destacada-noticia img {
             width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto 1.5em;
             border-radius: 8px;
-            margin-bottom: 1.5em;
         }
 
-        p {
+        .columna-principal-noticia p {
             font-family: 'Segoe UI', sans-serif;
             font-size: 1.1em;
             line-height: 1.6;
             text-align: justify;
+            margin-bottom: 1em;
         }
 
         /* SHARE */
         .social-share {
             display: flex;
             gap: 1em;
+            margin: 1.5em 0;
             padding: 1em 0;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
-            margin-bottom: 1.5em;
         }
 
         .social-share img {
@@ -175,7 +180,9 @@
                 display: none;
                 position: absolute;
                 top: 60px;
+                left: 0;
                 background: white;
+                color: #0a0a23;
             }
 
             #menu-secciones.visible {
@@ -195,7 +202,7 @@
                 padding: 1.5em;
             }
 
-            h2 {
+            .columna-principal-noticia h2 {
                 font-size: 1.8em;
             }
         }
