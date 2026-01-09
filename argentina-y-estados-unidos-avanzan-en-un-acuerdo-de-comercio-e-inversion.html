@@ -149,37 +149,21 @@ p {
   cursor: pointer;
 }
 
-footer {
-  background: #0a0a23;
-  color: white;
-  padding: 3em 1em;
-  margin-top: 3em;
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin: 1em 0;
 }
 
-footer h1 {
-  margin: 0 0 0.5em 0;
-  text-align: center;
+.footer-social img {
+    width: 28px;
+    height: 28px;
+    filter: invert(100%);
+    display: block;
 }
 
-footer a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0.6em;
-}
-
-footer img {
-  width: 28px;
-  height: 28px;
-  filter: invert(100%);
-  display: block;
-}
-
-footer p {
-  margin: 0.8em 0;
-  text-align: center;
-  color: #ffffff;
-}
 /* MOBILE */
 @media (max-width: 768px) {
   header {
@@ -267,20 +251,20 @@ footer p {
 </main>
 
 <footer>
-  <div class="footer-contenido">
     <h1>MM<br>NEWS</h1>
 
-    <a href="https://x.com/MacroMindNews" target="_blank">
-      <img src="/img/x-logo.png">
-    </a>
-    <a href="https://www.tiktok.com/@macromindnews" target="_blank">
-      <img src="/img/tik-tok-logo.png">
-    </a>
+    <div class="footer-social">
+        <a href="https://x.com/MacroMindNews" target="_blank">
+            <img src="/img/x-logo.png" alt="X">
+        </a>
+        <a href="https://www.tiktok.com/@macromindnews" target="_blank">
+            <img src="/img/tik-tok-logo.png" alt="TikTok">
+        </a>
+    </div>
 
     <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-    <p><a href="terminos-y-condiciones.html">Términos y Condiciones</a></p>
-    <p><a href="politicas-de-privacidad.html">Políticas de Privacidad</a></p>
-  </div>
+    <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
+    <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
 </footer>
 
 </body>
