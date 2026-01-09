@@ -23,10 +23,6 @@
             display: none;
         }
 
-        .publicidad {
-            display: none !important;
-        }
-
         /* Para los títulos de las noticias */
         .noticia h2 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -134,14 +130,14 @@
         /* Contenido principal (Grid) */
         main.grid-principal {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr; 
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
             gap: 1em;
             padding: 2em;
         }
         
         /* ... (El resto del CSS de la grilla sigue igual) ... */
         
-        .noticia {
+        .noticia, .publicidad {
             padding: 1em;
             border-radius: 12px;
             font-size: 1.1em;
@@ -177,7 +173,14 @@
             grid-row: 2;
             grid-column: 3;
         }
-        
+        .publicidad.vertical { 
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            grid-row: 1 / span 2;
+            grid-column: 4; 
+        }
         .noticia.media { 
             background-color: white;
             color: black;
@@ -186,7 +189,6 @@
             font-size: 1.1em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
         .grid-principal > .noticia.media:nth-child(5) { 
             grid-row: 3;
             grid-column: 1;
@@ -197,8 +199,42 @@
         }
         .grid-principal > .noticia.media:nth-child(7) { 
             grid-row: 3;
+            grid-column: 4;
+        }
+        .publicidad.cuadrada {
+            padding: 1em;
+            border-radius: 12px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(8) {
+            grid-row: 4;
+            grid-column: 1;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(9) {
+            grid-row: 4;
+            grid-column: 2;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(10) {
+            grid-row: 4;
             grid-column: 3;
-        
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(11) { 
+            grid-row: 4;
+            grid-column: 4;
+        }
+        .grid-principal > .noticia.grande:nth-child(12) {
+            grid-column: 1 / span 2;
+            grid-row: 5;
+        }
+        .grid-principal > .noticia.grande:nth-child(13) {
+            grid-column: 3 / span 2;
+            grid-row: 5;
+        }
+        .grid-principal > .publicidad.horizontal:nth-child(14) {
+            grid-column: 1 / -1; 
+            grid-row: 6; 
+        }
         .grid-principal > .noticia.media:nth-child(15) {
             grid-row: 7;
             grid-column: 1;
@@ -209,9 +245,24 @@
         }
         .grid-principal > .noticia.media:nth-child(17) {
             grid-row: 7;
+            grid-column: 4;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(18) {
+            grid-row: 8;
+            grid-column: 1;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(19) {
+            grid-row: 8;
+            grid-column: 2;
+        }
+        .grid-principal > .publicidad.cuadrada:nth-child(20) {
+            grid-row: 8;
             grid-column: 3;
         }
-        
+        .grid-principal > .publicidad.cuadrada:nth-child(21) {
+            grid-row: 8;
+            grid-column: 4;
+        }
         .grid-principal > .noticia.grande:nth-child(22) {
             grid-column: 1 / span 2;
             grid-row: 9; 
@@ -219,6 +270,10 @@
         .grid-principal > .noticia.grande:nth-child(23) {
             grid-column: 3 / span 2;
             grid-row: 9; 
+        }
+        .grid-principal > .publicidad.horizontal:nth-child(24) {
+            grid-column: 1 / -1; 
+            grid-row: 10; 
         }
 
         footer {
@@ -231,9 +286,6 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-
-            width: 100%;
-            box-sizing: border-box;
         }
 
         footer h1 {
@@ -247,10 +299,9 @@
 
         footer img {
             width: 28px;
-            height: 28px;          
-            object-fit: contain;
             filter: invert(100%);
-        } 
+            vertical-align: middle;
+        }
 
         footer p {
             margin: 0.4em 0;
@@ -349,7 +400,7 @@
                 margin: 1em; 
             }
 
-            .noticia {
+            .noticia, .publicidad {
                 padding: 1em;
                 border-radius: 12px;
                 font-size: 1.2em;
@@ -414,6 +465,9 @@
             </a>
         </div>
         </div>
+
+        <div class="publicidad vertical">
+            </div>
         
         <div class="noticia media">
             <h2><a href="el-bcra-ajustara-las-bandas-de-flotacion-del-dolar-por-inflacion-desde-enero-de-2026.html">El BCRA ajustará las bandas de flotación del dólar por inflación desde enero de 2026</a></h2>
@@ -425,7 +479,7 @@
         <div class="noticia media">
             <h2><a href="el-ipc-de-noviembre-fue-del-2-5-porciento-y-suma-31-4-porciento-en-la-medicion-anual.html">El IPC de noviembre fue del 2,5% y suma 31,4% en la medición anual</a></h2>
         <div class="imagen-destacada">
-            <a href="el-ipc-de-noviembre-fue-del-2-5-porciento-y-suma-31-4-porciento-en-la-medicion-anual.html">
+            <a href="el-ipc-de-noviembre-fue-del-2-5-porciento-y-suma-31-4-porciento-en-la-medicion-anual.html>
             <img src="img/inflacion.jpg" alt="Inflación de noviembre | MacroMind News">
             </a>
         </div>
@@ -438,6 +492,15 @@
         </div>
             <p>Argentina y EE.UU. avanzan en un acuerdo para impulsar el comercio y las inversiones entre ambos países.</p>
         </div>
+
+            <div class="publicidad cuadrada">
+                </div>
+            <div class="publicidad cuadrada">
+                </div>
+            <div class="publicidad cuadrada">
+                </div>
+            <div class="publicidad cuadrada">
+                </div>
 
         <div class="noticia grande">
             <h2><a href="la-inflacion-de-octubre-se-acelero-al-2-3-segun-el-indec.html">La inflación de octubre se aceleró al 2,3% según el INDEC</a></h2>
@@ -458,7 +521,10 @@
         </div>
             <p>A través de un decreto, se derogó una normativa vigente por más de 30 años que obligaba a las instituciones a informar y consensuar los aumentos de aranceles.</p>
         </div>
- 
+        
+            <div class="publicidad horizontal">
+                </div>
+
         <div class="noticia media oculto">
             <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
@@ -482,6 +548,15 @@
         </div>
             <p>Descripción</p>
         </div>
+
+            <div class="publicidad cuadrada">
+                </div>
+            <div class="publicidad cuadrada">
+                </div>
+            <div class="publicidad cuadrada">
+                </div>
+            <div class="publicidad cuadrada">
+                </div>
 
         <div class="noticia grande oculto">
             <h2><a href="noticia.html">Titulo</a></h2>
@@ -503,13 +578,15 @@
             <p>Descripción</p>
         </div>
 
+            <div class="publicidad horizontal">
+                </div>
 </main>
 
     <div class="pagination">
         <a href="economia.html" class="page-link active">1</a>
     </div>
     
-<footer>
+    <footer>
     <h1>MM<br>NEWS</h1>
     <a href="https://x.com/MacroMindNews" target="_blank">
         <img src="/img/x-logo.png">
