@@ -58,7 +58,6 @@
             font-family: Georgia, serif;
         }
 
-        /* HEADER */
         header {
             background: #0a0a23;
             color: white;
@@ -102,7 +101,6 @@
             font-weight: bold;
         }
 
-        /* CONTENIDO */
         .contenido-noticia-individual {
             max-width: 800px;
             margin: 2em auto;
@@ -121,7 +119,6 @@
 
         .imagen-destacada-noticia img {
             width: 100%;
-            max-width: 800px;
             display: block;
             margin: 0 auto 1.5em;
             border-radius: 8px;
@@ -135,7 +132,6 @@
             margin-bottom: 1em;
         }
 
-        /* SHARE */
         .social-share {
             display: flex;
             gap: 1em;
@@ -150,7 +146,6 @@
             cursor: pointer;
         }
 
-        /* FOOTER */
         footer {
             background: #0a0a23;
             color: white;
@@ -165,7 +160,6 @@
             margin: 0.5em 0;
         }
 
-        /* MOBILE */
         @media (max-width: 768px) {
             header {
                 flex-direction: row;
@@ -228,24 +222,26 @@
 </header>
 
 <main class="contenido-noticia-individual">
-    <h2>Amazon lanzará su servicio de internet satelital en Sudamérica desde 2026</h2>
+    <section class="columna-principal-noticia">
+        <h2>Amazon lanzará su servicio de internet satelital en Sudamérica desde 2026</h2>
 
-    <div class="imagen-destacada-noticia">
-        <img src="img/leo-amazon.jpg" alt="Internet satelital de Amazon">
-    </div>
+        <div class="imagen-destacada-noticia">
+            <img src="img/leo-amazon.jpg" alt="Internet satelital de Amazon">
+        </div>
 
-    <div class="social-share">
-        <a id="share-facebook" target="_blank"><img src="img/facebook-logo.png"></a>
-        <a id="share-twitter" target="_blank"><img src="img/logo-x.png"></a>
-        <a id="share-whatsapp" target="_blank"><img src="img/whatsapp-logo.png"></a>
-        <a id="share-telegram" target="_blank"><img src="img/telegram-logo.png"></a>
-        <a id="copy-link"><img src="img/link-logo.png"></a>
-    </div>
+        <div class="social-share">
+            <a id="share-facebook" target="_blank"><img src="img/facebook-logo.png"></a>
+            <a id="share-twitter" target="_blank"><img src="img/logo-x.png"></a>
+            <a id="share-whatsapp" target="_blank"><img src="img/whatsapp-logo.png"></a>
+            <a id="share-telegram" target="_blank"><img src="img/telegram-logo.png"></a>
+            <a id="copy-link"><img src="img/link-logo.png"></a>
+        </div>
 
-    <p><strong>Internacional | 14 de noviembre del 2025</strong> — Amazon confirmó que iniciará la operación de su servicio de internet satelital de órbita baja (LEO) en Sudamérica a partir de 2026.</p>
-    <p>La comercialización del servicio estará a cargo de SKY en Brasil y DIRECTV en Argentina y otros países de la región.</p>
-    <p>La red de satélites permitirá ofrecer menor latencia y mejor rendimiento, incluso en zonas rurales y remotas.</p>
-    <p>Con este anuncio, Sudamérica se posiciona entre las primeras regiones en recibir la expansión del proyecto Kuiper.</p>
+        <p><strong>Internacional | 14 de noviembre del 2025</strong> — Amazon confirmó que iniciará la operación de su servicio de internet satelital de órbita baja (LEO) en Sudamérica a partir de 2026.</p>
+        <p>La comercialización del servicio estará a cargo de SKY en Brasil y DIRECTV en Argentina y otros países de la región.</p>
+        <p>La red de satélites permitirá ofrecer menor latencia y mejor rendimiento, incluso en zonas rurales y remotas.</p>
+        <p>Con este anuncio, Sudamérica se posiciona entre las primeras regiones en recibir la expansión del proyecto Kuiper.</p>
+    </section>
 </main>
 
 <footer>
