@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Argentina consolida su balance externo con un superávit de US$ 1.892 millones en diciembre</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Argentina consolida su balance externo con un superávit de US$ 1.892 millones en diciembre">
+    <meta property="og:description" content="Argentina cerró diciembre con un saldo comercial positivo de US$ 1.892 millones, impulsado por un crecimiento en el volumen de exportaciones que permitió alcanzar un superávit anual acumulado de US$ 11.286 millones, consolidando así la estabilidad de las cuentas externas de cara al 2026.">
+    <meta property="og:image" content="https://www.macromindnews.com.ar/MacroMindNews/img/comercio-diciembre.jpg">
+    <meta property="og:url" content="https://www.macromindnews.com.ar/MacroMindNews/argentina-consolida-su-balance-externo-con-un-superavit-de-usd-1892-millones-en-diciembre.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MacroMind News">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Argentina consolida su balance externo con un superávit de US$ 1.892 millones en diciembre">
+    <meta name="twitter:description" content="Argentina cerró diciembre con un saldo comercial positivo de US$ 1.892 millones, impulsado por un crecimiento en el volumen de exportaciones que permitió alcanzar un superávit anual acumulado de US$ 11.286 millones, consolidando así la estabilidad de las cuentas externas de cara al 2026.">
+    <meta name="twitter:image" content="https://www.macromindnews.com.ar/MacroMindNews/img/comercio-diciembre.jpg">
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu-secciones").classList.toggle("visible");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentUrl = encodeURIComponent(window.location.href);
+            const newsTitle = encodeURIComponent(
+                document.querySelector(".columna-principal-noticia h2").innerText
+            );
+
+            document.getElementById("copy-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                navigator.clipboard.writeText(decodeURIComponent(currentUrl));
+                alert("Enlace copiado al portapapeles");
+            });
+
+            document.getElementById("share-facebook").href =
+                `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+            document.getElementById("share-twitter").href =
+                `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
+
+            document.getElementById("share-whatsapp").href =
+                `https://wa.me/?text=${newsTitle}%0A${currentUrl}`;
+
+            document.getElementById("share-telegram").href =
+                `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
+        });
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            font-family: Georgia, serif;
+        }
+
+        /* HEADER */
+        header {
+            background: #0a0a23;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.4em;
+            padding: 1em;
+        }
+
+        .titulos-centrales h1 {
+            margin: 1em 0;
+            text-align: center;
+        }
+
+        #menu-secciones {
+            width: 100%;
+            background: #2c3e50;
+        }
+
+        #menu-secciones ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #menu-secciones li {
+            padding: 0.7em 1.5em;
+        }
+
+        #menu-secciones a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* CONTENIDO */
+        .contenido-noticia-individual {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 2em;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .columna-principal-noticia h2 {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 2.2em;
+            margin-bottom: 1em;
+            color: #0a0a23;
+        }
+
+        .imagen-destacada-noticia img {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto 1.5em;
+            border-radius: 8px;
+        }
+
+        .columna-principal-noticia p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 1em;
+        }
+
+        /* SHARE */
+        .social-share {
+            display: flex;
+            gap: 1em;
+            margin: 1.5em 0;
+            padding: 1em 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .social-share img {
+            width: 28px;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+            margin-top: 3em;
+        }
+
+        footer img {
+            width: 28px;
+            filter: invert(100%);
+            margin: 0.5em 0;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            #menu-secciones {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: white;
+                color: #0a0a23;
+            }
+
+            #menu-secciones.visible {
+                display: block;
+            }
+
+            #menu-secciones ul {
+                flex-direction: column;
+            }
+
+            #menu-secciones a {
+                color: #0a0a23;
+            }
+
+            .contenido-noticia-individual {
+                margin: 1em;
+                padding: 1.5em;
+            }
+
+            .columna-principal-noticia h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰ SECCIONES</div>
+    <div class="titulos-centrales">
+        <h1>MM<br>NEWS</h1>
+    </div>
+    <nav id="menu-secciones">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="economia.html">Economía</a></li>
+            <li><a href="politica.html">Política</a></li>
+            <li><a href="finanzas.html">Finanzas</a></li>
+            <li><a href="internacional.html">Internacional</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="contenido-noticia-individual">
+    <section class="columna-principal-noticia">
+        <h2>Argentina consolida su balance externo con un superávit de US$ 1.892 millones en diciembre</h2>
+
+        <div class="imagen-destacada-noticia">
+            <img src="/img/comercio-diciembre.jpg" alt="Comercio de Argentina | MacroMind News">
+        </div>
+
+        <div class="social-share">
+            <a id="share-facebook" target="_blank"><img src="/img/facebook-logo.png"></a>
+            <a id="share-twitter" target="_blank"><img src="/img/logo-x.png"></a>
+            <a id="share-whatsapp" target="_blank"><img src="/img/whatsapp-logo.png"></a>
+            <a id="share-telegram" target="_blank"><img src="/img/telegram-logo.png"></a>
+            <a id="copy-link"><img src="/img/link-logo.png"></a>
+        </div>
+
+        <p><strong>Economía | 20 de enero del 2026</strong> — La economía argentina cerró el último mes del año con un sólido saldo positivo en su balanza comercial, lo que representa un alivio para las reservas internacionales y un indicador de estabilidad en el frente externo. Este superávit de US$ 1.892 millones alcanzado en diciembre refleja una mejora en comparación con el mismo periodo del año anterior, consolidando una tendencia de recuperación en el flujo de divisas por intercambio de bienes.</p>
+        <p>El crecimiento de las exportaciones fue el principal motor de este resultado, alcanzando una facturación total de US$ 7.448 millones. Este incremento del 5,7% interanual se explica fundamentalmente por un aumento en las cantidades enviadas al exterior, las cuales lograron compensar una ligera caída en los precios internacionales de los productos argentinos. Por el lado de las importaciones, estas registraron una suba del 3,5%, totalizando US$ 5.556 millones, cifra que evidencia una reactivación paulatina en la demanda de insumos y bienes de capital por parte del sector productivo local.</p>
+        <p>A nivel geográfico, el informe destaca una dinámica mixta con los principales socios comerciales. Si bien el volumen de intercambio se mantuvo elevado, Argentina registró saldos deficitarios con China, la Unión Europea y Brasil. En particular, la relación con el gigante asiático sigue siendo la de mayor peso en términos de desequilibrio bilateral, mientras que Brasil se posicionó como el segundo socio en relevancia, aunque con un saldo levemente negativo para las arcas nacionales en este cierre de ciclo mensual.</p>
+      <p>Hacia adelante, las proyecciones para el año 2026 se mantienen en terreno positivo, con una previsión de superávit que rondaría los US$ 10.965 millones. El optimismo de los analistas y los mercados se fundamenta en las expectativas de cosechas récord para el sector agroindustrial y el continuo dinamismo de la industria energética. No obstante, se espera que el crecimiento de la actividad económica interna también demande un mayor flujo de importaciones, lo que obligará a mantener un equilibrio eficiente para sostener la solidez de la balanza comercial en los próximos meses.</p>
+    </section>
+</main>
+
+<footer>
+    <h1>MM<br>NEWS</h1>
+    <a href="https://x.com/MacroMindNews" target="_blank">
+        <img src="/img/x-logo.png">
+    </a>
+    <a href="https://www.tiktok.com/@macromindnews" target="_blank">
+        <img src="/img/tik-tok-logo.png">
+    </a>
+    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+    <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
+    <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
+</footer>
+
+</body>
+</html>
