@@ -19,9 +19,7 @@
             font-family: Georgia, serif;
         }
 
-        .oculto {
-            display: none;
-        }
+        .oculto { display: none; }
 
         .noticia h2 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -29,10 +27,7 @@
             margin-bottom: 0.5em;
         }
 
-        .noticia h2 a {
-            text-decoration: none;
-            color: inherit;
-        }
+        .noticia h2 a { text-decoration: none; color: inherit; }
 
         .noticia p {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -69,9 +64,7 @@
             display: none;
         }
 
-        h1 {
-            margin: 0;
-        }
+        h1 { margin: 0; }
 
         #menu-secciones {
             background-color: #2c3e50;
@@ -86,9 +79,7 @@
             justify-content: center;
         }
 
-        #menu-secciones li {
-            padding: 0.5em 1.5em;
-        }
+        #menu-secciones li { padding: 0.5em 1.5em; }
 
         #menu-secciones a {
             color: white;
@@ -96,12 +87,14 @@
             font-weight: bold;
         }
 
-        /* GRID SIN PUBLICIDAD */
+        /* --- GRID DE 3 COLUMNAS CENTRADO --- */
         main.grid-principal {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1em;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 1.5em;
             padding: 2em;
+            max-width: 1250px;
+            margin: 0 auto;
         }
 
         .noticia {
@@ -121,38 +114,26 @@
             border-radius: 8px;
             margin: 15px auto;
             display: block;
+            transition: opacity 0.2s;
         }
+
+        .imagen-destacada img:hover { opacity: 0.8; }
 
         footer {
             background: #0a0a23;
             color: white;
             padding: 2.5em 1em;
             margin-top: 3em;
-
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
 
-        footer h1 {
-            margin-bottom: 0.5em;
-        }
-
-        footer a {
-            display: inline-block;
-            margin: 0 0.6em;
-        }
-
-        footer img {
-            width: 28px;
-            filter: invert(100%);
-            vertical-align: middle;
-        }
-
-        footer p {
-            margin: 0.4em 0;
-        }
+        footer h1 { margin-bottom: 0.5em; }
+        footer a { display: inline-block; margin: 0 0.6em; }
+        footer img { width: 28px; filter: invert(100%); vertical-align: middle; }
+        footer p { margin: 0.4em 0; }
 
         .pagination {
             display: flex;
@@ -176,34 +157,13 @@
         }
 
         @media (max-width: 768px) {
-            header {
-                flex-direction: row;
-                justify-content: space-between;
-                padding: 1em;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            #menu-secciones {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                background: white;
-                color: #0a0a23;
-            }
-
-            #menu-secciones.visible {
-                display: block;
-            }
-
-            main.grid-principal {
-                display: flex;
-                flex-direction: column;
-                padding: 1em;
-            }
+            header { flex-direction: row; justify-content: space-between; padding: 1em; }
+            .menu-toggle { display: block; }
+            #menu-secciones { display: none; position: absolute; top: 100%; left: 0; background: white; color: #0a0a23; z-index: 1000; }
+            #menu-secciones.visible { display: block; }
+            #menu-secciones ul { flex-direction: column; }
+            #menu-secciones a { color: #0a0a23; }
+            main.grid-principal { display: flex; flex-direction: column; padding: 1em; }
         }
     </style>
 </head>
@@ -229,122 +189,92 @@
 </header>
 
 <main class="grid-principal">
-        <div class="noticia grande">
-            <h2><a href="noticia.html">Titulo</a></h2>
+    <div class="noticia grande">
+        <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="noticia.html">
-            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
-            </a>
+            <a href="noticia.html"><img src="img/IMAGEN.png" alt="Descripción | MacroMind News"></a>
         </div>
-            <p>Descripción</p>
-        </div>
+        <p>Descripción</p>
+    </div>
 
-        <div class="noticia chica oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
+    <div class="noticia chica oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="noticia.html">
-            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
-            </a> 
+            <a href="noticia.html"><img src="img/IMAGEN.png"></a> 
         </div>
-        </div>
+    </div>
 
-        <div class="noticia chica oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
+    <div class="noticia chica oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="noticia.html">
-            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
-            </a> 
+            <a href="noticia.html"><img src="img/IMAGEN.png"></a> 
         </div>
-        </div>
+    </div>
 
-        <div class="noticia media oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
-        <div class="imagen-destacada">
-        </div>
-            <p>Descripción</p>
-        </div>
+    <div class="noticia media oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada"></div>
+        <p>Descripción</p>
+    </div>
 
-        <div class="noticia media oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
+    <div class="noticia media oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="noticia.html">
-            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
-            </a>
+            <a href="noticia.html"><img src="img/IMAGEN.png"></a>
         </div>
-            <p>Descripción</p>
-        </div>
+        <p>Descripción</p>
+    </div>
 
-        <div class="noticia media oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
-        <div class="imagen-destacada">
-        </div>
-            <p>Descripción</p>
-        </div>
-    
-        <div class="noticia grande oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
-        <div class="imagen-destacada">
-            <a href="noticia.html">
-            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
-            </a>
-        </div>
-            <p>Descripción</p>
-        </div>
+    <div class="noticia media oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada"></div>
+        <p>Descripción</p>
+    </div>
 
-        <div class="noticia grande oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
+    <div class="noticia grande oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="noticia.html">
-            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
-            </a>
+            <a href="noticia.html"><img src="img/IMAGEN.png"></a>
         </div>
-            <p>Descripción</p>
-        </div>
+        <p>Descripción</p>
+    </div>
 
-        <div class="noticia media oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
+    <div class="noticia grande oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
+            <a href="noticia.html"><img src="img/IMAGEN.png"></a>
         </div>
-            <p>Descripción</p>
-        </div>
+        <p>Descripción</p>
+    </div>
 
-        <div class="noticia media oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
-        <div class="imagen-destacada">
-            <a href="noticia.html">
-            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
-            </a>
-        </div>
-            <p>Descripción</p>
-        </div>
+    <div class="noticia media oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada"></div>
+        <p>Descripción</p>
+    </div>
 
-        <div class="noticia media oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
+    <div class="noticia media oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
+            <a href="noticia.html"><img src="img/IMAGEN.png"></a>
         </div>
-            <p>Descripción</p>
-        </div>
+        <p>Descripción</p>
+    </div>
 
-        <div class="noticia grande oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
-        <div class="imagen-destacada">
-            <a href="noticia.html">
-            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
-            </a>
-        </div>
-            <p>Descripción</p>
-        </div>
+    <div class="noticia media oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
+        <div class="imagen-destacada"></div>
+        <p>Descripción</p>
+    </div>
 
-        <div class="noticia grande oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
+    <div class="noticia grande oculto">
+        <h2><a href="noticia.html">Titulo</a></h2>
         <div class="imagen-destacada">
-            <a href="noticia.html">
-            <img src="img/IMAGEN.png" alt="Descripción | MacroMind News">
-            </a>
+            <a href="noticia.html"><img src="img/IMAGEN.png"></a>
         </div>
-            <p>Descripción</p>
-        </div>
-    </main>
+        <p>Descripción</p>
+    </div>
+</main>
 
 <div class="pagination">
     <a href="economia.html" class="page-link">1</a>
@@ -356,12 +286,8 @@
 
 <footer>
     <h1>MM<br>NEWS</h1>
-    <a href="https://x.com/MacroMindNews" target="_blank">
-        <img src="/img/x-logo.png">
-    </a>
-    <a href="https://www.tiktok.com/@macromindnews" target="_blank">
-        <img src="/img/tik-tok-logo.png">
-    </a>
+    <a href="https://x.com/MacroMindNews" target="_blank"><img src="/img/x-logo.png"></a>
+    <a href="https://www.tiktok.com/@macromindnews" target="_blank"><img src="/img/tik-tok-logo.png"></a>
     <p>© 2025 MacroMind News | Todos los derechos reservados</p>
     <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
     <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
