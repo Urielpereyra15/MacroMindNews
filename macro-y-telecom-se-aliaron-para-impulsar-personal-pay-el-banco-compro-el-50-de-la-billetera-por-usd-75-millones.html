@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Macro y Telecom se aliaron para impulsar Personal Pay: el banco compró el 50% de la billetera por USD 75 millones</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Macro y Telecom se aliaron para impulsar Personal Pay: el banco compró el 50% de la billetera por USD 75 millones">
+    <meta property="og:description" content="Banco Macro adquirió la mitad de Personal Pay en una operación estratégica junto a Telecom Argentina, con el objetivo de fortalecer la billetera digital y ampliar su oferta de servicios financieros en el país.">
+    <meta property="og:image" content="https://www.macromindnews.com.ar/MacroMindNews/img/banco-macro.jpg">
+    <meta property="og:url" content="https://www.macromindnews.com.ar/MacroMindNews/macro-y-telecom-se-aliaron-para-impulsar-personal-pay-el-banco-compro-el-50-de-la-billetera-por-usd-75-millones.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MacroMind News">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Macro y Telecom se aliaron para impulsar Personal Pay: el banco compró el 50% de la billetera por USD 75 millones">
+    <meta name="twitter:description" content="Banco Macro adquirió la mitad de Personal Pay en una operación estratégica junto a Telecom Argentina, con el objetivo de fortalecer la billetera digital y ampliar su oferta de servicios financieros en el país.">
+    <meta name="twitter:image" content="https://www.macromindnews.com.ar/MacroMindNews/img/banco-macro.jpg">
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu-secciones").classList.toggle("visible");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentUrl = encodeURIComponent(window.location.href);
+            const newsTitle = encodeURIComponent(
+                document.querySelector(".columna-principal-noticia h2").innerText
+            );
+
+            document.getElementById("copy-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                navigator.clipboard.writeText(decodeURIComponent(currentUrl));
+                alert("Enlace copiado al portapapeles");
+            });
+
+            document.getElementById("share-facebook").href =
+                `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+            document.getElementById("share-twitter").href =
+                `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
+
+            document.getElementById("share-whatsapp").href =
+                `https://wa.me/?text=${newsTitle}%0A${currentUrl}`;
+
+            document.getElementById("share-telegram").href =
+                `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
+        });
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            font-family: Georgia, serif;
+        }
+
+        /* HEADER */
+        header {
+            background: #0a0a23;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.4em;
+            padding: 1em;
+        }
+
+        .titulos-centrales h1 {
+            margin: 1em 0;
+            text-align: center;
+        }
+
+        #menu-secciones {
+            width: 100%;
+            background: #2c3e50;
+        }
+
+        #menu-secciones ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #menu-secciones li {
+            padding: 0.7em 1.5em;
+        }
+
+        #menu-secciones a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* CONTENIDO */
+        .contenido-noticia-individual {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 2em;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .columna-principal-noticia h2 {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 2.2em;
+            margin-bottom: 1em;
+            color: #0a0a23;
+        }
+
+        .imagen-destacada-noticia img {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto 1.5em;
+            border-radius: 8px;
+        }
+
+        .columna-principal-noticia p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 1em;
+        }
+
+        /* SHARE */
+        .social-share {
+            display: flex;
+            gap: 1em;
+            margin: 1.5em 0;
+            padding: 1em 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .social-share img {
+            width: 28px;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+            margin-top: 3em;
+        }
+
+        footer img {
+            width: 28px;
+            filter: invert(100%);
+            margin: 0.5em 0;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            #menu-secciones {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: white;
+                color: #0a0a23;
+            }
+
+            #menu-secciones.visible {
+                display: block;
+            }
+
+            #menu-secciones ul {
+                flex-direction: column;
+            }
+
+            #menu-secciones a {
+                color: #0a0a23;
+            }
+
+            .contenido-noticia-individual {
+                margin: 1em;
+                padding: 1.5em;
+            }
+
+            .columna-principal-noticia h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰ SECCIONES</div>
+    <div class="titulos-centrales">
+        <h1>MM<br>NEWS</h1>
+    </div>
+    <nav id="menu-secciones">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="economia.html">Economía</a></li>
+            <li><a href="politica.html">Política</a></li>
+            <li><a href="finanzas.html">Finanzas</a></li>
+            <li><a href="internacional.html">Internacional</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="contenido-noticia-individual">
+    <section class="columna-principal-noticia">
+        <h2>Macro y Telecom se aliaron para impulsar Personal Pay: el banco compró el 50% de la billetera por USD 75 millones</h2>
+
+        <div class="imagen-destacada-noticia">
+            <img src="/img/banco-macro.jpg" alt="Presidente del Banco Macro con el CEO de Telecom | MacroMind News">
+        </div>
+
+        <div class="social-share">
+            <a id="share-facebook" target="_blank"><img src="/img/facebook-logo.png"></a>
+            <a id="share-twitter" target="_blank"><img src="/img/logo-x.png"></a>
+            <a id="share-whatsapp" target="_blank"><img src="/img/whatsapp-logo.png"></a>
+            <a id="share-telegram" target="_blank"><img src="/img/telegram-logo.png"></a>
+            <a id="copy-link"><img src="/img/link-logo.png"></a>
+        </div>
+
+        <p><strong>Finanzas | 22 de enero del 2026</strong> — Banco Macro y Telecom Argentina sellaron un acuerdo clave en el sector financiero y tecnológico mediante el cual la entidad bancaria compró el 50% de la billetera digital Personal Pay por un monto de USD 75 millones. La operación marca un paso relevante en la convergencia entre la banca tradicional y el ecosistema fintech, en un contexto de fuerte crecimiento de los medios de pago digitales en Argentina.</p>
+        <p>Con esta alianza, ambas compañías pasan a compartir en partes iguales la propiedad de Personal Pay, una plataforma que en los últimos años logró consolidarse como una de las principales billeteras del mercado. El objetivo central del acuerdo es potenciar el desarrollo de la aplicación, incorporando nuevos productos financieros y ampliando su alcance entre los usuarios.</p>
+        <p>Desde el punto de vista estratégico, la participación de Banco Macro le permitirá a Personal Pay sumar respaldo financiero y experiencia bancaria, facilitando la incorporación de servicios como créditos, instrumentos de ahorro y otras soluciones vinculadas al sistema financiero formal. A su vez, Macro refuerza su posicionamiento digital y su llegada a un público más joven y habituado al uso de billeteras electrónicas.</p>
+      <p>La operación también refleja una tendencia creciente en el mercado local, donde bancos y empresas de telecomunicaciones buscan asociarse para competir con mayor solidez frente a las grandes plataformas de pagos digitales. Con esta movida, Personal Pay apunta a consolidarse como un actor relevante en el sistema financiero digital argentino y a profundizar su expansión en los próximos años.</p>
+    </section>
+</main>
+
+<footer>
+    <h1>MM<br>NEWS</h1>
+    <a href="https://x.com/MacroMindNews" target="_blank">
+        <img src="/img/x-logo.png">
+    </a>
+    <a href="https://www.tiktok.com/@macromindnews" target="_blank">
+        <img src="/img/tik-tok-logo.png">
+    </a>
+    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+    <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
+    <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
+</footer>
+
+</body>
+</html>
