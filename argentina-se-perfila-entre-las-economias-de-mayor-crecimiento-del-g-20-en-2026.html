@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Argentina se perfila entre las economías de mayor crecimiento del G20 en 2026</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Argentina se perfila entre las economías de mayor crecimiento del G20 en 2026">
+    <meta property="og:description" content="El país se ubicaría como la cuarta economía con mayor expansión dentro del G20, según proyecciones internacionales, en un contexto de recuperación y reordenamiento macroeconómico.">
+    <meta property="og:image" content="https://www.macromindnews.com.ar/MacroMindNews/img/fmi.jpg">
+    <meta property="og:url" content="https://www.macromindnews.com.ar/MacroMindNews/argentina-se-perfila-entre-las-economias-de-mayor-crecimiento-del-g-20-en-2026.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MacroMind News">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Argentina se perfila entre las economías de mayor crecimiento del G20 en 2026">
+    <meta name="twitter:description" content="El país se ubicaría como la cuarta economía con mayor expansión dentro del G20, según proyecciones internacionales, en un contexto de recuperación y reordenamiento macroeconómico.">
+    <meta name="twitter:image" content="https://www.macromindnews.com.ar/MacroMindNews/img/fmi.jpg">
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu-secciones").classList.toggle("visible");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentUrl = encodeURIComponent(window.location.href);
+            const newsTitle = encodeURIComponent(
+                document.querySelector(".columna-principal-noticia h2").innerText
+            );
+
+            document.getElementById("copy-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                navigator.clipboard.writeText(decodeURIComponent(currentUrl));
+                alert("Enlace copiado al portapapeles");
+            });
+
+            document.getElementById("share-facebook").href =
+                `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+            document.getElementById("share-twitter").href =
+                `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
+
+            document.getElementById("share-whatsapp").href =
+                `https://wa.me/?text=${newsTitle}%0A${currentUrl}`;
+
+            document.getElementById("share-telegram").href =
+                `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
+        });
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            font-family: Georgia, serif;
+        }
+
+        /* HEADER */
+        header {
+            background: #0a0a23;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.4em;
+            padding: 1em;
+        }
+
+        .titulos-centrales h1 {
+            margin: 1em 0;
+            text-align: center;
+        }
+
+        #menu-secciones {
+            width: 100%;
+            background: #2c3e50;
+        }
+
+        #menu-secciones ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #menu-secciones li {
+            padding: 0.7em 1.5em;
+        }
+
+        #menu-secciones a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* CONTENIDO */
+        .contenido-noticia-individual {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 2em;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .columna-principal-noticia h2 {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 2.2em;
+            margin-bottom: 1em;
+            color: #0a0a23;
+        }
+
+        .imagen-destacada-noticia img {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto 1.5em;
+            border-radius: 8px;
+        }
+
+        .columna-principal-noticia p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 1em;
+        }
+
+        /* SHARE */
+        .social-share {
+            display: flex;
+            gap: 1em;
+            margin: 1.5em 0;
+            padding: 1em 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .social-share img {
+            width: 28px;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+            margin-top: 3em;
+        }
+
+        footer img {
+            width: 28px;
+            filter: invert(100%);
+            margin: 0.5em 0;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            #menu-secciones {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: white;
+                color: #0a0a23;
+            }
+
+            #menu-secciones.visible {
+                display: block;
+            }
+
+            #menu-secciones ul {
+                flex-direction: column;
+            }
+
+            #menu-secciones a {
+                color: #0a0a23;
+            }
+
+            .contenido-noticia-individual {
+                margin: 1em;
+                padding: 1.5em;
+            }
+
+            .columna-principal-noticia h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰ SECCIONES</div>
+    <div class="titulos-centrales">
+        <h1>MM<br>NEWS</h1>
+    </div>
+    <nav id="menu-secciones">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="economia.html">Economía</a></li>
+            <li><a href="politica.html">Política</a></li>
+            <li><a href="finanzas.html">Finanzas</a></li>
+            <li><a href="internacional.html">Internacional</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="contenido-noticia-individual">
+    <section class="columna-principal-noticia">
+        <h2>Argentina se perfila entre las economías de mayor crecimiento del G20 en 2026</h2>
+
+        <div class="imagen-destacada-noticia">
+            <img src="/img/fmi.jpg" alt="Fondo Monetario Internacional | MacroMind News">
+        </div>
+
+        <div class="social-share">
+            <a id="share-facebook" target="_blank"><img src="/img/facebook-logo.png"></a>
+            <a id="share-twitter" target="_blank"><img src="/img/logo-x.png"></a>
+            <a id="share-whatsapp" target="_blank"><img src="/img/whatsapp-logo.png"></a>
+            <a id="share-telegram" target="_blank"><img src="/img/telegram-logo.png"></a>
+            <a id="copy-link"><img src="/img/link-logo.png"></a>
+        </div>
+
+        <p><strong>Finanzas | 26 de enero del 2026</strong> — Argentina se encamina a convertirse en una de las economías de mayor crecimiento dentro del G20 durante 2026, al ubicarse en el cuarto lugar del ranking de expansión del producto bruto interno. Las proyecciones indican que el país crecería por encima del promedio del grupo, integrado por las principales economías del mundo.</p>
+        <p>El desempeño previsto se explica en parte por un efecto de recuperación tras años de bajo crecimiento, junto con cambios en el esquema económico que apuntan a estabilizar variables clave como la inflación, el tipo de cambio y las cuentas públicas. Este escenario permitiría una mejora gradual en la actividad productiva y en el nivel de inversión.</p>
+        <p>Dentro del G20, solo algunas economías emergentes presentarían tasas de crecimiento superiores, mientras que los países desarrollados mostrarían expansiones más moderadas. En ese contexto, Argentina se posicionaría por encima de varias economías regionales y de potencias tradicionales en términos de crecimiento porcentual.</p>
+      <p>Si bien las proyecciones no implican que el país se convierta en una de las mayores economías por tamaño, sí reflejan una expectativa de dinamismo relativo para 2026. El desafío estará en sostener ese crecimiento en el tiempo y traducirlo en mejoras concretas en el empleo, los ingresos y la estabilidad económica.</p>
+    </section>
+</main>
+
+<footer>
+    <h1>MM<br>NEWS</h1>
+    <a href="https://x.com/MacroMindNews" target="_blank">
+        <img src="/img/x-logo.png">
+    </a>
+    <a href="https://www.tiktok.com/@macromindnews" target="_blank">
+        <img src="/img/tik-tok-logo.png">
+    </a>
+    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+    <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
+    <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
+</footer>
+
+</body>
+</html>
