@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>El Gobierno evalúa declarar por DNU la emergencia ígnea en las provincias afectadas por los incendios</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="El Gobierno evalúa declarar por DNU la emergencia ígnea en las provincias afectadas por los incendios">
+    <meta property="og:description" content="El Ejecutivo analiza avanzar con un decreto para agilizar el envío de recursos y reforzar la asistencia ante el avance de los incendios forestales en distintas regiones del país.">
+    <meta property="og:image" content="https://www.macromindnews.com.ar/MacroMindNews/img/afe-patagonia.jpg">
+    <meta property="og:url" content="https://www.macromindnews.com.ar/MacroMindNews/el-gobierno-evalua-declarar-por-dnu-la-emergencia-ignea-en-las-provincias-afectadas-por-los-incendios.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MacroMind News">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="El Gobierno evalúa declarar por DNU la emergencia ígnea en las provincias afectadas por los incendios">
+    <meta name="twitter:description" content="El Ejecutivo analiza avanzar con un decreto para agilizar el envío de recursos y reforzar la asistencia ante el avance de los incendios forestales en distintas regiones del país.">
+    <meta name="twitter:image" content="https://www.macromindnews.com.ar/MacroMindNews/img/afe-patagonia.jpg">
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu-secciones").classList.toggle("visible");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentUrl = encodeURIComponent(window.location.href);
+            const newsTitle = encodeURIComponent(
+                document.querySelector(".columna-principal-noticia h2").innerText
+            );
+
+            document.getElementById("copy-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                navigator.clipboard.writeText(decodeURIComponent(currentUrl));
+                alert("Enlace copiado al portapapeles");
+            });
+
+            document.getElementById("share-facebook").href =
+                `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+            document.getElementById("share-twitter").href =
+                `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
+
+            document.getElementById("share-whatsapp").href =
+                `https://wa.me/?text=${newsTitle}%0A${currentUrl}`;
+
+            document.getElementById("share-telegram").href =
+                `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
+        });
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            font-family: Georgia, serif;
+        }
+
+        /* HEADER */
+        header {
+            background: #0a0a23;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.4em;
+            padding: 1em;
+        }
+
+        .titulos-centrales h1 {
+            margin: 1em 0;
+            text-align: center;
+        }
+
+        #menu-secciones {
+            width: 100%;
+            background: #2c3e50;
+        }
+
+        #menu-secciones ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #menu-secciones li {
+            padding: 0.7em 1.5em;
+        }
+
+        #menu-secciones a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* CONTENIDO */
+        .contenido-noticia-individual {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 2em;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .columna-principal-noticia h2 {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 2.2em;
+            margin-bottom: 1em;
+            color: #0a0a23;
+        }
+
+        .imagen-destacada-noticia img {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto 1.5em;
+            border-radius: 8px;
+        }
+
+        .columna-principal-noticia p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 1em;
+        }
+
+        /* SHARE */
+        .social-share {
+            display: flex;
+            gap: 1em;
+            margin: 1.5em 0;
+            padding: 1em 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .social-share img {
+            width: 28px;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0a0a23;
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+            margin-top: 3em;
+        }
+
+        footer img {
+            width: 28px;
+            filter: invert(100%);
+            margin: 0.5em 0;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            #menu-secciones {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: white;
+                color: #0a0a23;
+            }
+
+            #menu-secciones.visible {
+                display: block;
+            }
+
+            #menu-secciones ul {
+                flex-direction: column;
+            }
+
+            #menu-secciones a {
+                color: #0a0a23;
+            }
+
+            .contenido-noticia-individual {
+                margin: 1em;
+                padding: 1.5em;
+            }
+
+            .columna-principal-noticia h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰ SECCIONES</div>
+    <div class="titulos-centrales">
+        <h1>MM<br>NEWS</h1>
+    </div>
+    <nav id="menu-secciones">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="economia.html">Economía</a></li>
+            <li><a href="politica.html">Política</a></li>
+            <li><a href="finanzas.html">Finanzas</a></li>
+            <li><a href="internacional.html">Internacional</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="contenido-noticia-individual">
+    <section class="columna-principal-noticia">
+        <h2>El Gobierno evalúa declarar por DNU la emergencia ígnea en las provincias afectadas por los incendios</h2>
+
+        <div class="imagen-destacada-noticia">
+            <img src="/img/afe-patagonia.jpg" alt="Bombero de la Agencia Federal de Emergecia | MacroMind News">
+        </div>
+
+        <div class="social-share">
+            <a id="share-facebook" target="_blank"><img src="/img/facebook-logo.png"></a>
+            <a id="share-twitter" target="_blank"><img src="/img/logo-x.png"></a>
+            <a id="share-whatsapp" target="_blank"><img src="/img/whatsapp-logo.png"></a>
+            <a id="share-telegram" target="_blank"><img src="/img/telegram-logo.png"></a>
+            <a id="copy-link"><img src="/img/link-logo.png"></a>
+        </div>
+
+        <p><strong>Política | 29 de enero del 2026</strong> — El Gobierno nacional evalúa declarar por Decreto de Necesidad y Urgencia la emergencia ígnea en las provincias más afectadas por los incendios forestales, con el objetivo de acelerar la respuesta del Estado y habilitar mecanismos extraordinarios de asistencia. La medida permitiría reforzar el despliegue de recursos humanos, técnicos y financieros en un contexto marcado por múltiples focos activos y condiciones climáticas adversas.</p>
+        <p>La decisión se encuentra en análisis dentro del Ejecutivo, donde se considera que la vía del DNU permitiría actuar con mayor rapidez frente a la magnitud de la situación. En las últimas semanas, varias provincias solicitaron apoyo adicional ante la expansión del fuego, que provocó daños ambientales, evacuaciones preventivas y afectación a actividades productivas y turísticas.</p>
+        <p>De concretarse, la declaración de emergencia facilitaría la reasignación de partidas presupuestarias, la coordinación entre organismos nacionales y provinciales, y el fortalecimiento de los sistemas de prevención y combate de incendios. También habilitaría asistencia directa a las jurisdicciones comprometidas, en un escenario que requiere respuestas inmediatas.</p>
+      <p>Mientras se define el instrumento legal, el Gobierno ya avanza con medidas de apoyo y seguimiento de la situación en las zonas afectadas. La emergencia ígnea se perfila como uno de los principales desafíos de la agenda actual, tanto por su impacto ambiental como por sus consecuencias sociales y económicas.</p>
+    </section>
+</main>
+
+<footer>
+    <h1>MM<br>NEWS</h1>
+    <a href="https://x.com/MacroMindNews" target="_blank">
+        <img src="/img/x-logo.png">
+    </a>
+    <a href="https://www.tiktok.com/@macromindnews" target="_blank">
+        <img src="/img/tik-tok-logo.png">
+    </a>
+    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
+    <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
+    <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
+</footer>
+
+</body>
+</html>
