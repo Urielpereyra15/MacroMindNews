@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contacto | MacroMind News</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d41111",
+                        "background-light": "#fcf8f8",
+                        "background-dark": "#1a0c0c",
+                    },
+                    fontFamily: { "display": ["Work Sans"] },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#1b0d0d] dark:text-[#fcf8f8]">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        
+        <header class="flex items-center justify-between border-b border-[#f3e7e7] dark:border-[#3d2424] px-10 py-3 bg-white dark:bg-[#1a0c0c]">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-4 text-primary">
+                    <span class="material-symbols-outlined text-3xl">language</span>
+                    <h2 class="text-xl font-bold">MacroMind News</h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Inicio</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="economia.html">Economía</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="politica.html">Política</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="finanzas.html">Finanzas</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="interncional.html">Internacional</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="max-w-[1280px] mx-auto w-full px-4 md:px-10 py-16">
+            <div class="max-w-[700px] mx-auto text-center">
+                <span class="text-primary text-sm font-bold uppercase tracking-widest mb-4 block">Canales de comunicación</span>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Queremos escucharte</h1>
+                <p class="text-lg text-[#4b5563] dark:text-[#9ca3af] leading-relaxed mb-12">
+                    La construcción de <strong>MacroMind News</strong> no estaría completa sin tu participación. 
+                    ¿Tenés algún comentario sobre nuestras notas, una sugerencia o una propuesta de colaboración? 
+                    Escribinos y sé parte de nuestra comunidad.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-8 bg-white dark:bg-[#1a0c0c] border border-[#f3e7e7] dark:border-[#3d2424] rounded-lg">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4">mail</span>
+                        <h3 class="font-bold text-lg mb-2">Correo Electrónico</h3>
+                        <a href="mailto:correo@macromindnews.com.ar" class="text-primary font-medium hover:underline">
+                            newsmacromind@gmail.com
+                        </a>
+                    </div>
+
+                <p class="mt-12 text-[#9a4c4c] italic">
+                    "Nuestro equipo está siempre atento a nuevas perspectivas y al intercambio de ideas."
+                </p>
+            </div>
+        </main>
+
+        <footer class="bg-white dark:bg-[#1a0c0c] border-t border-[#e7cfcf] dark:border-[#3d2424] mt-auto py-10 text-center">
+            <p class="text-[#9a4c4c] text-[10px]">© 2025 MacroMind News. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
