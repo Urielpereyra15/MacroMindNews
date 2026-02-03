@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Sobre Nosotros | MacroMind News</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d41111",
+                        "background-light": "#fcf8f8",
+                        "background-dark": "#1a0c0c",
+                    },
+                    fontFamily: { "display": ["Work Sans"] },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#1b0d0d] dark:text-[#fcf8f8]">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        
+        <header class="flex items-center justify-between border-b border-[#f3e7e7] dark:border-[#3d2424] px-10 py-3 bg-white dark:bg-[#1a0c0c]">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-4 text-primary">
+                    <h2 class="text-xl font-bold">MacroMind News</h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Inicio</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="economia.html">Economía</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="politica.html">Política</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="finanzas.html">Finanzas</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="internacional.html">Internacional</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="max-w-[1280px] mx-auto w-full px-4 md:px-10 py-16">
+            <div class="max-w-[850px] mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-primary text-sm font-bold uppercase tracking-widest mb-4 block">Nuestra Identidad</span>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Información con mentalidad global</h1>
+                    <div class="w-20 h-1 bg-primary mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-20">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">¿Quiénes somos?</h3>
+                        <p class="text-lg text-[#4b5563] dark:text-[#9ca3af] leading-relaxed mb-6">
+                            En <strong>MacroMind News</strong>, somos un equipo apasionado por el análisis de datos y la actualidad económica. Nacimos con la premisa de que la información no solo debe ser rápida, sino profundamente analítica.
+                        </p>
+                        <p class="text-lg text-[#4b5563] dark:text-[#9ca3af] leading-relaxed">
+                            Buscamos conectar los puntos entre las decisiones políticas locales y los movimientos de los mercados internacionales para ofrecerte una visión clara del panorama global.
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-[#1a0c0c] p-8 border-l-4 border-primary shadow-sm">
+                        <h3 class="text-2xl font-bold mb-4 italic">"El conocimiento es la mejor inversión."</h3>
+                        <p class="text-[#9a4c4c] text-sm">Nuestra misión es empoderar a nuestros lectores con herramientas críticas para entender los desafíos de la nueva era de los mercados emergentes.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 border border-[#f3e7e7] dark:border-[#3d2424] rounded-lg">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-3">verified</span>
+                        <h4 class="font-bold mb-2">Transparencia</h4>
+                        <p class="text-sm text-[#9a4c4c]">Análisis basados en fuentes verificables y datos concretos.</p>
+                    </div>
+                    <div class="text-center p-6 border border-[#f3e7e7] dark:border-[#3d2424] rounded-lg">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-3">trending_up</span>
+                        <h4 class="font-bold mb-2">Visión Estratégica</h4>
+                        <p class="text-sm text-[#9a4c4c]">No solo contamos lo que pasa, sino por qué sucede y qué significa.</p>
+                    </div>
+                    <div class="text-center p-6 border border-[#f3e7e7] dark:border-[#3d2424] rounded-lg">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-3">public</span>
+                        <h4 class="font-bold mb-2">Impacto Global</h4>
+                        <p class="text-sm text-[#9a4c4c]">Desde mercados locales hasta tendencias internacionales.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-white dark:bg-[#1a0c0c] border-t border-[#e7cfcf] dark:border-[#3d2424] mt-auto py-10 text-center">
+            <p class="text-[#9a4c4c] text-[10px]">© 2025 MacroMind News. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
