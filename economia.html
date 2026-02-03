@@ -1,271 +1,379 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Economía | MacroMind News</title>
-    <script defer>
-        function toggleMenu() {
-            const menu = document.getElementById("menu-secciones");
-            menu.classList.toggle("visible");
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Economía | MacroMind News</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d41111",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
         }
     </script>
-
-    <style>
-        /* Estilos generales */
+<style>
         body {
-            margin: 0;
-            background: #f4f4f4;
-            font-family: Georgia, serif;
-        }
-
-        .oculto { display: none; }
-
-        .noticia h2 {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: left; 
-            margin-bottom: 0.5em;
-        }
-        .noticia h2 a { text-decoration: none; color: inherit; }
-
-        .noticia p {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: left;
-            margin-top: 1em;
-        } 
-
-        header {
-            background-color: #0a0a23;
-            color: white;
-            display: flex;
-            flex-direction: column; 
-            align-items: center; 
-            position: relative;
-        }
-
-        .titulos-centrales {
-            display: flex; 
-            flex-direction: row; 
-            align-items: center;
-            gap: 20px; 
-            padding: 1em; 
-        }
-
-        .titulos-centrales h3 {
-             font-family: Georgia, serif; 
-             font-weight: normal; 
-             font-size: 1.2rem;
-             margin: 0; 
-             text-transform: uppercase;
-        }
-        
-        .menu-toggle {
-            font-size: 1.5em;
-            cursor: pointer;
-            display: none; 
-            align-items: center;
-        }
-
-        h1 { text-align: center; margin: 0; }
-
-        #menu-secciones {
-            background-color: #2c3e50;
-            width: 100%; 
-            color: white; 
-        }
-
-        #menu-secciones ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        #menu-secciones li { padding: 0.5em 1.5em; }
-
-        #menu-secciones a {
-            text-decoration: none;
-            color: inherit;
-            font-family: Georgia, serif;
-            font-weight: bold;
-        }
-
-        /* --- CONFIGURACIÓN DE 3 COLUMNAS CENTRADAS --- */
-        main.grid-principal {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 1.5em;
-            padding: 2em;
-            max-width: 1250px; 
-            margin: 0 auto;    
-        }
-        
-        .noticia {
-            background-color: white;
-            color: black;
-            padding: 1em;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
-            transition: transform 0.2s ease;
-        }
-
-        /* Noticia principal ocupa 2 de las 3 columnas */
-        .grid-principal > .noticia.grande:nth-child(1) { 
-            grid-column: 1 / span 2;
-            grid-row: span 2;
-        }
-
-        .imagen-destacada img {
-            display: block; 
-            margin: 15px auto; 
-            max-width: 100%; 
-            height: auto; 
-            border-radius: 8px;
-            transition: opacity 0.2s;
-        }
-
-        .imagen-destacada img:hover {
-            opacity: 0.9; /* Efecto visual al pasar el mouse */
-        }
-
-        /* Footer */
-        footer {
-            background: #0a0a23;
-            color: white;
-            padding: 2.5em 1em;
-            margin-top: 3em;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        footer a { display: inline-block; margin: 0 0.6em; }
-        footer img { width: 28px; filter: invert(100%); vertical-align: middle; }
-        footer p { margin: 0.4em 0; }
-
-        /* Responsive Móvil */
-        @media (max-width: 768px) {
-            .menu-toggle { display: flex; }
-            #menu-secciones { display: none; }
-            main.grid-principal { 
-                display: flex; 
-                flex-direction: column; 
-                padding: 1em;
-            }
+            font-family: 'Work Sans', sans-serif;
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="menu-toggle" onclick="toggleMenu()">☰ SECCIONES</div>
-        <div class="titulos-centrales">
-            <h1>MM <br> NEWS</h1>
-            <h3>ECONOMÍA</h3>
-        </div>
-        <nav id="menu-secciones">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="economia.html">Economía</a></li>
-                <li><a href="politica.html">Política</a></li>
-                <li><a href="finanzas.html">Finanzas</a></li>
-                <li><a href="internacional.html">Internacional</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-background-light dark:bg-background-dark text-[#1b0d0d] dark:text-[#fcf8f8]">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b border-solid border-[#e7cfcf] dark:border-[#3d2525] px-4 md:px-10 lg:px-40 py-3">
+<div class="flex items-center justify-between whitespace-nowrap max-w-[1200px] mx-auto w-full">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-[#1b0d0d] dark:text-[#fcf8f8] text-xl font-bold leading-tight tracking-[-0.015em] font-display">MacroMind News</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Economía</a>
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium hover:text-primary transition-colors" href="#">Política</a>
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium hover:text-primary transition-colors" href="#">Finanzas</a>
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium hover:text-primary transition-colors" href="#">Internacional</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden lg:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded h-full bg-[#f3e7e7] dark:bg-[#3d2525]">
+<div class="text-[#9a4c4c] dark:text-[#e7cfcf] flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:outline-0 focus:ring-0 text-[#1b0d0d] dark:text-[#fcf8f8] h-full placeholder:text-[#9a4c4c] dark:placeholder:text-[#e7cfcf] px-4 pl-2 text-sm font-normal" placeholder="Buscar noticias" value=""/>
+</div>
+</label>
+<button class="bg-primary text-white text-sm font-bold rounded h-10 px-6 hover:opacity-90 transition-opacity">
+                    Suscribirse
+                </button>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto w-full px-4 lg:px-10 py-6">
+<div class="flex flex-wrap gap-2 py-2 mb-4">
+<a class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium hover:underline" href="#">Inicio</a>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">/</span>
+<span class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-bold">Economía</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<div class="lg:col-span-8 flex flex-col gap-10">
+<article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCj-7Eyw41DLP0s3LTIlMHMlWUHLiOjNnRle0QXsGkpb9JpP90aROtJdd_8ADFYaZRDvqTA_GQfeOfUpvpG95DhDbq8fOK3BeBIUadBahXQMgn_AUP08Of2gx8bl2lwL9O9Wl23ErF66vC11cHGcsTTop7MM5IWCR1VKNN-9somqxviIoHkeMjUVPQLqQwdPCtcMIqzzrB96PePiotPcQs9xcL48UAbihXNhfLMGslnFivhEoHYq6Jd2pwUM6dm-t75Ucu60gDXTVg');"></div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Macroeconomía</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">15 de Mayo, 2024</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                        </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                            Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBSGIKymBU8UykMB5NXUC0uchq0D7AxrI-jHsnZ_K_KjTQ7tKghgJQOCP0uLRS6JIVUGLnzqUV7IN0JqWsEzfKkEK8Ftb66w2irpvxSjXmIrLBkmaaRqxDKFnGPD1HuE_331jQyz75xiQ08jgceo-FUPzKohvl0kXoBCaCbEHxYe0iy03PhBm0sMs6nVCi8bF-s05kCJu7z9fvhV80BS00Ech4uBWZ-NstrXZt5A-J2BQ4HKQ0kztyOz1ONWJxivmUO_Ekb2URPdm8');"></div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Mercados</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">15 de Mayo, 2024</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+                        </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                            Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: comercio-diciembre.jpg"></div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Argentina consolida su balance externo con un superávit de US$ 1.892 millones en diciembre</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">20 de Enero, 2026</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                            Argentina cerró diciembre con un saldo comercial positivo de US$ 1.892 millones, impulsado por un crecimiento en el volumen de exportaciones que permitió alcanzar un superávit anual acumulado de US$ 11.286 millones, consolidando así la estabilidad de las cuentas externas de cara al 2026.
+                        </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="argentina-consolida-su-balance-externo-con-un-superavit-de-usd-1892-millones-en-diciembre.html">
+                            Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
+<p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">Segundo año consecutivo de superávit fiscal en 2025</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">16 de Enero, 2026</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                        Argentina cerró 2025 con superávit fiscal y financiero por segundo año consecutivo, apoyado en una fuerte reducción del gasto y pese a una significativa baja de impuestos, consolidando al ancla fiscal como eje del programa económico.
+                    </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="segundo-año-consecutivo-de-superavit-fiscal-en-2025.html">
+                        Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</article>
+<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">La inflación de diciembre fue de 2,8 % y 2025 cerró con el nivel más bajo en ocho años</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">13 de Enero, 2026</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                        La inflación de diciembre fue del 2,8%, con una leve aceleración respecto al mes anterior. De esta manera, 2025 cerró con una suba acumulada del 31,5%, el nivel más bajo de los últimos ocho años, marcando una fuerte desaceleración frente a los registros de años previos.
+                    </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="la-inflacion-de-diciembre-fue-de-2-8-y-2025-cerro-con-el-nivel-mas-bajo-en-ocho-años.html">
+                        Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</article>
+<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
+<p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">Argentina completa la devolución del swap de monedas al Tesoro de Estados Unidos</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">9 de Enero, 2026</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                        Argentina canceló la totalidad de los fondos utilizados del swap con el Tesoro de EE. UU. utilizando financiamiento multilateral para fortalecer su perfil de deuda y la relación con Washington.
+                    </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="argentina-completa-la-devolucion-del-swap-de-monedas-al-tesoro-de-estados-unidos.html">
+                        Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</article>
+<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">El Banco Central volvió a comprar dólares por segundo día consecutivo y reforzó las reservas en el inicio de 2026</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">7 de Enero, 2026</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                        La autoridad monetaria adquirió USD 83 millones en el mercado cambiario por segundo día consecutivo, en el marco del nuevo esquema de política monetaria, impulsando la acumulación de reservas y una mayor estabilidad del tipo de cambio.
+                    </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="el-bcra-fortalece-las-reservas-con-un-nuevo-acuerdo-repo-por-usd-3000-millones.html">
+                        Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</article>
+<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
+<p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">El BCRA volvió a comprar dólares tras poner en marcha su nuevo plan monetario</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">5 de Enero, 2026</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                        El Banco Central volvió a intervenir en el mercado oficial y compró dólares por primera vez en meses, en el marco del nuevo plan de política monetaria orientado a fortalecer las reservas y sostener la estabilidad cambiaria.
+                    </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="el-bcra-volvio-a-comprar-dolares-tras-poner-en-marcha-su-nuevo-plan-monetario.html">
+                        Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</article>
+<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">El BCRA ajustará las bandas de flotación del dólar por inflación desde enero de 2026</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">15 de Diciembre, 2025</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                        El Banco Central anunció que las bandas de flotación del tipo de cambio se actualizarán mensualmente según la inflación a partir de enero de 2026. Además, se implementará un programa para fortalecer la acumulación de reservas.
+                    </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="el-bcra-ajustara-las-bandas-de-flotacion-del-dolar-por-inflacion-desde-enero-de-2026.html">
+                        Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</article>
+<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
+<p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">El IPC de noviembre fue del 2,5% y suma 31,4% en la medición anual</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">11 de Diciembre, 2025</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                        La inflación de noviembre fue del 2,5% y acumula 27,9% en los primeros once meses del año, según informó el INDEC. En los últimos doce meses, el índice registra una suba del 31,4%, manteniendo la tendencia de desaceleración inflacionaria.
+                    </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="el-ipc-de-noviembre-fue-del-2-5-porciento-y-suma-31-4-porciento-en-la-medicion-anual.html">
+                        Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</article>
+<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">La inflación de octubre se aceleró al 2,3% según el INDEC</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">13 de Octubre, 2025</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                        La inflación de octubre fue del 2,3%, con un alza anual del 31,3%, impulsada por aumentos en vivienda y alimentos.
+                    </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="la-inflacion-de-octubre-se-acelero-al-2-3-segun-el-indec.html">
+                        Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</article>
+<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
+<p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">El Gobierno desregula las cuotas de los colegios privados y elimina el control estatal</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">11 de Noviembre, 2025</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                        A través de un decreto, se derogó una normativa vigente por más de 30 años que obligaba a las instituciones a informar y consensuar los aumentos de aranceles.
+                    </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="el-gobierno-desregula-las-cuotas-de-los-colegios-privados-y-elimina-el-control-estatal.html">
+                        Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</article>
+</div>
+<aside class="lg:col-span-4 flex flex-col gap-8">
+<div class="flex flex-col gap-4">
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest border-l-4 border-primary pl-3">Indicadores</h2>
+<div class="overflow-hidden rounded-lg border border-[#e7cfcf] dark:border-[#3d2525] bg-white dark:bg-[#2b1616]">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-background-light dark:bg-[#3d2525]">
+<th class="px-4 py-3 text-xs font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Indicador</th>
+<th class="px-4 py-3 text-xs font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Valor</th>
+<th class="px-4 py-3 text-xs font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Variación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
+<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">MERVAL</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">850.230</td>
+<td class="px-4 py-4 text-sm">
+<span class="bg-[#f3e7e7] dark:bg-[#4d2d2d] text-[#1b0d0d] dark:text-[#fcf8f8] text-[10px] font-bold px-2 py-1 rounded">+1.5%</span>
+</td>
+</tr>
+<tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
+<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">S&amp;P 500</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">5.120,30</td>
+<td class="px-4 py-4 text-sm">
+<span class="bg-[#f3e7e7] dark:bg-[#4d2d2d] text-[#1b0d0d] dark:text-[#fcf8f8] text-[10px] font-bold px-2 py-1 rounded">-0.2%</span>
+</td>
+</tr>
+<tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
+<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Dólar Blue</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">1.025,00</td>
+<td class="px-4 py-4 text-sm">
+<span class="bg-[#f3e7e7] dark:bg-[#4d2d2d] text-[#1b0d0d] dark:text-[#fcf8f8] text-[10px] font-bold px-2 py-1 rounded">0%</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest border-l-4 border-primary pl-3">Tendencias</h2>
+<div class="flex flex-col gap-4">
+<div class="p-4 bg-white dark:bg-[#2b1616] rounded-lg border border-[#e7cfcf] dark:border-[#3d2525]">
+<p class="text-sm text-[#1b0d0d] dark:text-[#fcf8f8] leading-snug">
+                                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio nullam varius turpis et commodo pharetra.
+                            </p>
+<span class="text-[10px] text-primary font-bold mt-2 inline-block">MÁS POPULAR</span>
+</div>
+<div class="p-4 bg-white dark:bg-[#2b1616] rounded-lg border border-[#e7cfcf] dark:border-[#3d2525]">
+<p class="text-sm text-[#1b0d0d] dark:text-[#fcf8f8] leading-snug">
+                                Donec lobortis risus a elit etiam tempor ut ullamcorper ligula eu tempor congue eros est euismod.
+                            </p>
+</div>
+<div class="p-4 bg-white dark:bg-[#2b1616] rounded-lg border border-[#e7cfcf] dark:border-[#3d2525]">
+<p class="text-sm text-[#1b0d0d] dark:text-[#fcf8f8] leading-snug">
+                                Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula donec.
+                            </p>
+</div>
+</div>
+</div>
+<div class="bg-primary p-6 rounded-lg text-white">
+<h3 class="text-lg font-bold mb-2">MacroMind News</h3>
+<p class="text-sm opacity-90 mb-6">Recibe el análisis económico más completo cada semana en tu correo.</p>
+<div class="flex flex-col gap-3">
+<input class="w-full h-10 px-4 rounded border-none text-[#1b0d0d] text-sm focus:ring-2 focus:ring-white/50" placeholder="Correo electrónico" type="email"/>
+<button class="w-full h-10 bg-black text-white text-sm font-bold rounded hover:bg-black/80 transition-colors uppercase tracking-widest">Suscribirme</button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<footer class="mt-auto border-t border-[#e7cfcf] dark:border-[#3d2525] bg-white dark:bg-[#1b0d0d] py-12 px-4 lg:px-40">
+<div class="max-w-[1200px] mx-auto w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-primary mb-6">
+<div class="size-5">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="text-lg font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">MacroMind News</span>
+</div>
+<p class="text-xs text-[#9a4c4c] dark:text-[#e7cfcf] leading-relaxed">
+                        Portal de noticias sobre economía, finanzas, política e internacional.
+                    </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-sm font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Categorías</h4>
+<ul class="flex flex-col gap-2 text-xs text-[#9a4c4c] dark:text-[#e7cfcf]">
+<li><a class="hover:text-primary" href="index.html">Inicio</a></li>
+<li><a class="hover:text-primary" href="economia.html">Economía</a></li>
+<li><a class="hover:text-primary" href="politica.html">Política</a></li>
+<li><a class="hover:text-primary" href="finanzas.html">Finanzas</a></li>
+<li><a class="hover:text-primary" href="internacional.html">Internacional</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-sm font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Empresa</h4>
+<ul class="flex flex-col gap-2 text-xs text-[#9a4c4c] dark:text-[#e7cfcf]">
+<li><a class="hover:text-primary" href="sobre-nosotros.html">Sobre nosotros</a></li>
+<li><a class="hover:text-primary" href="contacto.html">Contacto</a></li>
+<li><a class="hover:text-primary" href="politicas-de-privacidad.html">Privacidad</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-sm font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Redes Sociales</h4>
+<div class="flex gap-4">
+<a class="text-[#9a4c4c] dark:text-[#e7cfcf] hover:text-primary" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-[#9a4c4c] dark:text-[#e7cfcf] hover:text-primary" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-[#9a4c4c] dark:text-[#e7cfcf] hover:text-primary" href="#"><span class="material-symbols-outlined">rss_feed</span></a>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-[#e7cfcf] dark:border-[#3d2525] flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[10px] text-[#9a4c4c] dark:text-[#e7cfcf] uppercase tracking-widest">© 2024 MacroMind News. Todos los derechos reservados.</p>
+<div class="flex gap-6 text-[10px] text-[#9a4c4c] dark:text-[#e7cfcf] uppercase tracking-widest">
+<a class="hover:text-primary" href="terminos-y-condiciones.html">Términos y Condiciones</a>
+<a class="hover:text-primary" href="politicas-de-cookies.html">Política de Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
 
-    <main class="grid-principal">
-        <div class="noticia grande">
-            <h2><a href="argentina-consolida-su-balance-externo-con-un-superavit-de-usd-1892-millones-en-diciembre.html">Argentina consolida su balance externo con un superávit de US$ 1.892 millones en diciembre</a></h2>
-            <div class="imagen-destacada">
-                <a href="argentina-consolida-su-balance-externo-con-un-superavit-de-usd-1892-millones-en-diciembre.html"><img src="img/comercio-diciembre.jpg" alt="Comercio de Argentina | MacroMind News"></a>
-            </div>
-            <p>Argentina cerró diciembre con un saldo comercial positivo de US$ 1.892 millones, impulsado por un crecimiento en el volumen de exportaciones que permitió alcanzar un superávit anual acumulado de US$ 11.286 millones, consolidando así la estabilidad de las cuentas externas de cara al 2026.</p>
-        </div>
-
-        <div class="noticia chica">
-            <h2><a href="segundo-año-consecutivo-de-superavit-fiscal-en-2025.html">Segundo año consecutivo de superávit fiscal en 2025</a></h2>
-            <div class="imagen-destacada">
-                <a href="segundo-año-consecutivo-de-superavit-fiscal-en-2025.html"><img src="img/milei-caputo.jpg"  alt="Presidente de Argentina con el Ministro de Economía | MacroMind News"></a>
-            </div>
-        </div>
-
-        <div class="noticia chica">
-            <h2><a href="la-inflacion-de-diciembre-fue-de-2-8-y-2025-cerro-con-el-nivel-mas-bajo-en-ocho-años.html">La inflación de diciembre fue de 2,8 % y 2025 cerró con el nivel más bajo en ocho años</a></h2>
-            <div class="imagen-destacada">
-                <a href="la-inflacion-de-diciembre-fue-de-2-8-y-2025-cerro-con-el-nivel-mas-bajo-en-ocho-años.html"><img src="img/inflacion.jpg"  alt="Inflación de diciembre | MacroMind News"></a>
-            </div>
-        </div>
-
-        <div class="noticia media">
-            <h2><a href="argentina-completa-la-devolucion-del-swap-de-monedas-al-tesoro-de-estados-unidos.html">Argentina completa la devolución del swap de monedas al Tesoro de Estados Unidos</a></h2>
-            <p>Argentina canceló la totalidad de los fondos utilizados del swap con el Tesoro de EE. UU. utilizando financiamiento multilateral para fortalecer su perfil de deuda y la relación con Washington.</p>
-        </div>
-
-        <div class="noticia media">
-            <h2><a href="el-bcra-fortalece-las-reservas-con-un-nuevo-acuerdo-repo-por-usd-3000-millones.html">El BCRA fortalece las reservas con un nuevo acuerdo REPO por USD 3.000 millones</a></h2>
-            <div class="imagen-destacada">
-                <a href="el-bcra-fortalece-las-reservas-con-un-nuevo-acuerdo-repo-por-usd-3000-millones.html"><img src="img/bcra-3.jpg"  alt="Banco Central de la Republica Argentina | MacroMind News"></a>
-            </div>
-            <p>El Banco Central cerró un nuevo acuerdo REPO con bancos internacionales por USD 3.000 millones, con el objetivo de fortalecer las reservas, reflejando un mayor interés del mercado y una mejora en el acceso al financiamiento externo.</p>
-        </div>
-
-        <div class="noticia media">
-            <h2><a href="el-banco-central-volvio-a-comprar-dolares-por-segundo-dia-consecutivo-y-reforzo-las-reservas-en-el-inicio-de-2026.html">El Banco Central volvió a comprar dólares por segundo día consecutivo y reforzó las reservas en el inicio de 2026</a></h2>
-            <p>La autoridad monetaria adquirió USD 83 millones en el mercado cambiario por segundo día consecutivo, en el marco del nuevo esquema de política monetaria, impulsando la acumulación de reservas y una mayor estabilidad del tipo de cambio.</p>
-        </div>
-
-        <div class="noticia grande">
-            <h2><a href="el-bcra-volvio-a-comprar-dolares-tras-poner-en-marcha-su-nuevo-plan-monetario.html">El BCRA volvió a comprar dólares tras poner en marcha su nuevo plan monetario</a></h2>
-            <div class="imagen-destacada">
-                <a href="el-bcra-volvio-a-comprar-dolares-tras-poner-en-marcha-su-nuevo-plan-monetario.html"><img src="img/dolar.jpg" alt="Billetes de 100 dólares | MacroMind News"></a>
-            </div>
-            <p>El Banco Central volvió a intervenir en el mercado oficial y compró dólares por primera vez en meses, en el marco del nuevo plan de política monetaria orientado a fortalecer las reservas y sostener la estabilidad cambiaria.</p>
-        </div>
-
-        <div class="noticia grande">
-            <h2><a href="el-bcra-ajustara-las-bandas-de-flotacion-del-dolar-por-inflacion-desde-enero-de-2026.html">El BCRA ajustará las bandas de flotación del dólar por inflación desde enero de 2026</a></h2>
-            <p>El Banco Central anunció que las bandas de flotación del tipo de cambio se actualizarán mensualmente según la inflación a partir de enero de 2026. Además, se implementará un programa para fortalecer la acumulación de reservas.</p>
-        </div>
-
-        <div class="noticia media">
-            <h2><a href="el-ipc-de-noviembre-fue-del-2-5-porciento-y-suma-31-4-porciento-en-la-medicion-anual.html">El IPC de noviembre fue del 2,5% y suma 31,4% en la medición anual</a></h2>
-            <div class="imagen-destacada">
-                <a href="el-ipc-de-noviembre-fue-del-2-5-porciento-y-suma-31-4-porciento-en-la-medicion-anual.html"><img src="img/inflacion.jpg" alt="Inflación de novimbre | MacroMind News"></a>
-            </div>
-            <p>La inflación de noviembre fue del 2,5% y acumula 27,9% en los primeros once meses del año, según informó el INDEC. En los últimos doce meses, el índice registra una suba del 31,4%, manteniendo la tendencia de desaceleración inflacionaria.</p>
-        </div>
-
-        <div class="noticia media">
-            <h2><a href="la-inflacion-de-octubre-se-acelero-al-2-3-segun-el-indec.html">La inflación de octubre se aceleró al 2,3% según el INDEC</a></h2>
-            <div class="imagen-destacada">
-                <a href="la-inflacion-de-octubre-se-acelero-al-2-3-segun-el-indec.html"><img src="img/inflacion.jpg"  alt="Inflación de octubre | MacroMind News"></a>
-            </div>
-            <p>La inflación de octubre fue del 2,3%, con un alza anual del 31,3%, impulsada por aumentos en vivienda y alimentos.</p>
-        </div>
-
-        <div class="noticia media">
-            <h2><a href="el-gobierno-desregula-las-cuotas-de-los-colegios-privados-y-elimina-el-control-estatal.html">El Gobierno desregula las cuotas de los colegios privados y elimina el control estatal</a></h2>
-            <div class="imagen-destacada">
-                <a href="el-gobierno-desregula-las-cuotas-de-los-colegios-privados-y-elimina-el-control-estatal.html"><img src="img/escuela-privada.jpg"  alt="Salon de una escuela privada | MacroMind News"></a>
-            <p>A través de un decreto, se derogó una normativa vigente por más de 30 años que obligaba a las instituciones a informar y consensuar los aumentos de aranceles.</p>
-        </div>
-
-        <div class="noticia grande oculto">
-            <h2><a href="noticia.html">Titulo</a></h2>
-            <div class="imagen-destacada"><a href="noticia.html"><img src="img/IMAGEN.png"></a></div>
-            <p>Descripción</p>
-        </div>
-    </main>
-
-    <footer>
-        <h1>MM<br>NEWS</h1>
-        <a href="https://x.com/MacroMindNews" target="_blank"><img src="/img/x-logo.png"></a>
-        <a href="https://www.tiktok.com/@macromindnews" target="_blank"><img src="/img/tik-tok-logo.png"></a>
-        <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-        <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
-        <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
-    </footer>
-</body>
-</html>
+</body></html>
