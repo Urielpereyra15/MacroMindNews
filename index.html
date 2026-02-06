@@ -1,503 +1,334 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MacroMind News</title>
-
-  <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3827f054973822320463ef293bdf84fb/script.js"></script> <!-- End cookieyes banner -->
-
-  <script defer>
-    function toggleMenu() {
-      const menu = document.getElementById("menu-secciones");
-      menu.classList.toggle("visible");
-    }
-  </script>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3827f054973822320463ef293bdf84fb/script.js"></script>
+<title>MacroMind News</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d41111",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
 <style>
-  /* Estilos generales */
-  body {
-    margin: 0;
-    background: #f4f4f4;
-    font-family: Georgia, serif;
-  }
-
-  .oculto {
-    display: none;
-  }
-
-  /* Para los títulos de las noticias */
-  .noticia h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-  }
-  .noticia h2 a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  /* Para los párrafos de las noticias (descripciones) */
-  .noticia p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Header */
-  header {
-    background-color: #0a0a23;
-    color: white;
-    /* --- CAMBIO 1: SE QUITA EL PADDING DEL HEADER --- */
-    padding: 0; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    position: relative; 
-  }
-
-/* --- SE AÑADE ESTA REGLA (COMO EN ECONOMIA.HTML) --- */
-  .titulos-centrales {
-    display: flex;
-    flex-direction: row; 
-    align-items: center; 
-    justify-content: center; /* Centra el logo */
-    gap: 20px; 
-    padding: 1em; /* <--- El padding se mueve aquí */
-    flex-grow: 0; 
-  }
-
-  /* BOTÓN HAMBURGUESA: OCULTO EN ESCRITORIO */
-  .menu-toggle {
-    font-size: 1.5em;
-    cursor: pointer;
-    display: none; 
-    align-items: center;
-  }
-
-  .menu-toggle span {
-    margin-right: 0.5em;
-  }
-
-  /* TÍTULO H1: Logo centrado */
-  h1 {
-    text-align: center;
-flex-grow: 0; 
-    margin: 0;
-  }
-
-  /* MENÚ DE SECCIONES: VISIBLE Y CENTRADO EN ESCRITORIO */
-  #menu-secciones {
-    display: block; 
-    position: static; 
-    /* --- CAMBIO 2: FONDO NUEVO Y ANCHO COMPLETO --- */
-    background-color: #2c3e50; /* <--- Tu color elegido */
-width: 100%; /* <--- Ocupa todo el ancho */
-    /* ------------------------------------------- */
-    color: white; 
-    border: none;
-    z-index: 1000;
-  }
-
-  /* Esta clase solo se usará en móvil */
-  #menu-secciones.visible {
-    display: block;
-  }
-
-  #menu-secciones ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; 
-    justify-content: center; 
-  }
-
-  #menu-secciones li {
-    padding: 0.5em 1.5em; 
-  }
-
-  #menu-secciones a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    font-family: Georgia, serif;
-    font-weight: bold; 
-  }
-
-  /* Contenido principal (Grid) */
-  main.grid-principal {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
-    gap: 1em;
-    padding: 2em;
-  }
-
-  /* Noticia grande (primer elemento) */
-  .grid-principal > .noticia.grande:nth-child(1) { 
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 2;
-  }
-
-  /* Estilos comunes para el contenedor de imagen-destacada en noticias grandes */
-  .noticia.grande .imagen-destacada {
-    margin-bottom: 1em;
-  }
-
-  /* Estilos específicos para el título de la PRIMERA noticia grande (alineado a la izquierda) */
-  .grid-principal > .noticia.grande:nth-child(1) .imagen-destacada h2 {
-    text-align: left;
-    margin-bottom: 0.5em;
-  }
-
-  /* Estilos para el párrafo de la PRIMERA noticia grande */
-  .grid-principal > .noticia.grande:nth-child(1) p {
-    text-align: left;
-    margin-top: 1em;
-  }
-
-  /* >>>>>>> ESTA ES LA REGLA CLAVE PARA CENTRAR TODAS LAS IMÁGENES DE NOTICIAS <<<<<<< */
-  .imagen-destacada img {
-    display: block; 
-    margin-left: auto; 
-    margin-right: auto; 
-    max-width: 100%; 
-    height: auto; 
-    border-radius: 8px;
-    margin-top: 15px; 
-    margin-bottom: 15px; 
-  }
-  /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
-
-  /* Noticias chicas */
-  .grid-principal > .noticia.chica:nth-child(2) { /* NOTICIA 2 */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-row: 1;
-    grid-column: 3;
-  }
-
-  .grid-principal > .noticia.chica:nth-child(3) { /* NOTICIA 3 */
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-row: 2;
-    grid-column: 3;
-  }
-
-  /* Publicidad vertical */
-  .grid-principal > .publicidad.vertical:nth-child(4) { /* PUBLI */
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    grid-row: 1 / span 2;
-    grid-column: 4; 
-  }
-
-  /* Noticias medianas */
-  .grid-principal > .noticia.media { 
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  .grid-principal > .noticia.media:nth-child(5) { /* NOTICIA 4 */
-    grid-row: 3;
-    grid-column: 1;
-  }
-
-  .grid-principal > .noticia.media:nth-child(6) { /* NOTICIA 5 */
-    grid-row: 3;
-    grid-column: 2 / span 2;
-  }
-
-  .grid-principal > .noticia.media:nth-child(7) { /* NOTICIA 6 */
-    grid-row: 3;
-    grid-column: 4;
-  }
-
-  /* Publicidad cuadrada */
-  .grid-principal > .publicidad.cuadrada {
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(8) {
-    grid-row: 4;
-    grid-column: 1;
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(9) {
-    grid-row: 4;
-    grid-column: 2;
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(10) {
-    grid-row: 4;
-    grid-column: 3;
-  }
-
-  .grid-principal > .publicidad.cuadrada:nth-child(11) { 
-    grid-row: 4;
-    grid-column: 4;
-  }
-
-/* Noticia grande "NOTICIA 7" */
-  .grid-principal > .noticia.grande:nth-child(12) {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 1 / span 2;
-    grid-row: 5;
-  }
-
-  /* Noticia grande "NOTICIA 8" */
-  .grid-principal > .noticia.grande:nth-child(13) {
-    background-color: white;
-    color: black;
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    grid-column: 3 / span 2;
-    grid-row: 5;
-  }
-
-  /* Publicidad horizontal */
-  .grid-principal > .publicidad.horizontal:nth-child(14) {
-    padding: 1em;
-    border-radius: 12px;
-    font-size: 1.2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    grid-column: 1 / -1;
-    grid-row: 6;
-  }
-
-  /* Footer */
-  footer {
-    background: #0a0a23;
-    color: white;
-    text-align: center;
-    padding: 2em 1em;
-  }
-
-  footer h1 {
-    margin-bottom: 0.5em;
-  }
-
-  /* ================================== */
-  /* ESTILOS PARA MÓVIL (SOBREESCRITURA) */
-  /* ================================== */
-  @media (max-width: 768px) {
-    header {
-      /* EN MÓVIL, VUELVE A SER HORIZONTAL */
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 1em; /* <--- Vuelve el padding */
-    }
-
-    /* --- SE AÑADE ESTA REGLA MÓVIL --- */
-    .titulos-centrales {
-        flex-grow: 1;
-        padding: 0; 
-        gap: 0;
-        align-items: center; 
-    }
-
-    /* MOSTRAR BOTÓN HAMBURGUESA EN MÓVIL */
-    .menu-toggle {
-      display: flex; /* <--- SE MUESTRA EN MÓVIL */
-      position: static;
-      left: auto;
-      top: auto;
-      margin-right: 1em;
-    }
-
-    /* CENTRAR EL H1 EN MÓVIL */
-    h1 {
-      text-align: center; /* <--- CENTRADO EN MÓVIL */
-      flex-grow: 1; /* <--- CRECE PARA CENTRARSE EN MÓVIL */
-    }
-
-    /* OCULTAR Y RE-ESTILIZAR EL MENÚ EN MÓVIL (MODO DROPDOWN) */
-    #menu-secciones {
-      display: none; /* <--- OCULTO EN MÓVIL (hasta click) */
-      position: absolute; /* <--- POSICIÓN ABSOLUTA */
-      top: 100%; /* Abajo del header */
-      left: 0;
-      background-color: white; /* <--- FONDO BLANCO */
-      color: #0a0a23; /* <--- TEXTO OSCURO */
-      width: 100%; /* Ancho completo */
-      border: 1px solid #ccc;
-      border-top: none;
-    }
-
-    /* LISTA VERTICAL EN MÓVIL */
-    #menu-secciones ul {
-      display: block; /* <--- VUELVE A SER VERTICAL */
-    }
-
-    #menu-secciones li {
-       padding: 0.5em 1em; /* Padding original para móvil */
-    }
-
-    /* GRID DE NOTICIAS (SE HACE UNA SOLA COLUMNA) */
-    main.grid-principal {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      padding: 1em;
-    }
-
-    .noticia, .publicidad {
-      padding: 1em;
-      border-radius: 12px;
-      font-size: 1.2em;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-  }
-
-  /* Para los títulos de las noticias */
-    .noticia h2 a {
-      text-decoration: none; /* Elimina el subrayado */
-      color: inherit; /* Hereda el color del texto de su padre (el h2), que por defecto es negro */
-  }
-</style>
-
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      ☰ SECCIONES
+<body class="bg-background-light dark:bg-background-dark text-[#1b0d0d] dark:text-[#fcf8f8]">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b border-solid border-[#e7cfcf] dark:border-[#3d2525] px-4 md:px-10 lg:px-40 py-3">
+<div class="flex items-center justify-between whitespace-nowrap max-w-[1200px] mx-auto w-full">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<h1 class="text-[#1b0d0d] dark:text-[#fcf8f8] text-xl font-bold leading-tight tracking-[-0.015em] font-display">MacroMind News</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="index.html">Inicio</a>
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium hover:text-primary transition-colors" href="economia.html">Economía</a>
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium hover:text-primary transition-colors" href="politica.html">Política</a>
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium hover:text-primary transition-colors" href="finanzas.html">Finanzas</a>
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium hover:text-primary transition-colors" href="internacional.html">Internacional</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden lg:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded h-full bg-[#f3e7e7] dark:bg-[#3d2525]">
+<div class="text-[#9a4c4c] dark:text-[#e7cfcf] flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:outline-0 focus:ring-0 text-[#1b0d0d] dark:text-[#fcf8f8] h-full placeholder:text-[#9a4c4c] dark:placeholder:text-[#e7cfcf] px-4 pl-2 text-sm font-normal" placeholder="Buscar noticias" value=""/>
+</div>
+</label>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto w-full px-4 lg:px-10 py-6">
+<div class="flex flex-wrap gap-2 py-2 mb-4">
+<a class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium hover:underline" href="index.html">Inicio</a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<div class="lg:col-span-8 flex flex-col gap-10">
+    <article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+        <div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('img/indec.jpg');"></div>
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-3">
+                <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+                    <p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Política</p>
+                </div>
+                <span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">2 Febrero, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold leading-tight">Caputo confirmó a Pedro Lines como nuevo director del INDEC tras la salida de Marco Lavagna</h3>
+            <p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">El ministro de Economía oficializó el reemplazo al frente del organismo estadístico en un momento clave para la medición de los principales indicadores económicos.</p>
+            <a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="caputo-confirmo-pedro-lines-como-nuevo-director-del-indec-tras-la-salida-de-marco-lavagna.html">Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+    </article>
+
+    <article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+        <div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('img/afe-patagonia.jpg');"></div>
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-3">
+                <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+                    <p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Política</p>
+                </div>
+                <span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">29 de Enero, 2026, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold leading-tight">El Gobierno evalúa declarar por DNU la emergencia ígnea en las provincias afectadas por los incendios</h3>
+            <p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">El Ejecutivo analiza avanzar con un decreto para agilizar el envío de recursos y reforzar la asistencia ante el avance de los incendios forestales en distintas regiones del país.</p>
+            <a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="el-gobierno-evalua-declarar-por-dnu-la-emergencia-ignea-en-las-provincias-afectadas-por-los-incendios.html">Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+    </article>
+
+    <article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+        <div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('img/fmi.jpg');"></div>
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-3">
+                <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+                    <p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Finanzas</p>
+                </div>
+                <span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">26 de Enero, 2026, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold leading-tight">Argentina sorprende al G20 y liderará el crecimiento regional en 2026</h3>
+            <p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">El país se ubicaría como la cuarta economía con mayor expansión dentro del G20, según proyecciones internacionales, en un contexto de recuperación y reordenamiento macroeconómico.</p>
+            <a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="argentina-se-perfila-entre-las-economias-de-mayor-crecimiento-del-g-20-en-2026.html">Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+    </article>
+
+    <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+        <div class="flex flex-wrap gap-3">
+            <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
+                <p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">Política</p>
+            </div>
+            <span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">26 de Enero, 2026</span>
+        </div>
+        <h3 class="text-lg font-bold">El Gobierno pone en foco la ley penal juvenil en la agenda de las sesiones extraordinarias</h3>
+        <p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">La mesa política de Javier Milei analizó la inclusión de la ley penal juvenil en el temario legislativo de febrero, con el debate sobre la edad de imputabilidad como uno de los ejes centrales.</p>
+        <a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="el-gobierno-pone-en-foco-la-ley-penal-juvenil-en-la-agenda-de-las-sesiones-extraordinarias.html">Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+    </article>
+
+    <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+        <div class="flex flex-wrap gap-3">
+            <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
+                <p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">Finanzas</p>
+            </div>
+            <span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">22 de Enero, 2026</span>
+        </div>
+        <h3 class="text-lg font-bold">Macro y Telecom se aliaron para impulsar Personal Pay: el banco compró el 50% de la billetera por USD 75 millones</h3>
+        <p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">Banco Macro adquirió la mitad de Personal Pay en una operación estratégica junto a Telecom Argentina, con el objetivo de fortalecer la billetera digital y ampliar su oferta de servicios financieros en el país.</p>
+        <a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="macro-y-telecom-se-aliaron-para-impulsar-personal-pay-el-banco-compro-el-50-de-la-billetera-por-usd-75-millones.html">Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+    </article>
+
+    <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+        <div class="flex flex-wrap gap-3">
+            <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
+                <p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">Finanzas</p>
+            </div>
+            <span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">21 de Enero, 2026</span>
+        </div>
+        <h3 class="text-lg font-bold">El Gobierno eliminó el aporte del 15% para empresas del régimen de Tierra del Fuego</h3>
+        <p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">La medida busca aliviar la carga tributaria, mejorar la situación financiera de las compañías y fortalecer la competitividad del régimen frente al nuevo escenario impositivo.</p>
+        <a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="el-gobierno-elimino-el-aporte-del-15-para-empresas-del-regimen-de-tierra-del-fuego.html">Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+    </article>
+
+    <article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+        <div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('img/daniel-noboa.jpg');"></div>
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-3">
+                <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+                    <p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Internacional</p>
+                </div>
+                <span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">21 Enero, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold leading-tight">Ecuador impondrá una tasa de seguridad del 30% a las importaciones desde Colombia</h3>
+            <p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">Ecuador anunció una tasa de seguridad del 30% a las importaciones desde Colombia por la falta de cooperación en la lucha contra el narcotráfico, una medida que entrará en vigencia en febrero de 2026 y que podría generar tensiones comerciales y diplomáticas entre ambos países.</p>
+            <a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="ecuador-impondra-una-tasa-de-seguridad-del-30-a-las-importaciones-desde-colombia.html">Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+    </article>
+
+    <article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+        <div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('img/comercio-diciembre.jpg');"></div>
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-3">
+                <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+                    <p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Economía</p>
+                </div>
+                <span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">20 Enero, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold leading-tight">Argentina cerró diciembre con superávit de US$ 1.892 M</h3>
+            <p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">Argentina cerró diciembre con un saldo comercial positivo de US$ 1.892 millones, impulsado por un crecimiento en el volumen de exportaciones que permitió alcanzar un superávit anual acumulado de US$ 11.286 millones, consolidando así la estabilidad de las cuentas externas de cara al 2026.</p>
+            <a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="argentina-cerro-diciembre-con-superavit-de-uss-1892-m.html">Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+    </article>
+</div>
+<aside class="lg:col-span-4 flex flex-col gap-8">
+<div class="flex flex-col gap-4">
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest border-l-4 border-primary pl-3">Indicadores</h2>
+<div class="overflow-hidden rounded-lg border border-[#e7cfcf] dark:border-[#3d2525] bg-white dark:bg-[#2b1616]">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-background-light dark:bg-[#3d2525]">
+<th class="px-4 py-3 text-xs font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Indicador</th>
+<th class="px-4 py-3 text-xs font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Valor</th>
+<th class="px-4 py-3 text-xs font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Variación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
+<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Inflación</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">2,8%</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">0,04%</td>
+<td class="px-4 py-4 text-sm">
+</td>
+</tr>
+<tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
+<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Dolár Oficial</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1.450</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">0,02%</td>
+<td class="px-4 py-4 text-sm">
+</td>
+</tr>
+<tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
+<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Dolár Blue</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1.450</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">0,34%</td>
+<td class="px-4 py-4 text-sm">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+    <h2 class="text-primary text-sm font-bold uppercase tracking-widest border-l-4 border-primary pl-3">Tendencias</h2>
+    <div class="flex flex-col gap-4">
+        
+        <div class="p-4 bg-white dark:bg-[#2b1616] rounded-lg border border-[#e7cfcf] dark:border-[#3d2525]">
+            <p class="text-sm text-[#1b0d0d] dark:text-[#fcf8f8] leading-snug">
+                El ministro de Economía oficializó el reemplazo al frente del organismo estadístico en un momento clave para la medición de los principales indicadores económicos.
+            </p>
+            <div class="flex justify-between items-end mt-3">
+                <span class="text-[10px] text-primary font-bold">MÁS POPULAR</span>
+                <a class="text-primary text-[11px] font-bold flex items-center gap-1 hover:underline" href="caputo-confirmo-pedro-lines-como-nuevo-director-del-indec-tras-la-salida-de-marco-lavagna.html">
+                    Leer informe <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="p-4 bg-white dark:bg-[#2b1616] rounded-lg border border-[#e7cfcf] dark:border-[#3d2525]">
+            <p class="text-sm text-[#1b0d0d] dark:text-[#fcf8f8] leading-snug">
+                La mesa política de Javier Milei analizó la inclusión de la ley penal juvenil en el temario legislativo de febrero, con el debate sobre la edad de imputabilidad como uno de los ejes centrales.
+            </p>
+            <div class="flex justify-end mt-3">
+                <a class="text-primary text-[11px] font-bold flex items-center gap-1 hover:underline" href="el-gobierno-pone-en-foco-la-ley-penal-juvenil-en-la-agenda-de-las-sesiones-extraordinarias.html">
+                    Leer informe <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="p-4 bg-white dark:bg-[#2b1616] rounded-lg border border-[#e7cfcf] dark:border-[#3d2525]">
+            <p class="text-sm text-[#1b0d0d] dark:text-[#fcf8f8] leading-snug">
+                Tras un aumento salarial cercano al 90%, los ministros del Poder Ejecutivo pasarán a cobrar más que el Presidente, quien quedó excluido de la actualización junto a la Vicepresidenta.
+            </p>
+            <div class="flex justify-end mt-3">
+                <a class="text-primary text-[11px] font-bold flex items-center gap-1 hover:underline" href="los-ministros-pasaran-a-cobrar-mas-que-el-presidente-tras-una-suba-salarial-del-90.html">
+                    Leer informe <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="titulos-centrales">
-        <h1>MM <br> NEWS</h1>
+</div>
+<div class="bg-primary p-6 rounded-lg text-white">
+    <h3 class="text-lg font-bold mb-2">MacroMind News</h3>
+    <p class="text-sm opacity-90 mb-6">Recibe el análisis económico más completo cada semana en tu correo.</p>
+    
+    <form action="https://formspree.io/f/xbdarrjv" method="POST" class="flex flex-col gap-3">
+        <input 
+            class="w-full h-10 px-4 rounded border-none text-[#1b0d0d] text-sm focus:ring-2 focus:ring-white/50" 
+            placeholder="Correo electrónico" 
+            type="email" 
+            name="email" 
+            required
+        />
+        <input type="hidden" name="_subject" value="Nuevo suscriptor en MacroMind News">
+        
+        <button 
+            type="submit" 
+            class="w-full h-10 bg-black text-white text-sm font-bold rounded hover:bg-black/80 transition-colors uppercase tracking-widest"
+        >
+            Suscribirme
+        </button>
+    </form>
+</div> </aside> </div>
+</main>
+<footer class="mt-auto border-t border-[#e7cfcf] dark:border-[#3d2525] bg-white dark:bg-[#1b0d0d] py-12 px-4 lg:px-40">
+<div class="max-w-[1200px] mx-auto w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-primary mb-6">
+<span class="text-lg font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">MacroMind News</span>
+</div>
+<p class="text-xs text-[#9a4c4c] dark:text-[#e7cfcf] leading-relaxed">
+                        Portal de noticias sobre economía, finanzas, política e internacional.
+                    </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-sm font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Categorías</h4>
+<ul class="flex flex-col gap-2 text-xs text-[#9a4c4c] dark:text-[#e7cfcf]">
+<li><a class="hover:text-primary" href="index.html">Inicio</a></li>
+<li><a class="hover:text-primary" href="economia.html">Economía</a></li>
+<li><a class="hover:text-primary" href="politica.html">Política</a></li>
+<li><a class="hover:text-primary" href="finanzas.html">Finanzas</a></li>
+<li><a class="hover:text-primary" href="internacional.html">Internacional</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-sm font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Empresa</h4>
+<ul class="flex flex-col gap-2 text-xs text-[#9a4c4c] dark:text-[#e7cfcf]">
+<li><a class="hover:text-primary" href="sobre-nosotros.html">Sobre nosotros</a></li>
+<li><a class="hover:text-primary" href="contacto.html">Contacto</a></li>
+<li><a class="hover:text-primary" href="politicas-de-privacidad.html">Políticas de Privacidad</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+    <h4 class="text-sm font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Redes Sociales</h4>
+    <div class="flex flex-wrap gap-3">
+        <a class="text-[#9a4c4c] dark:text-[#e7cfcf] hover:text-primary transition-colors" href="https://x.com/MacroMindNews" target="_blank">
+            <svg class="size-5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="text-[#9a4c4c] dark:text-[#e7cfcf] hover:text-primary transition-colors" href="https://www.tiktok.com/@macromindnews?is_from_webapp=1&sender_device=pc" target="_blank">
+            <svg class="size-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31 0 2.591.214 3.75.606V5.32c-1.027-.308-2.127-.465-3.225-.465-.498 0-.997.03-1.488.091V.02zM19.1 4.634c.717.581 1.285 1.325 1.666 2.182V1.11a9.014 9.014 0 0 0-3.328-.592v4.583c.57-.22 1.183-.377 1.662-.467zm-7.063 5.43c-.352 0-.69.043-1.013.123v4.612c.315.067.64.103.972.103 2.553 0 4.622-2.07 4.622-4.622 0-2.553-2.069-4.622-4.622-4.622-.35 0-.69.04-1.013.118v4.613c.315.068.641.103.972.103a1.442 1.442 0 0 0 1.441-1.44c0-.796-.645-1.441-1.441-1.441-.33 0-.64.11-.882.294v4.428c.243.183.551.294.882.294.796 0 1.441-.645 1.441-1.44 0-.796-.645-1.442-1.441-1.442z"/></svg>
+        </a>
+        <a class="text-[#9a4c4c] dark:text-[#e7cfcf] hover:text-primary transition-colors" href="https://www.youtube.com/@MacroMindNews" target="_blank">
+            <svg class="size-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
     </div>
-    <nav id="menu-secciones" class="menu-secciones">
-      <ul>
-        <li><a href="economia.html">Economía</a></li>
-        <li><a href="politica.html">Política</a></li>
-        <li><a href="finanzas.html">Finanzas</a></li>
-        <li><a href="internacional.html">Internacional</a></li>
-      </ul>
-    </nav>
-  </header>
-
-<main class="grid-principal">
-  <div class="noticia grande">
-      <h2><a href="caputo-confirmo-pedro-lines-como-nuevo-director-del-indec-tras-la-salida-de-marco-lavagna.html">Caputo confirmó a Pedro Lines como nuevo director del INDEC tras la salida de Marco Lavagna</a></h2>
-  <div class="imagen-destacada">
-      <a href="caputo-confirmo-pedro-lines-como-nuevo-director-del-indec-tras-la-salida-de-marco-lavagna.html">
-      <img src="img/indec.jpg" alt="Logo del INDEC | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-      </a>
-  </div>
-      <p>El ministro de Economía oficializó el reemplazo al frente del organismo estadístico en un momento clave para la medición de los principales indicadores económicos.</p>
-  </div>
-
-<div class="noticia chica">
-      <h2><a href="el-gobierno-evalua-declarar-por-dnu-la-emergencia-ignea-en-las-provincias-afectadas-por-los-incendios.html">El Gobierno evalúa declarar por DNU la emergencia ígnea en las provincias afectadas por los incendios</a></h2>
-  <div class="imagen-destacada">
-      <a href="el-gobierno-evalua-declarar-por-dnu-la-emergencia-ignea-en-las-provincias-afectadas-por-los-incendios.html">
-      <img src="img/afe-patagonia.jpg" alt="Bombero de la Agencia Federal de Emergecia | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
-
-<div class="noticia chica">
-      <h2><a href="argentina-se-perfila-entre-las-economias-de-mayor-crecimiento-del-g-20-en-2026.html">Argentina se perfila entre las economías de mayor crecimiento del G20 en 2026</a></h2>
-  <div class="imagen-destacada">
-      <a href="argentina-se-perfila-entre-las-economias-de-mayor-crecimiento-del-g-20-en-2026.html">
-      <img src="img/fmi.jpg" alt="Fondo Monetario Internacional | MacroMind News" style="width: 100%; max-width: 800px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
-
-      <div class="publicidad vertical oculto">
-      </div>
-
-<div class="noticia media">
-      <h2><a href="el-gobierno-pone-en-foco-la-ley-penal-juvenil-en-la-agenda-de-las-sesiones-extraordinarias.html">El Gobierno pone en foco la ley penal juvenil en la agenda de las sesiones extraordinarias</a></h2>
-  <div class="imagen-destacada">
-  </div>
-      <p>La mesa política de Javier Milei analizó la inclusión de la ley penal juvenil en el temario legislativo de febrero, con el debate sobre la edad de imputabilidad como uno de los ejes centrales.</p>
-  </div>
-
-  <div class="noticia media">
-      <h2><a href="macro-y-telecom-se-aliaron-para-impulsar-personal-pay-el-banco-compro-el-50-de-la-billetera-por-usd-75-millones.html">Macro y Telecom se aliaron para impulsar Personal Pay: el banco compró el 50% de la billetera por USD 75 millones</a></h2>
-  <div class="imagen-destacada">
-      <a href="macro-y-telecom-se-aliaron-para-impulsar-personal-pay-el-banco-compro-el-50-de-la-billetera-por-usd-75-millones.html">
-      <img src="img/banco-macro.jpg" alt="Presidente del Banco Macro con el CEO de Telecom | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      </a>
-  </div>
-      <p>Banco Macro adquirió la mitad de Personal Pay en una operación estratégica junto a Telecom Argentina, con el objetivo de fortalecer la billetera digital y ampliar su oferta de servicios financieros en el país.</p>
-  </div>
-
-  <div class="noticia media">
-      <h2><a href="el-gobierno-elimino-el-aporte-del-15-para-empresas-del-regimen-de-tierra-del-fuego.html">El Gobierno eliminó el aporte del 15% para empresas del régimen de Tierra del Fuego</a></h2>
-  <div class="imagen-destacada">
-  </div> 
-      <p>La medida busca aliviar la carga tributaria, mejorar la situación financiera de las compañías y fortalecer la competitividad del régimen frente al nuevo escenario impositivo.</p>
-  </div>
-
-      <div class="publicidad cuadrada oculto">
 </div>
-      <div class="publicidad cuadrada oculto">
 </div>
-      <div class="publicidad cuadrada oculto">
+<div class="mt-12 pt-8 border-t border-[#e7cfcf] dark:border-[#3d2525] flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[10px] text-[#9a4c4c] dark:text-[#e7cfcf] uppercase tracking-widest">© 2025 MacroMind News. Todos los derechos reservados.</p>
+<div class="flex gap-6 text-[10px] text-[#9a4c4c] dark:text-[#e7cfcf] uppercase tracking-widest">
+<a class="hover:text-primary" href="terminos-y-condiciones.html">Términos y Condiciones</a>
+<a class="hover:text-primary" href="politicas-de-cookies.html">Política de Cookies</a>
 </div>
-      <div class="publicidad cuadrada oculto">
+</div>
+</div>
+</footer>
 </div>
 
-  <div class="noticia grande">
-      <h2><a href="ecuador-impondra-una-tasa-de-seguridad-del-30-a-las-importaciones-desde-colombia.html">Ecuador impondrá una tasa de seguridad del 30% a las importaciones desde Colombia</a></h2>
-  <div class="imagen-destacada">
-      <a href="ecuador-impondra-una-tasa-de-seguridad-del-30-a-las-importaciones-desde-colombia.html">
-      <img src="img/daniel-noboa.jpg" alt="Presidente de Ecuador | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
-
-  <div class="noticia grande">
-      <h2><a href="argentina-consolida-su-balance-externo-con-un-superavit-de-usd-1892-millones-en-diciembre.html">Argentina consolida su balance externo con un superávit de US$ 1.892 millones en diciembre</a></h2>
-  <div class="imagen-destacada">
-      <a href="argentina-consolida-su-balance-externo-con-un-superavit-de-usd-1892-millones-en-diciembre.html">
-      <img src="img/comercio-diciembre.jpg" alt="Comercio de Argentina | MacroMind News" style="width: 100%; max-width: 600px; border-radius: 8px;">
-      </a>
-  </div>
-  </div>
-
-      <div class="publicidad horizontal oculto">
-</div>
-      </main>
-
-  <footer>
-    <h1>MM <br> NEWS</h1>
-    <a href="https://x.com/MacroMindNews" target="_blank" style="display: block; margin-top: 10px;">
-        <img src="img/x-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-        </a>
-        <a href="https://www.tiktok.com/@macromindnews" target="_blank" style="display: block; margin-top: 10px;">
-        <img src="img/tik-tok-logo.png" style="width: 30px; height: auto; filter: invert(100%);">
-        </a>
-    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-    <p><a href="terminos-y-condiciones.html" style="color: white; text-decoration: none; font-size: 0.9em;">Términos y Condiciones</a></p>
-        <p><a href="politicas-de-privacidad.html" style="color: white; text-decoration: none; font-size: 0.9em;">Políticas de Privacidad</a></p>
-  </footer>
-</body>
-</html> 
+</body></html>
