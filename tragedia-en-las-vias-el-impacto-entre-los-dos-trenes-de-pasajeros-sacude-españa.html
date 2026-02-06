@@ -1,266 +1,188 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Tragedia en las vías: El impacto entre dos trenes de pasajeros sacude España</title>
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Tragedia en las vías: El impacto entre dos trenes de pasajeros sacude España">
-    <meta property="og:description" content="los equipos de emergencia siguen limpiando la zona mientras los investigadores analizan si una rotura en las vías fue lo que causó el descarrilamiento.">
-    <meta property="og:image" content="https://www.macromindnews.com.ar/MacroMindNews/img/choque-de-trenes-esp.jpg">
-    <meta property="og:url" content="https://www.macromindnews.com.ar/MacroMindNews/tragedia-en-las-vias-el-impacto-entre-los-dos-trenes-de-pasajeros-sacude-españa.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="MacroMind News">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tragedia en las vías: El impacto entre dos trenes de pasajeros sacude al sistema ferroviario español">
-    <meta name="twitter:description" content="los equipos de emergencia siguen limpiando la zona mientras los investigadores analizan si una rotura en las vías fue lo que causó el descarrilamiento.">
-    <meta name="twitter:image" content="https://www.macromindnews.com.ar/MacroMindNews/img/choque-de-trenes-esp.jpg">
-
-    <script>
-        function toggleMenu() {
-            document.getElementById("menu-secciones").classList.toggle("visible");
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3827f054973822320463ef293bdf84fb/script.js"></script>
+<title>Tragedia en las vías: El impacto entre dos trenes de pasajeros sacude al sistema ferroviario español | MacroMind News</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d41111",
+                        "background-light": "#fcf8f8",
+                        "background-dark": "#1a0c0c",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
         }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const currentUrl = encodeURIComponent(window.location.href);
-            const newsTitle = encodeURIComponent(
-                document.querySelector(".columna-principal-noticia h2").innerText
-            );
-
-            document.getElementById("copy-link")?.addEventListener("click", function (e) {
-                e.preventDefault();
-                navigator.clipboard.writeText(decodeURIComponent(currentUrl));
-                alert("Enlace copiado al portapapeles");
-            });
-
-            document.getElementById("share-facebook").href =
-                `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-
-            document.getElementById("share-twitter").href =
-                `https://twitter.com/intent/tweet?url=${currentUrl}&text=${newsTitle}`;
-
-            document.getElementById("share-whatsapp").href =
-                `https://wa.me/?text=${newsTitle}%0A${currentUrl}`;
-
-            document.getElementById("share-telegram").href =
-                `https://t.me/share/url?url=${currentUrl}&text=${newsTitle}`;
-        });
     </script>
-
-    <style>
-        body {
-            margin: 0;
-            background: #f4f4f4;
-            font-family: Georgia, serif;
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-
-        /* HEADER */
-        header {
-            background: #0a0a23;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .article-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #374151;
         }
-
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.4em;
-            padding: 1em;
-        }
-
-        .titulos-centrales h1 {
-            margin: 1em 0;
-            text-align: center;
-        }
-
-        #menu-secciones {
-            width: 100%;
-            background: #2c3e50;
-        }
-
-        #menu-secciones ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        #menu-secciones li {
-            padding: 0.7em 1.5em;
-        }
-
-        #menu-secciones a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* CONTENIDO */
-        .contenido-noticia-individual {
-            max-width: 800px;
-            margin: 2em auto;
-            padding: 2em;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .columna-principal-noticia h2 {
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 2.2em;
-            margin-bottom: 1em;
-            color: #0a0a23;
-        }
-
-        .imagen-destacada-noticia img {
-            width: 100%;
-            max-width: 800px;
-            display: block;
-            margin: 0 auto 1.5em;
-            border-radius: 8px;
-        }
-
-        .columna-principal-noticia p {
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 1.1em;
-            line-height: 1.6;
-            text-align: justify;
-            margin-bottom: 1em;
-        }
-
-        /* SHARE */
-        .social-share {
-            display: flex;
-            gap: 1em;
-            margin: 1.5em 0;
-            padding: 1em 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-
-        .social-share img {
-            width: 28px;
-            cursor: pointer;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #0a0a23;
-            color: white;
-            text-align: center;
-            padding: 2em 1em;
-            margin-top: 3em;
-        }
-
-        footer img {
-            width: 28px;
-            filter: invert(100%);
-            margin: 0.5em 0;
-        }
-
-        /* MOBILE */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            #menu-secciones {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                background: white;
-                color: #0a0a23;
-            }
-
-            #menu-secciones.visible {
-                display: block;
-            }
-
-            #menu-secciones ul {
-                flex-direction: column;
-            }
-
-            #menu-secciones a {
-                color: #0a0a23;
-            }
-
-            .contenido-noticia-individual {
-                margin: 1em;
-                padding: 1.5em;
-            }
-
-            .columna-principal-noticia h2 {
-                font-size: 1.8em;
-            }
+        .dark .article-content p {
+            color: #d1d5db;
         }
     </style>
 </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#1b0d0d] dark:text-[#fcf8f8]">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f3e7e7] dark:border-b-[#3d2424] px-10 py-3 bg-white dark:bg-[#1a0c0c]">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+</div>
+<h2 class="text-[#1b0d0d] dark:text-[#fcf8f8] text-xl font-bold leading-tight tracking-[-0.015em]">MacroMind News</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium leading-normal hover:text-primary transition-colors" href="index.html">Inicio</a>
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium leading-normal hover:text-primary transition-colors" href="economia.html">Economia</a>
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium leading-normal hover:text-primary transition-colors" href="politica.html">Política</a>
+<a class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium leading-normal hover:text-primary transition-colors" href="finanzas.html">Finanzas</a>
+<a class="text-primary text-sm font-bold leading-normal" href="internacional.html">Internacional</a>
 
-<body>
-
-<header>
-    <div class="menu-toggle" onclick="toggleMenu()">☰ SECCIONES</div>
-    <div class="titulos-centrales">
-        <h1>MM<br>NEWS</h1>
-    </div>
-    <nav id="menu-secciones">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="economia.html">Economía</a></li>
-            <li><a href="politica.html">Política</a></li>
-            <li><a href="finanzas.html">Finanzas</a></li>
-            <li><a href="internacional.html">Internacional</a></li>
-        </ul>
-    </nav>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded h-full">
+<div class="text-[#9a4c4c] flex border-none bg-[#f3e7e7] dark:bg-[#3d2424] items-center justify-center pl-4 rounded-l border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-[#1b0d0d] dark:text-[#fcf8f8] focus:outline-0 focus:ring-0 border-none bg-[#f3e7e7] dark:bg-[#3d2424] h-full placeholder:text-[#9a4c4c] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Buscar noticias..." value=""/>
+</div>
+</label>
+</div>
 </header>
+<main class="max-w-[1280px] mx-auto w-full px-4 md:px-10 py-6">
+<div class="flex flex-wrap gap-2 pb-6">
+<a class="text-[#9a4c4c] text-sm font-medium leading-normal hover:underline" href="index.html">Inicio</a>
+<span class="text-[#9a4c4c] text-sm font-medium leading-normal">/</span>
+<a class="text-[#9a4c4c] text-sm font-medium leading-normal hover:underline" href="internacional.html">Internacional</a>
+<span class="text-[#9a4c4c] text-sm font-medium leading-normal">/</span>
+<span class="text-[#1b0d0d] dark:text-[#fcf8f8] text-sm font-medium leading-normal">Tragedia en las vías: El impacto entre dos trenes de pasajeros sacude al sistema ferroviario español</span>
+</div>
+<div class="flex justify-center w-full">
+<article class="w-full max-w-[850px]">
+<div class="mb-8">
+<h1 class="text-[#1b0d0d] dark:text-[#fcf8f8] text-4xl md:text-5xl font-bold mb-6 leading-tight">Tragedia en las vías: El impacto entre dos trenes de pasajeros sacude al sistema ferroviario español</h1>
+<div class="flex flex-col gap-1 border-l-4 border-primary pl-4">
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest">Internacional</h2>
+<p class="text-[#9a4c4c] text-sm font-normal">20 de Enero, 2026</p>
+</div>
+<div class="mb-8">
+        <img src="/img/choque-de-trenes-esp.jpg" 
+        alt="Choque de dos trenes | MacroMind News" 
+        class="w-full h-auto rounded-xl">
+</div>
+</div>
+<div class="article-content text-lg border-t border-[#f3e7e7] dark:border-[#3d2424] pt-8">
+<p class="text-xl font-medium !text-[#1b0d0d] dark:!text-[#fcf8f8] mb-8 leading-relaxed">
+                                los equipos de emergencia siguen limpiando la zona mientras los investigadores analizan si una rotura en las vías fue lo que causó el descarrilamiento.
+                            </p>
+<p>
+                                El número de víctimas fatales por el choque de trenes ocurrido el pasado domingo en la localidad de Adamuz, España, se elevó a 42 personas. La actualización de la cifra fue confirmada por las autoridades de la Junta de Andalucía tras el hallazgo de un nuevo cuerpo durante las tareas de rescate realizadas este martes. Equipos de emergencia recuperaron el cadáver en el interior de uno de los vagones del tren Alvia, el cual quedó reducido a un amasijo de hierros tras el impacto.
+                            </p>
+<p>
+                                El accidente se produjo alrededor de las 19:45 del domingo, cuando tres vagones de un tren de alta velocidad de la operadora Iryo, que transportaba a unos 300 pasajeros desde Málaga hacia Madrid, descarrilaron y colisionaron contra una formación Alvia que se dirigía a Huelva con 200 personas a bordo. El ministro de Transportes, Óscar Puente, advirtió que la cifra de fallecidos podría seguir aumentando, ya que las labores de rescate son extremadamente complejas y todavía queda por revisar gran parte de la estructura colapsada, para lo cual se requiere maquinaria pesada.
+                            </p>
+<p>
+                                En cuanto a las causas de la tragedia, las pericias iniciales señalan una posible falla en la infraestructura ferroviaria. Se ha detectado una rotura en uno de los carriles en el punto donde se cree que se originó el descarrilamiento, aunque los técnicos intentan determinar si dicha rotura fue la causa directa del siniestro o una consecuencia del impacto. El hecho ha causado gran conmoción en el país, especialmente porque el tramo donde ocurrió el accidente es una zona renovada, bien señalizada y sin dificultades geográficas que justificaran un incidente de tal magnitud.
+                            </p>
 
-<main class="contenido-noticia-individual">
-    <section class="columna-principal-noticia">
-        <h2>Tragedia en las vías: El impacto entre dos trenes de pasajeros sacude al sistema ferroviario español</h2>
+</div>
+<div class="mt-16 pt-12 border-t border-[#f3e7e7] dark:border-[#3d2424]">
+    <h3 class="text-[#1b0d0d] dark:text-[#fcf8f8] text-2xl font-bold uppercase tracking-tight mb-8">Noticias Relacionadas</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <a href="argentina-cerro-diciembre-con-superavit-de-uss-1892-m.html" class="group flex flex-col gap-3 p-6 bg-white dark:bg-[#1a0c0c] border border-[#f3e7e7] dark:border-[#3d2424] hover:border-primary transition-all">
+            <span class="text-primary text-[10px] font-bold tracking-wider uppercase">Economía</span>
+            <p class="text-[#9a4c4c] text-[11px] font-normal">20 de Enero, 2026</p>
+            <h4 class="text-[#1b0d0d] dark:text-[#e7cfcf] text-lg font-bold leading-snug group-hover:text-primary transition-colors">
+                Argentina cerró diciembre con superávit de US$ 1.892 M
+            </h4>
+            <p class="text-[#4b5563] dark:text-[#9ca3af] text-sm font-normal leading-relaxed">
+                Argentina cerró diciembre con un saldo comercial positivo de US$ 1.892 millones, impulsado por un crecimiento en el volumen de exportaciones que permitió alcanzar un superávit anual acumulado de US$ 11.286 millones, consolidando así la estabilidad de las cuentas externas de cara al 2026.
+            </p>
+        </a>
 
-        <div class="imagen-destacada-noticia">
-            <img src="/img/choque-de-trenes-esp.jpg" alt="Choque de dos trenes | MacroMind News">
-        </div>
-
-        <div class="social-share">
-            <a id="share-facebook" target="_blank"><img src="/img/facebook-logo.png"></a>
-            <a id="share-twitter" target="_blank"><img src="/img/logo-x.png"></a>
-            <a id="share-whatsapp" target="_blank"><img src="/img/whatsapp-logo.png"></a>
-            <a id="share-telegram" target="_blank"><img src="/img/telegram-logo.png"></a>
-            <a id="copy-link"><img src="/img/link-logo.png"></a>
-        </div>
-
-        <p><strong>Internacional | 20  de enero del 2026</strong> — El número de víctimas fatales por el choque de trenes ocurrido el pasado domingo en la localidad de Adamuz, España, se elevó a 42 personas. La actualización de la cifra fue confirmada por las autoridades de la Junta de Andalucía tras el hallazgo de un nuevo cuerpo durante las tareas de rescate realizadas este martes. Equipos de emergencia recuperaron el cadáver en el interior de uno de los vagones del tren Alvia, el cual quedó reducido a un amasijo de hierros tras el impacto.</p>
-        <p>El accidente se produjo alrededor de las 19:45 del domingo, cuando tres vagones de un tren de alta velocidad de la operadora Iryo, que transportaba a unos 300 pasajeros desde Málaga hacia Madrid, descarrilaron y colisionaron contra una formación Alvia que se dirigía a Huelva con 200 personas a bordo. El ministro de Transportes, Óscar Puente, advirtió que la cifra de fallecidos podría seguir aumentando, ya que las labores de rescate son extremadamente complejas y todavía queda por revisar gran parte de la estructura colapsada, para lo cual se requiere maquinaria pesada.</p>
-        <p>En cuanto a las causas de la tragedia, las pericias iniciales señalan una posible falla en la infraestructura ferroviaria. Se ha detectado una rotura en uno de los carriles en el punto donde se cree que se originó el descarrilamiento, aunque los técnicos intentan determinar si dicha rotura fue la causa directa del siniestro o una consecuencia del impacto. El hecho ha causado gran conmoción en el país, especialmente porque el tramo donde ocurrió el accidente es una zona renovada, bien señalizada y sin dificultades geográficas que justificaran un incidente de tal magnitud.</p>
-    </section>
+        <a href="rump-anuncio-nuevos-aranceles-a-ocho-paises-europeos-por-la-compra-de-greolandia.html" class="group flex flex-col gap-3 p-6 bg-white dark:bg-[#1a0c0c] border border-[#f3e7e7] dark:border-[#3d2424] hover:border-primary transition-all">
+            <span class="text-primary text-[10px] font-bold tracking-wider uppercase">Internacional</span>
+            <p class="text-[#9a4c4c] text-[11px] font-normal">17 de Enero, 2026</p>
+            <h4 class="text-[#1b0d0d] dark:text-[#e7cfcf] text-lg font-bold leading-snug group-hover:text-primary transition-colors">
+                Trump anunció nuevos aranceles a ocho países europeos por la compra de Groenlandia
+            </h4>
+            <p class="text-[#4b5563] dark:text-[#9ca3af] text-sm font-normal leading-relaxed">
+                Donald Trump anunció la aplicación de aranceles a ocho países europeos como forma de presión para avanzar en un acuerdo por la compra de Groenlandia, una decisión que generó rechazo en Europa y volvió a tensar las relaciones comerciales internacionales.
+            </p>
+        </a>
+    </div>
+</div>
+</div>
+</article>
+</div>
 </main>
-
-<footer>
-    <h1>MM<br>NEWS</h1>
-    <a href="https://x.com/MacroMindNews" target="_blank">
-        <img src="/img/x-logo.png">
-    </a>
-    <a href="https://www.tiktok.com/@macromindnews" target="_blank">
-        <img src="/img/tik-tok-logo.png">
-    </a>
-    <p>© 2025 MacroMind News | Todos los derechos reservados</p>
-    <p><a href="terminos-y-condiciones.html" style="color:white;">Términos y Condiciones</a></p>
-    <p><a href="politicas-de-privacidad.html" style="color:white;">Políticas de Privacidad</a></p>
+<footer class="bg-white dark:bg-[#1a0c0c] border-t border-[#e7cfcf] dark:border-[#3d2424] mt-12 py-10">
+<div class="max-w-[1280px] mx-auto px-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1">
+<div class="flex items-center gap-2 text-primary mb-4">
+<h2 class="text-[#1b0d0d] dark:text-[#fcf8f8] text-lg font-bold">MacroMind News</h2>
+</div>
+<p class="text-[#9a4c4c] text-xs leading-relaxed">
+                            Portal de noticias sobre economía, finanzas, política e internacional.
+                        </p>
+</div>
+<div>
+<h4 class="text-sm font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Categorías</h4>
+<ul class="flex flex-col gap-2 text-xs text-[#9a4c4c] dark:text-[#e7cfcf]">
+<li><a class="hover:text-primary" href="index.html">Inicio</a></li>
+<li><a class="hover:text-primary" href="economia.html">Economía</a></li>
+<li><a class="hover:text-primary" href="politica.html">Política</a></li>
+<li><a class="hover:text-primary" href="finanzas.html">Finanzas</a></li>
+<li><a class="hover:text-primary" href="internacional.html">Internacional</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-sm font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Empresa</h4>
+<ul class="flex flex-col gap-2 text-xs text-[#9a4c4c] dark:text-[#e7cfcf]">
+<li><a class="hover:text-primary" href="sobre-nosotros.html">Sobre nosotros</a></li>
+<li><a class="hover:text-primary" href="contacto.html">Contacto</a></li>
+<li><a class="hover:text-primary" href="politicas-de-privacidad.html">Políticas de Privacidad</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-sm font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Redes Sociales</h4>
+<div class="flex gap-4">
+<a class="text-[#9a4c4c] dark:text-[#e7cfcf] hover:text-primary" href="https://x.com/MacroMindNews"><span class="material-symbols-outlined">X</span></a>
+<a class="text-[#9a4c4c] dark:text-[#e7cfcf] hover:text-primary" href="https://www.tiktok.com/@macromindnews"><span class="material-symbols-outlined">TT</span></a>
+<a class="text-[#9a4c4c] dark:text-[#e7cfcf] hover:text-primary" href="https://www.youtube.com/@MacroMindNews"><span class="material-symbols-outlined">Y</span></a>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-[#e7cfcf] dark:border-[#3d2525] flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[10px] text-[#9a4c4c] dark:text-[#e7cfcf] uppercase tracking-widest">© 2025 MacroMind News. Todos los derechos reservados.</p>
+<div class="flex gap-6 text-[10px] text-[#9a4c4c] dark:text-[#e7cfcf] uppercase tracking-widest">
+<a class="hover:text-primary" href="terminos-y-condiciones.html">Términos y Condiciones</a>
+<a class="hover:text-primary" href="politicas-de-cookies.html">Política de Cookies</a>
+</div>
+</div>
+</div>
 </footer>
+</div>
 
-</body>
-</html>
+</body></html>
