@@ -56,15 +56,17 @@
 
     /* 3. Menú Lateral Desplegable */
     .nav-movil {
-    position: fixed; /* Esto es clave para que no empuje el contenido */
-    top: 0;
-    left: -100%; /* Ahora empieza desde la izquierda si prefieres */
-    width: 280px;
-    height: 100vh;
-    z-index: 1000;
-    transition: 0.3s;
-    z-index: 100;
-    padding: 2rem;
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Oculto a la derecha */
+        width: 280px;
+        height: 100%;
+        background: #f8f6f6;
+        z-index: 100;
+        padding: 30px 25px;
+        transition: 0.4s ease;
+        box-shadow: -10px 0 20px rgba(0,0,0,0.1);
     }
 
     /* Estilo para modo oscuro */
@@ -110,20 +112,23 @@
 
 <header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b border-solid border-[#e7cfcf] dark:border-[#3d2525] px-4 md:px-10 lg:px-40 py-3">
 <div class="flex items-center justify-between whitespace-nowrap max-w-[1200px] mx-auto w-full">
+        
+<div class="flex md:hidden w-10"></div>
 
-<div class="flex md:hidden w-10">
-<div class="menu-hamburguesa" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-</div>
-
-<div class="flex items-center">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
 <h1 class="text-[#1b0d0d] dark:text-[#fcf8f8] text-xl font-bold leading-tight tracking-[-0.015em] font-display">MacroMind News</h1>
 </div>
 
-<div class="flex md:hidden w-10"></div>
+<div class="menu-hamburguesa md:hidden" onclick="toggleMenu()">
+     <span></span>
+     <span></span>
+     <span></span>
+</div>
+</div>
+
+<nav id="menu-lateral" class="nav-movil">
+    <div class="cerrar-menu text-[#1b0d0d] dark:text-[#fcf8f8]" onclick="toggleMenu()">×</div>
     
     <ul class="secciones-principales">
         <li><a href="index.html">Inicio</a></li>
