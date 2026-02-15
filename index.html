@@ -33,56 +33,96 @@
 
 /* --- ESTILOS PARA CELULARES --- */
 @media (max-width: 768px) {
-    /* 1. Ocultar el buscador y el nav de escritorio */
-    header .hidden.lg\:flex, 
+
+    /* Ocultar elementos de escritorio */
+    header .hidden.lg\:flex,  
     header nav.hidden.md\:flex {
         display: none !important;
     }
 
-    /* 2. Botón Hamburguesa */
+    /* Contenedor principal del header en móvil */
+    header .flex.items-center.justify-between.whitespace-nowrap {
+        justify-content: space-between;
+    }
+
+    /* Contenedor interno (hamburguesa + título) */
+    header .flex.items-center.gap-8 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Botón Hamburguesa (IZQUIERDA) */
     .menu-hamburguesa {
         display: flex;
         flex-direction: column;
         gap: 5px;
         cursor: pointer;
         padding: 5px;
+        order: 1;
     }
+
     .menu-hamburguesa span {
         width: 25px;
         height: 3px;
-        background-color: currentColor; /* Toma el color del texto actual */
+        background-color: currentColor;
         border-radius: 2px;
     }
 
-    /* 3. Menú Lateral Desplegable */
+    /* Título (DERECHA) */
+    header h1 {
+        order: 2;
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Menú lateral */
     .nav-movil {
         display: block;
         position: fixed;
         top: 0;
-        right: -100%; /* Empieza fuera de la pantalla */
+        right: -100%;
         width: 80%;
         max-width: 300px;
         height: 100vh;
-        background-color: #f8f6f6; /* Fondo claro */
+        background-color: #f8f6f6;
         box-shadow: -5px 0 15px rgba(0,0,0,0.2);
         transition: 0.3s ease-in-out;
         z-index: 100;
         padding: 2rem;
     }
-    /* Estilo para modo oscuro */
-    .dark .nav-movil { background-color: #221010; }
 
-    .nav-movil.active {
-        right: 0; /* Se desliza hacia adentro */
+    .dark .nav-movil {
+        background-color: #221010;
     }
 
-    /* 4. Estilos de los links dentro del menú */
-    .nav-movil ul { list-style: none; padding: 0; margin-bottom: 20px; }
-    .nav-movil li { margin: 15px 0; }
-    .nav-movil a { font-size: 1rem; font-weight: 600; text-decoration: none; }
-    
-    .legales-menu a { font-size: 0.85rem; font-weight: 400; opacity: 0.8; }
-    
+    .nav-movil.active {
+        right: 0;
+    }
+
+    .nav-movil ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .nav-movil li {
+        margin: 15px 0;
+    }
+
+    .nav-movil a {
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .legales-menu a {
+        font-size: 0.85rem;
+        font-weight: 400;
+        opacity: 0.8;
+    }
+
     .cerrar-menu {
         font-size: 2rem;
         text-align: right;
@@ -95,7 +135,7 @@
         gap: 20px;
         font-size: 1.5rem;
         margin-top: 20px;
-        color: #d41111; /* Color primario */
+        color: #d41111;
     }
 }
         
