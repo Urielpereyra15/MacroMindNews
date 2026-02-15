@@ -65,10 +65,6 @@ function share(platform) {
             color: #d1d5db;
         }
 
-/* ===============================
-   RESPONSIVE HEADER MOBILE
-================================ */
-
 @media (max-width: 768px) {
 
     /* Ocultar nav desktop */
@@ -171,7 +167,43 @@ function share(platform) {
     .grid.md\:grid-cols-2 {
         grid-template-columns: 1fr !important;
     }
-}        
+} 
+
+.menu-seccion {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.menu-seccion li {
+    margin-bottom: 18px;
+}
+
+.menu-seccion a {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.menu-divider {
+    border: none;
+    border-top: 1px solid #e7cfcf;
+    margin: 25px 0;
+}
+
+.dark .menu-divider {
+    border-top: 1px solid #3d2525;
+}
+
+.menu-redes {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.menu-redes a {
+    color: #d41111;
+}
 
     </style>
 </head>
@@ -224,13 +256,35 @@ function toggleMenu() {
 <!-- Menú móvil -->
 <div class="nav-movil md:hidden">
     <div class="cerrar-menu" onclick="toggleMenu()">×</div>
-    <ul>
+
+    <!-- Sección principal -->
+    <ul class="menu-seccion">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="economia.html">Economía</a></li>
         <li><a href="politica.html">Política</a></li>
         <li><a href="finanzas.html">Finanzas</a></li>
         <li><a href="internacional.html">Internacional</a></li>
     </ul>
+
+    <hr class="menu-divider">
+
+    <!-- Empresa -->
+    <ul class="menu-seccion">
+        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="politicas-de-privacidad.html">Políticas de Privacidad</a></li>
+        <li><a href="terminos-y-condiciones.html">Términos y Condiciones</a></li>
+        <li><a href="politicas-de-cookies.html">Política de Cookies</a></li>
+    </ul>
+
+    <hr class="menu-divider">
+
+    <!-- Redes -->
+    <div class="menu-redes">
+        <a href="https://x.com/MacroMindNews" target="_blank">X</a>
+        <a href="https://www.tiktok.com/@macromindnews" target="_blank">TikTok</a>
+        <a href="https://www.youtube.com/@MacroMindNews" target="_blank">YouTube</a>
+    </div>
 </div>
 <main class="max-w-[1280px] mx-auto w-full px-4 md:px-10 py-6">
 <div class="flex flex-wrap gap-2 pb-6">
