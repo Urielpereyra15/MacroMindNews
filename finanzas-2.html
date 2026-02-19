@@ -24,10 +24,24 @@
                 },
             },
         }
+    </script>
+<style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+/* =========================
+   MOBILE HEADER ECONOMIA
+========================= */
+
+.menu-hamburguesa,
+.nav-movil {
+    display: none;
+}
 
 @media (max-width: 768px) {
 
-    /* Ocultar menú desktop */
+    /* Ocultar nav desktop */
     header nav {
         display: none !important;
     }
@@ -37,7 +51,7 @@
         display: none !important;
     }
 
-    /* Ajustar header */
+    /* Ajustar contenedor */
     header .flex.items-center.gap-8 {
         width: 100%;
         justify-content: space-between;
@@ -119,11 +133,6 @@
     aside {
         margin-top: 40px;
     }
-
-    /* Paginación centrada */
-    .flex.items-center.justify-center.gap-2 {
-        flex-wrap: wrap;
-    }
         
 .menu-seccion {
     list-style: none;
@@ -160,11 +169,6 @@
 .menu-redes a {
     color: #d41111;
 }
-    </script>
-<style>
-        body {
-            font-family: 'Work Sans', sans-serif;
-        }
     </style>
 </head>
 <script>
@@ -247,57 +251,76 @@ function toggleMenu() {
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 <div class="lg:col-span-8 flex flex-col gap-10">
-
-</article>
-<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+        
+<article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('img/riesgo-pais.jpg');"></div>
+<div class="flex flex-col gap-4">
 <div class="flex flex-wrap gap-3">
-<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
-<p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">Se frena el "rally" de bonos y acciones argentinas</p>
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">El riesgo país argentino cae al nivel más bajo del año y mejora la percepción del mercado</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">10 de Noviembre, 2025</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                            El riesgo país cayó a 596 puntos, su nivel más bajo en lo que va del año. El mercado celebró con subas en bonos y acciones, aunque economistas advierten que Argentina sigue por encima del promedio regional.
+                        </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="el-riesgo-pais-cae-al-nivel-mas-bajo-del-año-y-mejora-la-percepcion-del-mercado.html">
+                            Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+        
+<article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('img/merval.jpg');"></div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Se frena el "rally" de bonos y acciones argentinas</p>
 </div>
 <span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">4 de Noviembre, 2025</span>
 </div>
 <p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
-                        Se frena el rally de bonos y acciones argentinas por toma de ganancias y suba del dólar.
-                    </p>
+                            Se frena el rally de bonos y acciones argentinas por toma de ganancias y suba del dólar.
+                        </p>
 <a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="se-frena-el-rally-de-bonos-y-acciones-argentinas.html">
+                            Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+        
+<article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('img/iamgen.jpg');"></div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
+<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Titulo</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">Fecha</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                            Descripción
+                        </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="noticia.html">
+                            Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+        
+<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
+<p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">Titulo</p>
+</div>
+<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">Fecha</span>
+</div>
+<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
+                        Descripción
+                    </p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="noticia.html">
                         Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </article>
         
-<article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
-<div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('img/imagen.jpg');"></div>
-<div class="flex flex-col gap-4">
-<div class="flex flex-wrap gap-3">
-<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
-<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Titulo</p>
-</div>
-<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">Fecha</span>
-</div>
-<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
-                            Descripción
-                        </p>
-<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="noticia.html">
-                            Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</article>
-<article class="flex flex-col md:flex-row gap-6 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
-<div class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded overflow-hidden shrink-0" style="background-image: url('img/imagen.jpg');"></div>
-<div class="flex flex-col gap-4">
-<div class="flex flex-wrap gap-3">
-<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary px-3">
-<p class="text-white text-[10px] uppercase font-bold tracking-wider leading-none">Titulo</p>
-</div>
-<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">Fecha</span>
-</div>
-<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
-                            Descripción
-                        </p>
-<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="noticia.html">
-                            Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</article>
 <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
 <div class="flex flex-wrap gap-3">
 <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
@@ -312,6 +335,7 @@ function toggleMenu() {
                         Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </article>
+        
 <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
 <div class="flex flex-wrap gap-3">
 <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
@@ -326,6 +350,7 @@ function toggleMenu() {
                         Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </article>
+        
 <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
 <div class="flex flex-wrap gap-3">
 <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
@@ -340,6 +365,7 @@ function toggleMenu() {
                         Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </article>
+
 <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
 <div class="flex flex-wrap gap-3">
 <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
@@ -354,6 +380,7 @@ function toggleMenu() {
                         Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </article>
+        
 <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
 <div class="flex flex-wrap gap-3">
 <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
@@ -368,6 +395,7 @@ function toggleMenu() {
                         Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </article>
+        
 <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
 <div class="flex flex-wrap gap-3">
 <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
@@ -382,6 +410,7 @@ function toggleMenu() {
                         Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </article>
+        
 <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
 <div class="flex flex-wrap gap-3">
 <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
@@ -396,6 +425,7 @@ function toggleMenu() {
                         Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </article>
+        
 <article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
 <div class="flex flex-wrap gap-3">
 <div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
@@ -410,20 +440,7 @@ function toggleMenu() {
                         Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </article>
-<article class="flex flex-col gap-4 border-b border-[#e7cfcf] dark:border-[#3d2525] pb-10">
-<div class="flex flex-wrap gap-3">
-<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 dark:bg-primary/40 px-3">
-<p class="text-primary dark:text-white text-[10px] uppercase font-bold tracking-wider leading-none">Titulo</p>
-</div>
-<span class="text-[#9a4c4c] dark:text-[#e7cfcf] text-sm font-medium">Fecha</span>
-</div>
-<p class="text-base text-[#1b0d0d] dark:text-[#fcf8f8] leading-relaxed">
-                        Descripción
-                    </p>
-<a class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="noticia.html">
-                        Leer informe completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</article>
+        
 </div>
 <aside class="lg:col-span-4 flex flex-col gap-8">
 <div class="flex flex-col gap-4">
@@ -434,29 +451,24 @@ function toggleMenu() {
 <tr class="bg-background-light dark:bg-[#3d2525]">
 <th class="px-4 py-3 text-xs font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Indicador</th>
 <th class="px-4 py-3 text-xs font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Valor</th>
-<th class="px-4 py-3 text-xs font-bold text-[#1b0d0d] dark:text-[#fcf8f8]">Variación</th>
-
 </tr>
 </thead>
 <tbody>
 <tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
-<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Dolár Oficial</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1420,64</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">0,03%</td>
+<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">INFLACIÓN</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">2,9%</td>
 <td class="px-4 py-4 text-sm">
 </td>
 </tr>
 <tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
-<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Dolár Blue</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1440,00</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">0,0%</td>
+<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">DEUDA EXTERNA</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">US$316.935 millones</td>
 <td class="px-4 py-4 text-sm">
 </td>
 </tr>
 <tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
-<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Merval</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">2.816.127,94</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">-1,25%</td>
+<td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">SALARIO MINIMO</td>
+<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$322.200</td>
 <td class="px-4 py-4 text-sm">
 </td>
 </tr>
@@ -467,7 +479,7 @@ function toggleMenu() {
 <div class="flex flex-col gap-4">
     <h2 class="text-primary text-sm font-bold uppercase tracking-widest border-l-4 border-primary pl-3">Tendencias</h2>
     <div class="flex flex-col gap-4">
-
+        
         <div class="p-4 bg-white dark:bg-[#2b1616] rounded-lg border border-[#e7cfcf] dark:border-[#3d2525]">
             <p class="text-sm text-[#1b0d0d] dark:text-[#fcf8f8] leading-snug">
                 El Indec dio a conocer el primer índice de precios del año 2026, reflejando una ligera variación respecto al mes anterior en un contexto de cambios institucionales y debate sobre la metodología estadística.
@@ -525,9 +537,9 @@ function toggleMenu() {
         </button>
     </form>
 </div> </aside> </div> <div class="flex items-center justify-center gap-2 py-10 border-t border-[#e7cfcf] dark:border-[#3d2525] mt-10 w-full">
-    <a href="finanzas.html" class="flex items-center justify-center size-10 rounded bg-primary text-white font-bold text-sm shadow-sm transition-transform hover:scale-105">1</a>
-    <a href="finanzas-2.html" class="flex items-center justify-center size-10 rounded border border-[#e7cfcf] dark:border-[#3d2525] text-[#1b0d0d] dark:text-[#fcf8f8] font-medium text-sm hover:border-primary hover:text-primary transition-all">2</a>
-    <a href="finanzas-2.html" class="flex items-center justify-center px-3 h-10 rounded border border-[#e7cfcf] dark:border-[#3d2525] text-[#1b0d0d] dark:text-[#fcf8f8] font-medium text-sm hover:border-primary hover:text-primary transition-all">
+    <a href="economia.html" class="flex items-center justify-center size-10 rounded border border-[#e7cfcf] dark:border-[#3d2525] text-[#1b0d0d] dark:text-[#fcf8f8] font-medium text-sm hover:border-primary hover:text-primary transition-all">1</a>
+    <a href="economia-2.html" class="flex items-center justify-center size-10 rounded bg-primary text-white font-bold text-sm shadow-sm transition-transform hover:scale-105">2</a>
+    <a href="economia-2.html" class="flex items-center justify-center px-3 h-10 rounded border border-[#e7cfcf] dark:border-[#3d2525] text-[#1b0d0d] dark:text-[#fcf8f8] font-medium text-sm hover:border-primary hover:text-primary transition-all">
         Siguiente <span class="material-symbols-outlined text-sm ml-1">chevron_right</span>
     </a>
 </div>
