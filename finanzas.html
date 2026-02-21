@@ -601,45 +601,50 @@ function toggleMenu() {
 </div>
 
 <script>
-  async function actualizarIndicadores() {
+  async function actualizarTodo() {
     try {
-      // 1. Llamada a las APIs (Dólares y Merval)
+      // 1. Pedir los datos
       const [resDolares, resMerval] = await Promise.all([
         fetch('https://dolarapi.com/v1/dolares'),
         fetch('https://api.argentinadatos.com/v1/indices/merval/ultimo')
       ]);
 
-      const datosDolares = await resDolares.json();
-      const datosMerval = await resMerval.json();
+      const dolares = await resDolares.json();
+      const mervalData = await resMerval.json();
 
-      // 2. Extraer datos específicos
-      const oficial = datosDolares.find(d => d.casa === "oficial");
-      const blue = datosDolares.find(d => d.casa === "blue");
+      // 2. Buscar cada tipo de dólar
+      const oficial = dolares.find(d => d.casa === "oficial");
+      const blue = dolares.find(d => d.casa === "blue");
 
-      // 3. Actualizar Dólar Oficial
-      document.getElementById('dolar-oficial').innerText = '$' + oficial.venta.toLocaleString('es-AR');
-      document.getElementById('variacion-oficial').innerText = (oficial.variacion || 0).toLocaleString('es-AR') + '%';
-
-      // 4. Actualizar Dólar Blue
-      document.getElementById('dolar-blue').innerText = '$' + blue.venta.toLocaleString('es-AR');
-      document.getElementById('variacion-blue').innerText = (blue.variacion || 0).toLocaleString('es-AR') + '%';
-
-      // 5. Actualizar Merval (Valor y Variación)
-      document.getElementById('merval-valor').innerText = datosMerval.valor.toLocaleString('es-AR', { minimumFractionDigits: 2 });
-      
-      // Si la API del Merval no provee variación, puedes dejarla manual o calcularla.
-      // Aquí intentamos poner la que viene en los datos si existe:
-      if (datosMerval.variacion) {
-        document.getElementById('merval-variacion').innerText = datosMerval.variacion.toLocaleString('es-AR') + '%';
+      // 3. Inyectar datos en el HTML usando tus IDs
+      // Dólar Oficial
+      if(oficial) {
+        document.getElementById('dolar-oficial').innerText = '$' + oficial.venta.toLocaleString('es-AR');
+        // Usamos la propiedad .variacion que devuelve la API
+        document.getElementById('variacion-oficial').innerText = (oficial.variacion || 0).toLocaleString('es-AR') + '%';
       }
 
-    } catch (error) {
-      console.error("Error actualizando datos en MacroMind News:", error);
+      // Dólar Blue
+      if(blue) {
+        document.getElementById('dolar-blue').innerText = '$' + blue.venta.toLocaleString('es-AR');
+        document.getElementById('variacion-blue').innerText = (blue.variacion || 0).toLocaleString('es-AR') + '%';
+      }
+
+      // Merval
+      if(mervalData) {
+        document.getElementById('merval-valor').innerText = mervalData.valor.toLocaleString('es-AR', { minimumFractionDigits: 2 });
+        // Si el Merval no trae variación en esta API, calculamos o ponemos 0
+        const vMerval = mervalData.variacion || 0;
+        document.getElementById('merval-variacion').innerText = vMerval.toLocaleString('es-AR') + '%';
+      }
+
+    } catch (e) {
+      console.error("Error al actualizar MacroMind News:", e);
     }
   }
 
-  // Ejecutar al cargar la página
-  actualizarIndicadores();
+  // Llamar a la función al cargar
+  actualizarTodo();
 </script>
 
 </body></html>
