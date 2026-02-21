@@ -348,15 +348,15 @@
 </tr>
 <tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
 <td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Dolár Oficial</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1.424,61</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">0,28%</td>
+<td id="dolar-oficial" class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1.424,61</td>
+<td id="variacion-oficial" class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">0,28%</td>
 <td class="px-4 py-4 text-sm">
 </td>
 </tr>
 <tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
 <td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Dolár Blue</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1.435</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">-0,35%</td>
+<td id="dolar-blue" class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1.435</td>
+<td id="variacion-blue" class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">-0,35%</td>
 <td class="px-4 py-4 text-sm">
 </td>
 </tr>
@@ -497,6 +497,41 @@
         const menu = document.getElementById('menu-lateral');
         menu.classList.toggle('active');
     }
+</script>
+
+<script>
+  async function actualizarTodo() {
+    try {
+      // 1. Obtener datos
+      const [resOficial, resBlue] = await Promise.all([
+        fetch('https://dolarapi.com/v1/dolares/oficial'),
+        fetch('https://dolarapi.com/v1/dolares/blue')
+      ]);
+      
+      const dataOfi = await resOficial.json();
+      const dataBlue = await resBlue.json();
+
+      // 2. Actualizar Precios
+      document.getElementById('dolar-oficial').innerText = '$' + dataOfi.venta.toLocaleString('es-AR');
+      document.getElementById('dolar-blue').innerText = '$' + dataBlue.venta.toLocaleString('es-AR');
+
+      // 3. Actualizar Variaciones
+      const varOfi = document.getElementById('variacion-oficial');
+      const varBlue = document.getElementById('variacion-blue');
+
+      varOfi.innerText = dataOfi.variacion + '%';
+      varBlue.innerText = dataBlue.variacion + '%';
+
+      // Tip: Colorear según si subió o bajó
+      varOfi.style.color = dataOfi.variacion >= 0 ? '#27ae60' : '#e74c3c'; // Verde si sube, Rojo si baja
+      varBlue.style.color = dataBlue.variacion >= 0 ? '#27ae60' : '#e74c3c';
+
+    } catch (e) {
+      console.error("Error al conectar con la API de dólares");
+    }
+  }
+
+  actualizarTodo();
 </script>
 
 </body></html>
