@@ -502,7 +502,6 @@
 <script>
   async function actualizarTodo() {
     try {
-      // 1. Obtener datos
       const [resOficial, resBlue] = await Promise.all([
         fetch('https://dolarapi.com/v1/dolares/oficial'),
         fetch('https://dolarapi.com/v1/dolares/blue')
@@ -511,23 +510,20 @@
       const dataOfi = await resOficial.json();
       const dataBlue = await resBlue.json();
 
-      // 2. Actualizar Precios
+      // Actualizar los Precios
       document.getElementById('dolar-oficial').innerText = '$' + dataOfi.venta.toLocaleString('es-AR');
       document.getElementById('dolar-blue').innerText = '$' + dataBlue.venta.toLocaleString('es-AR');
 
-      // 3. Actualizar Variaciones
-      const varOfi = document.getElementById('variacion-oficial');
-      const varBlue = document.getElementById('variacion-blue');
+      // Actualizar las Variaciones
+      // Usamos .toFixed(2) para asegurar que siempre tenga dos decimales como en tu imagen
+      const vOfi = dataOfi.variacion || 0;
+      const vBlue = dataBlue.variacion || 0;
 
-      varOfi.innerText = dataOfi.variacion + '%';
-      varBlue.innerText = dataBlue.variacion + '%';
-
-      // Tip: Colorear según si subió o bajó
-      varOfi.style.color = dataOfi.variacion >= 0 ? '#27ae60' : '#e74c3c'; // Verde si sube, Rojo si baja
-      varBlue.style.color = dataBlue.variacion >= 0 ? '#27ae60' : '#e74c3c';
+      document.getElementById('variacion-oficial').innerText = vOfi.toLocaleString('es-AR') + '%';
+      document.getElementById('variacion-blue').innerText = vBlue.toLocaleString('es-AR') + '%';
 
     } catch (e) {
-      console.error("Error al conectar con la API de dólares");
+      console.error("Error cargando los indicadores de MacroMind News");
     }
   }
 
