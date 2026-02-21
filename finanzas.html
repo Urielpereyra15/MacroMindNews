@@ -454,22 +454,22 @@ function toggleMenu() {
 <tbody>
 <tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
 <td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Dolár Oficial</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1420,64</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">0,03%</td>
+<td id="dolar-oficial" class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1.424,61</td>
+<td id="variacion-oficial" class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">0,28%</td>
 <td class="px-4 py-4 text-sm">
 </td>
 </tr>
 <tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
 <td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Dolár Blue</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1440,00</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">0,0%</td>
+<td id="dolar-blue" class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">$1.435</td>
+<td id="variacion-blue" class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">-0,35%</td>
 <td class="px-4 py-4 text-sm">
 </td>
 </tr>
 <tr class="border-t border-[#e7cfcf] dark:border-[#3d2525]">
 <td class="px-4 py-4 text-sm text-[#1b0d0d] dark:text-[#fcf8f8] font-medium">Merval</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">2.816.127,94</td>
-<td class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">-1,25%</td>
+<td id="merval-valor" class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">2.816.127,94</td>
+<td id="merval-variacion" class="px-4 py-4 text-sm text-[#9a4c4c] dark:text-[#e7cfcf]">-1,25%</td>
 <td class="px-4 py-4 text-sm">
 </td>
 </tr>
@@ -599,5 +599,47 @@ function toggleMenu() {
 </div>
 </footer>
 </div>
+
+<script>
+  async function actualizarIndicadores() {
+    try {
+      // 1. Llamada a las APIs (Dólares y Merval)
+      const [resDolares, resMerval] = await Promise.all([
+        fetch('https://dolarapi.com/v1/dolares'),
+        fetch('https://api.argentinadatos.com/v1/indices/merval/ultimo')
+      ]);
+
+      const datosDolares = await resDolares.json();
+      const datosMerval = await resMerval.json();
+
+      // 2. Extraer datos específicos
+      const oficial = datosDolares.find(d => d.casa === "oficial");
+      const blue = datosDolares.find(d => d.casa === "blue");
+
+      // 3. Actualizar Dólar Oficial
+      document.getElementById('dolar-oficial').innerText = '$' + oficial.venta.toLocaleString('es-AR');
+      document.getElementById('variacion-oficial').innerText = (oficial.variacion || 0).toLocaleString('es-AR') + '%';
+
+      // 4. Actualizar Dólar Blue
+      document.getElementById('dolar-blue').innerText = '$' + blue.venta.toLocaleString('es-AR');
+      document.getElementById('variacion-blue').innerText = (blue.variacion || 0).toLocaleString('es-AR') + '%';
+
+      // 5. Actualizar Merval (Valor y Variación)
+      document.getElementById('merval-valor').innerText = datosMerval.valor.toLocaleString('es-AR', { minimumFractionDigits: 2 });
+      
+      // Si la API del Merval no provee variación, puedes dejarla manual o calcularla.
+      // Aquí intentamos poner la que viene en los datos si existe:
+      if (datosMerval.variacion) {
+        document.getElementById('merval-variacion').innerText = datosMerval.variacion.toLocaleString('es-AR') + '%';
+      }
+
+    } catch (error) {
+      console.error("Error actualizando datos en MacroMind News:", error);
+    }
+  }
+
+  // Ejecutar al cargar la página
+  actualizarIndicadores();
+</script>
 
 </body></html>
