@@ -965,8 +965,8 @@
 
     const [dolarRes, sp500Res, mervalRes, riesgoRes] = await Promise.allSettled([
       fetch('https://dolarapi.com/v1/dolares'),
-      fetch('https://stooq.com/q/d/l/?s=%5Espx&i=d'),
-      fetch('https://stooq.com/q/d/l/?s=%5Ew20&i=d'),
+      fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://stooq.com/q/d/l/?s=%5Espx&i=d')),
+      fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://stooq.com/q/d/l/?s=%5Ew20&i=d')),
       fetch('https://api.argentinadatos.com/v1/finanzas/indices/riesgo-pais/ultimo'),
     ]);
 
