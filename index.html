@@ -965,10 +965,11 @@
 
     const [dolarRes, sp500Res, mervalRes, riesgoRes] = await Promise.allSettled([
       fetch('https://dolarapi.com/v1/dolares'),
-      fetch('https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?interval=1d&range=1d'),
-      fetch('https://api.argentinadatos.com/v1/finanzas/indices/merval/ultimo'),
+      fetch('https://stooq.com/q/d/l/?s=%5Espx&i=d'),
+      fetch('https://stooq.com/q/d/l/?s=%5Ew20&i=d'),
       fetch('https://api.argentinadatos.com/v1/finanzas/indices/riesgo-pais/ultimo'),
     ]);
+
 
     // Dólares
     if (dolarRes.status === 'fulfilled') {
@@ -986,28 +987,33 @@
       } catch(e) {}
     }
 
-    // S&P 500
-    if (sp500Res.status === 'fulfilled') {
-      try {
-        const data = await sp500Res.value.json();
-        const meta = data?.chart?.result?.[0]?.meta;
-        if (meta) {
-          const price = meta.regularMarketPrice;
-          const prev  = meta.chartPreviousClose;
-          const chg   = prev ? ((price - prev) / prev) * 100 : null;
-          items.push(makeItem('S&P 500', fmtNum(price, 2), changeEl(chg)));
-        }
-      } catch(e) {}
+    // S&P 500 via Stooq
+        if (sp500Res.status === 'fulfilled') {
+        try {
+        const text = await sp500Res.value.text();
+        const rows = text.trim().split('\n');
+        if (rows.length > 1) {
+        const cols = rows[rows.length - 1].split(',');
+        const price = parseFloat(cols[4]);
+        const prev  = parseFloat(cols[1]);
+        const chg   = prev ? ((price - prev) / prev) * 100 : null;
+        if (!isNaN(price)) items.push(makeItem('S&P 500', fmtNum(price, 2), changeEl(chg)));
     }
+  } catch(e) {}
+}
 
-    // MERVAL
-    if (mervalRes.status === 'fulfilled') {
-      try {
-        const data = await mervalRes.value.json();
-        const val  = data?.valor;
-        if (val != null) items.push(makeItem('MERVAL', fmtNum(val, 0), ''));
-      } catch(e) {}
+// MERVAL via Stooq
+if (mervalRes.status === 'fulfilled') {
+  try {
+    const text = await mervalRes.value.text();
+    const rows = text.trim().split('\n');
+    if (rows.length > 1) {
+      const cols = rows[rows.length - 1].split(',');
+      const price = parseFloat(cols[4]);
+      if (!isNaN(price)) items.push(makeItem('MERVAL', fmtNum(price, 0), ''));
     }
+  } catch(e) {}
+}
 
     // Riesgo País
     if (riesgoRes.status === 'fulfilled') {
