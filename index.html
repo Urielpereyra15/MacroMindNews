@@ -1009,7 +1009,7 @@ if (mervalRes.status === 'fulfilled') {
       try {
         const data = await riesgoRes.value.json();
         const val  = data?.valor;
-        if (val != null) items.push(makeItem('Riesgo País', fmtNum(val, 0) + '%', ''));
+        if (val != null) items.push(makeItem('Riesgo País', fmtNum(val, 0), ''));
       } catch(e) {}
     }
 
