@@ -8,17 +8,23 @@
     <priority>1.0</priority>
   </url>
 
+  <url>
+    <loc>https://macromindnews.com.ar/fallo-historico-a-favor-de-argentina-anulan-la-condena-millonaria-por-ypf.html</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
   
   <url>
     <loc>https://macromindnews.com.ar/la-economia-crecio-un-1-9-en-enero-que-sectores-lideraron-la-recuperacion-y-que-significa-para-2026.html</loc>
-    <lastmod>2026-03-27</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://macromindnews.com.ar/el-bcra-baja-los-encajes-bancarios-que-significa-para-los-argentinos-y-como-impacta-en-el-credito.html</loc>
-    <lastmod>2026-03-27</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
