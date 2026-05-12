@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MacroMind News | Economía, Finanzas y Política</title>
+    <title>MacroMind News</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,7 +11,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { 'mm-red': '#c00', 'mm-gray': '#f4f4f4' },
+                    colors: { 'mm-red': '#c00', 'mm-gray-bg': '#f5f5f5', 'mm-text-gray': '#888' },
                     fontFamily: { 'merri': ['Merriweather', 'serif'], 'sans': ['Source Sans 3', 'sans-serif'] }
                 }
             }
@@ -19,43 +19,45 @@
     </script>
 
     <style>
-        .ticker-wrapper { overflow: hidden; white-space: nowrap; background: #1a1a1a; color: #fff; padding: 8px 0; }
-        .ticker-scroll { display: inline-block; animation: scroll 30s linear infinite; }
+        .ticker-wrapper { overflow: hidden; white-space: nowrap; background: #f8f9fa; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px 0; }
+        .ticker-scroll { display: inline-block; animation: scroll 40s linear infinite; }
         @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+        .ticker-item { display: inline-flex; align-items: center; margin-right: 3rem; font-family: 'Source Sans 3', sans-serif; }
+        .ticker-label { color: #888; font-weight: 700; font-size: 14px; margin-right: 8px; text-transform: uppercase; }
+        .ticker-value { color: #000; font-weight: 800; font-size: 16px; }
+        .ticker-divider { color: #ddd; margin-left: 1.5rem; }
+
         .hidden-page { display: none; }
         .active-page { display: block; }
-        .sticky-header { position: sticky; top: 0; z-index: 50; background: white; border-bottom: 2px solid #c00; }
-        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .sticky-header { position: sticky; top: 0; z-index: 50; background: white; border-bottom: 1px solid #eee; }
         .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
     </style>
 </head>
 <body class="font-sans text-gray-900 bg-white">
 
-    <header class="sticky-header shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <!-- HEADER -->
+    <header class="sticky-header">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <button id="menu-btn" class="md:hidden text-2xl">☰</button>
-            <h1 class="font-merri text-2xl md:text-3xl text-mm-red cursor-pointer" onclick="navigateTo('home')">MacroMind News</h1>
-            <nav class="hidden md:flex space-x-6 font-bold text-sm uppercase tracking-wider">
-                <a href="#" onclick="navigateTo('categoria', 'Economia')" class="hover:text-mm-red text-xs">Economía</a>
-                <a href="#" onclick="navigateTo('categoria', 'Finanzas')" class="hover:text-mm-red text-xs">Finanzas</a>
-                <a href="#" onclick="navigateTo('categoria', 'Politica')" class="hover:text-mm-red text-xs">Política</a>
-                <a href="#" onclick="navigateTo('categoria', 'Internacional')" class="hover:text-mm-red text-xs">Internacional</a>
+            <h1 class="font-merri text-2xl md:text-3xl text-black cursor-pointer font-black" onclick="navigateTo('home')">MacroMind News</h1>
+            <nav class="hidden md:flex space-x-8 font-semibold text-[15px] tracking-tight">
+                <a href="#" onclick="navigateTo('home')" class="hover:text-mm-red transition">Inicio</a>
+                <a href="#" onclick="navigateTo('categoria', 'Economia')" class="hover:text-mm-red transition">Economía</a>
+                <a href="#" onclick="navigateTo('categoria', 'Finanzas')" class="hover:text-mm-red transition">Finanzas</a>
+                <a href="#" onclick="navigateTo('categoria', 'Politica')" class="hover:text-mm-red transition">Política</a>
+                <a href="#" onclick="navigateTo('categoria', 'Internacional')" class="hover:text-mm-red transition">Internacional</a>
             </nav>
-            <button onclick="toggleModal('modal-sub')" class="bg-mm-red text-white px-4 py-2 rounded font-bold text-xs hover:bg-red-800 transition">SUSCRIBIRME</button>
+            <button onclick="toggleModal('modal-sub')" class="bg-mm-red text-white px-6 py-2 rounded font-bold text-xs hover:bg-red-800 transition">SUSCRIBIRME</button>
         </div>
-        <div class="ticker-wrapper text-xs uppercase font-bold border-t border-gray-800">
-            <div id="ticker-content" class="ticker-scroll">Cargando cotizaciones...</div>
+        
+        <div class="ticker-wrapper">
+            <div id="ticker-content" class="ticker-scroll">
+                <!-- Se genera por JS -->
+            </div>
         </div>
     </header>
 
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-mm-red p-4 space-y-3 font-bold uppercase text-center">
-        <a href="#" onclick="navigateTo('categoria', 'Economia')" class="block">Economía</a>
-        <a href="#" onclick="navigateTo('categoria', 'Finanzas')" class="block">Finanzas</a>
-        <a href="#" onclick="navigateTo('categoria', 'Politica')" class="block">Política</a>
-        <a href="#" onclick="navigateTo('categoria', 'Internacional')" class="block">Internacional</a>
-    </div>
-
-    <main id="app-container" class="max-w-7xl mx-auto px-4 py-8 min-h-screen">
+    <main id="app-container" class="max-w-7xl mx-auto px-4 py-12 min-h-screen">
         <section id="page-home" class="active-page">
             <div id="home-content"></div>
         </section>
@@ -69,73 +71,101 @@
             <div id="art-content"></div>
         </section>
 
+        <!-- ADMIN (Acceso Ctrl+Shift+A) -->
         <section id="page-admin" class="hidden-page">
-            <div id="admin-auth" class="max-w-md mx-auto text-center py-20 bg-gray-50 p-8 rounded shadow">
-                <h2 class="font-merri text-2xl mb-6">Acceso Staff MacroMind</h2>
+            <div id="admin-auth" class="max-w-md mx-auto text-center py-20">
+                <h2 class="font-merri text-2xl mb-6 font-black">Acceso Staff</h2>
                 <input type="email" id="admin-email" placeholder="Email" class="w-full border p-2 mb-4 rounded">
                 <input type="password" id="admin-pass" placeholder="Contraseña" class="w-full border p-2 mb-4 rounded">
                 <button id="btn-login" class="w-full bg-black text-white py-2 rounded font-bold">ENTRAR</button>
             </div>
             <div id="admin-panel" class="hidden">
                 <div class="flex justify-between items-center mb-8 border-b pb-4">
-                    <h2 class="font-merri text-3xl">Panel de Control</h2>
-                    <button id="btn-logout" class="text-sm bg-red-100 text-red-600 px-3 py-1 rounded font-bold">Cerrar Sesión</button>
+                    <h2 class="font-merri text-3xl font-black">Panel de Control</h2>
+                    <button id="btn-logout" class="text-sm bg-gray-100 px-3 py-1 rounded font-bold">Salir</button>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                    <form id="news-form" class="space-y-4 bg-gray-50 p-6 rounded shadow">
+                    <form id="news-form" class="space-y-4">
                         <input type="hidden" id="edit-id">
                         <input type="text" id="f-titulo" placeholder="Título" class="w-full border p-2 rounded" required>
                         <textarea id="f-copete" placeholder="Copete" class="w-full border p-2 rounded" rows="2" required></textarea>
                         <select id="f-categoria" class="w-full border p-2 rounded">
-                            <option value="Economia">Economía</option>
+                            <option value="Economia">Economia</option>
                             <option value="Finanzas">Finanzas</option>
-                            <option value="Politica">Política</option>
+                            <option value="Politica">Politica</option>
                             <option value="Internacional">Internacional</option>
                         </select>
-                        <input type="text" id="f-fecha" placeholder="Ej: 12 de mayo de 2026" class="w-full border p-2 rounded">
-                        <input type="text" id="f-imagen" placeholder="img/archivo.jpg" class="w-full border p-2 rounded">
-                        <textarea id="f-cuerpo" placeholder="Cuerpo (HTML)" class="w-full border p-2 rounded h-80 font-mono text-sm" required></textarea>
-                        <button type="submit" class="w-full bg-mm-red text-white py-3 rounded font-bold">PUBLICAR</button>
+                        <input type="text" id="f-fecha" placeholder="Fecha ej: 12 de mayo de 2026" class="w-full border p-2 rounded">
+                        <input type="text" id="f-imagen" placeholder="Ruta imagen: img/archivo.jpg" class="w-full border p-2 rounded">
+                        <textarea id="f-cuerpo" placeholder="Cuerpo HTML" class="w-full border p-2 rounded h-80 font-mono text-sm" required></textarea>
+                        <button type="submit" class="w-full bg-mm-red text-white py-3 rounded font-bold">PUBLICAR NOTICIA</button>
                     </form>
-                    <div id="admin-list" class="h-[700px] overflow-y-auto bg-white p-4 border rounded space-y-2"></div>
+                    <div id="admin-list" class="h-[700px] overflow-y-auto space-y-2 border p-4 bg-gray-50"></div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-100 border-t-4 border-mm-red py-12 mt-20">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
-            <div>
-                <h2 class="font-merri text-xl text-mm-red mb-4 uppercase">MacroMind News</h2>
-                <p class="text-xs text-gray-600">Periodismo económico y financiero. Pehuajó, Buenos Aires.</p>
+    <!-- FOOTER BASADO EN image_8f4edf.png -->
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8 mt-20">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <!-- Info -->
+            <div class="col-span-1 md:col-span-1">
+                <h2 class="font-merri text-2xl text-black font-black mb-6">MacroMind News</h2>
+                <p class="text-[14px] leading-relaxed text-gray-600 pr-4">
+                    Un medio de análisis e información que conecta la economía, las finanzas, la política y el escenario internacional para entender los grandes movimientos que moldean el mundo.
+                </p>
             </div>
+            <!-- Categorías -->
             <div>
-                <h3 class="font-bold mb-4 uppercase text-xs">Secciones</h3>
-                <ul class="text-sm space-y-2">
+                <h3 class="font-bold text-black mb-6">Categorías</h3>
+                <ul class="text-[14px] space-y-4 text-gray-600 font-medium">
+                    <li><a href="#" onclick="navigateTo('home')">Inicio</a></li>
                     <li><a href="#" onclick="navigateTo('categoria', 'Economia')">Economía</a></li>
                     <li><a href="#" onclick="navigateTo('categoria', 'Finanzas')">Finanzas</a></li>
                     <li><a href="#" onclick="navigateTo('categoria', 'Politica')">Política</a></li>
                     <li><a href="#" onclick="navigateTo('categoria', 'Internacional')">Internacional</a></li>
                 </ul>
             </div>
+            <!-- Empresa -->
             <div>
-                <h3 class="font-bold mb-4 uppercase text-xs">Redes</h3>
-                <div class="flex space-x-4">
-                    <a href="https://x.com/MacroMindNews" target="_blank">𝕏</a>
-                    <a href="https://instagram.com/macromindnews" target="_blank">IG</a>
-                    <a href="https://youtube.com/@MacroMindNews" target="_blank">YT</a>
+                <h3 class="font-bold text-black mb-6">Empresa</h3>
+                <ul class="text-[14px] space-y-4 text-gray-600 font-medium">
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Políticas de Privacidad</a></li>
+                </ul>
+            </div>
+            <!-- Redes -->
+            <div>
+                <h3 class="font-bold text-black mb-6">Redes Sociales</h3>
+                <div class="flex space-x-3">
+                    <a href="https://x.com/MacroMindNews" target="_blank" class="w-9 h-9 bg-black rounded flex items-center justify-center text-white text-lg">𝕏</a>
+                    <a href="https://youtube.com/@MacroMindNews" target="_blank" class="w-9 h-9 bg-[#FF0000] rounded flex items-center justify-center text-white">▶</a>
+                    <a href="https://whatsapp.com" target="_blank" class="w-9 h-9 bg-[#25D366] rounded flex items-center justify-center text-white">W</a>
+                    <a href="https://tiktok.com" target="_blank" class="w-9 h-9 bg-black rounded flex items-center justify-center text-white">T</a>
+                    <a href="https://instagram.com/macromindnews" target="_blank" class="w-9 h-9 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] rounded flex items-center justify-center text-white font-bold">IG</a>
                 </div>
+            </div>
+        </div>
+        <!-- Bottom Footer -->
+        <div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-gray-100 flex flex-col md:row justify-between text-[13px] text-gray-400 font-medium">
+            <p>© 2025 MacroMind News. Todos los derechos reservados.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Políticas de Cookies</a>
             </div>
         </div>
     </footer>
 
-    <div id="modal-sub" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[100] p-4">
+    <!-- MODAL NEWSLETTER -->
+    <div id="modal-sub" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-[100] p-4">
         <div class="bg-white p-8 rounded-lg max-w-md w-full relative">
-            <button onclick="toggleModal('modal-sub')" class="absolute top-4 right-4 text-2xl">&times;</button>
-            <h2 class="font-merri text-2xl mb-2">Newsletter</h2>
+            <button onclick="toggleModal('modal-sub')" class="absolute top-4 right-4 text-2xl text-gray-400">&times;</button>
+            <h2 class="font-merri text-2xl mb-4 font-black">Newsletter</h2>
             <form action="https://formspree.io/f/xbdarrjv" method="POST" class="space-y-4">
                 <input type="email" name="email" placeholder="Email" class="w-full border p-3 rounded" required>
-                <button type="submit" class="w-full bg-mm-red text-white py-3 rounded font-bold uppercase text-xs">Suscribirme</button>
+                <button type="submit" class="w-full bg-mm-red text-white py-3 rounded font-bold uppercase text-xs tracking-widest">Suscribirme</button>
             </form>
         </div>
     </div>
@@ -167,7 +197,6 @@
             if (page === 'home') loadHome();
             if (page === 'categoria') loadCategory(param);
             if (page === 'articulo') loadArticle(param);
-            document.getElementById('mobile-menu').classList.add('hidden');
         };
 
         async function fetchNoticias() {
@@ -176,53 +205,52 @@
             todasLasNoticias = snap.docs.map(d => ({ idDoc: d.id, ...d.data() }));
         }
 
-        function renderBloque7(news) {
+        function renderBloque(news) {
+            if (news.length === 0) return '';
             return `
-                <div class="flex flex-col gap-8">
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="flex flex-col gap-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         <div class="lg:col-span-2 cursor-pointer group" onclick="navigateTo('articulo', '${news[0].id}')">
-                            <span class="bg-mm-red text-white px-2 py-0.5 text-[10px] font-bold uppercase mb-2 inline-block">${news[0].categoria}</span>
-                            <h3 class="font-merri text-3xl md:text-4xl group-hover:text-mm-red transition mb-4 leading-tight font-black">${news[0].titulo}</h3>
-                            <img src="${news[0].imagen}" class="w-full h-[450px] object-cover bg-gray-100 mb-4" onerror="this.src='https://via.placeholder.com/800x500?text=MacroMind'">
-                            <p class="text-gray-600 text-sm leading-relaxed">${news[0].copete}</p>
+                            <span class="bg-mm-red text-white px-2 py-0.5 text-[10px] font-bold uppercase mb-3 inline-block">POLÍTICA</span>
+                            <h3 class="font-merri text-3xl md:text-4xl group-hover:text-mm-red transition mb-5 leading-tight font-black">${news[0].titulo}</h3>
+                            <img src="${news[0].imagen}" class="w-full h-[480px] object-cover bg-gray-100 mb-5" onerror="this.src='https://via.placeholder.com/800x500?text=MacroMind'">
+                            <p class="text-gray-600 text-[15px] leading-relaxed">${news[0].copete}</p>
                         </div>
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-2 gap-5">
                             ${news.slice(1, 5).map(n => `
                                 <div class="cursor-pointer group" onclick="navigateTo('articulo', '${n.id}')">
-                                    <img src="${n.imagen}" class="w-full h-24 object-cover bg-gray-100 mb-2" onerror="this.src='https://via.placeholder.com/200x150?text=MM'">
+                                    <img src="${n.imagen}" class="w-full h-28 object-cover bg-gray-100 mb-3" onerror="this.src='https://via.placeholder.com/200x150?text=MM'">
                                     <span class="text-mm-red text-[9px] font-black uppercase">${n.categoria}</span>
-                                    <h4 class="font-bold text-xs mt-1 line-clamp-3 group-hover:underline">${n.titulo}</h4>
+                                    <h4 class="font-bold text-[13px] mt-1 line-clamp-3 group-hover:underline leading-tight">${n.titulo}</h4>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t pt-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 border-t pt-10">
                         ${news.slice(5, 7).map(n => `
-                            <div class="cursor-pointer group flex gap-4" onclick="navigateTo('articulo', '${n.id}')">
-                                <img src="${n.imagen}" class="w-40 h-28 object-cover bg-gray-100 flex-shrink-0" onerror="this.src='https://via.placeholder.com/300x200?text=MM'">
+                            <div class="cursor-pointer group flex gap-5" onclick="navigateTo('articulo', '${n.id}')">
+                                <img src="${n.imagen}" class="w-48 h-32 object-cover bg-gray-100 flex-shrink-0" onerror="this.src='https://via.placeholder.com/300x200?text=MM'">
                                 <div>
                                     <span class="text-mm-red text-[10px] font-bold uppercase">${n.categoria}</span>
-                                    <h4 class="font-merri text-lg font-bold group-hover:underline leading-snug mb-2">${n.titulo}</h4>
-                                    <p class="text-gray-500 text-xs line-clamp-2">${n.copete}</p>
+                                    <h4 class="font-merri text-xl font-bold group-hover:underline leading-snug mb-2">${n.titulo}</h4>
+                                    <p class="text-gray-500 text-[13px] line-clamp-2 leading-relaxed">${n.copete}</p>
                                 </div>
                             </div>
                         `).join('')}
                     </div>
-                </div>
-            `;
+                </div>`;
         }
 
         async function loadHome() {
             await fetchNoticias();
             const container = document.getElementById('home-content');
             container.innerHTML = '';
-            const cats = ['Últimas noticias', 'Economia', 'Politica', 'Finanzas', 'Internacional'];
-            cats.forEach(cat => {
+            ['Últimas noticias', 'Economia', 'Politica', 'Finanzas', 'Internacional'].forEach(cat => {
                 const news = cat === 'Últimas noticias' ? todasLasNoticias.slice(0, 7) : todasLasNoticias.filter(n => n.categoria === cat).slice(0, 7);
                 if (news.length > 0) {
-                    container.innerHTML += `<div class="mb-20">
-                        <h2 class="font-merri text-xl mb-6 border-b-2 border-mm-red inline-block pr-6 pb-1 uppercase font-black tracking-tighter">${cat}</h2>
-                        ${renderBloque7(news)}
+                    container.innerHTML += `<div class="mb-24">
+                        <h2 class="font-merri text-xl mb-8 border-b-2 border-mm-red inline-block pr-8 pb-1 uppercase font-black tracking-tighter">${cat}</h2>
+                        ${renderBloque(news)}
                     </div>`;
                 }
             });
@@ -233,53 +261,17 @@
             const grid = document.getElementById('cat-grid');
             document.getElementById('cat-title').innerText = cat;
             const news = todasLasNoticias.filter(n => n.categoria === cat).slice(0, 30);
-            
-            grid.className = "flex flex-col gap-12";
             grid.innerHTML = "";
-
-            if (news.length === 0) {
-                grid.innerHTML = '<p class="text-gray-400">Próximamente más noticias.</p>';
-                return;
-            }
-
-            // 1-7 (Imagen de referencia)
-            grid.innerHTML += renderBloque7(news.slice(0, 7));
-
-            // 8-10 (Solo títulos)
+            if (news.length === 0) return;
+            
+            grid.innerHTML += renderBloque(news.slice(0, 7));
             if (news.length >= 8) {
-                grid.innerHTML += `<div class="grid grid-cols-1 md:grid-cols-3 gap-6 border-y py-8 bg-gray-50 px-4">
+                grid.innerHTML += `<div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-y py-10 my-10 bg-gray-50 px-6">
                     ${news.slice(7, 10).map(n => `
                         <div class="cursor-pointer group" onclick="navigateTo('articulo', '${n.id}')">
-                            <span class="text-mm-red text-[9px] font-black uppercase block mb-1">${n.categoria}</span>
-                            <h4 class="font-merri text-md font-bold group-hover:text-mm-red leading-tight border-l-2 border-gray-300 pl-3">${n.titulo}</h4>
-                        </div>
-                    `).join('')}
-                </div>`;
-            }
-
-            // 11-12 (Destacados intermedios)
-            if (news.length >= 11) {
-                grid.innerHTML += `<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    ${news.slice(10, 12).map(n => `
-                        <div class="cursor-pointer group" onclick="navigateTo('articulo', '${n.id}')">
-                            <img src="${n.imagen}" class="w-full h-64 object-cover bg-gray-100 mb-4" onerror="this.src='https://via.placeholder.com/500x300?text=MacroMind'">
-                            <span class="bg-black text-white px-2 py-0.5 text-[9px] font-bold uppercase mb-2 inline-block">${n.categoria}</span>
-                            <h3 class="font-merri text-2xl group-hover:underline mb-2 font-black">${n.titulo}</h3>
-                            <p class="text-gray-600 text-sm">${n.copete}</p>
-                        </div>
-                    `).join('')}
-                </div>`;
-            }
-
-            // 13-30 (Grilla simple)
-            if (news.length >= 13) {
-                grid.innerHTML += `<div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t">
-                    ${news.slice(12, 30).map(n => `
-                        <div class="cursor-pointer group border-b pb-4" onclick="navigateTo('articulo', '${n.id}')">
-                            <h4 class="font-bold text-sm group-hover:text-mm-red transition mb-1 uppercase">${n.titulo}</h4>
-                            <span class="text-[9px] text-gray-400 uppercase font-bold">${n.fecha}</span>
-                        </div>
-                    `).join('')}
+                            <span class="text-mm-red text-[9px] font-black uppercase mb-1 block">${n.categoria}</span>
+                            <h4 class="font-merri text-md font-bold group-hover:text-mm-red border-l-2 border-gray-300 pl-4 leading-tight">${n.titulo}</h4>
+                        </div>`).join('')}
                 </div>`;
             }
         }
@@ -288,15 +280,14 @@
             const art = todasLasNoticias.find(n => n.id === slug);
             if (!art) return;
             document.getElementById('art-content').innerHTML = `
-                <div class="text-center mb-10">
+                <div class="text-center mb-12">
                     <span class="text-mm-red font-bold uppercase text-xs tracking-widest">${art.categoria}</span>
-                    <h1 class="font-merri text-4xl md:text-6xl my-6 leading-tight font-black">${art.titulo}</h1>
-                    <p class="text-xl text-gray-500 italic mb-4 max-w-2xl mx-auto">${art.copete}</p>
-                    <p class="text-xs font-bold text-gray-400 uppercase">${art.fecha}</p>
+                    <h1 class="font-merri text-4xl md:text-6xl my-8 leading-tight font-black">${art.titulo}</h1>
+                    <p class="text-[22px] text-gray-500 italic mb-6 max-w-3xl mx-auto leading-relaxed">${art.copete}</p>
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">${art.fecha}</p>
                 </div>
-                <img src="${art.imagen}" class="w-full h-auto object-cover mb-12 shadow-xl" onerror="this.src='https://via.placeholder.com/1200x600?text=MM'">
-                <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed mb-20">${art.cuerpo}</div>
-            `;
+                <img src="${art.imagen}" class="w-full h-auto mb-16 shadow-2xl" onerror="this.src='https://via.placeholder.com/1200x600?text=MM'">
+                <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed font-sans">${art.cuerpo}</div>`;
         }
 
         async function loadTicker() {
@@ -304,16 +295,34 @@
                 const res = await fetch('https://dolarapi.com/v1/dolares');
                 const data = await res.json();
                 const blue = data.find(d => d.casa === 'blue');
+                const oficial = data.find(d => d.casa === 'oficial');
                 const mep = data.find(d => d.casa === 'bolsa');
-                const tH = `<span class="mx-6">DÓLAR BLUE: $${blue.compra}/$${blue.venta}</span><span class="mx-6">DÓLAR MEP: $${mep.compra}</span><span class="mx-6 text-mm-red">RIESGO PAÍS: 1240</span><span class="mx-6">S&P 500: 5,222.10</span>`;
-                document.getElementById('ticker-content').innerHTML = tH + tH + tH;
+                const items = [
+                    { label: 'Dólar Oficial', val: `$${oficial.venta}` },
+                    { label: 'Dólar Blue', val: `$${blue.venta}` },
+                    { label: 'Dólar MEP', val: `$${mep.venta}` },
+                    { label: 'Riesgo País', val: '1240' }
+                ];
+                let html = '';
+                for(let i=0; i<8; i++) { // Repetir para scroll infinito
+                    items.forEach(it => {
+                        html += `
+                        <div class="ticker-item">
+                            <span class="ticker-label">${it.label}</span>
+                            <span class="ticker-value">${it.val}</span>
+                            <span class="ticker-divider">|</span>
+                        </div>`;
+                    });
+                }
+                document.getElementById('ticker-content').innerHTML = html;
             } catch (e) { console.log(e); }
         }
 
+        // --- AUTH & ADMIN ---
         document.getElementById('btn-login').onclick = async () => {
             const e = document.getElementById('admin-email').value;
             const p = document.getElementById('admin-pass').value;
-            try { await signInWithEmailAndPassword(auth, e, p); } catch (err) { alert("Error"); }
+            try { await signInWithEmailAndPassword(auth, e, p); } catch (err) { alert("Acceso denegado"); }
         };
         document.getElementById('btn-logout').onclick = () => signOut(auth);
         onAuthStateChanged(auth, u => {
@@ -331,28 +340,26 @@
                 titulo, copete: document.getElementById('f-copete').value,
                 categoria: document.getElementById('f-categoria').value,
                 fecha: document.getElementById('f-fecha').value || new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }),
-                imagen: document.getElementById('f-imagen').value,
-                cuerpo: document.getElementById('f-cuerpo').value,
+                imagen: document.getElementById('f-imagen').value, cuerpo: document.getElementById('f-cuerpo').value,
                 id: slug, fechaOrden: Timestamp.now()
             };
             try {
                 if (idEdit) await updateDoc(doc(db, "noticias", idEdit), data);
                 else await addDoc(collection(db, "noticias"), data);
-                form.reset(); document.getElementById('edit-id').value = ''; refreshAdminList();
-            } catch (err) { alert("No tienes permisos"); }
+                form.reset(); document.getElementById('edit-id').value = ''; refreshAdminList(); alert("Publicado");
+            } catch (err) { alert("Error"); }
         };
 
         async function refreshAdminList() {
             await fetchNoticias();
             document.getElementById('admin-list').innerHTML = todasLasNoticias.map(n => `
-                <div class="flex justify-between items-center p-3 border rounded text-xs">
-                    <span class="truncate"><b>${n.categoria}</b>: ${n.titulo}</span>
+                <div class="flex justify-between items-center p-3 border rounded text-xs bg-white">
+                    <span class="truncate pr-4"><b>${n.categoria}</b>: ${n.titulo}</span>
                     <div class="flex space-x-2">
                         <button onclick="editNews('${n.idDoc}')" class="text-blue-600 font-bold">EDITAR</button>
-                        <button onclick="deleteNews('${n.idDoc}')" class="text-red-600 font-bold">X</button>
+                        <button onclick="deleteNews('${n.idDoc}')" class="text-red-600 font-bold">BORRAR</button>
                     </div>
-                </div>
-            `).join('');
+                </div>`).join('');
         }
 
         window.editNews = id => {
@@ -367,11 +374,11 @@
         };
 
         window.deleteNews = async id => { if(confirm("¿Borrar?")) { await deleteDoc(doc(db, "noticias", id)); refreshAdminList(); } };
+        window.toggleModal = id => document.getElementById(id).classList.toggle('hidden');
         window.addEventListener('keydown', e => { if (e.ctrlKey && e.shiftKey && e.code === 'KeyA') { e.preventDefault(); navigateTo('admin'); }});
         
         loadHome(); loadTicker(); setInterval(loadTicker, 300000);
         document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');
-        window.toggleModal = id => document.getElementById(id).classList.toggle('hidden');
     </script>
 </body>
 </html>
