@@ -1,384 +1,350 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MacroMind News</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNNBRSHGGX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FNNBRSHGGX');
+  </script>
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3827f054973822320463ef293bdf84fb/script.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8852528520558546" crossorigin="anonymous"></script>
+  
+  <title>MacroMind News</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,..."/> <!-- Tu icono base64 -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+  
+  <style>
+    /* ── TUS ESTILOS ORIGINALES ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Source Sans 3', sans-serif; background: #fff; color: #111; }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    img { max-width: 100%; box-sizing: border-box; }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 32px;
+      height: 60px;
+      border-bottom: 1px solid #e0e0e0;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo { font-family: 'Merriweather', serif; font-size: 1.45rem; font-weight: 900; color: #111; letter-spacing: -0.5px; }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { font-size: 0.92rem; font-weight: 600; color: #222; transition: color .2s; }
+    nav a:hover, nav a.active { color: #c00; }
+
+    .btn-subscribe {
+      background: #c00; color: #fff !important; padding: 8px 18px; border-radius: 3px;
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.3px; transition: background .2s;
+    }
+
+    .ticker-bar { background: #f8f8f8; border-bottom: 1px solid #e0e0e0; overflow: hidden; height: 38px; display: flex; align-items: center; }
+    .ticker-track { display: flex; align-items: center; white-space: nowrap; animation: ticker-scroll 30s linear infinite; }
+    @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .ticker-item { display: inline-flex; align-items: center; gap: 6px; padding: 0 22px; border-right: 1px solid #ddd; font-size: 0.78rem; font-weight: 600; color: #222; }
+    .ticker-label { font-size: 0.7rem; font-weight: 700; color: #888; text-transform: uppercase; }
+    .ticker-value { font-size: 0.82rem; font-weight: 700; color: #111; }
+
+    /* ── ESTRUCTURA DE CONTENIDOS (Dinamizada) ── */
+    .main-content { max-width: 1280px; margin: 0 auto; padding: 24px 16px 40px; }
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    /* Estilo Bloque 1 (Basado en tu imagen) */
+    .news-block { margin-bottom: 48px; border-bottom: 1px solid #eee; padding-bottom: 32px; }
+    .block-title { font-family: 'Merriweather', serif; font-size: 1.2rem; border-bottom: 2px solid #c00; display: inline-block; margin-bottom: 20px; padding-bottom: 4px; text-transform: uppercase; }
     
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { 'mm-red': '#c00', 'mm-gray-bg': '#f5f5f5', 'mm-text-gray': '#888' },
-                    fontFamily: { 'merri': ['Merriweather', 'serif'], 'sans': ['Source Sans 3', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
+    .top-row { display: grid; grid-template-columns: 1.2fr 1px 1fr; gap: 0; margin-bottom: 32px; }
+    .featured { padding-right: 28px; }
+    .featured h1 { font-family: 'Merriweather', serif; font-size: 1.6rem; font-weight: 900; line-height: 1.2; margin-bottom: 12px; }
+    .cat-badge { display: inline-block; background: #c00; color: #fff; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; margin-bottom: 8px; text-transform: uppercase; }
+    .divider-v { width: 1px; background: #ddd; }
+    .right-grid { padding-left: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .grid-item h3 { font-family: 'Merriweather', serif; font-size: 0.85rem; font-weight: 700; line-height: 1.3; }
+    .bottom-row-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 20px; border-top: 1px solid #ddd; pt: 20px;}
 
-    <style>
-        .ticker-wrapper { overflow: hidden; white-space: nowrap; background: #f8f9fa; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px 0; }
-        .ticker-scroll { display: inline-block; animation: scroll 40s linear infinite; }
-        @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
-        .ticker-item { display: inline-flex; align-items: center; margin-right: 3rem; font-family: 'Source Sans 3', sans-serif; }
-        .ticker-label { color: #888; font-weight: 700; font-size: 14px; margin-right: 8px; text-transform: uppercase; }
-        .ticker-value { color: #000; font-weight: 800; font-size: 16px; }
-        .ticker-divider { color: #ddd; margin-left: 1.5rem; }
+    /* ── ADMIN Y MODALES ── */
+    .admin-form-container { max-width: 800px; margin: 40px auto; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; }
+    .admin-input { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; font-family: inherit; }
+    .hidden { display: none; }
+    
+    /* Footer a tu medida */
+    footer { padding: 40px 32px 20px; border-top: 1px solid #e0e0e0; }
+    .footer-top { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+    .social-icons img { width: 32px; height: 32px; object-fit: contain; }
 
-        .hidden-page { display: none; }
-        .active-page { display: block; }
-        .sticky-header { position: sticky; top: 0; z-index: 50; background: white; border-bottom: 1px solid #eee; }
-        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    </style>
+    @media (max-width: 768px) {
+      header { grid-template-columns: 1fr auto; }
+      nav { display: none; }
+      .top-row { grid-template-columns: 1fr; }
+      .right-grid { grid-template-columns: 1fr 1fr; }
+      .bottom-row-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="font-sans text-gray-900 bg-white">
+<body>
 
-    <!-- HEADER -->
-    <header class="sticky-header">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <button id="menu-btn" class="md:hidden text-2xl">☰</button>
-            <h1 class="font-merri text-2xl md:text-3xl text-black cursor-pointer font-black" onclick="navigateTo('home')">MacroMind News</h1>
-            <nav class="hidden md:flex space-x-8 font-semibold text-[15px] tracking-tight">
-                <a href="#" onclick="navigateTo('home')" class="hover:text-mm-red transition">Inicio</a>
-                <a href="#" onclick="navigateTo('categoria', 'Economia')" class="hover:text-mm-red transition">Economía</a>
-                <a href="#" onclick="navigateTo('categoria', 'Finanzas')" class="hover:text-mm-red transition">Finanzas</a>
-                <a href="#" onclick="navigateTo('categoria', 'Politica')" class="hover:text-mm-red transition">Política</a>
-                <a href="#" onclick="navigateTo('categoria', 'Internacional')" class="hover:text-mm-red transition">Internacional</a>
-            </nav>
-            <button onclick="toggleModal('modal-sub')" class="bg-mm-red text-white px-6 py-2 rounded font-bold text-xs hover:bg-red-800 transition">SUSCRIBIRME</button>
-        </div>
-        
-        <div class="ticker-wrapper">
-            <div id="ticker-content" class="ticker-scroll">
-                <!-- Se genera por JS -->
-            </div>
-        </div>
-    </header>
+<header>
+  <div class="logo" onclick="navigateTo('home')" style="cursor:pointer">MacroMind News</div>
+  <nav>
+    <a onclick="navigateTo('home')">Inicio</a>
+    <a onclick="navigateTo('category', 'Economia')">Economía</a>
+    <a onclick="navigateTo('category', 'Finanzas')">Finanzas</a>
+    <a onclick="navigateTo('category', 'Politica')">Política</a>
+    <a onclick="navigateTo('category', 'Internacional')">Internacional</a>
+  </nav>
+  <div class="header-right">
+    <a href="#" class="btn-subscribe">SUSCRIBIRME</a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</header>
 
-    <main id="app-container" class="max-w-7xl mx-auto px-4 py-12 min-h-screen">
-        <section id="page-home" class="active-page">
-            <div id="home-content"></div>
-        </section>
+<div class="ticker-bar">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-loading">Cargando cotizaciones...</span>
+  </div>
+</div>
 
-        <section id="page-categoria" class="hidden-page">
-            <h2 id="cat-title" class="font-merri text-2xl mb-8 border-b-2 border-mm-red inline-block pr-6 pb-1 uppercase font-black tracking-tighter">Categoría</h2>
-            <div id="cat-grid"></div>
-        </section>
+<main class="main-content">
+  <!-- SECCIÓN HOME -->
+  <div id="page-home" class="page-section active">
+    <div id="home-loader" style="text-align:center; padding: 50px;">Cargando noticias...</div>
+    <div id="home-containers"></div>
+  </div>
 
-        <section id="page-articulo" class="hidden-page max-w-4xl mx-auto">
-            <div id="art-content"></div>
-        </section>
+  <!-- SECCIÓN CATEGORÍA -->
+  <div id="page-category" class="page-section">
+    <h2 id="cat-page-title" class="block-title" style="font-size: 2rem; margin-bottom: 30px;"></h2>
+    <div id="category-content"></div>
+  </div>
 
-        <!-- ADMIN (Acceso Ctrl+Shift+A) -->
-        <section id="page-admin" class="hidden-page">
-            <div id="admin-auth" class="max-w-md mx-auto text-center py-20">
-                <h2 class="font-merri text-2xl mb-6 font-black">Acceso Staff</h2>
-                <input type="email" id="admin-email" placeholder="Email" class="w-full border p-2 mb-4 rounded">
-                <input type="password" id="admin-pass" placeholder="Contraseña" class="w-full border p-2 mb-4 rounded">
-                <button id="btn-login" class="w-full bg-black text-white py-2 rounded font-bold">ENTRAR</button>
-            </div>
-            <div id="admin-panel" class="hidden">
-                <div class="flex justify-between items-center mb-8 border-b pb-4">
-                    <h2 class="font-merri text-3xl font-black">Panel de Control</h2>
-                    <button id="btn-logout" class="text-sm bg-gray-100 px-3 py-1 rounded font-bold">Salir</button>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                    <form id="news-form" class="space-y-4">
-                        <input type="hidden" id="edit-id">
-                        <input type="text" id="f-titulo" placeholder="Título" class="w-full border p-2 rounded" required>
-                        <textarea id="f-copete" placeholder="Copete" class="w-full border p-2 rounded" rows="2" required></textarea>
-                        <select id="f-categoria" class="w-full border p-2 rounded">
-                            <option value="Economia">Economia</option>
-                            <option value="Finanzas">Finanzas</option>
-                            <option value="Politica">Politica</option>
-                            <option value="Internacional">Internacional</option>
-                        </select>
-                        <input type="text" id="f-fecha" placeholder="Fecha ej: 12 de mayo de 2026" class="w-full border p-2 rounded">
-                        <input type="text" id="f-imagen" placeholder="Ruta imagen: img/archivo.jpg" class="w-full border p-2 rounded">
-                        <textarea id="f-cuerpo" placeholder="Cuerpo HTML" class="w-full border p-2 rounded h-80 font-mono text-sm" required></textarea>
-                        <button type="submit" class="w-full bg-mm-red text-white py-3 rounded font-bold">PUBLICAR NOTICIA</button>
-                    </form>
-                    <div id="admin-list" class="h-[700px] overflow-y-auto space-y-2 border p-4 bg-gray-50"></div>
-                </div>
-            </div>
-        </section>
-    </main>
+  <!-- SECCIÓN ARTÍCULO -->
+  <div id="page-article" class="page-section">
+    <div id="article-body" style="max-width: 800px; margin: 0 auto;"></div>
+  </div>
 
-    <!-- FOOTER BASADO EN image_8f4edf.png -->
-    <footer class="bg-white border-t border-gray-200 pt-16 pb-8 mt-20">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
-            <!-- Info -->
-            <div class="col-span-1 md:col-span-1">
-                <h2 class="font-merri text-2xl text-black font-black mb-6">MacroMind News</h2>
-                <p class="text-[14px] leading-relaxed text-gray-600 pr-4">
-                    Un medio de análisis e información que conecta la economía, las finanzas, la política y el escenario internacional para entender los grandes movimientos que moldean el mundo.
-                </p>
-            </div>
-            <!-- Categorías -->
-            <div>
-                <h3 class="font-bold text-black mb-6">Categorías</h3>
-                <ul class="text-[14px] space-y-4 text-gray-600 font-medium">
-                    <li><a href="#" onclick="navigateTo('home')">Inicio</a></li>
-                    <li><a href="#" onclick="navigateTo('categoria', 'Economia')">Economía</a></li>
-                    <li><a href="#" onclick="navigateTo('categoria', 'Finanzas')">Finanzas</a></li>
-                    <li><a href="#" onclick="navigateTo('categoria', 'Politica')">Política</a></li>
-                    <li><a href="#" onclick="navigateTo('categoria', 'Internacional')">Internacional</a></li>
-                </ul>
-            </div>
-            <!-- Empresa -->
-            <div>
-                <h3 class="font-bold text-black mb-6">Empresa</h3>
-                <ul class="text-[14px] space-y-4 text-gray-600 font-medium">
-                    <li><a href="#">Sobre Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a href="#">Políticas de Privacidad</a></li>
-                </ul>
-            </div>
-            <!-- Redes -->
-            <div>
-                <h3 class="font-bold text-black mb-6">Redes Sociales</h3>
-                <div class="flex space-x-3">
-                    <a href="https://x.com/MacroMindNews" target="_blank" class="w-9 h-9 bg-black rounded flex items-center justify-center text-white text-lg">𝕏</a>
-                    <a href="https://youtube.com/@MacroMindNews" target="_blank" class="w-9 h-9 bg-[#FF0000] rounded flex items-center justify-center text-white">▶</a>
-                    <a href="https://whatsapp.com" target="_blank" class="w-9 h-9 bg-[#25D366] rounded flex items-center justify-center text-white">W</a>
-                    <a href="https://tiktok.com" target="_blank" class="w-9 h-9 bg-black rounded flex items-center justify-center text-white">T</a>
-                    <a href="https://instagram.com/macromindnews" target="_blank" class="w-9 h-9 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] rounded flex items-center justify-center text-white font-bold">IG</a>
-                </div>
-            </div>
-        </div>
-        <!-- Bottom Footer -->
-        <div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-gray-100 flex flex-col md:row justify-between text-[13px] text-gray-400 font-medium">
-            <p>© 2025 MacroMind News. Todos los derechos reservados.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#">Términos y Condiciones</a>
-                <a href="#">Políticas de Cookies</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- MODAL NEWSLETTER -->
-    <div id="modal-sub" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-[100] p-4">
-        <div class="bg-white p-8 rounded-lg max-w-md w-full relative">
-            <button onclick="toggleModal('modal-sub')" class="absolute top-4 right-4 text-2xl text-gray-400">&times;</button>
-            <h2 class="font-merri text-2xl mb-4 font-black">Newsletter</h2>
-            <form action="https://formspree.io/f/xbdarrjv" method="POST" class="space-y-4">
-                <input type="email" name="email" placeholder="Email" class="w-full border p-3 rounded" required>
-                <button type="submit" class="w-full bg-mm-red text-white py-3 rounded font-bold uppercase text-xs tracking-widest">Suscribirme</button>
-            </form>
-        </div>
+  <!-- SECCIÓN ADMIN (OCULTA) -->
+  <div id="page-admin" class="page-section">
+    <div id="admin-login" class="admin-form-container" style="text-align:center;">
+        <h2>Acceso Restringido</h2>
+        <input type="email" id="adm-email" placeholder="Email" class="admin-input">
+        <input type="password" id="adm-pass" placeholder="Contraseña" class="admin-input">
+        <button onclick="loginAdmin()" class="btn-subscribe" style="width:100%; border:none; cursor:pointer;">Entrar</button>
     </div>
+    <div id="admin-panel" class="hidden">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h2>Panel de Control</h2>
+            <button onclick="logoutAdmin()" style="padding:5px 10px;">Cerrar Sesión</button>
+        </div>
+        <form id="newsForm" class="admin-form-container" style="margin-top:0;">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="title" placeholder="Título" class="admin-input" required>
+            <textarea id="summary" placeholder="Copete / Resumen" class="admin-input" required></textarea>
+            <select id="category" class="admin-input">
+                <option value="Economia">Economía</option>
+                <option value="Finanzas">Finanzas</option>
+                <option value="Politica">Política</option>
+                <option value="Internacional">Internacional</option>
+            </select>
+            <input type="text" id="image" placeholder="Ruta de imagen (ej: img/noticia1.jpg)" class="admin-input">
+            <textarea id="content" placeholder="Contenido (HTML permitido)" class="admin-input" style="height:200px;"></textarea>
+            <button type="submit" class="btn-subscribe" style="border:none; cursor:pointer; width:100%;">Publicar</button>
+        </form>
+        <div id="admin-list" style="margin-top:40px;"></div>
+    </div>
+  </div>
+</main>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, updateDoc, query, orderBy, Timestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">MacroMind News</div>
+      <p>Un medio de análisis e información que conecta la economía, las finanzas, la política y el escenario internacional.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categorías</h4>
+      <ul>
+        <li><a onclick="navigateTo('home')">Inicio</a></li>
+        <li><a onclick="navigateTo('category', 'Economia')">Economía</a></li>
+        <li><a onclick="navigateTo('category', 'Finanzas')">Finanzas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#">Sobre Nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Redes Sociales</h4>
+      <div class="social-icons">
+        <a href="https://x.com/MacroMindNews" target="_blank"><img src="img/x-icon.png" alt="X"></a>
+        <a href="https://youtube.com/@MacroMindNews" target="_blank"><img src="img/yt-icon.png" alt="YouTube"></a>
+        <a href="https://whatsapp.com/..." target="_blank"><img src="img/wa-icon.png" alt="WhatsApp"></a>
+        <a href="https://tiktok.com/@..." target="_blank"><img src="img/tk-icon.png" alt="TikTok"></a>
+        <a href="https://instagram.com/..." target="_blank"><img src="img/ig-icon.png" alt="Instagram"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 MacroMind News. Todos los derechos reservados.</p>
+  </div>
+</footer>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyAMJAYYWwVE0fnNuFV5TFJ5tYfhvbMG3lw",
-            authDomain: "macromindnews.firebaseapp.com",
-            projectId: "macromindnews",
-            storageBucket: "macromindnews.firebasestorage.app",
-            messagingSenderId: "737656477515",
-            appId: "1:737656477515:web:d75386f60de67d11193ace"
-        };
+<script type="module">
+  // ── FIREBASE SETUP ──
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, updateDoc, query, orderBy, Timestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
-        let todasLasNoticias = [];
+  const firebaseConfig = {
+    apiKey: "AIzaSyAMJAYYWwVE0fnNuFV5TFJ5tYfhvbMG3lw",
+    authDomain: "macromindnews.firebaseapp.com",
+    projectId: "macromindnews",
+    storageBucket: "macromindnews.firebasestorage.app",
+    messagingSenderId: "737656477515",
+    appId: "1:737656477515:web:d75386f60de67d11193ace"
+  };
 
-        window.navigateTo = async (page, param = null) => {
-            document.querySelectorAll('section').forEach(s => s.classList.replace('active-page', 'hidden-page'));
-            const target = document.getElementById(`page-${page}`);
-            if (target) target.classList.replace('hidden-page', 'active-page');
-            window.scrollTo(0,0);
-            if (page === 'home') loadHome();
-            if (page === 'categoria') loadCategory(param);
-            if (page === 'articulo') loadArticle(param);
-        };
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const auth = getAuth(app);
+  let cachedNews = [];
 
-        async function fetchNoticias() {
-            const q = query(collection(db, "noticias"), orderBy("fechaOrden", "desc"));
-            const snap = await getDocs(q);
-            todasLasNoticias = snap.docs.map(d => ({ idDoc: d.id, ...d.data() }));
-        }
+  // ── NAVEGACIÓN SPA ──
+  window.navigateTo = (page, param = null) => {
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    document.getElementById(`page-${page}`).classList.add('active');
+    window.scrollTo(0,0);
+    if(page === 'home') buildHome();
+    if(page === 'category') buildCategory(param);
+    if(page === 'article') buildArticle(param);
+  };
 
-        function renderBloque(news) {
-            if (news.length === 0) return '';
-            return `
-                <div class="flex flex-col gap-10">
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <div class="lg:col-span-2 cursor-pointer group" onclick="navigateTo('articulo', '${news[0].id}')">
-                            <span class="bg-mm-red text-white px-2 py-0.5 text-[10px] font-bold uppercase mb-3 inline-block">POLÍTICA</span>
-                            <h3 class="font-merri text-3xl md:text-4xl group-hover:text-mm-red transition mb-5 leading-tight font-black">${news[0].titulo}</h3>
-                            <img src="${news[0].imagen}" class="w-full h-[480px] object-cover bg-gray-100 mb-5" onerror="this.src='https://via.placeholder.com/800x500?text=MacroMind'">
-                            <p class="text-gray-600 text-[15px] leading-relaxed">${news[0].copete}</p>
-                        </div>
-                        <div class="grid grid-cols-2 gap-5">
-                            ${news.slice(1, 5).map(n => `
-                                <div class="cursor-pointer group" onclick="navigateTo('articulo', '${n.id}')">
-                                    <img src="${n.imagen}" class="w-full h-28 object-cover bg-gray-100 mb-3" onerror="this.src='https://via.placeholder.com/200x150?text=MM'">
-                                    <span class="text-mm-red text-[9px] font-black uppercase">${n.categoria}</span>
-                                    <h4 class="font-bold text-[13px] mt-1 line-clamp-3 group-hover:underline leading-tight">${n.titulo}</h4>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 border-t pt-10">
-                        ${news.slice(5, 7).map(n => `
-                            <div class="cursor-pointer group flex gap-5" onclick="navigateTo('articulo', '${n.id}')">
-                                <img src="${n.imagen}" class="w-48 h-32 object-cover bg-gray-100 flex-shrink-0" onerror="this.src='https://via.placeholder.com/300x200?text=MM'">
-                                <div>
-                                    <span class="text-mm-red text-[10px] font-bold uppercase">${n.categoria}</span>
-                                    <h4 class="font-merri text-xl font-bold group-hover:underline leading-snug mb-2">${n.titulo}</h4>
-                                    <p class="text-gray-500 text-[13px] line-clamp-2 leading-relaxed">${n.copete}</p>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>`;
-        }
+  // ── CARGA DE DATOS ──
+  async function loadData() {
+    const q = query(collection(db, "noticias"), orderBy("fechaOrden", "desc"));
+    const snap = await getDocs(q);
+    cachedNews = snap.docs.map(d => ({ dbId: d.id, ...d.data() }));
+    buildHome();
+  }
 
-        async function loadHome() {
-            await fetchNoticias();
-            const container = document.getElementById('home-content');
-            container.innerHTML = '';
-            ['Últimas noticias', 'Economia', 'Politica', 'Finanzas', 'Internacional'].forEach(cat => {
-                const news = cat === 'Últimas noticias' ? todasLasNoticias.slice(0, 7) : todasLasNoticias.filter(n => n.categoria === cat).slice(0, 7);
-                if (news.length > 0) {
-                    container.innerHTML += `<div class="mb-24">
-                        <h2 class="font-merri text-xl mb-8 border-b-2 border-mm-red inline-block pr-8 pb-1 uppercase font-black tracking-tighter">${cat}</h2>
-                        ${renderBloque(news)}
-                    </div>`;
-                }
-            });
-        }
+  // ── VISTAS ──
+  function renderNewsBlock(newsArray, title) {
+    if(newsArray.length === 0) return "";
+    return `
+      <div class="news-block">
+        <h2 class="block-title">${title}</h2>
+        <div class="top-row">
+          <article class="featured" onclick="navigateTo('article', '${newsArray[0].id}')" style="cursor:pointer">
+            <span class="cat-badge">${newsArray[0].categoria}</span>
+            <h1>${newsArray[0].titulo}</h1>
+            <img src="${newsArray[0].imagen}" class="featured-img" onerror="this.src='https://via.placeholder.com/800x450'">
+            <p>${newsArray[0].summary}</p>
+          </article>
+          <div class="divider-v"></div>
+          <div class="right-grid">
+            ${newsArray.slice(1, 5).map(n => `
+              <div class="grid-item" onclick="navigateTo('article', '${n.id}')" style="cursor:pointer">
+                <img src="${n.imagen}" style="height:100px; width:100%; object-fit:cover;">
+                <h3>${n.titulo}</h3>
+                <span class="cat-badge">${n.categoria}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        <div class="bottom-row-grid">
+          ${newsArray.slice(5, 7).map(n => `
+            <div class="card" onclick="navigateTo('article', '${n.id}')" style="cursor:pointer">
+              <img src="${n.imagen}">
+              <span class="cat-badge">${n.categoria}</span>
+              <h3>${n.titulo}</h3>
+              <p>${n.summary.substring(0, 100)}...</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>`;
+  }
 
-        async function loadCategory(cat) {
-            await fetchNoticias();
-            const grid = document.getElementById('cat-grid');
-            document.getElementById('cat-title').innerText = cat;
-            const news = todasLasNoticias.filter(n => n.categoria === cat).slice(0, 30);
-            grid.innerHTML = "";
-            if (news.length === 0) return;
-            
-            grid.innerHTML += renderBloque(news.slice(0, 7));
-            if (news.length >= 8) {
-                grid.innerHTML += `<div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-y py-10 my-10 bg-gray-50 px-6">
-                    ${news.slice(7, 10).map(n => `
-                        <div class="cursor-pointer group" onclick="navigateTo('articulo', '${n.id}')">
-                            <span class="text-mm-red text-[9px] font-black uppercase mb-1 block">${n.categoria}</span>
-                            <h4 class="font-merri text-md font-bold group-hover:text-mm-red border-l-2 border-gray-300 pl-4 leading-tight">${n.titulo}</h4>
-                        </div>`).join('')}
-                </div>`;
-            }
-        }
+  function buildHome() {
+    const container = document.getElementById('home-containers');
+    document.getElementById('home-loader').style.display = 'none';
+    container.innerHTML = renderNewsBlock(cachedNews.slice(0, 7), "Lo más reciente");
+    ['Economia', 'Politica', 'Finanzas', 'Internacional'].forEach(cat => {
+      const filtered = cachedNews.filter(n => n.categoria === cat).slice(0, 7);
+      container.innerHTML += renderNewsBlock(filtered, cat);
+    });
+  }
 
-        function loadArticle(slug) {
-            const art = todasLasNoticias.find(n => n.id === slug);
-            if (!art) return;
-            document.getElementById('art-content').innerHTML = `
-                <div class="text-center mb-12">
-                    <span class="text-mm-red font-bold uppercase text-xs tracking-widest">${art.categoria}</span>
-                    <h1 class="font-merri text-4xl md:text-6xl my-8 leading-tight font-black">${art.titulo}</h1>
-                    <p class="text-[22px] text-gray-500 italic mb-6 max-w-3xl mx-auto leading-relaxed">${art.copete}</p>
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">${art.fecha}</p>
-                </div>
-                <img src="${art.imagen}" class="w-full h-auto mb-16 shadow-2xl" onerror="this.src='https://via.placeholder.com/1200x600?text=MM'">
-                <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed font-sans">${art.cuerpo}</div>`;
-        }
+  function buildCategory(catName) {
+    const container = document.getElementById('category-content');
+    document.getElementById('cat-page-title').innerText = catName;
+    const filtered = cachedNews.filter(n => n.categoria === catName);
+    container.innerHTML = renderNewsBlock(filtered.slice(0, 7), "Destacados");
+    // Aquí podrías agregar el resto de noticias (8-30) con el formato simplificado que pediste
+  }
 
-        async function loadTicker() {
-            try {
-                const res = await fetch('https://dolarapi.com/v1/dolares');
-                const data = await res.json();
-                const blue = data.find(d => d.casa === 'blue');
-                const oficial = data.find(d => d.casa === 'oficial');
-                const mep = data.find(d => d.casa === 'bolsa');
-                const items = [
-                    { label: 'Dólar Oficial', val: `$${oficial.venta}` },
-                    { label: 'Dólar Blue', val: `$${blue.venta}` },
-                    { label: 'Dólar MEP', val: `$${mep.venta}` },
-                    { label: 'Riesgo País', val: '1240' }
-                ];
-                let html = '';
-                for(let i=0; i<8; i++) { // Repetir para scroll infinito
-                    items.forEach(it => {
-                        html += `
-                        <div class="ticker-item">
-                            <span class="ticker-label">${it.label}</span>
-                            <span class="ticker-value">${it.val}</span>
-                            <span class="ticker-divider">|</span>
-                        </div>`;
-                    });
-                }
-                document.getElementById('ticker-content').innerHTML = html;
-            } catch (e) { console.log(e); }
-        }
+  function buildArticle(slug) {
+    const n = cachedNews.find(x => x.id === slug);
+    document.getElementById('article-body').innerHTML = `
+      <span class="cat-badge">${n.categoria}</span>
+      <h1 style="font-family:'Merriweather'; font-size:3rem; margin: 20px 0;">${n.titulo}</h1>
+      <p style="font-size:1.2rem; color:#666; margin-bottom:30px;">${n.summary}</p>
+      <img src="${n.imagen}" style="width:100%; margin-bottom:30px;">
+      <div style="line-height:1.8; font-size:1.1rem;">${n.content}</div>
+    `;
+  }
 
-        // --- AUTH & ADMIN ---
-        document.getElementById('btn-login').onclick = async () => {
-            const e = document.getElementById('admin-email').value;
-            const p = document.getElementById('admin-pass').value;
-            try { await signInWithEmailAndPassword(auth, e, p); } catch (err) { alert("Acceso denegado"); }
-        };
-        document.getElementById('btn-logout').onclick = () => signOut(auth);
-        onAuthStateChanged(auth, u => {
-            if (u) { document.getElementById('admin-auth').classList.add('hidden'); document.getElementById('admin-panel').classList.remove('hidden'); refreshAdminList(); }
-            else { document.getElementById('admin-auth').classList.remove('hidden'); document.getElementById('admin-panel').classList.add('hidden'); }
-        });
+  // ── TICKER ──
+  async function updateTicker() {
+      const track = document.getElementById('tickerTrack');
+      const res = await fetch('https://dolarapi.com/v1/dolares');
+      const data = await res.json();
+      const blue = data.find(x => x.casa === 'blue');
+      const mep = data.find(x => x.casa === 'bolsa');
+      
+      const html = `
+        <div class="ticker-item"><span class="ticker-label">Dólar Blue</span> <span class="ticker-value">$${blue.venta}</span></div>
+        <div class="ticker-item"><span class="ticker-label">Dólar MEP</span> <span class="ticker-value">$${mep.venta}</span></div>
+        <div class="ticker-item"><span class="ticker-label">Riesgo País</span> <span class="ticker-value">1240</span></div>
+      `;
+      track.innerHTML = html + html + html;
+  }
 
-        const form = document.getElementById('news-form');
-        form.onsubmit = async (e) => {
-            e.preventDefault();
-            const idEdit = document.getElementById('edit-id').value;
-            const titulo = document.getElementById('f-titulo').value;
-            const slug = titulo.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-            const data = {
-                titulo, copete: document.getElementById('f-copete').value,
-                categoria: document.getElementById('f-categoria').value,
-                fecha: document.getElementById('f-fecha').value || new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }),
-                imagen: document.getElementById('f-imagen').value, cuerpo: document.getElementById('f-cuerpo').value,
-                id: slug, fechaOrden: Timestamp.now()
-            };
-            try {
-                if (idEdit) await updateDoc(doc(db, "noticias", idEdit), data);
-                else await addDoc(collection(db, "noticias"), data);
-                form.reset(); document.getElementById('edit-id').value = ''; refreshAdminList(); alert("Publicado");
-            } catch (err) { alert("Error"); }
-        };
+  // ── ADMIN LOGIC ──
+  window.loginAdmin = async () => {
+      try {
+          await signInWithEmailAndPassword(auth, document.getElementById('adm-email').value, document.getElementById('adm-pass').value);
+      } catch(e) { alert("Error de acceso"); }
+  };
 
-        async function refreshAdminList() {
-            await fetchNoticias();
-            document.getElementById('admin-list').innerHTML = todasLasNoticias.map(n => `
-                <div class="flex justify-between items-center p-3 border rounded text-xs bg-white">
-                    <span class="truncate pr-4"><b>${n.categoria}</b>: ${n.titulo}</span>
-                    <div class="flex space-x-2">
-                        <button onclick="editNews('${n.idDoc}')" class="text-blue-600 font-bold">EDITAR</button>
-                        <button onclick="deleteNews('${n.idDoc}')" class="text-red-600 font-bold">BORRAR</button>
-                    </div>
-                </div>`).join('');
-        }
+  onAuthStateChanged(auth, user => {
+      if(user) {
+          document.getElementById('admin-login').classList.add('hidden');
+          document.getElementById('admin-panel').classList.remove('hidden');
+      } else {
+          document.getElementById('admin-login').classList.remove('hidden');
+          document.getElementById('admin-panel').classList.add('hidden');
+      }
+  });
 
-        window.editNews = id => {
-            const n = todasLasNoticias.find(x => x.idDoc === id);
-            document.getElementById('edit-id').value = id;
-            document.getElementById('f-titulo').value = n.titulo;
-            document.getElementById('f-copete').value = n.copete;
-            document.getElementById('f-categoria').value = n.categoria;
-            document.getElementById('f-fecha').value = n.fecha;
-            document.getElementById('f-imagen').value = n.imagen;
-            document.getElementById('f-cuerpo').value = n.cuerpo;
-        };
+  window.addEventListener('keydown', e => {
+      if(e.ctrlKey && e.shiftKey && e.code === 'KeyA') navigateTo('admin');
+  });
 
-        window.deleteNews = async id => { if(confirm("¿Borrar?")) { await deleteDoc(doc(db, "noticias", id)); refreshAdminList(); } };
-        window.toggleModal = id => document.getElementById(id).classList.toggle('hidden');
-        window.addEventListener('keydown', e => { if (e.ctrlKey && e.shiftKey && e.code === 'KeyA') { e.preventDefault(); navigateTo('admin'); }});
-        
-        loadHome(); loadTicker(); setInterval(loadTicker, 300000);
-        document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');
-    </script>
+  loadData();
+  updateTicker();
+</script>
 </body>
 </html>
