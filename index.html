@@ -1,768 +1,1046 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MacroMind News</title>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNNBRSHGGX"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FNNBRSHGGX');
+  </script>
   <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3827f054973822320463ef293bdf84fb/script.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8852528520558546" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNNBRSHGGX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FNNBRSHGGX');</script>
-  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAwklEQVR4nO3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAMBuAABHgAAAABJRU5ErkJggg=="/>
+  <title>MacroMind News</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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"/>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Source Sans 3',sans-serif;background:#fff;color:#111;}
-a{text-decoration:none;color:inherit;}
-img{max-width:100%;display:block;}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* NAVBAR */
-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 32px;height:60px;border-bottom:1px solid #e0e0e0;background:#fff;position:sticky;top:0;z-index:100;}
-.logo{font-family:'Merriweather',serif;font-size:1.45rem;font-weight:900;color:#111;cursor:pointer;}
-nav{display:flex;align-items:center;gap:32px;}
-nav a{font-size:.92rem;font-weight:600;color:#222;transition:color .2s;cursor:pointer;}
-nav a:hover,nav a.active{color:#c00;}
-nav a.active{border-bottom:2px solid #c00;padding-bottom:2px;}
-.header-right{display:flex;justify-content:flex-end;align-items:center;}
-.btn-sub{background:#c00;color:#fff!important;padding:8px 18px;border-radius:3px;font-size:.85rem;font-weight:700;cursor:pointer;transition:background .2s;}
-.btn-sub:hover{background:#a00;}
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: #fff;
+      color: #111;
+    }
 
-/* TICKER */
-.ticker-bar{background:#f8f8f8;border-bottom:1px solid #e0e0e0;overflow:hidden;height:36px;display:flex;align-items:center;}
-.ticker-track{display:flex;align-items:center;white-space:nowrap;animation:tick 40s linear infinite;}
-.ticker-bar:hover .ticker-track{animation-play-state:paused;}
-@keyframes tick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-.t-item{display:inline-flex;align-items:center;gap:5px;padding:0 20px;border-right:1px solid #ddd;font-size:.76rem;font-weight:600;}
-.t-lbl{font-size:.68rem;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.4px;}
-.t-val{font-weight:700;color:#111;}
-.t-chg{font-size:.7rem;font-weight:700;}
-.t-chg.up{color:#1a8c3a;}.t-chg.dn{color:#c00;}
+    a { text-decoration: none; color: inherit; }
 
-/* PAGES */
-.page{display:none;}.page.active{display:block;}
+    img { max-width: 100%; box-sizing: border-box; }
 
-/* LOADING */
-.loading{text-align:center;padding:60px 20px;color:#aaa;}
-.spinner{width:32px;height:32px;border:3px solid #eee;border-top-color:#c00;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px;}
-@keyframes spin{to{transform:rotate(360deg);}}
+    /* ── NAVBAR ── */
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 32px;
+      height: 60px;
+      border-bottom: 1px solid #e0e0e0;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-/* ── HOME ── */
-.main-content{max-width:1240px;margin:0 auto;padding:28px 16px 48px;}
-.block{margin-bottom:44px;}
-.block-title{font-family:'Merriweather',serif;font-size:1rem;font-weight:900;color:#111;border-bottom:3px solid #c00;padding-bottom:8px;margin-bottom:20px;text-transform:uppercase;letter-spacing:.5px;}
-.block-title a{color:#111;}.block-title a:hover{color:#c00;}
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #111;
+      letter-spacing: -0.5px;
+    }
 
-/* GRID 7: 1 grande + 4 chicas + 2 medianas */
-.grid7{display:flex;gap:0;}
-.g7-left{flex:0 0 42%;padding-right:24px;border-right:1px solid #ddd;}
-.g7-right{flex:1;display:flex;flex-direction:column;gap:0;padding-left:24px;}
-.g7-top4{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #ddd;padding-bottom:16px;margin-bottom:16px;gap:0;}
-.g7-bottom2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
 
-/* noticia grande */
-.n-large .cat{display:inline-block;background:#c00;color:#fff;font-size:.62rem;font-weight:700;padding:2px 7px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.6px;cursor:pointer;}
-.n-large h2{font-family:'Merriweather',serif;font-size:1.5rem;font-weight:900;line-height:1.25;margin-bottom:12px;color:#111;cursor:pointer;}
-.n-large h2:hover{color:#c00;}
-.n-large img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:12px;background:#eee;cursor:pointer;}
-.n-large p{font-size:.88rem;line-height:1.55;color:#333;}
+    nav a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #222;
+      transition: color .2s;
+    }
 
-/* noticia chica (4) */
-.n-small{padding:8px 10px 8px 10px;border-right:1px solid #ddd;}
-.n-small:nth-child(even){border-right:none;}
-.n-small:nth-child(3),.n-small:nth-child(4){border-top:1px solid #ddd;padding-top:12px;margin-top:4px;}
-.n-small img{width:100%;height:88px;object-fit:cover;background:#eee;margin-bottom:6px;cursor:pointer;}
-.n-small .cat{display:inline-block;background:#c00;color:#fff;font-size:.58rem;font-weight:700;padding:1px 5px;margin-bottom:4px;text-transform:uppercase;cursor:pointer;}
-.n-small h3{font-family:'Merriweather',serif;font-size:.78rem;font-weight:700;line-height:1.28;color:#111;cursor:pointer;}
-.n-small h3:hover{color:#c00;}
+    nav a:hover { color: #c00; }
+    nav a.active { color: #c00; border-bottom: 2px solid #c00; padding-bottom: 2px; }
 
-/* noticia mediana (2) */
-.n-med img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#eee;margin-bottom:8px;cursor:pointer;}
-.n-med .cat{display:inline-block;background:#c00;color:#fff;font-size:.62rem;font-weight:700;padding:2px 7px;margin-bottom:6px;text-transform:uppercase;cursor:pointer;}
-.n-med h3{font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;line-height:1.3;color:#111;cursor:pointer;}
-.n-med h3:hover{color:#c00;}
+    .header-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
 
-/* ── SECCIÓN ── */
-.sec-wrap{max-width:1240px;margin:0 auto;padding:28px 16px 48px;}
-.sec-hdr{border-bottom:3px solid #c00;padding-bottom:10px;margin-bottom:28px;}
-.sec-hdr h1{font-family:'Merriweather',serif;font-size:1.8rem;font-weight:900;}
+    .btn-subscribe {
+      background: #c00;
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background .2s;
+    }
+    .btn-subscribe:hover { background: #a00; }
 
-/* primeras 12: 3 col */
-.sec-top12{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:32px;}
-/* filas alternas desde 13: row de 2, row de 3, row de 4 */
-.sec-rest{display:flex;flex-direction:column;gap:28px;}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-.row4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+    /* ── MAIN GRID ── */
+    .main-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
 
-.nc{} /* news card */
-.nc img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#eee;margin-bottom:10px;cursor:pointer;}
-.nc .cat{display:inline-block;background:#c00;color:#fff;font-size:.6rem;font-weight:700;padding:2px 6px;margin-bottom:6px;text-transform:uppercase;cursor:pointer;}
-.nc h3{font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;line-height:1.3;margin-bottom:6px;color:#111;cursor:pointer;}
-.nc h3:hover{color:#c00;}
-.nc p{font-size:.82rem;line-height:1.5;color:#444;}
-.nc .meta{font-size:.72rem;color:#aaa;margin-bottom:4px;}
+    /* Top row: featured left + 2x2 grid right */
+    .top-row {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0;
+      margin-bottom: 32px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 28px;
+    }
 
-/* ── ARTÍCULO ── */
-.art-wrap{max-width:780px;margin:0 auto;padding:40px 16px 60px;}
-.art-wrap .cat{display:inline-block;background:#c00;color:#fff;font-size:.65rem;font-weight:700;padding:3px 8px;margin-bottom:12px;text-transform:uppercase;}
-.art-title{font-family:'Merriweather',serif;font-size:2rem;font-weight:900;line-height:1.22;color:#111;margin-bottom:16px;}
-.art-excerpt{font-size:1.05rem;color:#555;line-height:1.6;margin-bottom:20px;}
-.art-meta{font-size:.8rem;color:#aaa;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #eee;}
-.art-hero{width:100%;aspect-ratio:16/9;object-fit:cover;background:#eee;margin-bottom:24px;}
-.art-body p{font-size:1.05rem;line-height:1.78;color:#222;margin-bottom:20px;}
-.back-btn{display:inline-flex;align-items:center;gap:5px;margin-bottom:24px;font-size:.85rem;font-weight:600;color:#555;cursor:pointer;}
-.back-btn:hover{color:#c00;}
-.share-bar{display:flex;gap:10px;margin-top:32px;padding-top:24px;border-top:1px solid #eee;flex-wrap:wrap;}
-.sh{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:4px;font-size:.8rem;font-weight:700;color:#fff;cursor:pointer;border:none;}
-.sh.x{background:#000;}.sh.fb{background:#1877f2;}.sh.wa{background:#25d366;}.sh.tg{background:#0088cc;}.sh.cp{background:#555;}
+    /* Featured article */
+    .featured {
+      padding-right: 28px;
+    }
 
-/* ── TERMS ── */
-.terms{max-width:860px;margin:0 auto;padding:40px 16px 60px;}
-.terms h1{font-family:'Merriweather',serif;font-size:2rem;font-weight:900;margin-bottom:8px;}
-.terms .sub{color:#999;font-size:.88rem;margin-bottom:32px;}
-.terms h2{font-family:'Merriweather',serif;font-size:1.1rem;font-weight:700;margin:26px 0 10px;}
-.terms p{font-size:.93rem;line-height:1.7;color:#333;margin-bottom:12px;}
-.terms ul{margin:0 0 12px 20px;}
-.terms ul li{font-size:.93rem;line-height:1.7;color:#333;margin-bottom:5px;}
+    .cat-badge {
+      display: inline-block;
+      background: #c00;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 3px 8px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
 
-/* ── MODAL ── */
-.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
-.modal-ov.open{display:flex;}
-.modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
-.modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
-.modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
-.modal-box input{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
-.modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
-.modal-sub:hover{background:#222;}
-.modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
-.modal-close:hover{color:#fff;}
+    .cat-badge.internacional { background: #c00; }
+    .cat-badge.economia { background: #c00; }
 
-/* ── ADMIN ── */
-.admin-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;padding:20px;}
-.admin-ov.open{display:flex;}
-.admin-box{background:#fff;border-radius:8px;width:100%;max-width:680px;max-height:90vh;overflow-y:auto;padding:36px 32px;}
-.admin-box h2{font-family:'Merriweather',serif;font-size:1.4rem;font-weight:900;margin-bottom:20px;color:#111;}
-.af{display:flex;flex-direction:column;gap:14px;}
-.af label{font-size:.82rem;font-weight:700;color:#444;margin-bottom:3px;display:block;}
-.af input,.af textarea,.af select{width:100%;padding:11px 13px;border:1px solid #ddd;border-radius:4px;font-size:.92rem;font-family:'Source Sans 3',sans-serif;color:#111;outline:none;}
-.af input:focus,.af textarea:focus,.af select:focus{border-color:#c00;}
-.af textarea{min-height:160px;resize:vertical;}
-.af .hint{font-size:.72rem;color:#aaa;margin-top:2px;}
-.abtn{background:#c00;color:#fff;border:none;padding:12px 24px;border-radius:4px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
-.abtn:hover{background:#a00;}
-.abtn:disabled{background:#aaa;cursor:not-allowed;}
-.abtn-sec{background:#444;margin-left:8px;}
-.abtn-sec:hover{background:#222;}
-.amsg{padding:10px 14px;border-radius:4px;font-size:.87rem;font-weight:600;margin-top:10px;}
-.amsg.ok{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;}
-.amsg.err{background:#ffebee;color:#c62828;border:1px solid #ef9a9a;}
-.a-list-item{display:flex;justify-content:space-between;align-items:flex-start;padding:11px 0;border-bottom:1px solid #f0f0f0;gap:12px;}
-.a-list-item:last-child{border-bottom:none;}
-.ali-title{font-size:.87rem;font-weight:700;color:#111;margin-bottom:3px;}
-.ali-meta{font-size:.74rem;color:#aaa;}
-.ali-badge{font-size:.6rem;font-weight:700;padding:1px 6px;background:#c00;color:#fff;text-transform:uppercase;display:inline-block;margin-right:4px;border-radius:2px;}
-.adel{background:none;border:1px solid #ddd;color:#888;padding:5px 11px;border-radius:4px;font-size:.75rem;cursor:pointer;}
-.adel:hover{background:#ffebee;color:#c62828;border-color:#ef9a9a;}
-.tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:2px solid #eee;padding-bottom:0;}
-.tab{padding:8px 18px;font-size:.85rem;font-weight:700;cursor:pointer;color:#888;border-bottom:2px solid transparent;margin-bottom:-2px;}
-.tab.active{color:#c00;border-bottom-color:#c00;}
+    .featured h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1.28;
+      margin-bottom: 14px;
+      color: #111;
+    }
 
-/* ── FOOTER ── */
-footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
-.ft{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:28px;}
-.fb-brand .logo{display:block;font-size:1.4rem;margin-bottom:10px;}
-.fb-brand p{font-size:.82rem;color:#555;line-height:1.55;}
-.fc h4{font-size:.93rem;font-weight:700;margin-bottom:14px;color:#111;}
-.fc ul{list-style:none;}
-.fc ul li{margin-bottom:8px;}
-.fc ul li a{font-size:.83rem;color:#444;cursor:pointer;}
-.fc ul li a:hover{color:#c00;}
-.sicons{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;}
-.sicons a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:4px;transition:transform .15s;}
-.sicons a:hover{transform:translateY(-2px);}
-.sicons a.xi{background:#000;}.sicons a.yti{background:#f00;}.sicons a.wai{background:#25d366;}
-.sicons a.tki{background:#000;}.sicons a.igi{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);}
-.sicons svg{width:16px;height:16px;fill:#fff;}
-.fb-bot{max-width:1240px;margin:0 auto;border-top:1px solid #e0e0e0;padding-top:16px;display:flex;justify-content:space-between;align-items:center;}
-.fb-bot p{font-size:.78rem;color:#aaa;}
-.flinks{display:flex;gap:18px;}
-.flinks a{font-size:.78rem;color:#666;cursor:pointer;}
-.flinks a:hover{color:#c00;}
+    .featured h1 a:hover { color: #c00; }
 
-/* ── HAMBURGER ── */
-.hbtn{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-.hbtn span{display:block;width:24px;height:2px;background:#111;border-radius:2px;transition:all .25s;}
-.hbtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.hbtn.open span:nth-child(2){opacity:0;}
-.hbtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.drawer{display:none;position:fixed;top:54px;left:0;right:0;background:#fff;border-bottom:2px solid #c00;z-index:99;max-height:0;overflow:hidden;transition:max-height .3s;}
-.drawer.open{max-height:400px;}
-.drawer a{display:block;padding:13px 20px;font-size:.93rem;font-weight:600;color:#222;border-bottom:1px solid #f0f0f0;cursor:pointer;}
-.drawer a:hover{background:#fafafa;color:#c00;}
+    .featured-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 12px;
+      height: auto;
+    }
 
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  .grid7{flex-direction:column;}
-  .g7-left{padding-right:0;border-right:none;border-bottom:1px solid #ddd;padding-bottom:20px;margin-bottom:20px;flex:none;}
-  .g7-right{padding-left:0;}
-  .sec-top12{grid-template-columns:1fr 1fr;}
-  .row4{grid-template-columns:1fr 1fr;}
-  .ft{grid-template-columns:1fr 1fr;gap:24px;}
-  .fb-brand{grid-column:1/-1;}
-}
-@media(max-width:600px){
-  header{display:flex;justify-content:space-between;padding:0 14px;height:54px;}
-  nav{display:none;}.hbtn{display:flex;}.btn-sub{display:none;}.drawer{display:block;}
-  .main-content{padding:14px 10px 32px;}
-  .g7-top4{grid-template-columns:1fr;}
-  .g7-bottom2{grid-template-columns:1fr;}
-  .sec-top12,.row2,.row3,.row4{grid-template-columns:1fr;}
-  .ft{grid-template-columns:1fr;}
-  .fb-bot{flex-direction:column;gap:10px;text-align:center;}
-  .flinks{flex-wrap:wrap;justify-content:center;}
-  .art-title{font-size:1.4rem;}
-}
+    .featured-img-link { display: block; max-width: 100%; overflow: hidden; }
+
+    .featured p {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: #333;
+    }
+
+    /* Divider */
+    .divider-v {
+      width: 1px;
+      background: #ddd;
+      margin: 0 4px;
+    }
+
+    /* 2×2 grid */
+    .right-grid {
+      padding-left: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+    }
+
+    .grid-item {
+      padding: 0 10px 16px 10px;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .grid-item:nth-child(2) { border-right: none; }
+    .grid-item:nth-child(4) { border-right: none; }
+    .grid-item:nth-child(3),
+    .grid-item:nth-child(4) { border-bottom: none; padding-top: 14px; }
+    .grid-item:nth-child(1),
+    .grid-item:nth-child(2) { padding-top: 0; }
+
+    .grid-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .grid-item h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    .grid-item h3 a:hover { color: #c00; }
+
+    /* ── BOTTOM ROW (3 cards) ── */
+    .bottom-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 28px;
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 10px;
+      height: auto;
+    }
+
+    .card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .card h3 a:hover { color: #c00; }
+
+    .card p {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: #444;
+    }
+
+    /* ── TICKER BAR ── */
+    .ticker-bar {
+      background: #f8f8f8;
+      border-bottom: 1px solid #e0e0e0;
+      overflow: hidden;
+      height: 38px;
+      display: flex;
+      align-items: center;
+    }
+
+    .ticker-track {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: ticker-scroll 30s linear infinite;
+    }
+
+    .ticker-bar:hover .ticker-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 22px;
+      border-right: 1px solid #ddd;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #222;
+      line-height: 1;
+    }
+
+    .ticker-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ticker-value {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .ticker-change {
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .ticker-change.up   { color: #1a8c3a; }
+    .ticker-change.down { color: #c00; }
+
+    .ticker-loading {
+      font-size: 0.78rem;
+      color: #888;
+      padding: 0 20px;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .ticker-bar { height: 34px; }
+      .ticker-item { padding: 0 16px; font-size: 0.72rem; }
+    }
+
+    /* ── MODAL SUSCRIPCIÓN ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #c00;
+      border-radius: 6px;
+      padding: 40px 36px 36px;
+      width: 100%;
+      max-width: 520px;
+      position: relative;
+    }
+
+    .modal-box h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .modal-box p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .modal-box input[type="email"] {
+      width: 100%;
+      padding: 16px 18px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+      margin-bottom: 12px;
+      font-family: 'Source Sans 3', sans-serif;
+      color: #333;
+    }
+
+    .modal-box input[type="email"]::placeholder {
+      color: #aaa;
+    }
+
+    .modal-submit {
+      width: 100%;
+      padding: 16px;
+      background: #000;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Source Sans 3', sans-serif;
+      transition: background .2s;
+    }
+
+    .modal-submit:hover { background: #222; }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      transition: color .2s;
+    }
+
+    .modal-close:hover { color: #fff; }
+
+    @media (max-width: 480px) {
+      .modal-box { padding: 32px 20px 28px; }
+      .modal-box h2 { font-size: 1.3rem; }
+      .modal-box p { font-size: 0.9rem; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #fff;
+      border-top: 1px solid #e0e0e0;
+      padding: 40px 32px 20px;
+    }
+
+    .footer-top {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 28px;
+    }
+
+    .footer-brand .logo {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      font-size: 0.83rem;
+      color: #555;
+      line-height: 1.55;
+    }
+
+    .footer-col h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #111;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      color: #444;
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: #c00; }
+
+    /* Social icons */
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      background: #111;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: background .2s, transform .15s;
+    }
+
+    .social-icons a:hover { transform: translateY(-2px); }
+    .social-icons a.x-icon { background: #000; }
+    .social-icons a.yt-icon { background: #ff0000; }
+    .social-icons a.wa-icon { background: #25d366; }
+    .social-icons a.tk-icon { background: #000; }
+    .social-icons a.ig-icon { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+
+    .social-icons svg { width: 16px; height: 16px; fill: #fff; }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: #666;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: #c00; }
+
+    /* Placeholder images */
+    .img-placeholder {
+      width: 100%;
+      display: block;
+      background: #c8c8c8;
+      object-fit: cover;
+    }
+
+    /* ── HAMBURGER (hidden on desktop) ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #111;
+      border-radius: 2px;
+      transition: all .25s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 54px;
+      left: 0; right: 0;
+      background: #fff;
+      border-bottom: 2px solid #c00;
+      z-index: 99;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+    .nav-drawer.open { max-height: 400px; }
+    .nav-drawer a {
+      display: block;
+      padding: 13px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #222;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background .15s, color .15s;
+    }
+    .nav-drawer a:hover { background: #fafafa; color: #c00; }
+    .nav-drawer .btn-subscribe {
+      margin: 12px 16px 16px;
+      display: block;
+      text-align: center;
+      border-radius: 3px;
+      padding: 10px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 16px;
+        height: 54px;
+      }
+      .logo { font-size: 1.15rem; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .btn-subscribe { display: none; }
+      .header-right { gap: 0; }
+      .nav-drawer { display: block; }
+
+      .main-content { padding: 16px 12px 32px; }
+
+      /* Top row → single column */
+      .top-row { grid-template-columns: 1fr; }
+      .divider-v { width: 100%; height: 1px; margin: 20px 0; }
+      .featured { padding-right: 0; }
+      .featured h1 { font-size: 1.3rem; }
+      .featured-img { height: auto; }
+
+      /* Right 2×2 stays 2 cols */
+      .right-grid { padding-left: 0; grid-template-columns: 1fr 1fr; }
+      .grid-item img { height: 100px; }
+      .grid-item h3 { font-size: 0.8rem; }
+
+      /* Bottom → single column */
+      .bottom-row { grid-template-columns: 1fr; gap: 24px; }
+      .card img { height: auto; }
+
+      /* Footer */
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .right-grid { grid-template-columns: 1fr; }
+      .grid-item { border-right: none !important; border-bottom: 1px solid #ddd !important; padding: 12px 0 !important; }
+      .grid-item:last-child { border-bottom: none !important; }
+      .grid-item img { height: 180px; }
+      .grid-item h3 { font-size: 0.92rem; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ══════════ HEADER ══════════ -->
 <header>
-  <span class="logo" onclick="goTo('home')">MacroMind News</span>
+  <a href="index.html" class="logo">MacroMind News</a>
   <nav>
-    <a onclick="goTo('home')" id="nav-home" class="active">Inicio</a>
-    <a onclick="goTo('economia')" id="nav-economia">Economía</a>
-    <a onclick="goTo('finanzas')" id="nav-finanzas">Finanzas</a>
-    <a onclick="goTo('politica')" id="nav-politica">Política</a>
-    <a onclick="goTo('internacional')" id="nav-internacional">Internacional</a>
+    <a href="index.html" class="active">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="politica.html">Política</a>
+    <a href="internacional.html">Internacional</a>
   </nav>
   <div class="header-right">
-    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
-    <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
+    <a href="#" class="btn-subscribe" id="openModal">SUSCRIBIRME</a>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<div class="drawer" id="drawer">
-  <a onclick="goTo('home')">Inicio</a>
-  <a onclick="goTo('economia')">Economía</a>
-  <a onclick="goTo('finanzas')">Finanzas</a>
-  <a onclick="goTo('politica')">Política</a>
-  <a onclick="goTo('internacional')">Internacional</a>
-  <a class="btn-sub" style="margin:12px 16px 16px;display:block;text-align:center;border-radius:3px;padding:10px;" id="openModal2">SUSCRIBIRME</a>
+<!-- Mobile nav drawer -->
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Inicio</a>
+  <a href="economia.html">Economía</a>
+  <a href="finanzas.html">Finanzas</a>
+  <a href="politica.html">Política</a>
+  <a href="internacional.html">Internacional</a>
+  <a href="#" class="btn-subscribe" id="openModal">SUSCRIBIRME</a>
 </div>
 
-<!-- TICKER -->
-<div class="ticker-bar"><div class="ticker-track" id="tickerTrack">
-  <span class="t-item"><span class="t-lbl">Cargando</span><span class="t-val">...</span></span>
-</div></div>
-
-<!-- ══ PÁGINAS ══ -->
-
-<!-- HOME -->
-<div class="page active" id="page-home">
-  <div class="main-content">
-    <div class="block"><div class="block-title">Últimas Noticias</div><div id="h-todas"><div class="loading"><div class="spinner"></div>Cargando...</div></div></div>
-    <div class="block"><div class="block-title"><a onclick="goTo('economia')">Economía</a></div><div id="h-economia"><div class="loading"><div class="spinner"></div></div></div></div>
-    <div class="block"><div class="block-title"><a onclick="goTo('politica')">Política</a></div><div id="h-politica"><div class="loading"><div class="spinner"></div></div></div></div>
-    <div class="block"><div class="block-title"><a onclick="goTo('finanzas')">Finanzas</a></div><div id="h-finanzas"><div class="loading"><div class="spinner"></div></div></div></div>
-    <div class="block"><div class="block-title"><a onclick="goTo('internacional')">Internacional</a></div><div id="h-internacional"><div class="loading"><div class="spinner"></div></div></div></div>
+<!-- ══════════ TICKER ══════════ -->
+<div class="ticker-bar" id="tickerBar">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-loading" id="tickerLoading">Cargando cotizaciones...</span>
   </div>
 </div>
 
-<!-- ECONOMÍA -->
-<div class="page" id="page-economia"><div class="sec-wrap">
-  <div class="sec-hdr"><h1>Economía</h1></div>
-  <div id="list-economia"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
-</div></div>
+<!-- ══════════ MAIN ══════════ -->
+<main class="main-content">
 
-<!-- FINANZAS -->
-<div class="page" id="page-finanzas"><div class="sec-wrap">
-  <div class="sec-hdr"><h1>Finanzas</h1></div>
-  <div id="list-finanzas"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
-</div></div>
+  <!-- TOP ROW -->
+  <div class="top-row">
 
-<!-- POLÍTICA -->
-<div class="page" id="page-politica"><div class="sec-wrap">
-  <div class="sec-hdr"><h1>Política</h1></div>
-  <div id="list-politica"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
-</div></div>
+    <!-- Featured -->
+    <article class="featured">
+      <span class="cat-badge"><a href="politica.html" style="color:#fff;">POLÍTICA</a></span>
+      <h1><a href="guillermo-francos-sale-del-directorio-de-ypf-un-cambio-que-marca-el-fin-de-su-ciclo-en-el-gobierno.html">Guillermo Francos sale del directorio de YPF: un cambio que marca el fin de su ciclo en el gobierno</a></h1>
+      <a href="guillermo-francos-sale-del-directorio-de-ypf-un-cambio-que-marca-el-fin-de-su-ciclo-en-el-gobierno.html" class="featured-img-link">
+        <img
+          src="img/guillermo-francos.jpg"
+          alt="Guillermo Francos"
+          class="featured-img"
+          onerror="this.style.background='#bbb';this.src='';this.style.height='210px';"
+        />
+      </a>
+      <p>El exjefe de Gabinete que condujo las negociaciones legislativas más complejas de la gestión Milei será removido de la petrolera estatal, consolidando su alejamiento del núcleo del poder.</p>
+    </article>
 
-<!-- INTERNACIONAL -->
-<div class="page" id="page-internacional"><div class="sec-wrap">
-  <div class="sec-hdr"><h1>Internacional</h1></div>
-  <div id="list-internacional"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
-</div></div>
+    <div class="divider-v"></div>
 
-<!-- ARTÍCULO -->
-<div class="page" id="page-articulo">
-  <div class="art-wrap" id="article-content"><div class="loading"><div class="spinner"></div></div></div>
-</div>
+    <!-- 2×2 Grid -->
+    <div class="right-grid">
 
-<!-- TÉRMINOS -->
-<div class="page" id="page-terminos"><div class="terms">
-  <h1>Términos y Condiciones</h1><p class="sub">Última actualización: mayo de 2026</p>
-  <h2>1. Aceptación</h2><p>Al acceder a MacroMind News aceptás estos Términos. Si no estás de acuerdo, por favor no uses nuestros servicios.</p>
-  <h2>2. Descripción del Servicio</h2><p>MacroMind News es un medio digital de información y análisis sobre economía, finanzas, política e internacional. El contenido es informativo y no constituye asesoramiento financiero, legal ni de inversión.</p>
-  <h2>3. Propiedad Intelectual</h2><p>Todo el contenido —textos, imágenes, gráficos, logotipos y diseños— es propiedad de MacroMind News y está protegido por las leyes de propiedad intelectual. Queda prohibida su reproducción sin autorización expresa.</p>
-  <h2>4. Uso del Contenido</h2><p>Podés compartir enlaces citando la fuente. No está permitido:</p>
-  <ul><li>Reproducir artículos completos sin autorización.</li><li>Usar el contenido con fines comerciales sin licencia previa.</li><li>Modificar o alterar el contenido atribuyéndolo a MacroMind News.</li></ul>
-  <h2>5. Exención de Responsabilidad</h2><p>MacroMind News no garantiza la exactitud o actualidad de la información publicada. No nos responsabilizamos por decisiones tomadas en base a nuestro contenido.</p>
-  <h2>6. Suscripción y Datos</h2><p>Al suscribirte aceptás recibir comunicaciones de MacroMind News. Tus datos se tratan conforme a nuestra Política de Privacidad.</p>
-  <h2>7. Modificaciones</h2><p>Nos reservamos el derecho de modificar estos Términos en cualquier momento, publicando los cambios en esta página.</p>
-  <h2>8. Ley Aplicable</h2><p>Estos Términos se rigen por las leyes de la República Argentina. Cualquier disputa será sometida a los tribunales de la Ciudad Autónoma de Buenos Aires.</p>
-  <h2>9. Contacto</h2><p>Consultas: contacto@macromindnews.com.ar</p>
-</div></div>
+      <!-- Item 1 -->
+      <div class="grid-item">
+        <a href="santilli-designo-a-juan-pablo-limodio-como-nuevo-titular-de-la-direccion-nacional-electoral.html">
+          <img
+            src="img/santilli-2.jpg"
+            alt="Diego Santilli, Ministro del Interior"
+            onerror="this.style.background='#bbb';this.src='';this.style.height='120px';"
+          />
+        </a>
+        <h3><a href="santilli-designo-a-juan-pablo-limodio-como-nuevo-titular-de-la-direccion-nacional-electoral.html">Santilli designó a Juan Pablo Limodio como nuevo titular de la Dirección Nacional Electoral</a></h3>
+        <span class="cat-badge"><a href="politica.html" style="color:#fff;">POLÍTICA</a></span>
+      </div>
 
-<!-- COOKIES -->
-<div class="page" id="page-cookies"><div class="terms">
-  <h1>Políticas de Cookies</h1><p class="sub">Última actualización: mayo de 2026</p>
-  <h2>¿Qué son las cookies?</h2><p>Pequeños archivos de texto almacenados en tu dispositivo para reconocer tu navegador y recordar preferencias.</p>
-  <h2>Cómo las usamos</h2><p>Para mejorar la experiencia del usuario, analizar el tráfico (Google Analytics) y mostrar publicidad relevante (Google AdSense).</p>
-  <h2>Tipos</h2><ul><li><strong>Esenciales:</strong> Funcionamiento básico.</li><li><strong>Analíticas:</strong> Google Analytics.</li><li><strong>Publicitarias:</strong> Google AdSense.</li></ul>
-  <h2>Control</h2><p>Podés configurar tu navegador para rechazar cookies, aunque algunas funciones del sitio podrían verse afectadas.</p>
-</div></div>
+      <!-- Item 2 -->
+      <div class="grid-item">
+        <a href="paolo-rocca-deja-la-conduccion-operativa-de-tenaris-gabiel-podskubka-asume-como-nuevo-ceo-del-gigante-de-acero.html">
+          <img
+            src="img/paolo-rocca.jpg"
+            alt="CEO de Techint"
+            onerror="this.style.background='#bbb';this.src='';this.style.height='120px';"
+          />
+        </a>
+        <h3><a href="paolo-rocca-deja-la-conduccion-operativa-de-tenaris-gabiel-podskubka-asume-como-nuevo-ceo-del-gigante-de-acero.html">Paolo Rocca deja la conducción operativa de Tenaris: Gabriel Podskubka asume como nuevo CEO del gigante del acero</a></h3>
+        <span class="cat-badge"><a href="finanzas.html" style="color:#fff;">FINANZAS</a></span>
+      </div>
 
-<!-- MODAL SUSCRIPCIÓN -->
-<div class="modal-ov" id="modalOv">
+      <!-- Item 3 -->
+      <div class="grid-item">
+        <a href="la-corte-suprema-rechazo-el-per-saltum-del-gobierno-y-la-reforma-laboral-seguira-siendo-revisada-por-la-justicia.html">
+          <img
+            src="img/corte-suprema.jpg"
+            alt="Jueces de la CSJN"
+            onerror="this.style.background='#bbb';this.src='';this.style.height='120px';"
+          />
+        </a>
+        <h3><a href="la-corte-suprema-rechazo-el-per-saltum-del-gobierno-y-la-reforma-laboral-seguira-siendo-revisada-por-la-justicia.html">La Corte Suprema rechazó el per saltum del gobierno y la reforma laboral seguirá siendo revisada por la Justicia</a></h3>
+        <span class="cat-badge"><a href="politica.html" style="color:#fff;">POLÍTICA</a></span>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="grid-item">
+        <a href="fitch-sube-la-calificación-de-argentina-de-ccc-a-b-el-mejor-nivel-desde-la-era-macri.html">
+          <img
+            src="img/fitch-ratings.jpg"
+            alt="Agencia calificadora"
+            onerror="this.style.background='#bbb';this.src='';this.style.height='120px';"
+          />
+        </a>
+        <h3><a href="fitch-sube-la-calificación-de-argentina-de-ccc-a-b-el-mejor-nivel-desde-la-era-macri.html">Fitch sube la calificación de Argentina de CCC+ a B-: el mejor nivel desde la era Macri</a></h3>
+        <span class="cat-badge"><a href="finanzas.html" style="color:#fff;">FINANZAS</a></span>
+      </div>
+
+    </div>
+  </div><!-- /top-row -->
+
+  <!-- BOTTOM ROW -->
+  <div class="bottom-row">
+
+    <!-- Card 1 -->
+    <article class="card">
+      <a href="kraken-llega-oficialmente-a-argentina-registro-ante-la-cnv-depositos-en-pesos-y-tres-aplicaciones-distintas.html">
+        <img
+          src="img/kraken.jpg"
+          alt="Exchange de criptomonedas"
+          onerror="this.style.background='#bbb';this.src='';this.style.height='160px';"
+        />
+      </a>
+      <span class="cat-badge"><a href="finanzas.html" style="color:#fff;">FINANZAS</a></span>
+      <h3><a href="kraken-llega-oficialmente-a-argentina-registro-ante-la-cnv-depositos-en-pesos-y-tres-aplicaciones-distintas.html">Kraken llega oficialmente a Argentina: registro ante la CNV, depósitos en pesos y tres aplicaciones distintas</a></h3>
+      <p>El exchange fundado en 2011 y con más de US$1.000 millones de volumen diario global desembarca con una estrategia de compliance total, posicionándose como el primer operador cripto de escala mundial con registro formal ante el regulador argentino.</p>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card">
+      <a href="la-cuidad-de-buenos-aires-sale-a-buscar-hasta.uss-500-millones-en-bonos-internacionales-a-10-años.html">
+        <img
+          src="img/jorge-macri.jpg"
+          alt="Jorge Macri, Gobernador de CABA"
+          onerror="this.style.background='#bbb';this.src='';this.style.height='160px';"
+        />
+      </a>
+      <span class="cat-badge"><a href="internacional.html" style="color:#fff;">INTERNACIONAL</a></span>
+      <h3><a href="la-cuidad-de-buenos-aires-sale-a-buscar-hasta.uss-500-millones-en-bonos-internacionales-a-10-años.html">La Ciudad de Buenos Aires sale a buscar hasta US$500 millones en bonos internacionales a 10 años</a></h3>
+      <p>CABA lanzará el 6 de mayo una licitación de deuda bajo ley inglesa con participación de bancos locales e internacionales. Los fondos se destinarán a cancelar pasivos existentes.</p>
+    </article>
+    
+    <!-- Card 3 -->
+    <article class="card">
+      <a href="el-banco-nacion-lanza-titulos-de-deuda-en-el-mercado-tras-mas-de-30-años.html">
+        <img
+          src="img/banco-nacion.jpg"
+          alt="Sucursal del Banco Nación"
+          onerror="this.style.background='#bbb';this.src='';this.style.height='160px';"
+        />
+      </a>
+      <span class="cat-badge"><a href="finanzas.html" style="color:#fff;">FINANZAS</a></span>
+      <h3><a href="el-banco-nacion-lanza-titulos-de-deuda-en-el-mercado-tras-mas-de-30-años.html">El Banco Nación lanza Títulos de Deuda en el mercado tras más de 30 años</a></h3>
+      <p>La entidad abre una licitación con tres instrumentos de deuda diseñados para ahorristas minoristas e inversores institucionales, con el objetivo de fortalecer el crédito en la economía real.</p>
+    </article>
+
+  </div><!-- /bottom-row -->
+
+</main>
+
+<!-- ══════════ MODAL SUSCRIPCIÓN ══════════ -->
+<div class="modal-overlay" id="modalOverlay">
   <div class="modal-box">
     <button class="modal-close" id="modalClose">×</button>
     <h2>MacroMind News</h2>
-    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
-    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
-      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
-      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    <p>Recibe el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subscribeForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" placeholder="Correo electrónico" id="modalEmail" required/>
+      <button type="submit" class="modal-submit">SUSCRIBIRME</button>
     </form>
-    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+    <p id="formSuccess" style="display:none; color:#fff; margin-top:16px; font-weight:600; text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
   </div>
 </div>
 
-<!-- ADMIN OVERLAY -->
-<div class="admin-ov" id="adminOv">
-  <div class="admin-box">
-    <!-- LOGIN -->
-    <div id="adminLogin">
-      <h2>🔐 Panel de Administración</h2>
-      <div class="af">
-        <div><label>Correo electrónico</label><input type="email" id="aEmail" placeholder="correo@ejemplo.com" onkeydown="if(event.key==='Enter')document.getElementById('aPass').focus()"/></div>
-        <div><label>Contraseña</label><input type="password" id="aPass" placeholder="Contraseña" onkeydown="if(event.key==='Enter')doLogin()"/></div>
-        <div><button class="abtn" onclick="doLogin()">Ingresar</button></div>
-        <div id="loginErr"></div>
-      </div>
-    </div>
-
-    <!-- PANEL -->
-    <div id="adminPanel" style="display:none;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <h2 style="margin-bottom:0;">Panel de Administración</h2>
-        <button class="abtn abtn-sec" onclick="doLogout()">Salir</button>
-      </div>
-
-      <div class="tabs">
-        <div class="tab active" onclick="showTab('tabNew',this)">Nueva Noticia</div>
-        <div class="tab" onclick="showTab('tabList',this)">Publicadas (<span id="totalCount">0</span>)</div>
-      </div>
-
-      <!-- TAB NUEVA -->
-      <div id="tabNew">
-        <div class="af">
-          <div><label>Título *</label><input type="text" id="aT" placeholder="Título completo"/></div>
-          <div><label>Copete / Bajada *</label><input type="text" id="aC" placeholder="Resumen en 1-2 oraciones"/></div>
-          <div>
-            <label>Categoría *</label>
-            <select id="aCat">
-              <option value="">— Seleccioná —</option>
-              <option value="Economia">Economía</option>
-              <option value="Politica">Política</option>
-              <option value="Finanzas">Finanzas</option>
-              <option value="Internacional">Internacional</option>
-            </select>
-          </div>
-          <div><label>Fecha *</label><input type="text" id="aF" placeholder="Ej: 13 de mayo de 2026"/></div>
-          <div>
-            <label>Imagen</label>
-            <input type="text" id="aImg" placeholder="img/nombre-imagen.jpg"/>
-            <p class="hint">Subí la imagen a /img en GitHub primero, luego escribí la ruta acá.</p>
-          </div>
-          <div>
-            <label>Cuerpo de la noticia *</label>
-            <textarea id="aBody" placeholder="Escribí el texto de la noticia. Podés usar párrafos separados por línea en blanco o HTML con etiquetas &lt;p&gt;."></textarea>
-          </div>
-          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
-            <button class="abtn" id="pubBtn" onclick="publicar()">Publicar Noticia</button>
-            <button class="abtn abtn-sec" onclick="limpiar()">Limpiar</button>
-          </div>
-          <div id="pubMsg"></div>
-        </div>
-      </div>
-
-      <!-- TAB LISTA -->
-      <div id="tabList" style="display:none;">
-        <div id="adminListContainer"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
+<!-- ══════════ FOOTER ══════════ -->
 <footer>
-  <div class="ft">
-    <div class="fb-brand">
-      <span class="logo" onclick="goTo('home')">MacroMind News</span>
-      <p>Un medio de análisis e información que conecta la economía, las finanzas, la política y el escenario internacional.</p>
+  <div class="footer-top">
+
+    <div class="footer-brand">
+      <a href="index.html" class="logo">MacroMind News</a>
+      <p>Un medio de análisis e información que conecta la economía, las finanzas, la política y el escenario internacional para entender los grandes movimientos que moldean el mundo.</p>
     </div>
-    <div class="fc"><h4>Categorías</h4><ul>
-      <li><a onclick="goTo('home')">Inicio</a></li>
-      <li><a onclick="goTo('economia')">Economía</a></li>
-      <li><a onclick="goTo('finanzas')">Finanzas</a></li>
-      <li><a onclick="goTo('politica')">Política</a></li>
-      <li><a onclick="goTo('internacional')">Internacional</a></li>
-    </ul></div>
-    <div class="fc"><h4>Legal</h4><ul>
-      <li><a onclick="goTo('terminos')">Términos y Condiciones</a></li>
-      <li><a onclick="goTo('cookies')">Políticas de Cookies</a></li>
-    </ul></div>
-    <div class="fc"><h4>Redes Sociales</h4><div class="sicons">
-      <a href="https://x.com/MacroMindNews" target="_blank" class="xi" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      <a href="https://www.youtube.com/@MacroMindNews" target="_blank" class="yti" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-      <a href="https://whatsapp.com/channel/0029Vb7soZSHQbRvUH3gyh3y" target="_blank" class="wai" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
-      <a href="https://www.tiktok.com/@macromindnews" target="_blank" class="tki" title="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-      <a href="https://www.instagram.com/macromindnews" target="_blank" class="igi" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
-    </div></div>
+
+    <div class="footer-col">
+      <h4>Categorías</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="economia.html">Economía</a></li>
+        <li><a href="finanzas.html">Finanzas</a></li>
+        <li><a href="politica.html">Política</a></li>
+        <li><a href="internacional.html">Internacional</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="politicas-de-privacidad.html">Política de Privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Redes Sociales</h4>
+      <div class="social-icons">
+
+        <a href="https://x.com/MacroMindNews" target="_blank" rel="noopener" class="x-icon" title="X / Twitter">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@MacroMindNews" target="_blank" rel="noopener" class="yt-icon" title="YouTube">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb7soZSHQbRvUH3gyh3y" target="_blank" rel="noopener" class="wa-icon" title="WhatsApp">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@macromindnews?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" class="tk-icon" title="TikTok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/macromindnews" target="_blank" rel="noopener" class="ig-icon" title="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+
   </div>
-  <div class="fb-bot">
+
+  <div class="footer-bottom">
     <p>© 2026 MacroMind News. Todos los derechos reservados.</p>
-    <div class="flinks">
-      <a onclick="goTo('terminos')">Términos y Condiciones</a>
-      <a onclick="goTo('cookies')">Políticas de Cookies</a>
+    <div class="footer-links">
+      <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
+      <a href="politicas-de-cookies.html">Políticas de Cookies</a>
     </div>
   </div>
 </footer>
 
-<!-- ══ FIREBASE + LÓGICA ══ -->
-<script type="module">
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+<script>
+  // ── Modal suscripción ──
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalClose   = document.getElementById('modalClose');
+  const subscribeForm = document.getElementById('subscribeForm');
+  const formSuccess   = document.getElementById('formSuccess');
 
-const app = initializeApp({
-  apiKey:"AIzaSyAMJAYYWwVE0fnNuFV5TFJ5tYfhvbMG3lw",
-  authDomain:"macromindnews.firebaseapp.com",
-  projectId:"macromindnews",
-  storageBucket:"macromindnews.firebasestorage.app",
-  messagingSenderId:"737656477515",
-  appId:"1:737656477515:web:d75386f60de67d11193ace"
-});
-const db = getFirestore(app);
-const auth = getAuth(app);
-
-// ── HELPERS ──
-const catLabel = c => ({Economia:'ECONOMÍA',Politica:'POLÍTICA',Finanzas:'FINANZAS',Internacional:'INTERNACIONAL'}[c]||c.toUpperCase());
-const catPage  = c => ({Economia:'economia',Politica:'politica',Finanzas:'finanzas',Internacional:'internacional'}[c]||c.toLowerCase());
-const imgFb    = () => `onerror="this.style.background='#ddd';this.removeAttribute('src');"`;
-const t2h      = t => t.includes('<p>') ? t : t.split(/\n\n+/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('');
-
-// ── RENDER HOME: 1 grande + 4 chicas + 2 medianas ──
-function renderHome(ns, id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  if (!ns.length) { el.innerHTML='<p style="color:#aaa;font-size:.88rem;padding:12px 0;">Sin noticias aún.</p>'; return; }
-
-  const [n1, ...rest] = ns;
-  const chicas = rest.slice(0,4);
-  const medianas = rest.slice(4,6);
-
-  let h = `<div class="grid7">
-    <div class="g7-left">
-      <div class="n-large">
-        <span class="cat" onclick="goTo('${catPage(n1.categoria)}')">${catLabel(n1.categoria)}</span>
-        <h2 onclick="abrirArt('${n1.id}')">${n1.titulo}</h2>
-        <img src="${n1.imagen||''}" alt="${n1.titulo}" ${imgFb()} onclick="abrirArt('${n1.id}')">
-        <p>${n1.copete}</p>
-      </div>
-    </div>
-    <div class="g7-right">
-      <div class="g7-top4">`;
-
-  chicas.forEach(n => {
-    h += `<div class="n-small">
-      <img src="${n.imagen||''}" alt="${n.titulo}" ${imgFb()} onclick="abrirArt('${n.id}')">
-      <span class="cat" onclick="goTo('${catPage(n.categoria)}')">${catLabel(n.categoria)}</span>
-      <h3 onclick="abrirArt('${n.id}')">${n.titulo}</h3>
-    </div>`;
+  document.querySelectorAll('.btn-subscribe').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      modalOverlay.classList.add('open');
+      document.getElementById('modalEmail').focus();
+    });
   });
 
-  h += `</div><div class="g7-bottom2">`;
-  medianas.forEach(n => {
-    h += `<div class="n-med">
-      <img src="${n.imagen||''}" alt="${n.titulo}" ${imgFb()} onclick="abrirArt('${n.id}')">
-      <span class="cat" onclick="goTo('${catPage(n.categoria)}')">${catLabel(n.categoria)}</span>
-      <h3 onclick="abrirArt('${n.id}')">${n.titulo}</h3>
-    </div>`;
+  modalClose.addEventListener('click', () => modalOverlay.classList.remove('open'));
+  modalOverlay.addEventListener('click', e => {
+    if (e.target === modalOverlay) modalOverlay.classList.remove('open');
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') modalOverlay.classList.remove('open');
   });
 
-  h += `</div></div></div>`;
-  el.innerHTML = h;
-}
+  // Envío async a Formspree
+  subscribeForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const data = new FormData(subscribeForm);
+    try {
+      const res = await fetch('https://formspree.io/f/xbdarrjv', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        subscribeForm.style.display = 'none';
+        formSuccess.style.display = 'block';
+        setTimeout(() => {
+          modalOverlay.classList.remove('open');
+          setTimeout(() => {
+            subscribeForm.style.display = 'block';
+            formSuccess.style.display = 'none';
+            subscribeForm.reset();
+          }, 400);
+        }, 2500);
+      }
+    } catch(e) {}
+  });
 
-// ── RENDER SECCIÓN: primeras 12 en 3 col, desde 13 filas 2-3-4 ──
-function renderSeccion(ns, id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  if (!ns.length) { el.innerHTML='<p style="color:#aaa;font-size:.88rem;padding:12px 0;">Sin noticias en esta sección aún.</p>'; return; }
+  // ── Hamburger menu ──
+  const btn = document.getElementById('hamburger');
+  const drawer = document.getElementById('navDrawer');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+  });
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+    });
+  });
 
-  const nc = n => `<div class="nc">
-    <img src="${n.imagen||''}" alt="${n.titulo}" ${imgFb()} onclick="abrirArt('${n.id}')">
-    <div class="meta">${n.fecha}</div>
-    <span class="cat" onclick="goTo('${catPage(n.categoria)}')">${catLabel(n.categoria)}</span>
-    <h3 onclick="abrirArt('${n.id}')">${n.titulo}</h3>
-    <p>${n.copete}</p>
-  </div>`;
+  // ── Ticker ──
+  function fmtNum(n, dec = 0) {
+    if (n == null || isNaN(n)) return '–';
+    return Number(n).toLocaleString('es-AR', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  }
 
-  const top12 = ns.slice(0,12);
-  const resto = ns.slice(12,30);
+  function changeEl(val) {
+    if (val == null) return '';
+    const sign  = val >= 0 ? '+' : '';
+    const cls   = val >= 0 ? 'up' : 'down';
+    const arrow = val >= 0 ? '▲' : '▼';
+    return `<span class="ticker-change ${cls}">${arrow} ${sign}${fmtNum(val, 2)}%</span>`;
+  }
 
-  let h = `<div class="sec-top12">${top12.map(nc).join('')}</div>`;
+  function makeItem(label, value, change) {
+    return `<span class="ticker-item">
+      <span class="ticker-label">${label}</span>
+      <span class="ticker-value">${value}</span>
+      ${change}
+    </span>`;
+  }
 
-  if (resto.length > 0) {
-    h += `<div class="sec-rest">`;
-    let i = 0;
-    const patterns = [2,3,4];
-    let pi = 0;
-    while (i < resto.length) {
-      const count = Math.min(patterns[pi % 3], resto.length - i);
-      const cls = ['row2','row3','row4'][patterns[pi%3]-2];
-      h += `<div class="${cls}">${resto.slice(i,i+count).map(nc).join('')}</div>`;
-      i += count;
-      pi++;
+  async function loadTicker() {
+    const track = document.getElementById('tickerTrack');
+
+    // Mostrar nombres de activos de inmediato mientras carga
+    const placeholder = [
+      makeItem('Dólar Oficial', 'cargando...', ''),
+      makeItem('Dólar Blue', 'cargando...', ''),
+      makeItem('Dólar MEP', 'cargando...', ''),
+      makeItem('S&P 500', 'cargando...', ''),
+      makeItem('MERVAL', 'cargando...', ''),
+      makeItem('Riesgo País', 'cargando...', ''),
+    ];
+    track.innerHTML = placeholder.join('') + placeholder.join('');
+
+    let items = [];
+
+    const [dolarRes, sp500Res, mervalRes, riesgoRes] = await Promise.allSettled([
+      fetch('https://dolarapi.com/v1/dolares'),
+      fetch('https://script.google.com/macros/s/AKfycbxtSCx6RZlOSGHdBdmdt8ZYdPIff-W3MD3mGrOw8FkQNl0SiEchW8NQZNza2AhOHGTf/exec?url=' + encodeURIComponent('https://stooq.com/q/d/l/?s=%5Espx&i=d')),
+      fetch('https://script.google.com/macros/s/AKfycbxtSCx6RZlOSGHdBdmdt8ZYdPIff-W3MD3mGrOw8FkQNl0SiEchW8NQZNza2AhOHGTf/exec?url=' + encodeURIComponent('https://stooq.com/q/d/l/?s=%5Ew20&i=d')),
+      fetch('https://api.argentinadatos.com/v1/finanzas/indices/riesgo-pais/ultimo'),
+    ]);
+
+
+    // Dólares
+    if (dolarRes.status === 'fulfilled') {
+      try {
+        const dolares = await dolarRes.value.json();
+        const tipos = [
+          { casa: 'oficial', label: 'Dólar Oficial' },
+          { casa: 'blue',    label: 'Dólar Blue'    },
+          { casa: 'bolsa',   label: 'Dólar MEP'     },
+        ];
+        for (const { casa, label } of tipos) {
+          const d = dolares.find(x => x.casa === casa);
+          if (d?.venta) items.push(makeItem(label, `$${fmtNum(d.venta, 2)}`, ''));
+        }
+      } catch(e) {}
     }
-    h += `</div>`;
-  }
 
-  el.innerHTML = h;
-}
-
-// ── ARTÍCULO ──
-window.abrirArt = function(id) {
-  goTo('articulo');
-  const n = (window._noticias||[]).find(x=>x.id===id);
-  const el = document.getElementById('article-content');
-  if (!n) { el.innerHTML='<p style="padding:40px;color:#888;">Artículo no encontrado.</p>'; return; }
-  document.title = n.titulo + ' | MacroMind News';
-  const pu = encodeURIComponent(window.location.href);
-  const pt = encodeURIComponent(n.titulo);
-  el.innerHTML = `
-    <span class="back-btn" onclick="goTo('${catPage(n.categoria)}')">← Volver a ${catLabel(n.categoria)}</span>
-    <span class="cat">${catLabel(n.categoria)}</span>
-    <h1 class="art-title">${n.titulo}</h1>
-    <p class="art-excerpt">${n.copete}</p>
-    <div class="art-meta">${n.fecha}</div>
-    <img class="art-hero" src="${n.imagen||''}" alt="${n.titulo}" ${imgFb()}>
-    <div class="art-body">${t2h(n.cuerpo||'')}</div>
-    <div class="share-bar">
-      <a class="sh x" href="https://x.com/intent/tweet?url=${pu}&text=${pt}" target="_blank">𝕏 Compartir</a>
-      <a class="sh fb" href="https://www.facebook.com/sharer/sharer.php?u=${pu}" target="_blank">Facebook</a>
-      <a class="sh wa" href="https://wa.me/?text=${pt}%20${pu}" target="_blank">WhatsApp</a>
-      <a class="sh tg" href="https://t.me/share/url?url=${pu}&text=${pt}" target="_blank">Telegram</a>
-      <button class="sh cp" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='¡Copiado!';">Copiar link</button>
-    </div>`;
-};
-
-// ── CARGAR DESDE FIREBASE ──
-async function cargarNoticias() {
-  const q = query(collection(db,'noticias'), orderBy('timestamp','desc'));
-  const snap = await getDocs(q);
-  const todas = [];
-  snap.forEach(d => todas.push({id:d.id,...d.data()}));
-  window._noticias = todas;
-
-  renderHome(todas.slice(0,7), 'h-todas');
-  renderHome(todas.filter(n=>n.categoria==='Economia').slice(0,7), 'h-economia');
-  renderHome(todas.filter(n=>n.categoria==='Politica').slice(0,7), 'h-politica');
-  renderHome(todas.filter(n=>n.categoria==='Finanzas').slice(0,7), 'h-finanzas');
-  renderHome(todas.filter(n=>n.categoria==='Internacional').slice(0,7), 'h-internacional');
-
-  renderSeccion(todas.filter(n=>n.categoria==='Economia'), 'list-economia');
-  renderSeccion(todas.filter(n=>n.categoria==='Finanzas'), 'list-finanzas');
-  renderSeccion(todas.filter(n=>n.categoria==='Politica'), 'list-politica');
-  renderSeccion(todas.filter(n=>n.categoria==='Internacional'), 'list-internacional');
-}
-
-// ── NAVEGACIÓN ──
-window.goTo = function(p) {
-  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
-  const el = document.getElementById('page-'+p);
-  if (el) el.classList.add('active');
-  document.querySelectorAll('nav a').forEach(x=>x.classList.remove('active'));
-  const nav = document.getElementById('nav-'+p);
-  if (nav) nav.classList.add('active');
-  window.scrollTo(0,0);
-  document.getElementById('hbtn').classList.remove('open');
-  document.getElementById('drawer').classList.remove('open');
-  const titles = {home:'MacroMind News',economia:'Economía | MacroMind News',finanzas:'Finanzas | MacroMind News',politica:'Política | MacroMind News',internacional:'Internacional | MacroMind News',terminos:'Términos y Condiciones | MacroMind News',cookies:'Políticas de Cookies | MacroMind News'};
-  if (p !== 'articulo') document.title = titles[p]||'MacroMind News';
-};
-
-// ── ADMIN AUTH ──
-onAuthStateChanged(auth, user => {
-  if (user) {
-    document.getElementById('adminLogin').style.display = 'none';
-    document.getElementById('adminPanel').style.display = 'block';
-    cargarAdminList();
-  } else {
-    document.getElementById('adminLogin').style.display = 'block';
-    document.getElementById('adminPanel').style.display = 'none';
-  }
-});
-
-window.doLogin = async function() {
-  const email = document.getElementById('aEmail').value.trim();
-  const pass  = document.getElementById('aPass').value;
-  const err   = document.getElementById('loginErr');
-  err.innerHTML = '';
-  try {
-    await signInWithEmailAndPassword(auth, email, pass);
-  } catch(e) {
-    err.innerHTML = '<div class="amsg err">Correo o contraseña incorrectos.</div>';
-  }
-};
-
-window.doLogout = async function() {
-  await signOut(auth);
-  document.getElementById('adminOv').classList.remove('open');
-};
-
-// ── PUBLICAR ──
-window.publicar = async function() {
-  const t = document.getElementById('aT').value.trim();
-  const c = document.getElementById('aC').value.trim();
-  const cat = document.getElementById('aCat').value;
-  const f = document.getElementById('aF').value.trim();
-  const img = document.getElementById('aImg').value.trim();
-  const body = document.getElementById('aBody').value.trim();
-  const msg = document.getElementById('pubMsg');
-  const btn = document.getElementById('pubBtn');
-  if (!t||!c||!cat||!f||!body) { msg.innerHTML='<div class="amsg err">Completá todos los campos obligatorios (*).</div>'; return; }
-  btn.disabled=true; btn.textContent='Publicando...'; msg.innerHTML='';
-  try {
-    await addDoc(collection(db,'noticias'),{titulo:t,copete:c,categoria:cat,fecha:f,imagen:img,cuerpo:body,timestamp:serverTimestamp()});
-    msg.innerHTML='<div class="amsg ok">✅ Noticia publicada correctamente.</div>';
-    limpiar();
-    await cargarNoticias();
-    await cargarAdminList();
-  } catch(e) {
-    msg.innerHTML=`<div class="amsg err">Error: ${e.message}</div>`;
-  }
-  btn.disabled=false; btn.textContent='Publicar Noticia';
-};
-
-window.limpiar = function() {
-  ['aT','aC','aF','aImg','aBody'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('aCat').value='';
-  document.getElementById('pubMsg').innerHTML='';
-};
-
-// ── LISTA ADMIN ──
-async function cargarAdminList() {
-  const el = document.getElementById('adminListContainer');
-  const cnt = document.getElementById('totalCount');
-  const q = query(collection(db,'noticias'),orderBy('timestamp','desc'));
-  const snap = await getDocs(q);
-  const ns = [];
-  snap.forEach(d=>ns.push({id:d.id,...d.data()}));
-  cnt.textContent = ns.length;
-  if (!ns.length) { el.innerHTML='<p style="color:#aaa;font-size:.88rem;">No hay noticias publicadas aún.</p>'; return; }
-  el.innerHTML = ns.map(n=>`<div class="a-list-item">
-    <div>
-      <div class="ali-title">${n.titulo}</div>
-      <div class="ali-meta"><span class="ali-badge">${catLabel(n.categoria)}</span>${n.fecha}</div>
-    </div>
-    <button class="adel" onclick="eliminar('${n.id}')">Eliminar</button>
-  </div>`).join('');
-}
-
-window.eliminar = async function(id) {
-  if (!confirm('¿Eliminar esta noticia? No se puede deshacer.')) return;
-  await deleteDoc(doc(db,'noticias',id));
-  await cargarNoticias();
-  await cargarAdminList();
-};
-
-// ── TABS ADMIN ──
-window.showTab = function(tabId, el) {
-  document.getElementById('tabNew').style.display = tabId==='tabNew'?'block':'none';
-  document.getElementById('tabList').style.display = tabId==='tabList'?'block':'none';
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  if (tabId==='tabList') cargarAdminList();
-};
-
-// ── DETECTAR /admin ──
-function checkAdmin() {
-  if (window.location.pathname.toLowerCase().includes('admin') || window.location.hash==='#admin') {
-    document.getElementById('adminOv').classList.add('open');
-  }
-}
-
-// ── MODAL SUSCRIPCIÓN ──
-const modalOv = document.getElementById('modalOv');
-['openModal','openModal2'].forEach(id=>{
-  const el=document.getElementById(id);
-  if(el) el.addEventListener('click',()=>{modalOv.classList.add('open');document.getElementById('subEmail').focus();});
-});
-document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
-modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
-document.getElementById('subForm').addEventListener('submit',async e=>{
-  e.preventDefault();
-  try {
-    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
-    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
-  }catch(_){}
-});
-
-// ── HAMBURGER ──
-const hbtn=document.getElementById('hbtn');
-const drawer=document.getElementById('drawer');
-hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
-
-// ── TICKER (solo dólar + cripto, gratis) ──
-async function loadTicker(){
-  const track=document.getElementById('tickerTrack');
-  let items=[];
-  const fi=( lbl,val,chg='')=>`<span class="t-item"><span class="t-lbl">${lbl}</span><span class="t-val">${val}</span>${chg}</span>`;
-  const fmt=(n,d=2)=>Number(n).toLocaleString('es-AR',{minimumFractionDigits:d,maximumFractionDigits:d});
-  const chgEl=(v)=>v==null?'':v>=0?`<span class="t-chg up">▲ +${fmt(v)}%</span>`:`<span class="t-chg dn">▼ ${fmt(v)}%</span>`;
-
-  // Dólares
-  try{
-    const d=await(await fetch('https://dolarapi.com/v1/dolares')).json();
-    for(const{casa,label}of[{casa:'oficial',label:'Dólar Oficial'},{casa:'blue',label:'Dólar Blue'},{casa:'bolsa',label:'Dólar MEP'},{casa:'cripto',label:'Dólar Cripto'}]){
-      const x=d.find(i=>i.casa===casa);
-      if(x?.venta) items.push(fi(label,`$${fmt(x.venta)}`));
+    // S&P 500 via Stooq
+        if (sp500Res.status === 'fulfilled') {
+        try {
+        const text = await sp500Res.value.text();
+        const rows = text.trim().split('\n');
+        if (rows.length > 1) {
+        const cols = rows[rows.length - 1].split(',');
+        const price = parseFloat(cols[4]);
+        const prev  = parseFloat(cols[1]);
+        const chg   = prev ? ((price - prev) / prev) * 100 : null;
+        if (!isNaN(price)) items.push(makeItem('S&P 500', fmtNum(price, 2), changeEl(chg)));
     }
-  }catch(_){}
-
-  // Riesgo país
-  try{
-    const rp=await(await fetch('https://api.argentinadatos.com/v1/finanzas/indices/riesgo-pais/ultimo')).json();
-    if(rp?.valor!=null) items.push(fi('Riesgo País',Number(rp.valor).toLocaleString('es-AR')));
-  }catch(_){}
-
-  // Cripto (CoinGecko, gratis)
-  try{
-    const cr=await(await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true')).json();
-    if(cr.bitcoin?.usd) items.push(fi('Bitcoin',`US$${fmt(cr.bitcoin.usd,0)}`,chgEl(cr.bitcoin.usd_24h_change)));
-    if(cr.ethereum?.usd) items.push(fi('Ethereum',`US$${fmt(cr.ethereum.usd,0)}`,chgEl(cr.ethereum.usd_24h_change)));
-  }catch(_){}
-
-  if(items.length){const h=items.join('');track.innerHTML=h+h;}
+  } catch(e) {}
 }
 
-// ── INIT ──
-cargarNoticias();
-loadTicker();
-setInterval(loadTicker, 5*60*1000);
-checkAdmin();
+// MERVAL via Stooq
+if (mervalRes.status === 'fulfilled') {
+  try {
+    const text = await mervalRes.value.text();
+    const rows = text.trim().split('\n');
+    if (rows.length > 1) {
+      const cols = rows[rows.length - 1].split(',');
+      const price = parseFloat(cols[4]);
+      if (!isNaN(price)) items.push(makeItem('MERVAL', fmtNum(price, 0), ''));
+    }
+  } catch(e) {}
+}
+
+    // Riesgo País
+    if (riesgoRes.status === 'fulfilled') {
+      try {
+        const data = await riesgoRes.value.json();
+        const val  = data?.valor;
+        if (val != null) items.push(makeItem('Riesgo País', fmtNum(val, 0), ''));
+      } catch(e) {}
+    }
+
+    if (items.length === 0) {
+      const placeholder = [
+        makeItem('Dólar Oficial', 'cargando...', ''),
+        makeItem('Dólar Blue', 'cargando...', ''),
+        makeItem('Dólar MEP', 'cargando...', ''),
+        makeItem('S&P 500', 'cargando...', ''),
+        makeItem('MERVAL', 'cargando...', ''),
+        makeItem('Riesgo País', 'cargando...', ''),
+      ];
+      track.innerHTML = placeholder.join('') + placeholder.join('');
+      return;
+    }
+    
+    const html = items.join('');
+      track.innerHTML = html + html;
+    }
+
+  loadTicker();
+  setInterval(loadTicker, 5 * 60 * 1000); // actualizar cada 5 min
 </script>
 </body>
 </html>
