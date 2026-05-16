@@ -8,32 +8,543 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Source Sans 3',sans-serif;background:#f4f4f4;color:#111;min-height:100vh;}
-
-    /* HEADER */
     header{background:#fff;border-bottom:3px solid #c00;padding:0 28px;height:58px;display:flex;align-items:center;justify-content:space-between;}
     .logo{font-family:'Merriweather',serif;font-size:1.2rem;font-weight:900;color:#111;}
     .logo span{color:#c00;}
     .hdr-right{font-size:.82rem;color:#888;}
-    .hdr-right a{color:#c00;cursor:pointer;font-weight:600;}
+    .hdr-right a{color:#c00;cursor:pointer;font-weight:600;text-decoration:none;}
     .hdr-right a:hover{text-decoration:underline;}
-
-    /* CONTENEDOR */
-    .wrap{max-width:720px;margin:40px auto;padding:0 16px 60px;}
-
-    /* CARD */
+    .wrap{max-width:740px;margin:36px auto;padding:0 16px 60px;}
     .card{background:#fff;border-radius:8px;border:1px solid #e0e0e0;padding:32px 28px;margin-bottom:24px;}
-    .card h2{font-family:'Merriweather',serif;font-size:1.25rem;font-weight:900;color:#111;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
-
-    /* FORM */
+    .card h2{font-family:'Merriweather',serif;font-size:1.2rem;font-weight:900;color:#111;margin-bottom:20px;}
     .field{display:flex;flex-direction:column;gap:4px;margin-bottom:14px;}
     .field label{font-size:.82rem;font-weight:700;color:#444;}
     .field input,.field textarea,.field select{width:100%;padding:11px 13px;border:1px solid #ddd;border-radius:4px;font-size:.92rem;font-family:'Source Sans 3',sans-serif;color:#111;outline:none;transition:border-color .2s;}
     .field input:focus,.field textarea:focus,.field select:focus{border-color:#c00;}
-    .field textarea{min-height:160px;resize:vertical;}
+    .field textarea{min-height:180px;resize:vertical;}
     .field .hint{font-size:.72rem;color:#aaa;margin-top:2px;}
-
-    /* BOTONES */
     .btn{background:#c00;color:#fff;border:none;padding:12px 24px;border-radius:4px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background .2s;}
+    .btn:hover{background:#a00;}
+    .btn:disabled{background:#bbb;cursor:not-allowed;}
+    .btn-sec{background:#444;margin-left:8px;}
+    .btn-sec:hover{background:#222;}
+    .btn-edit{background:#1565c0;color:#fff;border:none;padding:5px 12px;font-size:.75rem;font-weight:700;cursor:pointer;border-radius:4px;font-family:'Source Sans 3',sans-serif;margin-right:6px;}
+    .btn-edit:hover{background:#0d47a1;}
+    .btn-del{background:#fff;color:#c00;border:1px solid #ddd;padding:5px 12px;font-size:.75rem;font-weight:700;cursor:pointer;border-radius:4px;font-family:'Source Sans 3',sans-serif;}
+    .btn-del:hover{background:#ffebee;border-color:#ef9a9a;}
+    .msg{padding:11px 14px;border-radius:4px;font-size:.87rem;font-weight:600;margin-top:12px;}
+    .msg.ok{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;}
+    .msg.err{background:#ffebee;color:#c62828;border:1px solid #ef9a9a;}
+    .msg.info{background:#e3f2fd;color:#1565c0;border:1px solid #90caf9;}
+    .tabs{display:flex;gap:0;border-bottom:2px solid #eee;margin-bottom:20px;}
+    .tab{padding:9px 20px;font-size:.85rem;font-weight:700;cursor:pointer;color:#888;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .2s;}
+    .tab:hover{color:#c00;}
+    .tab.active{color:#c00;border-bottom-color:#c00;}
+    .n-item{display:flex;justify-content:space-between;align-items:flex-start;padding:13px 0;border-bottom:1px solid #f0f0f0;gap:12px;}
+    .n-item:last-child{border-bottom:none;}
+    .n-title{font-size:.88rem;font-weight:700;color:#111;margin-bottom:3px;}
+    .n-meta{font-size:.74rem;color:#aaa;}
+    .n-badge{font-size:.6rem;font-weight:700;padding:1px 6px;background:#c00;color:#fff;text-transform:uppercase;display:inline-block;margin-right:4px;border-radius:2px;}
+    .n-url{font-size:.7rem;color:#1565c0;word-break:break-all;margin-top:2px;}
+    .loading{text-align:center;padding:40px;color:#aaa;}
+    .spinner{width:28px;height:28px;border:3px solid #eee;border-top-color:#c00;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 10px;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    #loginSection{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 58px);}
+    .login-card{background:#fff;border-radius:8px;border:1px solid #e0e0e0;padding:40px 36px;width:100%;max-width:420px;}
+    .login-card h1{font-family:'Merriweather',serif;font-size:1.4rem;font-weight:900;margin-bottom:6px;}
+    .login-card p{font-size:.85rem;color:#888;margin-bottom:24px;}
+    /* MODAL EDITAR */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#fff;border-radius:8px;width:100%;max-width:700px;max-height:90vh;overflow-y:auto;padding:32px 28px;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.15rem;font-weight:900;margin-bottom:20px;}
+    .modal-close-btn{float:right;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;margin-top:-4px;}
+    .modal-close-btn:hover{color:#c00;}
+    @media(max-width:500px){
+      header{padding:0 14px;}
+      .login-card,.card{padding:24px 16px;}
+      .modal-box{padding:22px 14px;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="logo">MacroMind News — Admin</span>
+  <div class="hdr-right" id="hdrRight"><a href="/">Volver al sitio</a></div>
+</header>
+
+<!-- LOGIN -->
+<div id="loginSection">
+  <div class="login-card">
+    <h1>Acceder</h1>
+    <p>Panel exclusivo de administración de MacroMind News.</p>
+    <div class="field"><label>Correo electrónico</label><input type="email" id="aEmail" placeholder="correo@ejemplo.com" onkeydown="if(event.key==='Enter')document.getElementById('aPass').focus()"/></div>
+    <div class="field"><label>Contraseña</label><input type="password" id="aPass" placeholder="Contraseña" onkeydown="if(event.key==='Enter')doLogin()"/></div>
+    <button class="btn" id="loginBtn" onclick="doLogin()">Ingresar</button>
+    <div id="loginErr"></div>
+  </div>
+</div>
+
+<!-- PANEL -->
+<div id="panelSection" style="display:none;">
+  <div class="wrap">
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('tabNew',this)">Nueva Noticia</div>
+      <div class="tab" onclick="showTab('tabList',this)">Publicadas (<span id="totalCount">0</span>)</div>
+    </div>
+
+    <!-- NUEVA NOTICIA -->
+    <div id="tabNew">
+      <div class="card">
+        <h2>Nueva Noticia</h2>
+        <div class="field"><label>Título *</label><input type="text" id="aT" placeholder="Título completo de la noticia"/></div>
+        <div class="field"><label>Descripción *</label><input type="text" id="aC" placeholder="Resumen en 1-2 oraciones"/></div>
+        <div class="field">
+          <label>Categoría *</label>
+          <select id="aCat">
+            <option value="">— Seleccioná —</option>
+            <option value="Economia">Economía</option>
+            <option value="Politica">Política</option>
+            <option value="Finanzas">Finanzas</option>
+            <option value="Internacional">Internacional</option>
+          </select>
+        </div>
+        <div class="field"><label>Fecha *</label><input type="text" id="aF" placeholder="Ej: 15 de mayo de 2026"/></div>
+        <div class="field">
+          <label>Imagen</label>
+          <input type="text" id="aImg" placeholder="img/nombre-imagen.jpg  o  https://url-de-imagen.com/foto.jpg"/>
+          <span class="hint">Podés usar una ruta local (img/foto.jpg) o una URL completa.</span>
+        </div>
+        <div class="field">
+          <label>Cuerpo de la noticia *</label>
+          <textarea id="aBody" placeholder="Escribí el texto completo. Separé cada párrafo con una línea en blanco."></textarea>
+          <span class="hint">Mínimo 4 párrafos. Cada párrafo separado por línea en blanco.</span>
+        </div>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+          <button class="btn" id="pubBtn" onclick="publicar()">Publicar Noticia</button>
+          <button class="btn btn-sec" onclick="limpiar()">Limpiar</button>
+        </div>
+        <div id="pubMsg"></div>
+      </div>
+    </div>
+
+    <!-- LISTA -->
+    <div id="tabList" style="display:none;">
+      <div class="card">
+        <h2>Noticias publicadas</h2>
+        <div id="adminList"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EDITAR -->
+<div class="modal-ov" id="editModal">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="cerrarModal()">×</button>
+    <h2>Editar Noticia</h2>
+    <input type="hidden" id="eId"/>
+    <input type="hidden" id="eSlug"/>
+    <div class="field"><label>Título *</label><input type="text" id="eT"/></div>
+    <div class="field"><label>Descripción *</label><input type="text" id="eC"/></div>
+    <div class="field">
+      <label>Categoría *</label>
+      <select id="eCat">
+        <option value="Economia">Economía</option>
+        <option value="Politica">Política</option>
+        <option value="Finanzas">Finanzas</option>
+        <option value="Internacional">Internacional</option>
+      </select>
+    </div>
+    <div class="field"><label>Fecha *</label><input type="text" id="eF"/></div>
+    <div class="field"><label>Imagen</label><input type="text" id="eImg"/></div>
+    <div class="field"><label>Cuerpo *</label><textarea id="eBody" style="min-height:200px;"></textarea></div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+      <button class="btn" id="saveBtn" onclick="guardarEdicion()">Guardar Cambios</button>
+      <button class="btn btn-sec" onclick="cerrarModal()">Cancelar</button>
+    </div>
+    <div id="editMsg"></div>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+const app = initializeApp({
+  apiKey:"AIzaSyAMJAYYWwVE0fnNuFV5TFJ5tYfhvbMG3lw",
+  authDomain:"macromindnews.firebaseapp.com",
+  projectId:"macromindnews",
+  storageBucket:"macromindnews.firebasestorage.app",
+  messagingSenderId:"737656477515",
+  appId:"1:737656477515:web:d75386f60de67d11193ace"
+});
+const db   = getFirestore(app);
+const auth = getAuth(app);
+
+// GitHub config
+const GH_USER  = 'Urielpereyra15';
+const GH_REPO  = 'MacroMindNews';
+const GH_TOKEN = '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';
+
+// Helpers
+const catLabel = c => ({Economia:'ECONOMÍA',Politica:'POLÍTICA',Finanzas:'FINANZAS',Internacional:'INTERNACIONAL'}[c]||c);
+const catPage  = c => ({Economia:'economia',Politica:'politica',Finanzas:'finanzas',Internacional:'internacional'}[c]||c.toLowerCase());
+
+function slugify(str) {
+  return str.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9\s-]/g,'')
+    .trim().replace(/\s+/g,'-')
+    .replace(/-+/g,'-')
+    .substring(0,80);
+}
+
+function t2h(t) {
+  if (!t) return '';
+  if (t.includes('<p>')) return t;
+  return t.split(/\n\n+/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('');
+}
+
+// Genera el HTML de una noticia individual
+function generarHTMLNoticia(n) {
+  const cuerpoHtml = t2h(n.cuerpo||'');
+  const catPg = catPage(n.categoria);
+  const catLbl = catLabel(n.categoria);
+  return `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>${n.titulo} | MacroMind News</title>
+  <meta name="description" content="${n.copete}"/>
+  <meta property="og:title" content="${n.titulo}"/>
+  <meta property="og:description" content="${n.copete}"/>
+  <meta property="og:image" content="${n.imagen||''}"/>
+  <meta property="og:type" content="article"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNNBRSHGGX"><\/script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FNNBRSHGGX');<\/script>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Source Sans 3',sans-serif;background:#fff;color:#111;}
+    a{text-decoration:none;color:inherit;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:58px;border-bottom:1px solid #e0e0e0;background:#fff;position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Merriweather',serif;font-size:1.3rem;font-weight:900;color:#111;}
+    nav{display:flex;gap:28px;}
+    nav a{font-size:.88rem;font-weight:600;color:#222;}
+    nav a:hover{color:#c00;}
+    .art-wrap{max-width:780px;margin:0 auto;padding:40px 16px 60px;}
+    .cat{display:inline-block;background:#c00;color:#fff;font-size:.65rem;font-weight:700;padding:3px 8px;margin-bottom:12px;text-transform:uppercase;}
+    .art-title{font-family:'Merriweather',serif;font-size:2rem;font-weight:900;line-height:1.22;color:#111;margin-bottom:16px;}
+    .art-excerpt{font-size:1.05rem;color:#555;line-height:1.6;margin-bottom:16px;}
+    .art-meta{font-size:.8rem;color:#aaa;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #eee;}
+    .art-hero{width:100%;aspect-ratio:16/9;object-fit:cover;background:#eee;margin-bottom:24px;display:block;}
+    .art-body p{font-size:1.05rem;line-height:1.78;color:#222;margin-bottom:20px;}
+    .back-btn{display:inline-flex;align-items:center;gap:5px;margin-bottom:24px;font-size:.85rem;font-weight:600;color:#555;cursor:pointer;}
+    .back-btn:hover{color:#c00;}
+    .share-bar{display:flex;gap:10px;margin-top:32px;padding-top:24px;border-top:1px solid #eee;flex-wrap:wrap;}
+    .sh{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:4px;font-size:.8rem;font-weight:700;color:#fff;cursor:pointer;border:none;text-decoration:none;}
+    .sh.x{background:#000;}.sh.fb{background:#1877f2;}.sh.wa{background:#25d366;}.sh.tg{background:#0088cc;}.sh.cp{background:#555;}
+    footer{background:#fff;border-top:1px solid #e0e0e0;padding:28px;text-align:center;}
+    footer p{font-size:.8rem;color:#aaa;}
+    footer a{color:#c00;font-weight:600;}
+    @media(max-width:600px){nav{display:none;}.art-title{font-size:1.4rem;}}
+  </style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">MacroMind News</a>
+  <nav>
+    <a href="/#economia">Economía</a>
+    <a href="/#finanzas">Finanzas</a>
+    <a href="/#politica">Política</a>
+    <a href="/#internacional">Internacional</a>
+  </nav>
+</header>
+<div class="art-wrap">
+  <a class="back-btn" href="${catPg}.html">← Volver a ${catLbl}</a>
+  <span class="cat">${catLbl}</span>
+  <h1 class="art-title">${n.titulo}</h1>
+  <p class="art-excerpt">${n.copete}</p>
+  <div class="art-meta">${n.fecha}</div>
+  <img class="art-hero" src="${n.imagen||''}" alt="${n.titulo}" onerror="this.style.display='none'">
+  <div class="art-body">${cuerpoHtml}</div>
+  <div class="share-bar">
+    <a class="sh x" href="https://x.com/intent/tweet?url=https://macromindnews.com.ar/${n.slug}.html&text=${encodeURIComponent(n.titulo)}" target="_blank">𝕏 Compartir</a>
+    <a class="sh fb" href="https://www.facebook.com/sharer/sharer.php?u=https://macromindnews.com.ar/${n.slug}.html" target="_blank">Facebook</a>
+    <a class="sh wa" href="https://wa.me/?text=${encodeURIComponent(n.titulo)}%20https://macromindnews.com.ar/${n.slug}.html" target="_blank">WhatsApp</a>
+    <a class="sh tg" href="https://t.me/share/url?url=https://macromindnews.com.ar/${n.slug}.html&text=${encodeURIComponent(n.titulo)}" target="_blank">Telegram</a>
+    <button class="sh cp" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='¡Copiado!';">Copiar link</button>
+  </div>
+</div>
+<footer>
+  <p>© 2026 <a href="/">MacroMind News</a>. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>`;
+}
+
+// Sube o actualiza un archivo en GitHub
+async function subirAGitHub(filename, content, mensaje, sha=null) {
+  const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filename}`;
+  const body = {
+    message: mensaje,
+    content: btoa(unescape(encodeURIComponent(content))),
+    branch: 'main'
+  };
+  if (sha) body.sha = sha;
+  const res = await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `token ${GH_TOKEN}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/vnd.github.v3+json'
+    },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.message || 'Error al subir a GitHub');
+  }
+  return await res.json();
+}
+
+// Obtiene el SHA de un archivo existente en GitHub (para poder actualizarlo)
+async function obtenerSHA(filename) {
+  const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filename}`;
+  const res = await fetch(url, {
+    headers: {
+      'Authorization': `token ${GH_TOKEN}`,
+      'Accept': 'application/vnd.github.v3+json'
+    }
+  });
+  if (res.status === 404) return null;
+  const data = await res.json();
+  return data.sha || null;
+}
+
+// Elimina un archivo de GitHub
+async function eliminarDeGitHub(filename) {
+  const sha = await obtenerSHA(filename);
+  if (!sha) return;
+  const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filename}`;
+  await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `token ${GH_TOKEN}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/vnd.github.v3+json'
+    },
+    body: JSON.stringify({ message: `Eliminar noticia: ${filename}`, sha, branch: 'main' })
+  });
+}
+
+// AUTH
+onAuthStateChanged(auth, user => {
+  if (user) {
+    document.getElementById('loginSection').style.display = 'none';
+    document.getElementById('panelSection').style.display = 'block';
+    document.getElementById('hdrRight').innerHTML = `<span style="margin-right:10px;">👤 ${user.email}</span> <a onclick="doLogout()">Cerrar sesión</a> &nbsp;|&nbsp; <a href="/">← Sitio</a>`;
+    cargarLista();
+  } else {
+    document.getElementById('loginSection').style.display = 'flex';
+    document.getElementById('panelSection').style.display = 'none';
+  }
+});
+
+window.doLogin = async function() {
+  const email = document.getElementById('aEmail').value.trim();
+  const pass  = document.getElementById('aPass').value;
+  const err   = document.getElementById('loginErr');
+  const btn   = document.getElementById('loginBtn');
+  err.innerHTML = ''; btn.disabled=true; btn.textContent='Ingresando...';
+  try {
+    await signInWithEmailAndPassword(auth, email, pass);
+  } catch(e) {
+    err.innerHTML='<div class="msg err">Correo o contraseña incorrectos.</div>';
+    btn.disabled=false; btn.textContent='Ingresar';
+  }
+};
+
+window.doLogout = async function() { await signOut(auth); };
+
+// PUBLICAR
+window.publicar = async function() {
+  const t    = document.getElementById('aT').value.trim();
+  const c    = document.getElementById('aC').value.trim();
+  const cat  = document.getElementById('aCat').value;
+  const f    = document.getElementById('aF').value.trim();
+  const img  = document.getElementById('aImg').value.trim();
+  const body = document.getElementById('aBody').value.trim();
+  const msg  = document.getElementById('pubMsg');
+  const btn  = document.getElementById('pubBtn');
+
+  if (!t||!c||!cat||!f||!body) {
+    msg.innerHTML='<div class="msg err">⚠️ Completá todos los campos obligatorios (*).</div>';
+    return;
+  }
+
+  btn.disabled=true; btn.textContent='Publicando...'; msg.innerHTML='';
+  msg.innerHTML='<div class="msg info">⏳ Guardando en Firebase...</div>';
+
+  try {
+    const slug = slugify(t);
+    const filename = `${slug}.html`;
+
+    // 1. Guardar en Firebase
+    await addDoc(collection(db,'noticias'), {
+      titulo:t, copete:c, categoria:cat, fecha:f, imagen:img, cuerpo:body, slug, filename, timestamp:serverTimestamp()
+    });
+
+    msg.innerHTML='<div class="msg info">⏳ Generando página HTML en GitHub...</div>';
+
+    // 2. Generar y subir HTML a GitHub
+    const noticia = {titulo:t, copete:c, categoria:cat, fecha:f, imagen:img, cuerpo:body, slug};
+    const htmlContent = generarHTMLNoticia(noticia);
+    const sha = await obtenerSHA(filename);
+    await subirAGitHub(filename, htmlContent, `Publicar noticia: ${t}`, sha);
+
+    msg.innerHTML='<div class="msg ok">✅ Noticia publicada y página creada en macromindnews.com.ar/' + filename + '</div>';
+    limpiar();
+    cargarLista();
+  } catch(e) {
+    msg.innerHTML=`<div class="msg err">Error: ${e.message}</div>`;
+  }
+  btn.disabled=false; btn.textContent='Publicar Noticia';
+};
+
+window.limpiar = function() {
+  ['aT','aC','aF','aImg','aBody'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('aCat').value='';
+  document.getElementById('pubMsg').innerHTML='';
+};
+
+// CARGAR LISTA
+async function cargarLista() {
+  const el  = document.getElementById('adminList');
+  const cnt = document.getElementById('totalCount');
+  el.innerHTML='<div class="loading"><div class="spinner"></div>Cargando...</div>';
+  const q = query(collection(db,'noticias'),orderBy('timestamp','desc'));
+  const snap = await getDocs(q);
+  const ns=[];
+  snap.forEach(d=>ns.push({id:d.id,...d.data()}));
+  cnt.textContent=ns.length;
+  if(!ns.length){el.innerHTML='<p style="color:#aaa;font-size:.88rem;padding:12px 0;">No hay noticias publicadas aún.</p>';return;}
+  el.innerHTML=ns.map(n=>`
+    <div class="n-item">
+      <div style="flex:1;">
+        <div class="n-title">${n.titulo}</div>
+        <div class="n-meta"><span class="n-badge">${catLabel(n.categoria)}</span>${n.fecha||''}</div>
+        ${n.slug?`<div class="n-url">macromindnews.com.ar/${n.slug}.html</div>`:''}
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+        <button class="btn-edit" onclick="abrirEditar('${n.id}')">Editar</button>
+        <button class="btn-del" onclick="eliminar('${n.id}','${n.filename||''}','${(n.titulo||'').replace(/'/g,'')}')">Eliminar</button>
+      </div>
+    </div>`).join('');
+}
+
+// ABRIR MODAL EDITAR
+window.abrirEditar = async function(id) {
+  const q = query(collection(db,'noticias'),orderBy('timestamp','desc'));
+  const snap = await getDocs(q);
+  let n = null;
+  snap.forEach(d=>{ if(d.id===id) n={id:d.id,...d.data()}; });
+  if(!n) return;
+  document.getElementById('eId').value    = n.id;
+  document.getElementById('eSlug').value  = n.slug||'';
+  document.getElementById('eT').value     = n.titulo||'';
+  document.getElementById('eC').value     = n.copete||'';
+  document.getElementById('eCat').value   = n.categoria||'';
+  document.getElementById('eF').value     = n.fecha||'';
+  document.getElementById('eImg').value   = n.imagen||'';
+  document.getElementById('eBody').value  = n.cuerpo||'';
+  document.getElementById('editMsg').innerHTML='';
+  document.getElementById('editModal').classList.add('open');
+};
+
+window.cerrarModal = function() {
+  document.getElementById('editModal').classList.remove('open');
+};
+
+// GUARDAR EDICIÓN
+window.guardarEdicion = async function() {
+  const id   = document.getElementById('eId').value;
+  const oldSlug = document.getElementById('eSlug').value;
+  const t    = document.getElementById('eT').value.trim();
+  const c    = document.getElementById('eC').value.trim();
+  const cat  = document.getElementById('eCat').value;
+  const f    = document.getElementById('eF').value.trim();
+  const img  = document.getElementById('eImg').value.trim();
+  const body = document.getElementById('eBody').value.trim();
+  const msg  = document.getElementById('editMsg');
+  const btn  = document.getElementById('saveBtn');
+
+  if(!t||!c||!cat||!f||!body){msg.innerHTML='<div class="msg err">Completá todos los campos.</div>';return;}
+  btn.disabled=true; btn.textContent='Guardando...'; msg.innerHTML='';
+  msg.innerHTML='<div class="msg info">⏳ Actualizando...</div>';
+
+  try {
+    const newSlug    = slugify(t);
+    const newFilename= `${newSlug}.html`;
+
+    // Actualizar Firebase
+    await updateDoc(doc(db,'noticias',id),{
+      titulo:t, copete:c, categoria:cat, fecha:f, imagen:img, cuerpo:body, slug:newSlug, filename:newFilename
+    });
+
+    // Si el slug cambió, eliminar el archivo viejo de GitHub
+    if(oldSlug && oldSlug !== newSlug) {
+      await eliminarDeGitHub(`${oldSlug}.html`);
+    }
+
+    // Subir nuevo HTML a GitHub
+    const noticia = {titulo:t,copete:c,categoria:cat,fecha:f,imagen:img,cuerpo:body,slug:newSlug};
+    const htmlContent = generarHTMLNoticia(noticia);
+    const sha = await obtenerSHA(newFilename);
+    await subirAGitHub(newFilename, htmlContent, `Actualizar noticia: ${t}`, sha);
+
+    msg.innerHTML='<div class="msg ok">✅ Noticia actualizada correctamente.</div>';
+    cargarLista();
+    setTimeout(()=>cerrarModal(), 1500);
+  } catch(e) {
+    msg.innerHTML=`<div class="msg err">Error: ${e.message}</div>`;
+  }
+  btn.disabled=false; btn.textContent='Guardar Cambios';
+};
+
+// ELIMINAR
+window.eliminar = async function(id, filename, titulo) {
+  if(!confirm(`¿Eliminar "${titulo}"? Esta acción no se puede deshacer.`)) return;
+  try {
+    await deleteDoc(doc(db,'noticias',id));
+    if(filename) await eliminarDeGitHub(filename);
+    cargarLista();
+  } catch(e) {
+    alert('Error al eliminar: '+e.message);
+  }
+};
+
+// TABS
+window.showTab = function(tabId, el) {
+  document.getElementById('tabNew').style.display  = tabId==='tabNew'  ? 'block':'none';
+  document.getElementById('tabList').style.display = tabId==='tabList' ? 'block':'none';
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  if(tabId==='tabList') cargarLista();
+};
+
+// Cerrar modal al hacer click afuera
+document.getElementById('editModal').addEventListener('click', e=>{
+  if(e.target===document.getElementById('editModal')) cerrarModal();
+});
+</script>
+</body>
+</html>
     .btn:hover{background:#a00;}
     .btn:disabled{background:#bbb;cursor:not-allowed;}
     .btn-sec{background:#444;margin-left:8px;}
