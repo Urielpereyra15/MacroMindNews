@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,7 +11,7 @@
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAwklEQVR4nO3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAMBuAABHgAAAABJRU5ErkJggg=="/>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Source Sans 3',sans-serif;background:#fff;color:#111;}
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
@@ -68,7 +70,7 @@ nav a.active{border-bottom:2px solid #c00;padding-bottom:2px;}
 .n-small{padding:8px 10px 8px 10px;border-right:1px solid #ddd;}
 .n-small:nth-child(even){border-right:none;}
 .n-small:nth-child(3),.n-small:nth-child(4){border-top:1px solid #ddd;padding-top:12px;margin-top:4px;}
-.n-small img{width:100%;height:160px;object-fit:cover;background:#eee;margin-bottom:6px;cursor:pointer;}
+.n-small img{width:100%;height:88px;object-fit:cover;background:#eee;margin-bottom:6px;cursor:pointer;}
 .n-small .cat{display:inline-block;background:#c00;color:#fff;font-size:.58rem;font-weight:700;padding:1px 5px;margin-bottom:4px;text-transform:uppercase;cursor:pointer;}
 .n-small h3{font-family:'Merriweather',serif;font-size:.78rem;font-weight:700;line-height:1.28;color:#111;cursor:pointer;}
 .n-small h3:hover{color:#c00;}
@@ -91,6 +93,14 @@ nav a.active{border-bottom:2px solid #c00;padding-bottom:2px;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
 .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
 .row4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+
+/* PAGINACIÓN */
+.pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:36px;padding-top:24px;border-top:1px solid #eee;}
+.pg-btn{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:36px;padding:0 8px;border:1px solid #ddd;border-radius:4px;font-size:.85rem;font-weight:700;color:#333;cursor:pointer;background:#fff;transition:all .15s;font-family:'Source Sans 3',sans-serif;}
+.pg-btn:hover{border-color:#c00;color:#c00;}
+.pg-btn.active{background:#c00;color:#fff;border-color:#c00;}
+.pg-btn:disabled{color:#ccc;cursor:not-allowed;border-color:#eee;}
+.pg-dots{color:#aaa;font-size:.85rem;padding:0 4px;}
 
 .nc{} /* news card */
 .nc img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#eee;margin-bottom:10px;cursor:pointer;}
@@ -220,7 +230,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
   .flinks{flex-wrap:wrap;justify-content:center;}
   .art-title{font-size:1.4rem;}
 }
-</style>
+  </style>
 </head>
 <body>
 
@@ -238,7 +248,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
     <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
     <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
   </div>
-  </header>
+</header>
 
 <div class="drawer" id="drawer">
   <a onclick="goTo('home')">Inicio</a>
@@ -331,7 +341,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
       <button type="submit" class="modal-sub">SUSCRIBIRME</button>
     </form>
     <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
-    </div>
+  </div>
 </div>
 
 <!-- ADMIN OVERLAY -->
@@ -346,7 +356,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
         <div><button class="abtn" onclick="doLogin()">Ingresar</button></div>
         <div id="loginErr"></div>
       </div>
-      </div>
+    </div>
 
     <!-- PANEL -->
     <div id="adminPanel" style="display:none;">
@@ -390,13 +400,13 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
             <button class="abtn abtn-sec" onclick="limpiar()">Limpiar</button>
           </div>
           <div id="pubMsg"></div>
-          </div>
-          </div>
+        </div>
+      </div>
 
       <!-- TAB LISTA -->
       <div id="tabList" style="display:none;">
         <div id="adminListContainer"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
-        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -498,16 +508,29 @@ function renderHome(ns, id) {
       <h3 onclick="abrirArt('${n.id}')">${n.titulo}</h3>
     </div>`;
   });
-  
+
   h += `</div></div></div>`;
   el.innerHTML = h;
-  }
+}
 
 // ── RENDER SECCIÓN: primeras 12 en 3 col, desde 13 filas 2-3-4 ──
-function renderSeccion(ns, id) {
+// Estado de paginación por sección
+const _pags = { economia:1, finanzas:1, politica:1, internacional:1 };
+const POR_PAG = 30;
+
+function renderSeccion(ns, id, pagina) {
+  const cat = id.replace('list-','');
+  if (!pagina) pagina = _pags[cat] || 1;
+  _pags[cat] = pagina;
+
   const el = document.getElementById(id);
   if (!el) return;
   if (!ns.length) { el.innerHTML='<p style="color:#aaa;font-size:.88rem;padding:12px 0;">Sin noticias en esta sección aún.</p>'; return; }
+
+  const totalPags = Math.ceil(ns.length / POR_PAG);
+  const inicio = (pagina - 1) * POR_PAG;
+  const fin = inicio + POR_PAG;
+  const paginadas = ns.slice(inicio, fin);
 
   const nc = n => `<div class="nc">
     <img src="${n.imagen||''}" alt="${n.titulo}" ${imgFb()} onclick="abrirArt('${n.id}')">
@@ -517,8 +540,8 @@ function renderSeccion(ns, id) {
     <p>${n.copete}</p>
   </div>`;
 
-  const top12 = ns.slice(0,12);
-  const resto = ns.slice(12,30);
+  const top12 = paginadas.slice(0,12);
+  const resto = paginadas.slice(12);
 
   let h = `<div class="sec-top12">${top12.map(nc).join('')}</div>`;
 
@@ -533,12 +556,43 @@ function renderSeccion(ns, id) {
       h += `<div class="${cls}">${resto.slice(i,i+count).map(nc).join('')}</div>`;
       i += count;
       pi++;
-      }
-    h += `</div>`;
     }
+    h += `</div>`;
+  }
+
+  // Paginación
+  if (totalPags > 1) {
+    h += `<div class="pagination">`;
+    h += `<button class="pg-btn" onclick="cambiarPag('${cat}','${id}',${pagina-1})" ${pagina===1?'disabled':''}>← Anterior</button>`;
+
+    const pagesArr = [];
+    for (let p = 1; p <= totalPags; p++) {
+      if (p === 1 || p === totalPags || (p >= pagina - 1 && p <= pagina + 1)) {
+        pagesArr.push(p);
+      } else if (pagesArr[pagesArr.length-1] !== '...') {
+        pagesArr.push('...');
+      }
+    }
+    pagesArr.forEach(p => {
+      if (p === '...') {
+        h += `<span class="pg-dots">...</span>`;
+      } else {
+        h += `<button class="pg-btn${p===pagina?' active':''}" onclick="cambiarPag('${cat}','${id}',${p})">${p}</button>`;
+      }
+    });
+
+    h += `<button class="pg-btn" onclick="cambiarPag('${cat}','${id}',${pagina+1})" ${pagina===totalPags?'disabled':''}>Siguiente →</button>`;
+    h += `</div>`;
+  }
 
   el.innerHTML = h;
-  }
+}
+
+window.cambiarPag = function(cat, id, pagina) {
+  const ns = (window._noticias||[]).filter(n => n.categoria === cat.charAt(0).toUpperCase() + cat.slice(1));
+  renderSeccion(ns, id, pagina);
+  document.getElementById('page-'+cat).scrollIntoView({behavior:'smooth'});
+};
 
 // ── ARTÍCULO ──
 window.abrirArt = function(id) {
@@ -584,7 +638,7 @@ async function cargarNoticias() {
   renderSeccion(todas.filter(n=>n.categoria==='Finanzas'), 'list-finanzas');
   renderSeccion(todas.filter(n=>n.categoria==='Politica'), 'list-politica');
   renderSeccion(todas.filter(n=>n.categoria==='Internacional'), 'list-internacional');
-  }
+}
 
 // ── NAVEGACIÓN ──
 window.goTo = function(p) {
@@ -607,10 +661,10 @@ onAuthStateChanged(auth, user => {
     document.getElementById('adminLogin').style.display = 'none';
     document.getElementById('adminPanel').style.display = 'block';
     cargarAdminList();
-    } else {
+  } else {
     document.getElementById('adminLogin').style.display = 'block';
     document.getElementById('adminPanel').style.display = 'none';
-   }
+  }
 });
 
 window.doLogin = async function() {
@@ -618,11 +672,11 @@ window.doLogin = async function() {
   const pass  = document.getElementById('aPass').value;
   const err   = document.getElementById('loginErr');
   err.innerHTML = '';
-   try {
+  try {
     await signInWithEmailAndPassword(auth, email, pass);
   } catch(e) {
     err.innerHTML = '<div class="amsg err">Correo o contraseña incorrectos.</div>';
-     }
+  }
 };
 
 window.doLogout = async function() {
@@ -641,16 +695,16 @@ window.publicar = async function() {
   const msg = document.getElementById('pubMsg');
   const btn = document.getElementById('pubBtn');
   if (!t||!c||!cat||!f||!body) { msg.innerHTML='<div class="amsg err">Completá todos los campos obligatorios (*).</div>'; return; }
-    btn.disabled=true; btn.textContent='Publicando...'; msg.innerHTML='';
-    try {
+  btn.disabled=true; btn.textContent='Publicando...'; msg.innerHTML='';
+  try {
     await addDoc(collection(db,'noticias'),{titulo:t,copete:c,categoria:cat,fecha:f,imagen:img,cuerpo:body,timestamp:serverTimestamp()});
     msg.innerHTML='<div class="amsg ok">✅ Noticia publicada correctamente.</div>';
     limpiar();
     await cargarNoticias();
     await cargarAdminList();
-    } catch(e) {
+  } catch(e) {
     msg.innerHTML=`<div class="amsg err">Error: ${e.message}</div>`;
-    }
+  }
   btn.disabled=false; btn.textContent='Publicar Noticia';
 };
 
@@ -677,14 +731,14 @@ async function cargarAdminList() {
     </div>
     <button class="adel" onclick="eliminar('${n.id}')">Eliminar</button>
   </div>`).join('');
-  }
+}
 
 window.eliminar = async function(id) {
   if (!confirm('¿Eliminar esta noticia? No se puede deshacer.')) return;
   await deleteDoc(doc(db,'noticias',id));
   await cargarNoticias();
   await cargarAdminList();
-  };
+};
 
 // ── TABS ADMIN ──
 window.showTab = function(tabId, el) {
@@ -693,7 +747,7 @@ window.showTab = function(tabId, el) {
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
   if (tabId==='tabList') cargarAdminList();
-  };
+};
 
 // ── DETECTAR /admin ──
 function checkAdmin() {
@@ -738,7 +792,7 @@ async function loadTicker(){
     for(const{casa,label}of[{casa:'oficial',label:'Dólar Oficial'},{casa:'blue',label:'Dólar Blue'},{casa:'bolsa',label:'Dólar MEP'},{casa:'cripto',label:'Dólar Cripto'}]){
       const x=d.find(i=>i.casa===casa);
       if(x?.venta) items.push(fi(label,`$${fmt(x.venta)}`));
-       }
+    }
   }catch(_){}
 
   // Riesgo país
