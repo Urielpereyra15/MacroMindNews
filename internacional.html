@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Internacional | MacroMind News</title>
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3827f054973822320463ef293bdf84fb/script.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8852528520558546" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNNBRSHGGX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FNNBRSHGGX');</script>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAwklEQVR4nO3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAMBuAABHgAAAABJRU5ErkJggg=="/>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;background:#fff;color:#111;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 32px;height:60px;border-bottom:1px solid #e0e0e0;background:#fff;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Merriweather',serif;font-size:1.45rem;font-weight:900;color:#111;cursor:pointer;}
+nav{display:flex;align-items:center;gap:32px;}
+nav a{font-size:.92rem;font-weight:600;color:#222;transition:color .2s;cursor:pointer;}
+nav a:hover,nav a.active{color:#c00;}
+.header-right{display:flex;justify-content:flex-end;align-items:center;}
+.btn-sub{background:#c00;color:#fff!important;padding:8px 18px;border-radius:3px;font-size:.85rem;font-weight:700;cursor:pointer;transition:background .2s;}
+.btn-sub:hover{background:#a00;}
+.ticker-bar{background:#f8f8f8;border-bottom:1px solid #e0e0e0;overflow:hidden;height:36px;display:flex;align-items:center;}
+.ticker-track{display:flex;align-items:center;white-space:nowrap;animation:tick 40s linear infinite;}
+.ticker-bar:hover .ticker-track{animation-play-state:paused;}
+@keyframes tick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.t-item{display:inline-flex;align-items:center;gap:5px;padding:0 20px;border-right:1px solid #ddd;font-size:.76rem;font-weight:600;}
+.t-lbl{font-size:.68rem;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.4px;}
+.t-val{font-weight:700;color:#111;}
+.t-chg{font-size:.7rem;font-weight:700;}
+.t-chg.up{color:#1a8c3a;}.t-chg.dn{color:#c00;}
+.loading{text-align:center;padding:60px 20px;color:#aaa;}
+.spinner{width:32px;height:32px;border:3px solid #eee;border-top-color:#c00;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.sec-wrap{max-width:1240px;margin:0 auto;padding:28px 16px 48px;}
+.sec-hdr{border-bottom:3px solid #c00;padding-bottom:10px;margin-bottom:28px;}
+.sec-hdr h1{font-family:'Merriweather',serif;font-size:1.8rem;font-weight:900;}
+.sec-top12{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:32px;}
+.sec-rest{display:flex;flex-direction:column;gap:28px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.row4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+.pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:36px;padding-top:24px;border-top:1px solid #eee;}
+.pg-btn{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:36px;padding:0 8px;border:1px solid #ddd;border-radius:4px;font-size:.85rem;font-weight:700;color:#333;cursor:pointer;background:#fff;transition:all .15s;}
+.pg-btn:hover{border-color:#c00;color:#c00;}
+.pg-btn.active{background:#c00;color:#fff;border-color:#c00;}
+.pg-btn:disabled{color:#ccc;cursor:not-allowed;border-color:#eee;}
+.pg-dots{color:#aaa;font-size:.85rem;padding:0 4px;}
+.nc{}
+.nc img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#eee;margin-bottom:10px;cursor:pointer;}
+.nc .cat{display:inline-block;background:#c00;color:#fff;font-size:.6rem;font-weight:700;padding:2px 6px;margin-bottom:6px;text-transform:uppercase;cursor:pointer;}
+.nc h3{font-family:'Merriweather',serif;font-size:.95rem;font-weight:700;line-height:1.3;margin-bottom:6px;color:#111;cursor:pointer;}
+.nc h3:hover{color:#c00;}
+.nc p{font-size:.82rem;line-height:1.5;color:#444;}
+.nc .meta{font-size:.72rem;color:#aaa;margin-bottom:4px;}
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:20px;}
+.modal-ov.open{display:flex;}
+.modal-box{background:#c00;border-radius:6px;padding:40px 36px 36px;width:100%;max-width:520px;position:relative;}
+.modal-box h2{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:14px;}
+.modal-box p{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:28px;}
+.modal-box input{width:100%;padding:16px 18px;font-size:1rem;border:none;border-radius:4px;outline:none;margin-bottom:12px;font-family:'Source Sans 3',sans-serif;color:#333;}
+.modal-sub{width:100%;padding:16px;background:#000;color:#fff;font-size:.88rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;}
+.modal-sub:hover{background:#222;}
+.modal-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;}
+.modal-close:hover{color:#fff;}
+footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
+.ft{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:28px;}
+.fb-brand .logo{display:block;font-size:1.4rem;margin-bottom:10px;}
+.fb-brand p{font-size:.82rem;color:#555;line-height:1.55;}
+.fc h4{font-size:.93rem;font-weight:700;margin-bottom:14px;color:#111;}
+.fc ul{list-style:none;}
+.fc ul li{margin-bottom:8px;}
+.fc ul li a{font-size:.83rem;color:#444;cursor:pointer;}
+.fc ul li a:hover{color:#c00;}
+.sicons{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;}
+.sicons a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:4px;transition:transform .15s;}
+.sicons a:hover{transform:translateY(-2px);}
+.sicons a.xi{background:#000;}.sicons a.yti{background:#f00;}.sicons a.wai{background:#25d366;}
+.sicons a.tki{background:#000;}.sicons a.igi{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);}
+.sicons svg{width:16px;height:16px;fill:#fff;}
+.fb-bot{max-width:1240px;margin:0 auto;border-top:1px solid #e0e0e0;padding-top:16px;display:flex;justify-content:space-between;align-items:center;}
+.fb-bot p{font-size:.78rem;color:#aaa;}
+.flinks{display:flex;gap:18px;}
+.flinks a{font-size:.78rem;color:#666;cursor:pointer;}
+.flinks a:hover{color:#c00;}
+.hbtn{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hbtn span{display:block;width:24px;height:2px;background:#111;border-radius:2px;transition:all .25s;}
+.hbtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hbtn.open span:nth-child(2){opacity:0;}
+.hbtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.drawer{display:none;position:fixed;top:54px;left:0;right:0;background:#fff;border-bottom:2px solid #c00;z-index:99;max-height:0;overflow:hidden;transition:max-height .3s;}
+.drawer.open{max-height:400px;}
+.drawer a{display:block;padding:13px 20px;font-size:.93rem;font-weight:600;color:#222;border-bottom:1px solid #f0f0f0;cursor:pointer;}
+.drawer a:hover{background:#fafafa;color:#c00;}
+@media(max-width:900px){
+  .sec-top12{grid-template-columns:1fr 1fr;}
+  .row4{grid-template-columns:1fr 1fr;}
+  .ft{grid-template-columns:1fr 1fr;gap:24px;}
+  .fb-brand{grid-column:1/-1;}
+}
+@media(max-width:600px){
+  header{display:flex;justify-content:space-between;padding:0 14px;height:54px;}
+  nav{display:none;}.hbtn{display:flex;}.btn-sub{display:none;}.drawer{display:block;}
+  .sec-wrap{padding:14px 10px 32px;}
+  .sec-top12,.row2,.row3,.row4{grid-template-columns:1fr;}
+  .ft{grid-template-columns:1fr;}
+  .fb-bot{flex-direction:column;gap:10px;text-align:center;}
+  .flinks{flex-wrap:wrap;justify-content:center;}
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">MacroMind News</a>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="economia.html">Economía</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="internacional.html" class="active">Internacional</a>
+    <a href="internacional.html">Internacional</a>
+  </nav>
+  <div class="header-right">
+    <span class="btn-sub" id="openModal">SUSCRIBIRME</span>
+    <button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <a href="index.html">Inicio</a>
+  <a href="economia.html">Economía</a>
+  <a href="finanzas.html">Finanzas</a>
+  <a href="politica.html">Internacional</a>
+  <a href="internacional.html">Internacional</a>
+  <a class="btn-sub" style="margin:12px 16px 16px;display:block;text-align:center;border-radius:3px;padding:10px;" id="openModal2">SUSCRIBIRME</a>
+</div>
+
+<div class="ticker-bar"><div class="ticker-track" id="tickerTrack">
+  <span class="t-item"><span class="t-lbl">Cargando</span><span class="t-val">...</span></span>
+</div></div>
+
+<div class="sec-wrap">
+  <div class="sec-hdr"><h1>Internacional</h1></div>
+  <div id="list-internacional"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
+</div>
+
+<div class="modal-ov" id="modalOv">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">×</button>
+    <h2>MacroMind News</h2>
+    <p>Recibí el análisis económico más completo cada semana en tu correo.</p>
+    <form id="subForm" action="https://formspree.io/f/xbdarrjv" method="POST">
+      <input type="email" name="email" id="subEmail" placeholder="Correo electrónico" required/>
+      <button type="submit" class="modal-sub">SUSCRIBIRME</button>
+    </form>
+    <p id="subOk" style="display:none;color:#fff;margin-top:14px;font-weight:600;text-align:center;">¡Gracias! Te suscribiste correctamente.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="ft">
+    <div class="fb-brand">
+      <a href="index.html" class="logo">MacroMind News</a>
+      <p>Un medio de análisis e información que conecta la economía, las finanzas, la política y el escenario internacional.</p>
+    </div>
+    <div class="fc"><h4>Categorías</h4><ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="economia.html">Economía</a></li>
+      <li><a href="finanzas.html">Finanzas</a></li>
+      <li><a href="politica.html">Internacional</a></li>
+      <li><a href="internacional.html">Internacional</a></li>
+    </ul></div>
+    <div class="fc"><h4>Legal</h4><ul>
+      <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="politicas-de-privacidad.html">Internacional de Privacidad</a></li>
+    </ul></div>
+    <div class="fc"><h4>Redes Sociales</h4><div class="sicons">
+      <a href="https://x.com/MacroMindNews" target="_blank" class="xi" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://www.youtube.com/@MacroMindNews" target="_blank" class="yti" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://whatsapp.com/channel/0029Vb7soZSHQbRvUH3gyh3y" target="_blank" class="wai" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+      <a href="https://www.tiktok.com/@macromindnews" target="_blank" class="tki" title="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a href="https://www.instagram.com/macromindnews" target="_blank" class="igi" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+    </div></div>
+  </div>
+  <div class="fb-bot">
+    <p>© 2026 MacroMind News. Todos los derechos reservados.</p>
+    <div class="flinks">
+      <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
+      <a href="politicas-de-cookies.html">Internacionals de Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getFirestore, collection, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+const app = initializeApp({
+  apiKey:"AIzaSyAMJAYYWwVE0fnNuFV5TFJ5tYfhvbMG3lw",
+  authDomain:"macromindnews.firebaseapp.com",
+  projectId:"macromindnews",
+  storageBucket:"macromindnews.firebasestorage.app",
+  messagingSenderId:"737656477515",
+  appId:"1:737656477515:web:d75386f60de67d11193ace"
+});
+const db = getFirestore(app);
+
+const catLabel = c => ({Economia:'ECONOMÍA',Politica:'POLÍTICA',Finanzas:'FINANZAS',Internacional:'INTERNACIONAL'}[c]||c.toUpperCase());
+const imgFb    = () => `onerror="this.style.background='#ddd';this.removeAttribute('src');"`;
+const POR_PAG = 30;
+
+function renderSeccion(ns, id, pagina) {
+  pagina = pagina || 1;
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (!ns.length) { el.innerHTML='<p style="color:#aaa;font-size:.88rem;padding:12px 0;">Sin noticias aún.</p>'; return; }
+
+  const totalPags = Math.ceil(ns.length / POR_PAG);
+  const inicio = (pagina - 1) * POR_PAG;
+  const fin = inicio + POR_PAG;
+  const paginadas = ns.slice(inicio, fin);
+
+  const nc = n => `<div class="nc">
+    <img src="${n.imagen||''}" alt="${n.titulo}" ${imgFb()} onclick="location.href='${n.slug}.html'">
+    <div class="meta">${n.fecha}</div>
+    <span class="cat">${catLabel(n.categoria)}</span>
+    <h3 onclick="location.href='${n.slug}.html'">${n.titulo}</h3>
+    <p>${n.copete}</p>
+  </div>`;
+
+  const top12 = paginadas.slice(0,12);
+  const resto = paginadas.slice(12);
+
+  let h = `<div class="sec-top12">${top12.map(nc).join('')}</div>`;
+
+  if (resto.length > 0) {
+    h += `<div class="sec-rest">`;
+    let i = 0;
+    const patterns = [2,3,4];
+    let pi = 0;
+    while (i < resto.length) {
+      const count = Math.min(patterns[pi % 3], resto.length - i);
+      const cls = ['row2','row3','row4'][patterns[pi%3]-2];
+      h += `<div class="${cls}">${resto.slice(i,i+count).map(nc).join('')}</div>`;
+      i += count;
+      pi++;
+    }
+    h += `</div>`;
+  }
+
+  if (totalPags > 1) {
+    h += `<div class="pagination">`;
+    h += `<button class="pg-btn" onclick="cambiarPag(${pagina-1})" ${pagina===1?'disabled':''}>← Anterior</button>`;
+    const pagesArr = [];
+    for (let p = 1; p <= totalPags; p++) {
+      if (p === 1 || p === totalPags || (p >= pagina - 1 && p <= pagina + 1)) {
+        pagesArr.push(p);
+      } else if (pagesArr[pagesArr.length-1] !== '...') {
+        pagesArr.push('...');
+      }
+    }
+    pagesArr.forEach(p => {
+      if (p === '...') {
+        h += `<span class="pg-dots">...</span>`;
+      } else {
+        h += `<button class="pg-btn${p===pagina?' active':''}" onclick="cambiarPag(${p})">${p}</button>`;
+      }
+    });
+    h += `<button class="pg-btn" onclick="cambiarPag(${pagina+1})" ${pagina===totalPags?'disabled':''}>Siguiente →</button>`;
+    h += `</div>`;
+  }
+
+  el.innerHTML = h;
+}
+
+window.cambiarPag = function(pagina) {
+  const ns = (window._noticias||[]).filter(n => n.categoria === 'Politica');
+  renderSeccion(ns, 'list-internacional', pagina);
+  document.querySelector('.sec-wrap').scrollIntoView({behavior:'smooth'});
+};
+
+async function cargarNoticias() {
+  const q = query(collection(db,'noticias'), orderBy('timestamp','desc'));
+  const snap = await getDocs(q);
+  const todas = [];
+  snap.forEach(d => todas.push({id:d.id,...d.data()}));
+  window._noticias = todas;
+  renderSeccion(todas.filter(n=>n.categoria==='Politica'), 'list-internacional');
+}
+
+async function loadTicker(){
+  const track=document.getElementById('tickerTrack');
+  let items=[];
+  const fi=( lbl,val,chg='')=>`<span class="t-item"><span class="t-lbl">${lbl}</span><span class="t-val">${val}</span>${chg}</span>`;
+  const fmt=(n,d=2)=>Number(n).toLocaleString('es-AR',{minimumFractionDigits:d,maximumFractionDigits:d});
+  const chgEl=(v)=>v==null?'':v>=0?`<span class="t-chg up">▲ +${fmt(v)}%</span>`:`<span class="t-chg dn">▼ ${fmt(v)}%</span>`;
+  try{
+    const d=await(await fetch('https://dolarapi.com/v1/dolares')).json();
+    for(const{casa,label}of[{casa:'oficial',label:'Dólar Oficial'},{casa:'blue',label:'Dólar Blue'},{casa:'bolsa',label:'Dólar MEP'},{casa:'cripto',label:'Dólar Cripto'}]){
+      const x=d.find(i=>i.casa===casa);
+      if(x?.venta) items.push(fi(label,`$${fmt(x.venta)}`));
+    }
+  }catch(_){}
+  try{
+    const rp=await(await fetch('https://api.argentinadatos.com/v1/finanzas/indices/riesgo-pais/ultimo')).json();
+    if(rp?.valor!=null) items.push(fi('Riesgo País',Number(rp.valor).toLocaleString('es-AR')));
+  }catch(_){}
+  try{
+    const cr=await(await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true')).json();
+    if(cr.bitcoin?.usd) items.push(fi('Bitcoin',`US$${fmt(cr.bitcoin.usd,0)}`,chgEl(cr.bitcoin.usd_24h_change)));
+    if(cr.ethereum?.usd) items.push(fi('Ethereum',`US$${fmt(cr.ethereum.usd,0)}`,chgEl(cr.ethereum.usd_24h_change)));
+  }catch(_){}
+  if(items.length){const h=items.join('');track.innerHTML=h+h;}
+}
+
+const modalOv = document.getElementById('modalOv');
+['openModal','openModal2'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.addEventListener('click',()=>{modalOv.classList.add('open');document.getElementById('subEmail').focus();});
+});
+document.getElementById('modalClose').addEventListener('click',()=>modalOv.classList.remove('open'));
+modalOv.addEventListener('click',e=>{if(e.target===modalOv)modalOv.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOv.classList.remove('open');});
+document.getElementById('subForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try {
+    const r=await fetch('https://formspree.io/f/xbdarrjv',{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
+    if(r.ok){e.target.style.display='none';document.getElementById('subOk').style.display='block';setTimeout(()=>{modalOv.classList.remove('open');setTimeout(()=>{e.target.style.display='block';document.getElementById('subOk').style.display='none';e.target.reset();},400);},2500);}
+  }catch(_){}
+});
+
+const hbtn=document.getElementById('hbtn');
+const drawer=document.getElementById('drawer');
+hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+
+cargarNoticias();
+loadTicker();
+setInterval(loadTicker, 5*60*1000);
+</script>
+</body>
+</html>
