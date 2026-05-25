@@ -161,6 +161,18 @@
   </div>
 </div>
 
+<!-- MODAL TOKEN GITHUB -->
+<div class="modal-ov" id="tokenModal">
+  <div class="modal-box" style="max-width:500px;">
+    <h2>🔑 Token de GitHub</h2>
+    <p style="font-size:.9rem;color:#666;margin-bottom:16px;">Ingresa tu Personal Access Token de GitHub para publicar y editar noticias.</p>
+    <div class="field"><label>Token</label><input type="password" id="tokenInput" placeholder="ghp_..."/></div>
+    <div style="display:flex;gap:8px;margin-top:16px;">
+      <button class="btn" onclick="guardarToken()">Continuar</button>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL EDITAR -->
 <div class="modal-ov" id="editModal">
   <div class="modal-box">
@@ -216,7 +228,7 @@ const auth = getAuth(app);
 
 const GH_USER  = 'Urielpereyra15';
 const GH_REPO  = 'MacroMindNews';
-const GH_TOKEN = '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';
+let GH_TOKEN = null;
 
 const catLabel = c => ({Economia:'ECONOMÍA',Politica:'POLÍTICA',Finanzas:'FINANZAS',Internacional:'INTERNACIONAL'}[c]||c);
 
@@ -270,7 +282,11 @@ onAuthStateChanged(auth, user => {
     document.getElementById('loginSection').style.display = 'none';
     document.getElementById('panelSection').style.display = 'block';
     document.getElementById('hdrRight').innerHTML = `<span style="margin-right:10px;">👤 ${user.email}</span> <a onclick="doLogout()">Cerrar sesión</a>`;
-    cargarLista();
+    if (!GH_TOKEN) {
+      document.getElementById('tokenModal').classList.add('open');
+    } else {
+      cargarLista();
+    }
   } else {
     document.getElementById('loginSection').style.display = 'flex';
     document.getElementById('panelSection').style.display = 'none';
@@ -292,6 +308,18 @@ window.doLogin = async function() {
 
 window.doLogout = async function() {
   await signOut(auth);
+  GH_TOKEN = null;
+};
+
+window.guardarToken = function() {
+  const token = document.getElementById('tokenInput').value.trim();
+  if (!token.startsWith('ghp_')) {
+    alert('Token inválido. Debe empezar con ghp_');
+    return;
+  }
+  GH_TOKEN = token;
+  document.getElementById('tokenModal').classList.remove('open');
+  cargarLista();
 };
 
 window.publicar = async function() {
@@ -300,7 +328,7 @@ window.publicar = async function() {
   const cat  = document.getElementById('aCat').value;
   const f    = document.getElementById('aF').value.trim();
   const img  = document.getElementById('aImg').value.trim();
-  const body = document.getElementById('aBody').value.trim();
+  const body = document.getElementById('aBody').innerHTML.trim();
   const msg  = document.getElementById('pubMsg');
   const btn  = document.getElementById('pubBtn');
 
@@ -397,7 +425,7 @@ window.abrirEditar = async function(id) {
   document.getElementById('eCat').value   = n.categoria||'';
   document.getElementById('eF').value     = n.fecha||'';
   document.getElementById('eImg').value   = n.imagen||'';
-  document.getElementById('eBody').value  = n.cuerpo||'';
+  document.getElementById('eBody').innerHTML = n.cuerpo||'';
   document.getElementById('editMsg').innerHTML='';
   document.getElementById('editModal').classList.add('open');
 };
@@ -413,7 +441,7 @@ window.guardarEdicion = async function() {
   const cat  = document.getElementById('eCat').value;
   const f    = document.getElementById('eF').value.trim();
   const img  = document.getElementById('eImg').value.trim();
-  const body = document.getElementById('eBody').value.trim();
+  const body = document.getElementById('eBody').innerHTML.trim();
   const msg  = document.getElementById('editMsg');
   const btn  = document.getElementById('saveBtn');
 
