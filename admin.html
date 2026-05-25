@@ -32,6 +32,12 @@
     .msg.ok{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;}
     .msg.err{background:#ffebee;color:#c62828;border:1px solid #ef9a9a;}
     .msg.info{background:#e3f2fd;color:#1565c0;border:1px solid #90caf9;}
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .modal-ov.open{display:flex;}
+    .modal-box{background:#fff;border-radius:8px;width:100%;max-width:700px;max-height:90vh;overflow-y:auto;padding:32px 28px;}
+    .modal-box h2{font-family:'Merriweather',serif;font-size:1.15rem;font-weight:900;margin-bottom:20px;}
+    .modal-close-btn{float:right;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;margin-top:-4px;}
+    .modal-close-btn:hover{color:#c00;}
     .tabs{display:flex;gap:0;border-bottom:2px solid #eee;margin-bottom:20px;}
     .tab{padding:9px 20px;font-size:.85rem;font-weight:700;cursor:pointer;color:#888;border-bottom:2px solid transparent;margin-bottom:-2px;}
     .tab:hover{color:#c00;}
@@ -100,7 +106,16 @@
         </div>
         <div class="field"><label>Fecha *</label><input type="text" id="aF" placeholder="Ej: 13 de mayo de 2026"/></div>
         <div class="field"><label>Imagen</label><input type="text" id="aImg" placeholder="img/nombre.jpg"/><p class="hint">Subí a /img en GitHub primero</p></div>
-        <div class="field"><label>Cuerpo *</label><textarea id="aBody" placeholder="Cuerpo de la noticia..."></textarea></div>
+        <div class="field"><label>Cuerpo *</label>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;padding:8px;background:#f8f8f8;border:1px solid #ddd;border-bottom:none;border-radius:4px 4px 0 0;">
+            <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="efmt('bold')" title="Negrita"><b>B</b></button>
+            <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="efmt('h2')" title="Subtítulo">H2</button>
+            <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="efmt('insertUnorderedList')" title="Items">•</button>
+            <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="abrirModalImg('aBody')" title="Insertar imagen">🖼</button>
+            <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="abrirModalTweet('aBody')" title="Tweet">𝕏</button>
+          </div>
+          <div id="aBody" contenteditable="true" style="width:100%;min-height:180px;padding:12px 13px;border:1px solid #ddd;border-radius:0 0 4px 4px;font-size:.92rem;font-family:'Source Sans 3',sans-serif;color:#111;outline:none;line-height:1.6;"></div>
+        </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <button class="btn" id="pubBtn" onclick="publicar()">Publicar Noticia</button>
           <button class="btn btn-sec" onclick="limpiar()">Limpiar</button>
@@ -119,9 +134,73 @@
   </div>
 </div>
 
+<!-- MODAL IMAGEN -->
+<div class="modal-ov" id="imgModal">
+  <div class="modal-box" style="max-width:460px;">
+    <button class="modal-close-btn" onclick="cerrarModalImg()">×</button>
+    <h2>🖼 Insertar Imagen</h2>
+    <div class="field"><label>URL de la imagen</label><input type="text" id="imgUrl" placeholder="https://... o img/foto.jpg"/></div>
+    <div class="field"><label>Texto alternativo</label><input type="text" id="imgAlt" placeholder="Descripción de la imagen"/></div>
+    <div style="display:flex;gap:8px;margin-top:16px;">
+      <button class="btn" onclick="insertarImg()">Insertar</button>
+      <button class="btn btn-sec" onclick="cerrarModalImg()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL TWEET -->
+<div class="modal-ov" id="tweetModal">
+  <div class="modal-box" style="max-width:460px;">
+    <button class="modal-close-btn" onclick="cerrarModalTweet()">×</button>
+    <h2>𝕏 Incrustar Tweet</h2>
+    <div class="field"><label>URL del tweet</label><input type="text" id="tweetUrl" placeholder="https://x.com/usuario/status/123456"/></div>
+    <div style="display:flex;gap:8px;margin-top:16px;">
+      <button class="btn" onclick="insertarTweet()">Incrustar</button>
+      <button class="btn btn-sec" onclick="cerrarModalTweet()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EDITAR -->
+<div class="modal-ov" id="editModal">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="cerrarModal()">×</button>
+    <h2>✏️ Editar Noticia</h2>
+    <input type="hidden" id="eId"/>
+    <div class="field"><label>Título *</label><input type="text" id="eT"/></div>
+    <div class="field"><label>Bajada *</label><input type="text" id="eC"/></div>
+    <div class="field">
+      <label>Categoría *</label>
+      <select id="eCat">
+        <option value="Economia">Economía</option>
+        <option value="Politica">Política</option>
+        <option value="Finanzas">Finanzas</option>
+        <option value="Internacional">Internacional</option>
+      </select>
+    </div>
+    <div class="field"><label>Fecha *</label><input type="text" id="eF"/></div>
+    <div class="field"><label>Imagen</label><input type="text" id="eImg"/></div>
+    <div class="field"><label>Cuerpo *</label>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;padding:8px;background:#f8f8f8;border:1px solid #ddd;border-bottom:none;border-radius:4px 4px 0 0;">
+        <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="efmtE('bold')" title="Negrita"><b>B</b></button>
+        <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="efmtE('h2')" title="Subtítulo">H2</button>
+        <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="efmtE('insertUnorderedList')" title="Items">•</button>
+        <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="abrirModalImg('eBody')" title="Insertar imagen">🖼</button>
+        <button type="button" class="btn" style="padding:4px 9px;font-size:.8rem;background:#fff;color:#333;border:1px solid #ddd;" onclick="abrirModalTweet('eBody')" title="Tweet">𝕏</button>
+      </div>
+      <div id="eBody" contenteditable="true" style="width:100%;min-height:180px;padding:12px 13px;border:1px solid #ddd;border-radius:0 0 4px 4px;font-size:.92rem;font-family:'Source Sans 3',sans-serif;color:#111;outline:none;line-height:1.6;"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+      <button class="btn" id="saveBtn" onclick="guardarEdicion()">Guardar Cambios</button>
+      <button class="btn btn-sec" onclick="cerrarModal()">Cancelar</button>
+    </div>
+    <div id="editMsg"></div>
+  </div>
+</div>
+
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
 const app = initializeApp({
@@ -283,7 +362,8 @@ async function cargarLista() {
       <div class="n-meta"><span class="n-badge">${catLabel(n.categoria)}</span>${n.fecha}</div>
       ${n.slug?`<div class="n-url">macromindnews.com.ar/${n.slug}.html</div>`:''}
     </div>
-    <button onclick="eliminar('${n.id}','${n.filename||''}')" style="background:#ffebee;color:#c62828;border:none;padding:5px 12px;border-radius:4px;font-size:.75rem;font-weight:700;cursor:pointer;">Eliminar</button>
+    <button onclick="eliminar('${n.id}','${n.filename||''}')" style="background:#ffebee;color:#c62828;border:none;padding:5px 12px;border-radius:4px;font-size:.75rem;font-weight:700;cursor:pointer;margin-left:6px;">Eliminar</button>
+    <button onclick="abrirEditar('${n.id}')" style="background:#1565c0;color:#fff;border:none;padding:5px 12px;border-radius:4px;font-size:.75rem;font-weight:700;cursor:pointer;">Editar</button>
   </div>`).join('');
 }
 
@@ -304,6 +384,142 @@ window.showTab = function(tabId, el) {
   el.classList.add('active');
   if(tabId==='tabList') cargarLista();
 };
+
+window.abrirEditar = async function(id) {
+  const q = query(collection(db,'noticias'),orderBy('timestamp','desc'));
+  const snap = await getDocs(q);
+  let n = null;
+  snap.forEach(d=>{ if(d.id===id) n={id:d.id,...d.data()}; });
+  if(!n) return;
+  document.getElementById('eId').value    = n.id;
+  document.getElementById('eT').value     = n.titulo||'';
+  document.getElementById('eC').value     = n.copete||'';
+  document.getElementById('eCat').value   = n.categoria||'';
+  document.getElementById('eF').value     = n.fecha||'';
+  document.getElementById('eImg').value   = n.imagen||'';
+  document.getElementById('eBody').value  = n.cuerpo||'';
+  document.getElementById('editMsg').innerHTML='';
+  document.getElementById('editModal').classList.add('open');
+};
+
+window.cerrarModal = function() {
+  document.getElementById('editModal').classList.remove('open');
+};
+
+window.guardarEdicion = async function() {
+  const id   = document.getElementById('eId').value;
+  const t    = document.getElementById('eT').value.trim();
+  const c    = document.getElementById('eC').value.trim();
+  const cat  = document.getElementById('eCat').value;
+  const f    = document.getElementById('eF').value.trim();
+  const img  = document.getElementById('eImg').value.trim();
+  const body = document.getElementById('eBody').value.trim();
+  const msg  = document.getElementById('editMsg');
+  const btn  = document.getElementById('saveBtn');
+
+  if(!t||!c||!cat||!f||!body){msg.innerHTML='<div class="msg err">Completá todos los campos.</div>';return;}
+  btn.disabled=true; btn.textContent='Guardando...'; msg.innerHTML='';
+  msg.innerHTML='<div class="msg info">⏳ Actualizando...</div>';
+
+  try {
+    const newSlug = slugify(t);
+    const newFilename= `${newSlug}.html`;
+
+    await updateDoc(doc(db,'noticias',id),{
+      titulo:t, copete:c, categoria:cat, fecha:f, imagen:img, cuerpo:body, slug:newSlug, filename:newFilename
+    });
+
+    const noticia = {titulo:t,copete:c,categoria:cat,fecha:f,imagen:img,cuerpo:body,slug:newSlug};
+    const htmlContent = generarHTMLNoticia(noticia);
+    const sha = await obtenerSHA(newFilename);
+    await subirAGitHub(newFilename, htmlContent, `Actualizar: ${t}`, sha);
+
+    msg.innerHTML='<div class="msg ok">✅ Noticia actualizada.</div>';
+    cargarLista();
+    setTimeout(()=>cerrarModal(), 1500);
+  } catch(e) {
+    msg.innerHTML=`<div class="msg err">Error: ${e.message}</div>`;
+  }
+  btn.disabled=false; btn.textContent='Guardar Cambios';
+};
+
+document.getElementById('editModal').addEventListener('click', e=>{
+  if(e.target===document.getElementById('editModal')) cerrarModal();
+});
+
+// ── EDITOR VISUAL ──
+window.efmt = function(cmd) {
+  const editor = document.getElementById('aBody');
+  editor.focus();
+  if (cmd === 'h2') {
+    document.execCommand('formatBlock', false, 'h2');
+  } else {
+    document.execCommand(cmd, false, null);
+  }
+};
+
+window.efmtE = function(cmd) {
+  const editor = document.getElementById('eBody');
+  editor.focus();
+  if (cmd === 'h2') {
+    document.execCommand('formatBlock', false, 'h2');
+  } else {
+    document.execCommand(cmd, false, null);
+  }
+};
+
+let _editorTarget = 'aBody';
+
+window.abrirModalImg = function(editorId) {
+  _editorTarget = editorId;
+  document.getElementById('imgUrl').value = '';
+  document.getElementById('imgAlt').value = '';
+  document.getElementById('imgModal').classList.add('open');
+  document.getElementById('imgUrl').focus();
+};
+
+window.cerrarModalImg = function() {
+  document.getElementById('imgModal').classList.remove('open');
+};
+
+window.insertarImg = function() {
+  const url = document.getElementById('imgUrl').value.trim();
+  const alt = document.getElementById('imgAlt').value.trim() || 'Imagen';
+  if (!url) { alert('Ingresá una URL.'); return; }
+  const editor = document.getElementById(_editorTarget);
+  editor.focus();
+  document.execCommand('insertHTML', false, `<img src="${url}" alt="${alt}" style="max-width:100%;margin:12px 0;display:block;">`);
+  cerrarModalImg();
+};
+
+window.abrirModalTweet = function(editorId) {
+  _editorTarget = editorId;
+  document.getElementById('tweetUrl').value = '';
+  document.getElementById('tweetModal').classList.add('open');
+  document.getElementById('tweetUrl').focus();
+};
+
+window.cerrarModalTweet = function() {
+  document.getElementById('tweetModal').classList.remove('open');
+};
+
+window.insertarTweet = function() {
+  const url = document.getElementById('tweetUrl').value.trim();
+  if (!url.includes('x.com') && !url.includes('twitter.com')) { alert('Ingresá un link válido de X.'); return; }
+  const tweetId = url.split('/').pop();
+  const editor = document.getElementById(_editorTarget);
+  editor.focus();
+  document.execCommand('insertHTML', false, `<blockquote class="twitter-tweet"><a href="${url}">Tweet</a></blockquote><script async src="https://platform.x.com/widgets.js"><\/script>`);
+  cerrarModalTweet();
+};
+
+document.getElementById('imgModal').addEventListener('click', e=>{
+  if(e.target===document.getElementById('imgModal')) cerrarModalImg();
+});
+
+document.getElementById('tweetModal').addEventListener('click', e=>{
+  if(e.target===document.getElementById('tweetModal')) cerrarModalTweet();
+});
 
 function generarHTMLNoticia(n) {
   const cuerpoHtml = t2h(n.cuerpo||'');
