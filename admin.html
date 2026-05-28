@@ -162,6 +162,18 @@
 </div>
 
 
+<!-- MODAL TOKEN GITHUB -->
+<div class="modal-ov" id="tokenModal">
+  <div class="modal-box" style="max-width:500px;">
+    <h2>🔑 Token de GitHub</h2>
+    <p style="font-size:.9rem;color:#666;margin-bottom:16px;">Ingresa tu Personal Access Token de GitHub. Se guarda en localStorage y no se pide más.</p>
+    <div class="field"><label>Token</label><input type="password" id="tokenInput" placeholder="ghp_..."/></div>
+    <div style="display:flex;gap:8px;margin-top:16px;">
+      <button class="btn" onclick="guardarToken()">Continuar</button>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL EDITAR -->
 <div class="modal-ov" id="editModal">
   <div class="modal-box">
@@ -214,7 +226,6 @@ const app = initializeApp({
 });
 const db   = getFirestore(app);
 const auth = getAuth(app);
-localStorage.setItem('gh_token', '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');
 
 const GH_USER  = 'Urielpereyra15';
 const GH_REPO  = 'MacroMindNews';
@@ -276,8 +287,14 @@ onAuthStateChanged(auth, user => {
     document.getElementById('loginSection').style.display = 'none';
     document.getElementById('panelSection').style.display = 'block';
     document.getElementById('hdrRight').innerHTML = `<span style="margin-right:10px;">👤 ${user.email}</span> <a onclick="doLogout()">Cerrar sesión</a>`;
-    GH_TOKEN = localStorage.getItem('gh_token') || '';
-    cargarLista();
+    const savedToken = localStorage.getItem('gh_token');
+    if (savedToken) {
+      GH_TOKEN = savedToken;
+      cargarLista();
+    } else {
+      document.getElementById('tokenModal').classList.add('open');
+      document.getElementById('tokenInput').focus();
+    }
   } else {
     document.getElementById('loginSection').style.display = 'flex';
     document.getElementById('panelSection').style.display = 'none';
