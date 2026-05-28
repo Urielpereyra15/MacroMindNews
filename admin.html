@@ -583,6 +583,8 @@ function generarHTMLNoticia(n) {
   const cuerpoHtml = t2h(n.cuerpo||'');
   const titulo = (n.titulo||'').replace(/`/g,"'");
   const copete = (n.copete||'').replace(/`/g,"'");
+  console.log('EN GENERARHTML - CUERPO ORIGINAL:', n.cuerpo);
+  console.log('EN GENERARHTML - CUERPO HTML:', cuerpoHtml);
   return `<!DOCTYPE html>
 <html lang="es">
 <head>
