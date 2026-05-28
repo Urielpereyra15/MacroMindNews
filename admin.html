@@ -161,17 +161,6 @@
   </div>
 </div>
 
-<!-- MODAL TOKEN GITHUB -->
-<div class="modal-ov" id="tokenModal">
-  <div class="modal-box" style="max-width:500px;">
-    <h2>🔑 Token de GitHub</h2>
-    <p style="font-size:.9rem;color:#666;margin-bottom:16px;">Ingresa tu Personal Access Token de GitHub para publicar y editar noticias.</p>
-    <div class="field"><label>Token</label><input type="password" id="tokenInput" placeholder="ghp_..."/></div>
-    <div style="display:flex;gap:8px;margin-top:16px;">
-      <button class="btn" onclick="guardarToken()">Continuar</button>
-    </div>
-  </div>
-</div>
 
 <!-- MODAL EDITAR -->
 <div class="modal-ov" id="editModal">
@@ -225,6 +214,7 @@ const app = initializeApp({
 });
 const db   = getFirestore(app);
 const auth = getAuth(app);
+localStorage.setItem('gh_token', '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');
 
 const GH_USER  = 'Urielpereyra15';
 const GH_REPO  = 'MacroMindNews';
@@ -243,7 +233,7 @@ function slugify(str) {
 
 function t2h(t) {
   if (!t) return '';
-  if (t.includes('<p>')) return t;
+  if (/<[a-z][\s\S]*>/i.test(t)) return t;
   return t.split(/\n\n+/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('');
 }
 
@@ -263,7 +253,11 @@ async function subirAGitHub(filename, content, mensaje, sha=null) {
     },
     body: JSON.stringify(body)
   });
-  if (!res.ok) throw new Error('Error al subir a GitHub');
+  if (!res.ok) {
+    const data = await res.json();
+    const msg = data.message || `Error ${res.status}`;
+    throw new Error(msg);
+  }
   return await res.json();
 }
 
@@ -282,11 +276,8 @@ onAuthStateChanged(auth, user => {
     document.getElementById('loginSection').style.display = 'none';
     document.getElementById('panelSection').style.display = 'block';
     document.getElementById('hdrRight').innerHTML = `<span style="margin-right:10px;">👤 ${user.email}</span> <a onclick="doLogout()">Cerrar sesión</a>`;
-    if (!GH_TOKEN) {
-      document.getElementById('tokenModal').classList.add('open');
-    } else {
-      cargarLista();
-    }
+    GH_TOKEN = localStorage.getItem('gh_token') || '';
+    cargarLista();
   } else {
     document.getElementById('loginSection').style.display = 'flex';
     document.getElementById('panelSection').style.display = 'none';
@@ -318,8 +309,15 @@ window.guardarToken = function() {
     return;
   }
   GH_TOKEN = token;
+  localStorage.setItem('gh_token', token);
   document.getElementById('tokenModal').classList.remove('open');
   cargarLista();
+};
+
+window.cambiarToken = function() {
+  document.getElementById('tokenInput').value = '';
+  document.getElementById('tokenModal').classList.add('open');
+  document.getElementById('tokenInput').focus();
 };
 
 window.publicar = async function() {
@@ -334,6 +332,11 @@ window.publicar = async function() {
 
   if (!t||!c||!cat||!f||!body) {
     msg.innerHTML='<div class="msg err">Completá todos los campos (*)</div>';
+    return;
+  }
+
+  if (!GH_TOKEN || GH_TOKEN === '') {
+    msg.innerHTML='<div class="msg err">Token de GitHub no configurado. Recargá la página.</div>';
     return;
   }
 
@@ -446,6 +449,12 @@ window.guardarEdicion = async function() {
   const btn  = document.getElementById('saveBtn');
 
   if(!t||!c||!cat||!f||!body){msg.innerHTML='<div class="msg err">Completá todos los campos.</div>';return;}
+
+  if (!GH_TOKEN || GH_TOKEN === '') {
+    msg.innerHTML='<div class="msg err">Token de GitHub no configurado. Recargá la página.</div>';
+    return;
+  }
+
   btn.disabled=true; btn.textContent='Guardando...'; msg.innerHTML='';
   msg.innerHTML='<div class="msg info">⏳ Actualizando...</div>';
 
