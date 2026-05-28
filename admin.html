@@ -364,6 +364,10 @@ window.publicar = async function() {
     const slug = slugify(t);
     const filename = `${slug}.html`;
 
+    // DEBUG
+    console.log('CUERPO:', body);
+    console.log('CUERPO LENGTH:', body.length);
+
     // Generar HTML individual
     const noticia = {titulo:t, copete:c, categoria:cat, fecha:f, imagen:img, cuerpo:body, slug};
     const htmlContent = generarHTMLNoticia(noticia);
