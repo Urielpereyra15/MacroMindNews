@@ -244,7 +244,9 @@ function slugify(str) {
 
 function t2h(t) {
   if (!t) return '';
-  if (/<[a-z][\s\S]*>/i.test(t)) return t;
+  if (/<[a-z][\s\S]*>/i.test(t)) {
+    return t.replace(/class="[^"]*"/g, '');
+  }
   return t.split(/\n\n+/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('');
 }
 
