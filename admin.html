@@ -424,6 +424,17 @@ async function cargarLista() {
 window.eliminar = async function(id, filename) {
   if(!confirm('¿Eliminar? No se puede deshacer.')) return;
   try {
+    if (filename && GH_TOKEN) {
+      const sha = await obtenerSHA(filename);
+      if (sha) {
+        const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filename}`;
+        await fetch(url, {
+          method: 'DELETE',
+          headers: { 'Authorization': `token ${GH_TOKEN}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: `Eliminar: ${filename}`, sha, branch: 'main' })
+        });
+      }
+    }
     await deleteDoc(doc(db,'noticias',id));
     cargarLista();
   } catch(e) {
@@ -622,7 +633,7 @@ function generarHTMLNoticia(n) {
     .share-btn.tg { background: #229ed9; }
     .share-btn.cp { background: #555; }
     .art-body { font-size: 1.05rem; line-height: 1.78; color: #222; }
-    .art-body p { margin-bottom: 20px; }
+    .art-body p { margin-bottom: 16px; }
     .art-body h2 { font-size: 1.3rem; font-weight: 900; margin: 32px 0 14px; }
     footer { border-top: 1px solid #e0e0e0; padding: 40px 32px 20px; background: #fff; }
     .ft { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 28px; }
