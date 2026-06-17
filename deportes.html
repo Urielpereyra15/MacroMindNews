@@ -281,7 +281,7 @@ function renderSeccion(ns, id, pagina) {
 }
 
 window.cambiarPag = function(pagina) {
-  const ns = (window._noticias||[]).filter(n => n.categoria === 'Deporte');
+  const ns = (window._noticias||[]).filter(n => n.categoria === 'Deportes');
   renderSeccion(ns, 'list-deporte', pagina);
   document.querySelector('.sec-wrap').scrollIntoView({behavior:'smooth'});
 };
@@ -292,7 +292,7 @@ async function cargarNoticias() {
   const todas = [];
   snap.forEach(d => todas.push({id:d.id,...d.data()}));
   window._noticias = todas;
-  renderSeccion(todas.filter(n=>n.categoria==='Deporte'), 'list-deporte');
+  renderSeccion(todas.filter(n=>n.categoria==='Deportes'), 'list-deporte');
 }
 
 async function loadTicker(){
