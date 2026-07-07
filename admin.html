@@ -241,7 +241,7 @@ function slugify(str) {
     .replace(/[^a-z0-9\s-]/g,'')
     .trim().replace(/\s+/g,'-')
     .replace(/-+/g,'-')
-    .substring(0,80);
+    .substring(0,200);
 }
 
 function t2h(t) {
