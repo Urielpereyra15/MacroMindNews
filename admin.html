@@ -229,7 +229,7 @@ const app = initializeApp({
 const db   = getFirestore(app);
 const auth = getAuth(app);
 
-const GH_USER  = 'Urielpereyra15';
+const GH_USER  = 'MacroMindNews';
 const GH_REPO  = 'MacroMindNews';
 let GH_TOKEN = null;
 
@@ -241,7 +241,7 @@ function slugify(str) {
     .replace(/[^a-z0-9\s-]/g,'')
     .trim().replace(/\s+/g,'-')
     .replace(/-+/g,'-')
-    .substring(0,200);
+    .substring(0,80);
 }
 
 function t2h(t) {
@@ -624,7 +624,7 @@ function generarHTMLNoticia(n) {
     .share-btn.tg { background: #229ed9; }
     .share-btn.cp { background: #555; }
     .art-body { font-size: 1.05rem; line-height: 1.78; color: #222; }
-    .art-body p { margin-bottom: 16px; }
+    .art-body p { margin-bottom: 20px; }
     .art-body h2 { font-size: 1.3rem; font-weight: 900; margin: 32px 0 14px; }
     footer { border-top: 1px solid #e0e0e0; padding: 40px 32px 20px; background: #fff; }
     .ft { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 28px; }
@@ -691,7 +691,6 @@ function generarHTMLNoticia(n) {
       <li><a href="finanzas.html">Finanzas</a></li>
       <li><a href="politica.html">Política</a></li>
       <li><a href="internacional.html">Internacional</a></li>
-      <li><a href="deportes.html">Deportes</a></li>
     </ul></div>
     <div class="fc"><h4>Legal</h4><ul>
       <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
