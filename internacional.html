@@ -289,7 +289,7 @@ async function cargarNoticias() {
   const todas = [];
   snap.forEach(d => todas.push({id:d.id,...d.data()}));
   window._noticias = todas;
-  renderSeccion(todas.filter(n=>n.categoria==='Politica'), 'list-internacional');
+  renderSeccion(todas.filter(n=>n.categoria==='Internacional'), 'list-internacional');
 }
 
 async function loadTicker(){
