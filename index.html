@@ -145,15 +145,23 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 .flinks a:hover{color:#c00;}
 
 /* ── HAMBURGER ── */
-.hbtn{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hbtn{display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;background:none;border:none;padding:4px;margin-left:12px;}
 .hbtn span{display:block;width:24px;height:2px;background:#111;border-radius:2px;transition:all .25s;}
 .hbtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hbtn.open span:nth-child(2){opacity:0;}
 .hbtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.drawer{display:none;position:fixed;top:54px;left:0;right:0;background:#fff;border-bottom:2px solid #c00;z-index:99;max-height:0;overflow:hidden;transition:max-height .3s;}
-.drawer.open{max-height:400px;}
-.drawer a{display:block;padding:13px 20px;font-size:.93rem;font-weight:600;color:#222;border-bottom:1px solid #f0f0f0;cursor:pointer;}
-.drawer a:hover{background:#fafafa;color:#c00;}
+.drawer{display:block;position:fixed;top:60px;left:0;right:0;background:#fff;border-bottom:2px solid #c00;z-index:99;max-height:0;overflow:hidden;transition:max-height .3s;}
+.drawer.open{max-height:600px;}
+.drawer-inner{max-width:400px;margin:0 auto;padding:8px 0 16px;}
+.drawer-section a{display:block;padding:12px 20px;font-size:.93rem;font-weight:600;color:#222;cursor:pointer;}
+.drawer-section a:hover{background:#fafafa;color:#c00;}
+.drawer-sep{border-top:1px solid #e0e0e0;margin:8px 20px;}
+.drawer-redes{display:flex;gap:10px;padding:12px 20px;flex-wrap:wrap;}
+.drawer-redes a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:4px;transition:transform .15s;}
+.drawer-redes a:hover{transform:translateY(-2px);}
+.drawer-redes a.xi{background:#000;}.drawer-redes a.yti{background:#f00;}.drawer-redes a.wai{background:#25d366;}
+.drawer-redes a.tki{background:#000;}.drawer-redes a.igi{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);}
+.drawer-redes svg{width:16px;height:16px;fill:#fff;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
@@ -167,7 +175,8 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 }
 @media(max-width:600px){
   header{display:flex;justify-content:space-between;padding:0 14px;height:54px;}
-  nav{display:none;}.hbtn{display:flex;}.btn-sub{display:none;}.drawer{display:block;}
+  .drawer{top:54px;}
+  nav{display:none;}.btn-sub{display:none;}.drawer{display:block;}
   .main-content{padding:14px 10px 32px;}
   .g7-top4{grid-template-columns:1fr;}
   .g7-bottom2{grid-template-columns:1fr;}
@@ -197,12 +206,11 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 </header>
 
 <div class="drawer" id="drawer">
-  <a href="index.html" onclick="document.getElementById('hbtn').classList.remove('open');document.getElementById('drawer').classList.remove('open');">Inicio</a>
-  <a href="economia.html" onclick="document.getElementById('hbtn').classList.remove('open');document.getElementById('drawer').classList.remove('open');">Economía</a>
-  <a href="finanzas.html" onclick="document.getElementById('hbtn').classList.remove('open');document.getElementById('drawer').classList.remove('open');">Finanzas</a>
-  <a href="politica.html" onclick="document.getElementById('hbtn').classList.remove('open');document.getElementById('drawer').classList.remove('open');">Política</a>
-  <a href="internacional.html" onclick="document.getElementById('hbtn').classList.remove('open');document.getElementById('drawer').classList.remove('open');">Internacional</a>
-  <a href="deportes.html" onclick="document.getElementById('hbtn').classList.remove('open');document.getElementById('drawer').classList.remove('open');">Deportes</a>
+  <a onclick="goTo('home')">Inicio</a>
+  <a onclick="goTo('economia')">Economía</a>
+  <a onclick="goTo('finanzas')">Finanzas</a>
+  <a onclick="goTo('politica')">Política</a>
+  <a onclick="goTo('internacional')">Internacional</a>
   <a class="btn-sub" style="margin:12px 16px 16px;display:block;text-align:center;border-radius:3px;padding:10px;" id="openModal2">SUSCRIBIRME</a>
 </div>
 
@@ -249,7 +257,6 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
       <li><a href="finanzas.html">Finanzas</a></li>
       <li><a href="politica.html">Política</a></li>
       <li><a href="internacional.html">Internacional</a></li>
-      <li><a href="deportes.html">Deportes</a></li>
     </ul></div>
     <div class="fc"><h4>Legal</h4><ul>
       <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
@@ -379,6 +386,8 @@ document.getElementById('subForm').addEventListener('submit',async e=>{
 const hbtn=document.getElementById('hbtn');
 const drawer=document.getElementById('drawer');
 hbtn.addEventListener('click',()=>{hbtn.classList.toggle('open');drawer.classList.toggle('open');});
+document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hbtn.contains(e.target)){hbtn.classList.remove('open');drawer.classList.remove('open');}});
+window.closeDrawer=function(){hbtn.classList.remove('open');drawer.classList.remove('open');};
 
 // ── TICKER ──
 async function loadTicker(){
