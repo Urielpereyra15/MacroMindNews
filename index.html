@@ -150,13 +150,13 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 .hbtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hbtn.open span:nth-child(2){opacity:0;}
 .hbtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.drawer{display:block;position:fixed;top:60px;left:0;right:0;background:#fff;border-bottom:2px solid #c00;z-index:99;max-height:0;overflow:hidden;transition:max-height .3s;}
-.drawer.open{max-height:600px;}
-.drawer-inner{max-width:400px;margin:0 auto;padding:8px 0 16px;}
+.drawer{display:block;position:fixed;top:60px;left:0;right:0;background:#fff;border-bottom:2px solid #c00;z-index:99;max-height:0;overflow:hidden;transition:max-height .3s;overflow-y:auto;}
+.drawer.open{max-height:80vh;}
+.drawer-inner{max-width:480px;}
 .drawer-section a{display:block;padding:12px 20px;font-size:.93rem;font-weight:600;color:#222;cursor:pointer;}
-.drawer-section a:hover{background:#fafafa;color:#c00;}
-.drawer-sep{border-top:1px solid #e0e0e0;margin:8px 20px;}
-.drawer-redes{display:flex;gap:10px;padding:12px 20px;flex-wrap:wrap;}
+.drawer-section a:hover{color:#c00;background:#fafafa;}
+.drawer-sep{border-top:1px solid #e0e0e0;margin:6px 20px;}
+.drawer-redes{display:flex;gap:10px;padding:14px 20px 16px;flex-wrap:wrap;}
 .drawer-redes a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:4px;transition:transform .15s;}
 .drawer-redes a:hover{transform:translateY(-2px);}
 .drawer-redes a.xi{background:#000;}.drawer-redes a.yti{background:#f00;}.drawer-redes a.wai{background:#25d366;}
@@ -175,7 +175,6 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
 }
 @media(max-width:600px){
   header{display:flex;justify-content:space-between;padding:0 14px;height:54px;}
-  .drawer{top:54px;}
   nav{display:none;}.btn-sub{display:none;}.drawer{display:block;}
   .main-content{padding:14px 10px 32px;}
   .g7-top4{grid-template-columns:1fr;}
@@ -184,6 +183,7 @@ footer{background:#fff;border-top:1px solid #e0e0e0;padding:40px 32px 20px;}
   .ft{grid-template-columns:1fr;}
   .fb-bot{flex-direction:column;gap:10px;text-align:center;}
   .flinks{flex-wrap:wrap;justify-content:center;}
+  .drawer{top:54px;}
 }
   </style>
 </head>
